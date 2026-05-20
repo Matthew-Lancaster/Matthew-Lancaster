@@ -281,6 +281,39 @@ RETURN
 
 
 
+; GOOD ONE ROUTINE -- 20-MAY-2026 02:16:51 WED
+#IfWinActive GoodSync Explorer ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00E}
+F5:: ; CTRL+F5
+
+	WinGet, HWND_1, ID, GoodSync Explorer ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00E}
+	IF HWND_1
+	{
+		ControlGet, OutputVar_1, Line, 1, Edit1, ahk_id %HWND_1%
+		
+		StringReplace, OutputVar_1, OutputVar_1, smbd://, \\
+		StringReplace, OutputVar_1, OutputVar_1, /, \,ALL
+		
+		; StringReplace, OutputVar_1, VAR_CLIP,`\`\NAS-QNAP-ML,gstps`://nas-qnap-ml`.matt-lan-2`.goodsync/file`:///share/CACHEDEV1_DATA, All
+		FN_VAR_EXE:="C:\Windows\explorer.exe "
+		if FileExist(OutputVar_1)
+			FN_VAR_EXE:="C:\Windows\explorer.exe /select, "
+		if InStr(FileExist(OutputVar_1), "D")
+			FN_VAR_EXE:="C:\Windows\explorer.exe "
+		
+		SplitPath, OutputVar_1, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
+		StringUpper OutExtension,OutExtension
+
+		Run, %FN_VAR_EXE% %OutputVar_1% ,, MIN
+		
+		IF INSTR(" VBS AHK BAT VBP CLS FRM TXT ",OutExtension)
+			RUN,C:\PROGRAM FILES (X86)\NOTEPAD++\NOTEPAD++.EXE "%OutputVar_1%" ,, MAX
+			
+		SOUNDBEEP 1500,100
+	}
+RETURN
+#ifwinactive
+
+
 ; -------------------------------------------------------------------
 TIMER_SUB_GOODSYNC_OPTIONS:
 

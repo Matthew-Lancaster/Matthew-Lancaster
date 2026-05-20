@@ -305,8 +305,10 @@ FOR R_SET_1=1 TO UBOUND(ARRAY_1)
 	NEXT
 NEXT
 IF QUITE_MODE_ENDING=FALSE AND I_VAR<>"" THEN 
-	MSGBOX "DUPLICATE ENTRY IN VBS 12-PINITEM BATCH.VBS" & VBCRLF & I_VAR,vbMsgBoxSetForeground,Wscript.ScriptName
+	MSGBOX "DUPLICATE ENTRY IN VBS 12-PINITEM BATCH.VBS -- ARRAY_1" & VBCRLF & I_VAR,vbMsgBoxSetForeground,Wscript.ScriptName
 END IF
+
+I_VAR_22=I_VAR
 
 ' ------------------------------------
 ' CHECK FOR DUPLICATES IN ARRAY 5
@@ -316,21 +318,24 @@ FOR R_SET_1=1 TO UBOUND(ARRAY_5)
 	FOR R_SET_2=1 TO UBOUND(ARRAY_5)
 		IF ARRAY_5(R_SET_1)<>"" AND ARRAY_5(R_SET_2)<>"" THEN 
 			IF UCASE(ARRAY_5(R_SET_1))=UCASE(ARRAY_5(R_SET_2)) AND R_SET_1<>R_SET_2 THEN 
-				I_VAR=I_VAR & VBCRLF & ARRAY_5(R_SET_1) & VBCRLF
-
+	
+				' RUN HERE OR DUPLICATE MESSENGER
+				' -------------------------------------------
+				IF INSTR(I_VAR_22,ARRAY_5(R_SET_1))=0 THEN 
+					I_VAR=I_VAR & VBCRLF & ARRAY_5(R_SET_1) & VBCRLF
+				END IF 
 				' ------------------------------
 				' DELETE THE OFFENDING DUPLICATE
 				' ------------------------------
 				ARRAY_5(R_SET_2)=""
 				' ------------------------------
-				
-
+	
 			END IF
 		END IF
 	NEXT
 NEXT
 IF QUITE_MODE_ENDING=FALSE AND I_VAR<>"" THEN 
-	MSGBOX "DUPLICATE ENTRY IN VBS 12-PINITEM BATCH.VBS" & VBCRLF & I_VAR,vbMsgBoxSetForeground,Wscript.ScriptName
+	MSGBOX "DUPLICATE ENTRY IN VBS 12-PINITEM BATCH.VBS -- ARRAY_5" & VBCRLF & I_VAR,vbMsgBoxSetForeground,Wscript.ScriptName
 END IF
 
 ' ------------------------------------
@@ -359,7 +364,6 @@ FOR R_SET=1 TO UBOUND(ARRAY_1)
 		END IF
 	END IF
 NEXT
-
 
 
 ' ------------------------------------------------------
@@ -490,120 +494,126 @@ oIn.Close
 
 
 
+' DO TWO SWEEP SO KNOW IF ASK QUESTION ANYTHING TO DO
+' TAKER A BIT LONGER
+' ------------------------------------------------------------------------
+FOR R_SWEEP= 1 TO 2
+
+	COUNT_ICON_PLACE_TASKBAR=0			
+	IF R_SWEEP=1 THEN LOAD_TO_TASKBAR_EXPLORER=VBYES
+	IF R_SWEEP=2 THEN LOAD_TO_TASKBAR_EXPLORER=VBNO
+
+	IF R_SWEEP=2 AND COUNT_ICON_PLACE_TASKBAR>0 THEN 
+		I_VAR=""
+		I_VAR=I_VAR + "--------------------------------------------------------"+VBCRLF
+		I_VAR=I_VAR + "DO YOU LIKE ME TO PIN ITEM TO TASKBAR LOAD EXPLORER SHORTCUT"+VBCRLF
+		I_VAR=I_VAR + "--------------------------------------------------------"+VBCRLF
+		I_VAR=I_VAR + "YesNoCancel"+VBCRLF
+		I_VAR=I_VAR + "--------------------------------------------------------"+VBCRLF
+
+		LOAD_TO_TASKBAR_EXPLORER=VBNO
+		IF Version_OS<>11 THEN
+			lRet = MsgBox(I_VAR, vbYesNoCancel + vbMsgBoxSetForeground , Wscript.ScriptName)
+			LOAD_TO_TASKBAR_EXPLORER=lRet
+		END IF
+	END IF
 
 
+	XCOUNTER_EXPLORER=0
+	IF LOAD_TO_TASKBAR_EXPLORER=VBYES THEN
+		SET WSHShell = WScript.CreateObject("WScript.Shell")
+		Set objShell = WScript.CreateObject("WScript.Shell")
 
+		obj_SOURCE_Folder = AppDataLocation & "\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar"
+		Set objSuperFolder = objFSO.GetFolder(obj_SOURCE_Folder)
+		APPDATA_FOLDER_FILE_COUNT_VAR_2=0
+		Call APPDATA_FOLDER_FILE_COUNT(objSuperFolder, APPDATA_FOLDER_FILE_COUNT_VAR_2)
+		
+		' MSGBOX APPDATA_FOLDER_FILE_COUNT_VAR_2,vbMsgBoxSetForeground,Wscript.ScriptName
 
+		' ---- RESULT FROM HERE GET PUT THERE --  LINK_SET_STRING_1 =
+		' ---------------------------------------------------------------------
+		CALL GET_LINK_SET_STRING_1(objSuperFolder)
+		FOR R_SET=1 TO UBOUND(ARRAY_5)
+			IF ARRAY_5(R_SET)<>"" THEN 
+				If objFSO.FileExists(ARRAY_5(R_SET)) = TRUE Then
+					FILE_SCAN_FIND_1=UCASE(MID(ARRAY_5(R_SET),INSTR(ARRAY_5(R_SET),"\")+1))
+					IF INSTR(LINK_SET_STRING_1 ,FILE_SCAN_FIND_1)=0 THEN 
+						' -----------------------------------------------
+						' Tue 17-Mar-2020 09:42:36
+						' Tue 17-Mar-2020 10:28:21 -- 45 MINUTE
+						' -----------------------------------------------
+						' VBScript - Creating a Shortcut
+						' https://www.vbsedit.com/html/e6ac108b-15f6-4a54-891f-589e8b687ace.asp
+						' -----------------------------------------------
+						ITEM_VAR_PATH=""
+						ITEM_VAR_FILE=""
+						ITEM_VAR_FILE_NOT_EXT=""
+						ITEM_VAR_PATH=MID(ARRAY_5(R_SET),1,INSTRREV(ARRAY_5(R_SET),"\")-1)
+						ITEM_VAR_FILE=MID(ARRAY_5(R_SET),INSTRREV(ARRAY_5(R_SET),"\")+1)
+						
+						ITEM_VAR_FILE_NOT_EXT=MID(ITEM_VAR_FILE,1,INSTRREV(ITEM_VAR_FILE,".")-1)
+						' THERE MIGHT BE TWO PATH *.EXE.LNK -- REMOVE END ONE ONCE OKAY BUT NOT TWICE
+						' DO HERE INSTEAD
+						ITEM_VAR_FILE_NOT_EXT=REPLACE(UCASE(ITEM_VAR_FILE_NOT_EXT),".LNK","")
+						ITEM_VAR_FILE_NOT_EXT=REPLACE(UCASE(ITEM_VAR_FILE_NOT_EXT),".EXE","")
+						' MSGBOX "2222     " & ITEM_VAR_PATH,vbMsgBoxSetForeground,Wscript.ScriptName
 
-COUNT_ICON_PLACE_TASKBAR=0			
-LOAD_TO_TASKBAR_EXPLORER=0
+						strTASKBAR_EXPLORER = AppDataLocation & "\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar"
+						Set FOLDER = objFSO.GetFolder(strTASKBAR_EXPLORER)
 
-I_VAR=""
-I_VAR=I_VAR + "--------------------------------------------------------"+VBCRLF
-I_VAR=I_VAR + "DO YOU LIKE ME TO PIN ITEM TO TASKBAR LOAD EXPLORER SHORTCUT"+VBCRLF
-I_VAR=I_VAR + "--------------------------------------------------------"+VBCRLF
-I_VAR=I_VAR + "YesNoCancel"+VBCRLF
-I_VAR=I_VAR + "--------------------------------------------------------"+VBCRLF
+						' GATHER THE DATA INTO STRING -- AATRUEZ
+						' ---------------------
+						AATRUEZ=LINK_ALREADY_EXIST_DOUBLE_VERIFY_2(FOLDER)
 
-LOAD_TO_TASKBAR_EXPLORER=VBNO
-IF Version_OS<>11 THEN
-	lRet = MsgBox(I_VAR, vbYesNoCancel + vbMsgBoxSetForeground , Wscript.ScriptName)
-	LOAD_TO_TASKBAR_EXPLORER=lRet
-END IF
-
-XCOUNTER_EXPLORER=0
-IF LOAD_TO_TASKBAR_EXPLORER=VBYES THEN
-	SET WSHShell = WScript.CreateObject("WScript.Shell")
-	Set objShell = WScript.CreateObject("WScript.Shell")
-
-	obj_SOURCE_Folder = AppDataLocation & "\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar"
-	Set objSuperFolder = objFSO.GetFolder(obj_SOURCE_Folder)
-	APPDATA_FOLDER_FILE_COUNT_VAR_2=0
-	Call APPDATA_FOLDER_FILE_COUNT(objSuperFolder, APPDATA_FOLDER_FILE_COUNT_VAR_2)
-	
-	' MSGBOX APPDATA_FOLDER_FILE_COUNT_VAR_2,vbMsgBoxSetForeground,Wscript.ScriptName
-
-	' ---- RESULT FROM HERE GET PUT THERE --  LINK_SET_STRING_1 =
-	' ---------------------------------------------------------------------
-	CALL GET_LINK_SET_STRING_1(objSuperFolder)
-	FOR R_SET=1 TO UBOUND(ARRAY_5)
-		IF ARRAY_5(R_SET)<>"" THEN 
-			If objFSO.FileExists(ARRAY_5(R_SET)) = TRUE Then
-				FILE_SCAN_FIND_1=UCASE(MID(ARRAY_5(R_SET),INSTR(ARRAY_5(R_SET),"\")+1))
-				IF INSTR(LINK_SET_STRING_1 ,FILE_SCAN_FIND_1)=0 THEN 
-					' -----------------------------------------------
-					' Tue 17-Mar-2020 09:42:36
-					' Tue 17-Mar-2020 10:28:21 -- 45 MINUTE
-					' -----------------------------------------------
-					' VBScript - Creating a Shortcut
-					' https://www.vbsedit.com/html/e6ac108b-15f6-4a54-891f-589e8b687ace.asp
-					' -----------------------------------------------
-					ITEM_VAR_PATH=""
-					ITEM_VAR_FILE=""
-					ITEM_VAR_FILE_NOT_EXT=""
-					ITEM_VAR_PATH=MID(ARRAY_5(R_SET),1,INSTRREV(ARRAY_5(R_SET),"\")-1)
-					ITEM_VAR_FILE=MID(ARRAY_5(R_SET),INSTRREV(ARRAY_5(R_SET),"\")+1)
-					
-					ITEM_VAR_FILE_NOT_EXT=MID(ITEM_VAR_FILE,1,INSTRREV(ITEM_VAR_FILE,".")-1)
-					' THERE MIGHT BE TWO PATH *.EXE.LNK -- REMOVE END ONE ONCE OKAY BUT NOT TWICE
-					' DO HERE INSTEAD
-					ITEM_VAR_FILE_NOT_EXT=REPLACE(UCASE(ITEM_VAR_FILE_NOT_EXT),".LNK","")
-					ITEM_VAR_FILE_NOT_EXT=REPLACE(UCASE(ITEM_VAR_FILE_NOT_EXT),".EXE","")
-					' MSGBOX "2222     " & ITEM_VAR_PATH,vbMsgBoxSetForeground,Wscript.ScriptName
-
-					strTASKBAR_EXPLORER = AppDataLocation & "\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar"
-					Set FOLDER = objFSO.GetFolder(strTASKBAR_EXPLORER)
-
-					' GATHER THE DATA INTO STRING -- AATRUEZ
-					' ---------------------
-					AATRUEZ=LINK_ALREADY_EXIST_DOUBLE_VERIFY_2(FOLDER)
-
-					' -----------------------------------------------
-					' IF ALL LOWER CASE PUT ALL UPPER CASE
-					' IF SEMI LOW AND HIGH CASE ONLY MAKE SURE FIRST LETTER IS HIGH 
-					' AND LEAVE AS SAME
-					IF ITEM_VAR_FILE_NOT_EXT=LCASE(ITEM_VAR_FILE_NOT_EXT) THEN 
-						ITEM_VAR_FILE_NOT_EXT=UCASE(ITEM_VAR_FILE_NOT_EXT)
-					ELSE
-						ITEM_VAR_FILE_NOT_EXT=UCASE(MID(ITEM_VAR_FILE_NOT_EXT,1,1))+MID(ITEM_VAR_FILE_NOT_EXT,2)
-					END IF
-					
-					
-					' MSGBOX  ITEM_VAR_FILE_NOT_EXT ' ---- DISPLAY PROGRAM NAME QUICK POP,vbMsgBoxSetForeground,Wscript.ScriptName
-					
-					' IF INSTR(UCASE(AATRUEZ),UCASE("Visual Basic 6.0"))>0 THEN MSGBOX "HERE",vbMsgBoxSetForeground,Wscript.ScriptName
-					
-					IF ITEM_VAR_PATH<>"" THEN 
-						' ----
-						' Shortcut - VBScript - SS64.com 
-						' https://ss64.com/vb/shortcut.html
-						' ----
-						IF INSTR(UCASE(AATRUEZ),UCASE(ITEM_VAR_FILE_NOT_EXT))=0 THEN 
-							Set lnk = objShell.CreateShortcut(strTASKBAR_EXPLORER & "\" & ITEM_VAR_FILE_NOT_EXT & ".lnk")
-							' MSGBOX ITEM_VAR_FILE_NOT_EXT &VBCRLF & INSTR(UCASE(AATRUEZ),UCASE(ITEM_VAR_FILE_NOT_EXT)),vbMsgBoxSetForeground,Wscript.ScriptName
-							
-							COUNT_ICON_PLACE_TASKBAR=COUNT_ICON_PLACE_TASKBAR+1
-
-							IF XCOUNTER_EXPLORER<10 THEN 
-							
-								' REPEAT HERE AND HAS TO BE SET NEAR COMMAND
-								SET WSHShell = WScript.CreateObject("WScript.Shell")
-								
-								WSHShell.Run "C:\Windows\explorer.exe /select, """+ARRAY_5(R_SET)+"""" , ShowWindow, DontWaitUntilFinished
-								
-								' ONLY LOAD 10
-								' -----------------------------------
-								XCOUNTER_EXPLORER=XCOUNTER_EXPLORER+1
-								' MSGBOX ITEM_VAR_FILE_NOT_EXT,vbMsgBoxSetForeground,Wscript.ScriptName
-							END IF
+						' -----------------------------------------------
+						' IF ALL LOWER CASE PUT ALL UPPER CASE
+						' IF SEMI LOW AND HIGH CASE ONLY MAKE SURE FIRST LETTER IS HIGH 
+						' AND LEAVE AS SAME
+						IF ITEM_VAR_FILE_NOT_EXT=LCASE(ITEM_VAR_FILE_NOT_EXT) THEN 
+							ITEM_VAR_FILE_NOT_EXT=UCASE(ITEM_VAR_FILE_NOT_EXT)
+						ELSE
+							ITEM_VAR_FILE_NOT_EXT=UCASE(MID(ITEM_VAR_FILE_NOT_EXT,1,1))+MID(ITEM_VAR_FILE_NOT_EXT,2)
 						END IF
+						
+						
+						' MSGBOX  ITEM_VAR_FILE_NOT_EXT ' ---- DISPLAY PROGRAM NAME QUICK POP,vbMsgBoxSetForeground,Wscript.ScriptName
+						
+						' IF INSTR(UCASE(AATRUEZ),UCASE("Visual Basic 6.0"))>0 THEN MSGBOX "HERE",vbMsgBoxSetForeground,Wscript.ScriptName
+						
+						IF ITEM_VAR_PATH<>"" THEN 
+							' ----
+							' Shortcut - VBScript - SS64.com 
+							' https://ss64.com/vb/shortcut.html
+							' ----
+							IF INSTR(UCASE(AATRUEZ),UCASE(ITEM_VAR_FILE_NOT_EXT))=0 THEN 
+								Set lnk = objShell.CreateShortcut(strTASKBAR_EXPLORER & "\" & ITEM_VAR_FILE_NOT_EXT & ".lnk")
+								' MSGBOX ITEM_VAR_FILE_NOT_EXT &VBCRLF & INSTR(UCASE(AATRUEZ),UCASE(ITEM_VAR_FILE_NOT_EXT)),vbMsgBoxSetForeground,Wscript.ScriptName
+								
+								COUNT_ICON_PLACE_TASKBAR=COUNT_ICON_PLACE_TASKBAR+1
+
+								IF XCOUNTER_EXPLORER<10 THEN 
+								
+									IF R_SWEEP=2 THEN 
+										' REPEAT HERE AND HAS TO BE SET NEAR COMMAND
+										SET WSHShell = WScript.CreateObject("WScript.Shell")
+										
+										WSHShell.Run "C:\Windows\explorer.exe /select, """+ARRAY_5(R_SET)+"""" , ShowWindow, DontWaitUntilFinished
+									END IF
+									
+									' ONLY LOAD 10
+									' -----------------------------------
+									XCOUNTER_EXPLORER=XCOUNTER_EXPLORER+1
+									' MSGBOX ITEM_VAR_FILE_NOT_EXT,vbMsgBoxSetForeground,Wscript.ScriptName
+								END IF
+							END IF
+						END IF 
 					END IF 
 				END IF 
-			END IF 
-		END IF
-	NEXT
-END IF
-		
+			END IF
+		NEXT
+	END IF
+NEXT
 						
 IF COUNT_ICON_PLACE_TASKBAR>0 THEN 
 	MSGBOX COUNT_ICON_PLACE_TASKBAR & " * ITEMS PLACE-ER TASKBAR EXPLORER -- ONLY 1ST 10 LOADED",vbMsgBoxSetForeground,Wscript.ScriptName 
@@ -624,129 +634,116 @@ END IF
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+' DO TWO SWEEP SO KNOW IF ASK QUESTION ANYTHING TO DO
+' TAKER A BIT LONGER
+' ------------------------------------------------------------------------
 COUNT_ICON_PLACE_DESKTOP=0			
-LOAD_TO_DESKTOP=0
+FOR R_SWEEP= 1 TO 2
+	
+	IF R_SWEEP=1 THEN LOAD_TO_DESKTOP=VBYES
+	IF R_SWEEP=2 THEN LOAD_TO_DESKTOP=VBNO
+	
+	IF R_SWEEP=2 AND COUNT_ICON_PLACE_DESKTOP>0 THEN 
+		I_VAR=""
+		I_VAR=I_VAR + "--------------------------------------------------------"+VBCRLF
+		I_VAR=I_VAR + "DO YOU LIKE ME TO PIN ITEM TO DESKTOP SHORTCUT"+VBCRLF
+		I_VAR=I_VAR + "--------------------------------------------------------"+VBCRLF
+		I_VAR=I_VAR + "YesNoCancel"+VBCRLF
+		I_VAR=I_VAR + "--------------------------------------------------------"+VBCRLF
 
-I_VAR=""
-I_VAR=I_VAR + "--------------------------------------------------------"+VBCRLF
-I_VAR=I_VAR + "DO YOU LIKE ME TO PIN ITEM TO DESKTOP SHORTCUT"+VBCRLF
-I_VAR=I_VAR + "--------------------------------------------------------"+VBCRLF
-I_VAR=I_VAR + "YesNoCancel"+VBCRLF
-I_VAR=I_VAR + "--------------------------------------------------------"+VBCRLF
+		lRet = MsgBox(I_VAR, vbYesNoCancel  + vbMsgBoxSetForeground , Wscript.ScriptName)
+		LOAD_TO_DESKTOP=lRet
+	END IF
 
-lRet = MsgBox(I_VAR, vbYesNoCancel  + vbMsgBoxSetForeground , Wscript.ScriptName)
-LOAD_TO_DESKTOP=lRet
+	IF LOAD_TO_DESKTOP=VBYES THEN
+		SET WSHShell = WScript.CreateObject("WScript.Shell")
+		Set objShell = WScript.CreateObject("WScript.Shell")
+		obj_SOURCE_Folder = objShell.SpecialFolders("Desktop")
+		Set objSuperFolder  = FSO.GETFOLDER(obj_SOURCE_Folder)
+		' ---- RESULT FROM HERE GET PUT THERE --  LINK_SET_STRING_1 =
+		' ---------------------------------------------------------------------
+		CALL GET_LINK_SET_STRING_1(objSuperFolder)
+		FOR R_SET=1 TO UBOUND(ARRAY_1)
+			IF ARRAY_1(R_SET)<>"" THEN 
+				If objFSO.FileExists(ARRAY_1(R_SET)) = TRUE Then
+					FILE_SCAN_FIND_1=UCASE(MID(ARRAY_1(R_SET),INSTR(ARRAY_1(R_SET),"\")+1))
+					IF INSTR(LINK_SET_STRING_1 ,FILE_SCAN_FIND_1)=0 THEN 
+						' -----------------------------------------------
+						' Tue 17-Mar-2020 09:42:36
+						' Tue 17-Mar-2020 10:28:21 -- 45 MINUTE
+						' -----------------------------------------------
+						' VBScript - Creating a Shortcut
+						' https://www.vbsedit.com/html/e6ac108b-15f6-4a54-891f-589e8b687ace.asp
+						' -----------------------------------------------
+						ITEM_VAR_PATH=""
+						ITEM_VAR_FILE=""
+						ITEM_VAR_FILE_NOT_EXT=""
+						ITEM_VAR_PATH=MID(ARRAY_1(R_SET),1,INSTRREV(ARRAY_1(R_SET),"\")-1)
+						ITEM_VAR_FILE=MID(ARRAY_1(R_SET),INSTRREV(ARRAY_1(R_SET),"\")+1)
+						ITEM_VAR_FILE_NOT_EXT=MID(ITEM_VAR_FILE,1,INSTRREV(ITEM_VAR_FILE,".")-1)
+						' THERE MIGHT BE TWO PATH *.EXE.LNK -- REMOVE END ONE ONCE OKAY BUT NOT TWICE
+						' DO HERE INSTEAD
+						ITEM_VAR_FILE_NOT_EXT=REPLACE(UCASE(ITEM_VAR_FILE_NOT_EXT),".LNK","")
+						ITEM_VAR_FILE_NOT_EXT=REPLACE(UCASE(ITEM_VAR_FILE_NOT_EXT),".EXE","")
+						' MSGBOX "2222     " & ITEM_VAR_PATH,vbMsgBoxSetForeground,Wscript.ScriptName
 
-IF LOAD_TO_DESKTOP=VBYES THEN
-	SET WSHShell = WScript.CreateObject("WScript.Shell")
-	Set objShell = WScript.CreateObject("WScript.Shell")
-	obj_SOURCE_Folder = objShell.SpecialFolders("Desktop")
-	Set objSuperFolder  = FSO.GETFOLDER(obj_SOURCE_Folder)
-	' ---- RESULT FROM HERE GET PUT THERE --  LINK_SET_STRING_1 =
-	' ---------------------------------------------------------------------
-	CALL GET_LINK_SET_STRING_1(objSuperFolder)
-	FOR R_SET=1 TO UBOUND(ARRAY_1)
-		IF ARRAY_1(R_SET)<>"" THEN 
-			If objFSO.FileExists(ARRAY_1(R_SET)) = TRUE Then
-				FILE_SCAN_FIND_1=UCASE(MID(ARRAY_1(R_SET),INSTR(ARRAY_1(R_SET),"\")+1))
-				IF INSTR(LINK_SET_STRING_1 ,FILE_SCAN_FIND_1)=0 THEN 
-					' -----------------------------------------------
-					' Tue 17-Mar-2020 09:42:36
-					' Tue 17-Mar-2020 10:28:21 -- 45 MINUTE
-					' -----------------------------------------------
-					' VBScript - Creating a Shortcut
-					' https://www.vbsedit.com/html/e6ac108b-15f6-4a54-891f-589e8b687ace.asp
-					' -----------------------------------------------
-					ITEM_VAR_PATH=""
-					ITEM_VAR_FILE=""
-					ITEM_VAR_FILE_NOT_EXT=""
-					ITEM_VAR_PATH=MID(ARRAY_1(R_SET),1,INSTRREV(ARRAY_1(R_SET),"\")-1)
-					ITEM_VAR_FILE=MID(ARRAY_1(R_SET),INSTRREV(ARRAY_1(R_SET),"\")+1)
-					ITEM_VAR_FILE_NOT_EXT=MID(ITEM_VAR_FILE,1,INSTRREV(ITEM_VAR_FILE,".")-1)
-					' THERE MIGHT BE TWO PATH *.EXE.LNK -- REMOVE END ONE ONCE OKAY BUT NOT TWICE
-					' DO HERE INSTEAD
-					ITEM_VAR_FILE_NOT_EXT=REPLACE(UCASE(ITEM_VAR_FILE_NOT_EXT),".LNK","")
-					ITEM_VAR_FILE_NOT_EXT=REPLACE(UCASE(ITEM_VAR_FILE_NOT_EXT),".EXE","")
-					' MSGBOX "2222     " & ITEM_VAR_PATH,vbMsgBoxSetForeground,Wscript.ScriptName
+						strDesktop = objShell.SpecialFolders("Desktop")
+						Set FOLDER = FSO.GETFOLDER(strDesktop)
 
-					strDesktop = objShell.SpecialFolders("Desktop")
-					Set FOLDER = FSO.GETFOLDER(strDesktop)
+						' GATHER THE DATA INTO STRING -- AATRUEZ
+						' ---------------------
+						AATRUEZ=LINK_ALREADY_EXIST_DOUBLE_VERIFY_2(FOLDER)
 
-					' GATHER THE DATA INTO STRING -- AATRUEZ
-					' ---------------------
-					AATRUEZ=LINK_ALREADY_EXIST_DOUBLE_VERIFY_2(FOLDER)
-
-					' -----------------------------------------------
-					' IF ALL LOWER CASE PUT ALL UPPER CASE
-					' IF SEMI LOW AND HIGH CASE ONLY MAKE SURE FIRST LETTER IS HIGH 
-					' AND LEAVE AS SAME
-					IF ITEM_VAR_FILE_NOT_EXT=LCASE(ITEM_VAR_FILE_NOT_EXT) THEN 
-						ITEM_VAR_FILE_NOT_EXT=UCASE(ITEM_VAR_FILE_NOT_EXT)
-					ELSE
-						ITEM_VAR_FILE_NOT_EXT=UCASE(MID(ITEM_VAR_FILE_NOT_EXT,1,1))+MID(ITEM_VAR_FILE_NOT_EXT,2)
-					END IF
-					
-					
-					' MSGBOX  ITEM_VAR_FILE_NOT_EXT ' ---- DISPLAY PROGRAM NAME QUICK POP,vbMsgBoxSetForeground,Wscript.ScriptName
-					
-					' IF INSTR(UCASE(AATRUEZ),UCASE("Visual Basic 6.0"))>0 THEN MSGBOX "HERE",vbMsgBoxSetForeground,Wscript.ScriptName
-					
-					IF ITEM_VAR_PATH<>"" THEN 
-						' ----
-						' Shortcut - VBScript - SS64.com 
-						' https://ss64.com/vb/shortcut.html
-						' ----
-						IF INSTR(UCASE(AATRUEZ),UCASE(ITEM_VAR_FILE_NOT_EXT))=0 THEN 
-							Set lnk = objShell.CreateShortcut(strDesktop & "\" & ITEM_VAR_FILE_NOT_EXT & ".lnk")
-							' MSGBOX ITEM_VAR_FILE_NOT_EXT &VBCRLF & INSTR(UCASE(AATRUEZ),UCASE(ITEM_VAR_FILE_NOT_EXT)),vbMsgBoxSetForeground,Wscript.ScriptName
-							
-							COUNT_ICON_PLACE_DESKTOP=COUNT_ICON_PLACE_DESKTOP+1
-
-							lnk.TargetPath = ARRAY_1(R_SET)
-							lnk.Arguments = ""
-							
-							lnk.Description = UCASE(ITEM_VAR_FILE_NOT_EXT)  ' NOT WANT BIGGER UCASE GONE & BACK -- GOOGLE AI SAY THIS ONE AI REPORT THIS ONE IS MANDATORY
-							
-							' lnk.HotKey = "ALT+CTRL+F"
-							' lnk.IconLocation = ARRAY_1(R_SET) & ", 2"     ' 2 OR 1 ---- IF REAL ICON NOT EXE
-							' lnk.WindowStyle = "1"
-							lnk.WorkingDirectory = ITEM_VAR_PATH
-							lnk.Save
-							Set lnk = Nothing ' -- Clean up 
-							' MSGBOX "INSTALL THIS ICON" & VBCRLF & ITEM_VAR_FILE_NOT_EXT,vbMsgBoxSetForeground,Wscript.ScriptName 
+						' -----------------------------------------------
+						' IF ALL LOWER CASE PUT ALL UPPER CASE
+						' IF SEMI LOW AND HIGH CASE ONLY MAKE SURE FIRST LETTER IS HIGH 
+						' AND LEAVE AS SAME
+						IF ITEM_VAR_FILE_NOT_EXT=LCASE(ITEM_VAR_FILE_NOT_EXT) THEN 
+							ITEM_VAR_FILE_NOT_EXT=UCASE(ITEM_VAR_FILE_NOT_EXT)
+						ELSE
+							ITEM_VAR_FILE_NOT_EXT=UCASE(MID(ITEM_VAR_FILE_NOT_EXT,1,1))+MID(ITEM_VAR_FILE_NOT_EXT,2)
 						END IF
+						
+						
+						' MSGBOX  ITEM_VAR_FILE_NOT_EXT ' ---- DISPLAY PROGRAM NAME QUICK POP,vbMsgBoxSetForeground,Wscript.ScriptName
+						
+						' IF INSTR(UCASE(AATRUEZ),UCASE("Visual Basic 6.0"))>0 THEN MSGBOX "HERE",vbMsgBoxSetForeground,Wscript.ScriptName
+						
+						IF ITEM_VAR_PATH<>"" THEN 
+							' ----
+							' Shortcut - VBScript - SS64.com 
+							' https://ss64.com/vb/shortcut.html
+							' ----
+							IF INSTR(UCASE(AATRUEZ),UCASE(ITEM_VAR_FILE_NOT_EXT))=0 THEN 
+							
+								COUNT_ICON_PLACE_DESKTOP=COUNT_ICON_PLACE_DESKTOP+1
+								IF R_SWEEP=2 THEN 
+									Set lnk = objShell.CreateShortcut(strDesktop & "\" & ITEM_VAR_FILE_NOT_EXT & ".lnk")
+									' MSGBOX ITEM_VAR_FILE_NOT_EXT &VBCRLF & INSTR(UCASE(AATRUEZ),UCASE(ITEM_VAR_FILE_NOT_EXT)),vbMsgBoxSetForeground,Wscript.ScriptName
+									
+
+									lnk.TargetPath = ARRAY_1(R_SET)
+									lnk.Arguments = ""
+									
+									lnk.Description = UCASE(ITEM_VAR_FILE_NOT_EXT)  
+									' GOOGLE AI SAY THIS ONE AI REPORT THIS ONE IS MANDATORY
+									
+									' lnk.HotKey = "ALT+CTRL+F"
+									' lnk.IconLocation = ARRAY_1(R_SET) & ", 2"     ' 2 OR 1 ---- IF REAL ICON NOT EXE
+									' lnk.WindowStyle = "1"
+									lnk.WorkingDirectory = ITEM_VAR_PATH
+									lnk.Save
+									Set lnk = Nothing ' -- Clean up 
+									' MSGBOX "INSTALL THIS ICON" & VBCRLF & ITEM_VAR_FILE_NOT_EXT,vbMsgBoxSetForeground,Wscript.ScriptName 
+								END IF
+							END IF
+						END IF 
 					END IF 
 				END IF 
-			END IF 
-		END IF
-	NEXT
-END IF
-		
+			END IF
+		NEXT
+	END IF
+NEXT		
 						
 IF COUNT_ICON_PLACE_DESKTOP>0 THEN 
 	MSGBOX COUNT_ICON_PLACE_DESKTOP & " * ITEMS PLACED DESKTOP",vbMsgBoxSetForeground,Wscript.ScriptName 
@@ -756,7 +753,16 @@ ELSE
 	END IF 
 END IF 
 
-MSGBOX "THE END",vbMsgBoxSetForeground,Wscript.ScriptName 
+SOMETHING_TO_DO=FLASE
+IF COUNT_ICON_PLACE_TASKBAR>0 THEN SOMETHING_TO_DO=TRUE
+IF COUNT_ICON_PLACE_DESKTOP>0 THEN SOMETHING_TO_DO=TRUE
+
+IF  SOMETHING_TO_DO=TRUE THEN
+	MSGBOX "THE END-ER",vbMsgBoxSetForeground,Wscript.ScriptName 
+END IF
+ IF SOMETHING_TO_DO=FALSE THEN
+	MSGBOX "NOTHING TO DO" & VBCRLF &  VBCRLF & "THE END OF",vbMsgBoxSetForeground,Wscript.ScriptName 
+END IF 
 
 WScript.Quit(0)
 
@@ -964,32 +970,29 @@ I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell NotePad Loader\Shell NotePad 
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell Loader Loader\Shell Loader Loader.exe"
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\BatchCompiler.exe"
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell VBasic 6 Loader\Shell VBasic 6 Loader.exe"
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_SEND_TO\Send To Text List of Files & Sub Folders IRFAN\#0 Send To Text List of Files and Sub Folders IRFAN.EXE"
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\CPU % OF A PROGRAM\CPU % INDIVIDUAL PROCESS.exe"
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.exe"
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe"
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\URL Logger\URL Logger.exe"
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\Tidal.exe"
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\Cid-RunMe.exe"
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_SEND_TO\Send To Text List of Files & Sub Folders IRFAN\#0 Send To Text List of Files and Sub Folders IRFAN.EXE"
+
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Speech SDK 5.1\Bin\TTSApp.exe"
-I=I+1:ARRAY_1(I)=""
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\devenv.exe"          ' VISUAL BASIC 2008
+
+' WHERE IS 2017
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Visual Studio\VB98\VB6.EXE"                                     ' ----------------------
+I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\devenv.exe"          ' VISUAL BASIC 2008
 I=I+1:ARRAY_1(I)="C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\devenv.exe" ' VISUAL BASIC 2026
 
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Visual Studio\VB98\VB6.EXE"
 
-I=I+1:ARRAY_1(I)="C:\Program Files\Unity\Editor\Unity.exe" ' Visual Studio 2018 Unity 2018.3.7f1 (64-bit)
 ' THERE IS A 2017 VERSION BUT SAME LINK AS THIS ONE JUST ONLY DIFF 2017 VS 2018
-' AS I SPEAK 2017 LINK REDIRECTING TO 2018 BOTH LINKS GO THERE
+' AS I SPEAK THE 2017 LINK REDIRECTING TO 2018 BOTH LINKS GO THERE
 '--------------------------------------------------------------------------------------------------------
+FILENAME="C:\Program Files\Unity\Editor\Unity.exe"               ' ---- Visual Studio 2018 Unity 2018.3.7f1 (64-bit)
+If objFSO.FileExists(FILENAME) =TRUE Then
+	I=I+1:ARRAY_1(I)=FILENAME
+END IF
 
 I=I+1:ARRAY_1(I)="C:\Program Files\Logitech\SetPointP\SetPoint.exe"
 
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\15.0\Visual Studio 2017 Tools.unitypackage"
+' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\15.0\Visual Studio 2017 Tools.unitypackage"
 I=I+1:ARRAY_1(I)=""
 
 
@@ -1488,7 +1491,7 @@ IF FSO.FILEEXISTS("C:\Program Files (x86)\RemoteNetBackup\RemoteBackup.exe") = F
 END IF
 
 I=I+1:ARRAY_5(I)="C:\Program Files\VS Revo Group\Revo Uninstaller Pro\RevoUninPro.exe"
-I=I+1:ARRAY_5(I)="C:\Program Files (x86)\seRapid\seRapid.exe"
+' I=I+1:ARRAY_5(I)="C:\Program Files (x86)\seRapid\seRapid.exe"
 'I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Samsung\SideSync4\SideSync.exe"
 'I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Samsung\Smart Switch PC\SmartSwitchPC.exe"
 ' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Glarysoft\Software Update 5\Software Update.exe"
@@ -1500,7 +1503,9 @@ I=I+1:ARRAY_5(I)="C:\Program Files (x86)\UltraISO\UltraISO.exe"
 'I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Common Files\Logishrd\Unifying\DJCUHost.exe"
 I=I+1:ARRAY_5(I)="C:\Program Files (x86)\USB Safely Remove\USBSafelyRemove.exe"
 I=I+1:ARRAY_5(I)="D:\#0 1 INSTALLATIONS\00 INSTALLER_SET\# 00 Install Progs\# Installed Now\#00 Paid For\USBIMAGER\usbimager.exe"
-I=I+1:ARRAY_5(I)="C:\Program Files\ViceVersa Pro\ViceVersa.exe"
+
+' I=I+1:ARRAY_5(I)="C:\Program Files\ViceVersa Pro\ViceVersa.exe"
+
 I=I+1:ARRAY_5(I)="C:\ProgramData\VideoDownloaderUltimateWinApp\VideoDownloaderUltimate.exe"
 I=I+1:ARRAY_5(I)="C:\Program Files\Oracle\VirtualBox\VirtualBox.exe"
 ' I=I+1:ARRAY_5(I)="C:\Program Files\VSPlayer\VSPlayer.exe"

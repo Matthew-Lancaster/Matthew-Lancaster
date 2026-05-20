@@ -406,9 +406,7 @@ ReDim HeaderArry(1)
                 Dim aq(3)
                
                 aq(0) = UCase("matt.lan@btinternet.com")
-                aq(1) = UCase("matthew.lancaster@btopenworld.com")
-                aq(2) = UCase("matthew.lancaster@btinternet.com")
-                aq(3) = UCase("matthew.lancaster2@btinternet.com")
+ 
                 
                 Dim RS, WD, WD2, WD3, Mag
                 
