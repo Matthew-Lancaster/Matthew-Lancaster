@@ -1,0 +1,23 @@
+----
+Darker Facebook | Userstyles.org
+https://userstyles.org/styles/100480/darker-facebook
+----
+
+WORK AROUND
+DON'T DISPLAY MESSENGER PART SCREEN OF FACEBOOK IN DARK COLOUR
+BECAUSE TEXT IS DARK ALSO AND HARD TO READER
+
+@-moz-document regexp('https://www\\.facebook\\.com/(?!messages).*')
+{
+}
+
+PUT THIS ABOVE IN CODE 
+AND TRANSLATES TO HERE TO ENTER IN REGEXP
+THE DOUBLE BACKSLASH REMOVED TO ONE
+
+https://www\.facebook\.com/(?!messages).*
+
+OVER
+~
+[ Saturday 01:43:10 Am_26 January 2019 ]
+
