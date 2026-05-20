@@ -30,7 +30,7 @@ Begin VB.Form frmPassLock
          Left            =   165
          Locked          =   -1  'True
          TabIndex        =   4
-         Text            =   "Try the LSD or fuckoff a die Like Slowly"
+         Text            =   "Try"
          Top             =   1140
          Visible         =   0   'False
          Width           =   6075

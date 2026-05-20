@@ -305,7 +305,7 @@ F5:: ; CTRL+F5
 
 		Run, %FN_VAR_EXE% %OutputVar_1% ,, MIN
 		
-		IF INSTR(" VBS AHK BAT VBP CLS FRM TXT ",OutExtension)
+		IF INSTR(" VBS AHK BAT BAS VBP CLS FRM TXT ",OutExtension)
 			RUN,C:\PROGRAM FILES (X86)\NOTEPAD++\NOTEPAD++.EXE "%OutputVar_1%" ,, MAX
 			
 		SOUNDBEEP 1500,100
