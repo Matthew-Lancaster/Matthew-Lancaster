@@ -158,6 +158,28 @@ Reg.exe add "HKCU\Software\Classes\*\shell\HashMyFiles\command" /ve /t REG_SZ /d
 
 
 
+REM AI ANSWER
+REM ----------------------------------------
+REM HOW DO I RESTORE ADMIN$ C:\Windows - Google Search
+REM ----------------------------------------
+REM https://www.google.com/search?q=HOW+DO+I+RESTORE+ADMIN%24+C%3A%5CWindows&rlz=1C1HKFL_en-GBGB1193GB1193&oq=HOW+DO+I+RESTORE+ADMIN%24+++++++C%3A%5CWindows+&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDYwMTBqMGo3qAIIsAIB8QVAXYlXfmocHw&sourceid=chrome&ie=UTF-8
+REM ----------------------------------------
+Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" /v "AutoShareWks" /t REG_DWORD /d "1" /f
+
+REM ----------------------------------------
+REM Can the scroll bar be wider? - Microsoft Q&A
+REM ----------------------------------------
+REM https://learn.microsoft.com/en-us/answers/questions/4434164/can-the-scroll-bar-be-wider
+REM --------------------------------------------------------------------------------
+REM add "HKCU\Control Panel\Desktop\WindowMetrics" /f /v "ScrollWidth" /t REG_SZ /d "-252" /f - Google Search
+REM ----------------------------------------
+REM https://www.google.com/search?q=add+%22HKCU%5CControl+Panel%5CDesktop%5CWindowMetrics%22+%2Ff+%2Fv+%22ScrollWidth%22+%2Ft+REG_SZ+%2Fd+%22-252%22+%2Ff
+REM ----------------------------------------
+REM FOR WINDOWS 10
+REM BUT WINDOWS 11 REQUIRE MORE WIDTH -300 -- SIGN OUT OR REBOOT TO TAKE EFFECT
+REM ----------------------------------------
+Reg.exe add "HKCU\Control Panel\Desktop\WindowMetrics" /f /v "ScrollWidth" /t REG_SZ /d "-252" /f
+Reg.exe add "HKCU\Control Panel\Desktop\WindowMetrics" /f /v "ScrollHeight" /t REG_SZ /d "-252" /f
 
 
 
@@ -736,7 +758,22 @@ REM GOTO JUMP_HERE
 REM JUMP PUT 2026-04-25
 :JUMP_HERE
 	
-	
+
+REM --
+REM -- GOT TO HAVE THIS RUNNING AS DEPENDENCY  
+REM -- REMOTE HAVE DEPENDENCY ON IT OR NOT HAVE ANY HOMEGROUP OUTSIDE WORLD
+REM --------------------------------------------------------------------
+REM -- DON'T USE HOME GROUP ANYMORE -- IF SET GOT TO UNSELECTED SCAN OF ALL DRIVE
+ECHO OFF
+
+
+@IF %COMPUTERNAME%==9-ASUS-G815LM  (
+	ECHO WIN 10 _ WIN SEARCH STARTER
+	SC CONFIG WSearch START= AUTO
+	NET START WSearch
+)
+
+
 	
 	
 	

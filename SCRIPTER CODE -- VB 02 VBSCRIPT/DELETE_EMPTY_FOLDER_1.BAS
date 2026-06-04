@@ -39,7 +39,7 @@ If IsIDE = True And Command_ALT = "" Then Command_ALT = "F:\"
 i = "J:\"
 'i = "\\7-asus-gl522vw\7_asus_gl522vw_02_d_drive\# MY DOCS\# 01 My Documents\My Pictures2\"
 'i = "Y:\0 00 ART\# 00 My Pictures\01 All Psycho\2008 Internet My Website Skull Bak"
-i = "\\4-asus-gl522vw\4_asus_gl522vw_02_d_drive\DSC\"
+i = "\\4-asus-gl522vw\4_Asus_Gl522Vw_D_Drive\DSC\"
 i = "\\5-asus-p2520la\5_asus_p2520la_02_d_drive\DSC"
 i = "I:\"
 'i = "D:\DSC 0 00 VIDEO CAMERA - ME"
@@ -64,7 +64,7 @@ i = "\\2-asus-eee\2_asus_eee_02_d_drive\VB6-EXE"
 Call DeleteEmptyFolders(i)
 i = "\\3-linda-pc\3_linda_pc_02_d_drive\VB6-EXE"
 Call DeleteEmptyFolders(i)
-i = "\\4-asus-gl522vw\4_asus_gl522vw_02_d_drive\VB6-EXE"
+i = "\\4-asus-gl522vw\4_Asus_Gl522Vw_D_Drive\VB6-EXE"
 Call DeleteEmptyFolders(i)
 i = "\\5-asus-p2520la\5_asus_p2520la_02_d_drive\VB6-EXE"
 Call DeleteEmptyFolders(i)

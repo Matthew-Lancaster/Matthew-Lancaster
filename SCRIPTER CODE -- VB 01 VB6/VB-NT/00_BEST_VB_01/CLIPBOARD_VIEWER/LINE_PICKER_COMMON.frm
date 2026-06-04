@@ -3,27 +3,27 @@ Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Begin VB.Form LINE_PICKER_COMMON 
    BackColor       =   &H00808080&
    Caption         =   "Form1"
-   ClientHeight    =   5895
-   ClientLeft      =   225
-   ClientTop       =   1695
-   ClientWidth     =   13755
+   ClientHeight    =   5904
+   ClientLeft      =   192
+   ClientTop       =   1740
+   ClientWidth     =   13752
    Icon            =   "LINE_PICKER_COMMON.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   5895
-   ScaleWidth      =   13755
+   ScaleHeight     =   5904
+   ScaleWidth      =   13752
    StartUpPosition =   3  'Windows Default
    Visible         =   0   'False
    Begin VB.ListBox LIST2 
       BeginProperty Font 
          Name            =   "MS Sans Serif"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   420
+      Height          =   396
       ItemData        =   "LINE_PICKER_COMMON.frx":1272
       Left            =   2340
       List            =   "LINE_PICKER_COMMON.frx":1279
@@ -51,7 +51,7 @@ Begin VB.Form LINE_PICKER_COMMON
       Top             =   888
       Width           =   1800
       _ExtentX        =   3175
-      _ExtentY        =   1217
+      _ExtentY        =   1207
       LabelWrap       =   -1  'True
       HideSelection   =   -1  'True
       _Version        =   393217
@@ -79,14 +79,14 @@ Begin VB.Form LINE_PICKER_COMMON
    Begin VB.ListBox LIST1 
       BeginProperty Font 
          Name            =   "MS Sans Serif"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   420
+      Height          =   396
       Left            =   2340
       Sorted          =   -1  'True
       TabIndex        =   0
@@ -145,6 +145,9 @@ Begin VB.Form LINE_PICKER_COMMON
    End
    Begin VB.Menu MNU_UMP_DRIVE_NETWORK 
       Caption         =   "JUMP DRIVE NETWORK"
+   End
+   Begin VB.Menu MNU_CLIPBOARD_ALL_COMPUTER_DATA_FOLDER_BLOCK_FOR_GOODSYNC 
+      Caption         =   "CLIPBOARD ALL COMPUTER DATA FOLDER BLOCK FOR GOODSYNC"
    End
    Begin VB.Menu MNU_SHOW_MAIN_FORM 
       Caption         =   "MAIN FORM BACK"
@@ -421,6 +424,7 @@ Sub Form_Load()
     
     i = i + 1: M(i) = "----------"
     i = i + 1: M(i) = "---------- NET PATH NOT LEAD SLASH"
+    i = i + 1: M(i) = "----------"
     i = i + 1: M(i) = "1-ASUS-X5DIJ"
     i = i + 1: M(i) = "2-ASUS-EEE"
     i = i + 1: M(i) = "3-LINDA-PC"
@@ -443,46 +447,37 @@ Sub Form_Load()
     i = i + 1: M(i) = "\\9-ASUS-G815LM"
     i = i + 1: M(i) = "----------"
     
+    i = i + 1: M(i) = "---------- NEW NET PATH C DRIVE"
     i = i + 1: M(i) = "----------"
-    i = i + 1: M(i) = "---------- NET PATH C DRIVE"
-    i = i + 1: M(i) = "\\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE"
-    i = i + 1: M(i) = "\\2-ASUS-EEE\2_ASUS_EEE_01_C_DRIVE"
-    i = i + 1: M(i) = "\\3-LINDA-PC\3_LINDA_PC_01_C_DRIVE"
-    i = i + 1: M(i) = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_01_C_DRIVE"
-    i = i + 1: M(i) = "\\5-ASUS-P2520LA\5_ASUS_P2520LA_01_C_DRIVE"
-    i = i + 1: M(i) = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_01_C_DRIVE"
-    i = i + 1: M(i) = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_01_C_DRIVE"
-    i = i + 1: M(i) = "\\9-ASUS-G815LM\9_ASUS_G815LM_01_C_DRIVE"
+    i = i + 1: M(i) = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_C_Drive"
+    i = i + 1: M(i) = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_D_Drive"
+    i = i + 1: M(i) = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_E_Drive"
+    i = i + 1: M(i) = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_I_Samsung_5TB_C"
+    i = i + 1: M(i) = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_J_Samsung_5TB_D"
+    i = i + 1: M(i) = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_K_Samsung_5TB_E"
+    i = i + 1: M(i) = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_O_Samsung_4TB"
+    i = i + 1: M(i) = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_P_Samsung_5TB"
+    i = i + 1: M(i) = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_U_Samsung_5TB"
+    i = i + 1: M(i) = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_V_Samsung_5TB"
+    i = i + 1: M(i) = "----------"
+    
+    i = i + 1: M(i) = "---------- NEW NET PATH -- GROUP COMPUTER NAME"
+    i = i + 1: M(i) = "----------"
+    i = i + 1: M(i) = "\\8-MSI-GP62M-7RD\8_Msi_Gp62m_7rd_C_DRIVE"
+    i = i + 1: M(i) = "\\8-MSI-GP62M-7RD\8_Msi_Gp62m_7rd_D_DRIVE"
+    i = i + 1: M(i) = "\\8-MSI-GP62M-7RD\8_Msi_Gp62m_7rd_E_DRIVE"
+    i = i + 1: M(i) = "----------"
+    i = i + 1: M(i) = "\\9-ASUS-G815LM\9_Asus_G815LM_C_DRIVE"
+    i = i + 1: M(i) = "\\9-ASUS-G815LM\9_Asus_G815LM_D_DRIVE"
+    i = i + 1: M(i) = "\\9-ASUS-G815LM\9_Asus_G815LM_E_DRIVE"
+    
+    
+    
+    
+    
     
     i = i + 1: M(i) = "----------"
-    i = i + 1: M(i) = "\\1-ASUS-X5DIJ\1_ASUS_X5DIJ_02_D_DRIVE"
-    i = i + 1: M(i) = "\\2-ASUS-EEE\2_ASUS_EEE_02_D_DRIVE"
-    i = i + 1: M(i) = "\\3-LINDA-PC\3_LINDA_PC_02_D_DRIVE"
-    i = i + 1: M(i) = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_02_D_DRIVE"
-    i = i + 1: M(i) = "\\5-ASUS-P2520LA\5_ASUS_P2520LA_02_D_DRIVE"
-    i = i + 1: M(i) = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_02_D_DRIVE"
-    i = i + 1: M(i) = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_02_D_DRIVE"
-    i = i + 1: M(i) = "\\9-ASUS-G815LM\9_ASUS_G815LM_02_D_DRIVE"
-    
-    
-    I_BOOKMARK_TOP = i
-    i = i + 1: M(i) = "----------"
-    i = i + 1: M(i) = "---------- NET PATH -- GROUP COMPUTER NAME"
-    i = i + 1: M(i) = "\\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE"
-    i = i + 1: M(i) = "\\1-ASUS-X5DIJ\1_ASUS_X5DIJ_02_D_DRIVE"
-    i = i + 1: M(i) = "\\1-ASUS-X5DIJ\1_ASUS_X5DIJ_03_FAT32_4GB"
-    i = i + 1: M(i) = "----------"
-    i = i + 1: M(i) = "\\2-ASUS-EEE\2_ASUS_EEE_01_C_DRIVE"
-    i = i + 1: M(i) = "\\2-ASUS-EEE\2_ASUS_EEE_02_D_DRIVE"
-    i = i + 1: M(i) = "\\2-ASUS-EEE\2_ASUS_EEE_03_FAT32_4GB"
-    i = i + 1: M(i) = "----------"
-    i = i + 1: M(i) = "\\3-LINDA-PC\3_LINDA_PC_01_C_DRIVE"
-    i = i + 1: M(i) = "\\3-LINDA-PC\3_LINDA_PC_02_D_DRIVE"
-    i = i + 1: M(i) = "\\3-LINDA-PC\3_LINDA_PC_03_FAT32_4GB"
-    i = i + 1: M(i) = "----------"
-    i = i + 1: M(i) = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_01_C_DRIVE"
-    i = i + 1: M(i) = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_02_D_DRIVE"
-    i = i + 1: M(i) = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_03_FAT32_4GB"
+    i = i + 1: M(i) = "---------- OLD NET PATH -- GROUP COMPUTER NAME"
     i = i + 1: M(i) = "----------"
     i = i + 1: M(i) = "\\5-ASUS-P2520LA\5_ASUS_P2520LA_01_C_DRIVE"
     i = i + 1: M(i) = "\\5-ASUS-P2520LA\5_ASUS_P2520LA_02_D_DRIVE"
@@ -499,32 +494,95 @@ Sub Form_Load()
     i = i + 1: M(i) = "\\9-ASUS-G815LM\9_ASUS_G815LM_01_C_DRIVE"
     i = i + 1: M(i) = "\\9-ASUS-G815LM\9_ASUS_G815LM_02_D_DRIVE"
     i = i + 1: M(i) = "\\9-ASUS-G815LM\9_ASUS_G815LM_03_FAT32_4GB"
-    I_BOOKMARK_BOTTOM = i
-    i = i + 1: M(i) = "----------"
-    i = i + 1: M(i) = "---------- NET PATH -- ---- \VB6\VB-NT ----"
-    For R3 = I_BOOKMARK_TOP To I_BOOKMARK_BOTTOM
-        If InStr(M(R3), "_D_DRIVE") > 0 Then
-            i = i + 1: M(i) = M(R3) + "\VB6\VB-NT"
-        End If
-    Next
-    i = i + 1: M(i) = "----------"
-    i = i + 1: M(i) = "---------- NET PATH -- ---- \VB6-EXE\VB-NT ----"
-    For R3 = I_BOOKMARK_TOP To I_BOOKMARK_BOTTOM
-        If InStr(M(R3), "_D_DRIVE") > 0 Then
-            i = i + 1: M(i) = M(R3) + "\VB6-EXE\VB-NT"
-        End If
-    Next
-    i = i + 1: M(i) = "----------"
-    i = i + 1: M(i) = "---------- NET PATH -- ---- \SCRIPTER ----"
-    i = i + 1: M(i) = "\\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE\SCRIPTER"
-    i = i + 1: M(i) = "\\2-ASUS-EEE\2_ASUS_EEE_01_C_DRIVE\SCRIPTER"
-    i = i + 1: M(i) = "\\3-LINDA-PC\3_LINDA_PC_01_C_DRIVE\SCRIPTER\"
-    i = i + 1: M(i) = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_01_C_DRIVE\SCRIPTER\"
-    i = i + 1: M(i) = "\\5-ASUS-P2520LA\5_ASUS_P2520LA_01_C_DRIVE\SCRIPTER\"
-    i = i + 1: M(i) = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_01_C_DRIVE\SCRIPTER\"
-    i = i + 1: M(i) = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_01_C_DRIVE\SCRIPTER\"
-    i = i + 1: M(i) = "\\9-ASUS-G815LM\9_ASUS_G815LM_01_C_DRIVE\SCRIPTER\"
     
+    
+    
+    
+    
+    
+    
+'    I = I + 1: M(I) = "----------"
+'    I = I + 1: M(I) = "---------- OLD NET PATH C DRIVE"
+'    I = I + 1: M(I) = "\\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE"
+'    I = I + 1: M(I) = "\\2-ASUS-EEE\2_ASUS_EEE_01_C_DRIVE"
+'    I = I + 1: M(I) = "\\3-LINDA-PC\3_LINDA_PC_01_C_DRIVE"
+'    I = I + 1: M(I) = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_C_Drive"
+'    I = I + 1: M(I) = "\\5-ASUS-P2520LA\5_ASUS_P2520LA_01_C_DRIVE"
+'    I = I + 1: M(I) = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_01_C_DRIVE"
+'    I = I + 1: M(I) = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_01_C_DRIVE"
+'    I = I + 1: M(I) = "\\9-ASUS-G815LM\9_ASUS_G815LM_01_C_DRIVE"
+'
+'    I = I + 1: M(I) = "----------"
+'    I = I + 1: M(I) = "\\1-ASUS-X5DIJ\1_ASUS_X5DIJ_02_D_DRIVE"
+'    I = I + 1: M(I) = "\\2-ASUS-EEE\2_ASUS_EEE_02_D_DRIVE"
+'    I = I + 1: M(I) = "\\3-LINDA-PC\3_LINDA_PC_02_D_DRIVE"
+'    I = I + 1: M(I) = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_D_Drive"
+'    I = I + 1: M(I) = "\\5-ASUS-P2520LA\5_ASUS_P2520LA_02_D_DRIVE"
+'    I = I + 1: M(I) = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_02_D_DRIVE"
+'    I = I + 1: M(I) = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_02_D_DRIVE"
+'    I = I + 1: M(I) = "\\9-ASUS-G815LM\9_ASUS_G815LM_02_D_DRIVE"
+'
+    
+    I_BOOKMARK_TOP = i
+    i = i + 1: M(i) = "----------"
+    i = i + 1: M(i) = "---------- OLD NET PATH -- GROUP COMPUTER NAME"
+    i = i + 1: M(i) = "\\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE"
+    i = i + 1: M(i) = "\\1-ASUS-X5DIJ\1_ASUS_X5DIJ_02_D_DRIVE"
+    i = i + 1: M(i) = "\\1-ASUS-X5DIJ\1_ASUS_X5DIJ_03_FAT32_4GB"
+    i = i + 1: M(i) = "----------"
+    i = i + 1: M(i) = "\\2-ASUS-EEE\2_ASUS_EEE_01_C_DRIVE"
+    i = i + 1: M(i) = "\\2-ASUS-EEE\2_ASUS_EEE_02_D_DRIVE"
+    i = i + 1: M(i) = "\\2-ASUS-EEE\2_ASUS_EEE_03_FAT32_4GB"
+    i = i + 1: M(i) = "----------"
+    i = i + 1: M(i) = "\\3-LINDA-PC\3_LINDA_PC_01_C_DRIVE"
+    i = i + 1: M(i) = "\\3-LINDA-PC\3_LINDA_PC_02_D_DRIVE"
+    i = i + 1: M(i) = "\\3-LINDA-PC\3_LINDA_PC_03_FAT32_4GB"
+    i = i + 1: M(i) = "----------"
+    i = i + 1: M(i) = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_C_Drive"
+    i = i + 1: M(i) = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_D_Drive"
+    i = i + 1: M(i) = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_E_Drive"
+    i = i + 1: M(i) = "----------"
+    i = i + 1: M(i) = "\\5-ASUS-P2520LA\5_ASUS_P2520LA_01_C_DRIVE"
+    i = i + 1: M(i) = "\\5-ASUS-P2520LA\5_ASUS_P2520LA_02_D_DRIVE"
+    i = i + 1: M(i) = "\\5-ASUS-P2520LA\5_ASUS_P2520LA_03_FAT32_4GB"
+    i = i + 1: M(i) = "----------"
+    i = i + 1: M(i) = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_01_C_DRIVE"
+    i = i + 1: M(i) = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_02_D_DRIVE"
+    i = i + 1: M(i) = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_03_FAT32_4GB"
+    i = i + 1: M(i) = "----------"
+    i = i + 1: M(i) = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_01_C_DRIVE"
+    i = i + 1: M(i) = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_02_D_DRIVE"
+    i = i + 1: M(i) = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_03_FAT32_4GB"
+    i = i + 1: M(i) = "----------"
+    i = i + 1: M(i) = "\\9-ASUS-G815LM\9_ASUS_G815LM_01_C_DRIVE"
+    i = i + 1: M(i) = "\\9-ASUS-G815LM\9_ASUS_G815LM_02_D_DRIVE"
+    i = i + 1: M(i) = "\\9-ASUS-G815LM\9_ASUS_G815LM_03_FAT32_4GB"
+'    I_BOOKMARK_BOTTOM = I
+'    I = I + 1: M(I) = "----------"
+'    I = I + 1: M(I) = "---------- NET PATH -- ---- \VB6\VB-NT ----"
+'    For R3 = I_BOOKMARK_TOP To I_BOOKMARK_BOTTOM
+'        If InStr(M(R3), "_D_DRIVE") > 0 Then
+'            I = I + 1: M(I) = M(R3) + "\VB6\VB-NT"
+'        End If
+'    Next
+'    I = I + 1: M(I) = "----------"
+'    I = I + 1: M(I) = "---------- NET PATH -- ---- \VB6-EXE\VB-NT ----"
+'    For R3 = I_BOOKMARK_TOP To I_BOOKMARK_BOTTOM
+'        If InStr(M(R3), "_D_DRIVE") > 0 Then
+'            I = I + 1: M(I) = M(R3) + "\VB6-EXE\VB-NT"
+'        End If
+'    Next
+'    I = I + 1: M(I) = "----------"
+'    I = I + 1: M(I) = "---------- NET PATH -- ---- \SCRIPTER ----"
+'    I = I + 1: M(I) = "\\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE\SCRIPTER"
+'    I = I + 1: M(I) = "\\2-ASUS-EEE\2_ASUS_EEE_01_C_DRIVE\SCRIPTER"
+'    I = I + 1: M(I) = "\\3-LINDA-PC\3_LINDA_PC_01_C_DRIVE\SCRIPTER\"
+'    I = I + 1: M(I) = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_C_Drive\SCRIPTER\"
+'    I = I + 1: M(I) = "\\5-ASUS-P2520LA\5_ASUS_P2520LA_01_C_DRIVE\SCRIPTER\"
+'    I = I + 1: M(I) = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_01_C_DRIVE\SCRIPTER\"
+'    I = I + 1: M(I) = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_01_C_DRIVE\SCRIPTER\"
+'    I = I + 1: M(I) = "\\9-ASUS-G815LM\9_ASUS_G815LM_01_C_DRIVE\SCRIPTER\"
+'
     i = i + 1: M(i) = "----------"
     
     
@@ -586,13 +644,13 @@ Sub Form_Load()
     ' ---------------------------------------------------------------------
     
     ReDim Preserve M(i)
-    List1.Clear
+    LIST1.Clear
     AR = 0
     ' List1.Sorted = False
     For R3 = 1 To UBound(M)
         If M(R3) <> "" Then
             AR = AR + 1
-            List1.AddItem Format(AR, "000") + " --  " + M(R3)
+            LIST1.AddItem Format(AR, "000") + " --  " + M(R3)
         End If
     Next
     
@@ -607,10 +665,10 @@ Sub Form_Load()
         .ColumnHeaders.Add , "ID", "ID", 800, lvwColumnLeft
         .ColumnHeaders.Add , "ITEM", "ITEM", 18000, lvwColumnLeft
         .View = lvwReport
-        .Height = List1.Height
-        .Top = List1.Top
-        .Left = List1.Left
-        .Width = List1.Width
+        .height = LIST1.height
+        .Top = LIST1.Top
+        .Left = LIST1.Left
+        .width = LIST1.width
 '        .Font.Bold = True
 '        .Font.Name = LIST1.FontNaizeme
 '        .Font.Size = LIST1.Fonts
@@ -619,7 +677,7 @@ Sub Form_Load()
     End With
     
     LISTVIEW1.ListItems.Clear
-    List1.Visible = False
+    LIST1.Visible = False
     
     For R3 = 1 To UBound(M)
         If M(R3) <> "" Then
@@ -742,9 +800,9 @@ If Me.WindowState = vbNormal Then
         Me.Left = FRM_ClipTest.Left + 200
         If FORM_SET_WIDTH_ONE = False Then
             FORM_SET_WIDTH_ONE = True
-            Me.Width = FRM_ClipTest.Width
+            Me.width = FRM_ClipTest.width
             ' SET HIEGHT ONCE ALSO
-            Me.Height = FRM_ClipTest.Height
+            Me.height = FRM_ClipTest.height
         End If
 
     End If
@@ -778,7 +836,7 @@ If GetComputerName = "5-ASUS-P2520LA" Then HEIGHT_ADJUST = 0
 If RESIZE_DONE_ONCE = False Then
     Label1.BackColor = RGB(255, 255, 255)
     Label1.Left = 20
-    Label1.Height = 400
+    Label1.height = 400
     Label1.Caption = "SPEED LINE PICKER -- CLIPBOARD"
 '    Label1.FontSize = 14
 '    Label1.FontBold = True
@@ -786,33 +844,33 @@ If RESIZE_DONE_ONCE = False Then
 End If
 
 If RESIZE_DONE_ONCE = False Then
-    Label1.Width = Me.Width - WIDTH_ADJUST + 20
+    Label1.width = Me.width - WIDTH_ADJUST + 20
     LB1H = (Menu_Height * Screen.TwipsPerPixelY) - 500
     If LB1H < 0 Then LB1H = 0
     Label1.Top = 20 ' LB1H
-    List1.Top = Label1.Top + Label1.Height
-    List1.Left = 10
+    LIST1.Top = Label1.Top + Label1.height
+    LIST1.Left = 10
 End If
 ' List1.Height = Me.Height - (Menu_Height * Screen.TwipsPerPixelY)
-List1.Width = Me.Width - WIDTH_ADJUST + 20
+LIST1.width = Me.width - WIDTH_ADJUST + 20
 ' Call HEIGHT_BAR_TOP_ROUTINE
 ' ---------------------------
 'MAKE FORM TALLER OR TEXT BOX
 'FORM IS PRIOITY OVER TEXT BOX
-XXDD = Me.Height - (Menu_Height * Screen.TwipsPerPixelY) - (Label1.Top + Label1.Height) - 500
+XXDD = Me.height - (Menu_Height * Screen.TwipsPerPixelY) - (Label1.Top + Label1.height) - 500
 If XXDD - HEIGHT_ADJUST < 0 Then
     XXDD = 0 + HEIGHT_ADJUST + 100
 End If
 If OLD_LIST1_HEIGHT <> XXDD - HEIGHT_ADJUST Then
-    List1.Height = XXDD - HEIGHT_ADJUST
-    LISTVIEW1.Height = List1.Height
+    LIST1.height = XXDD - HEIGHT_ADJUST
+    LISTVIEW1.height = LIST1.height
 End If
 OLD_LIST1_HEIGHT = XXDD - HEIGHT_ADJUST
 
-If OLD_LIST1_WIDTH <> List1.Width Then
-    LISTVIEW1.Width = List1.Width
+If OLD_LIST1_WIDTH <> LIST1.width Then
+    LISTVIEW1.width = LIST1.width
 End If
-OLD_LIST1_WIDTH = List1.Width
+OLD_LIST1_WIDTH = LIST1.width
 
 
 
@@ -826,7 +884,7 @@ OLD_LIST1_WIDTH = List1.Width
 If RESIZE_DONE_ONCE = False Then
     If Me.WindowState = vbNormal Then
         RESIZE_WINDOWSTATE_CHANGE_WORKAROUND = True
-        Me.Height = List1.Height + List1.Top + 900
+        Me.height = LIST1.height + LIST1.Top + 900
         RESIZE_WINDOWSTATE_CHANGE_WORKAROUND = False
     End If
 End If
@@ -835,10 +893,10 @@ End If
 
 If RESIZE_DONE_ONCE = False Then
     With LISTVIEW1
-        .Height = List1.Height
-        .Top = List1.Top
-        .Left = List1.Left
-        .Width = List1.Width
+        .height = LIST1.height
+        .Top = LIST1.Top
+        .Left = LIST1.Left
+        .width = LIST1.width
     End With
 End If
 
@@ -902,14 +960,14 @@ End Sub
 
 Private Sub List1_Click()
 
-ITEMGET_1 = List1.List(List1.ListIndex)
+ITEMGET_1 = LIST1.List(LIST1.ListIndex)
 ITEMGET_1 = Mid(ITEMGET, InStr(ITEMGET, " -- ") + 5)
 
 If MNU_DOUBLE_LINE_SELECTOR_ON_VAR = True Then
-    ITEMGET_1 = List1.List(List1.ListIndex)
+    ITEMGET_1 = LIST1.List(LIST1.ListIndex)
     ITEMGET_1 = Mid(ITEMGET_1, InStr(ITEMGET_1, " -- ") + 5)
 
-    ITEMGET_2 = List1.List(List1.ListIndex + 1)
+    ITEMGET_2 = LIST1.List(LIST1.ListIndex + 1)
     ITEMGET_2 = Mid(ITEMGET_2, InStr(ITEMGET_2, " -- ") + 5)
 
     ITEMGET_1 = ITEMGET_1 + vbCrLf + ITEMGET_2
@@ -1083,11 +1141,11 @@ Private Sub MNU_ADD_CLIPBOARD_Click()
     
     MX = Split(FRM_ClipTest.Text2.Text, vbLf)
     
-    AR = List1.ListCount
+    AR = LIST1.ListCount
     For R3 = 0 To UBound(MX)
         If MX(R3) <> "" Then
             AR = AR + 1
-            List1.AddItem Format(AR, "000") + " --  " + MX(R3)
+            LIST1.AddItem Format(AR, "000") + " --  " + MX(R3)
             With LISTVIEW1
                 Set LV1 = .ListItems.Add(, , Format(AR, "000"))
                 LV1.SubItems(1) = MX(R3)
@@ -1228,6 +1286,93 @@ If Err.Number = 0 Then
 End If
 
 Beep
+
+End Sub
+
+Private Sub MNU_CLIPBOARD_ALL_COMPUTER_DATA_FOLDER_BLOCK_FOR_GOODSYNC_Click()
+
+Dim MSI
+
+MSI = MSI + "name *1-ASUS-*; name *" + vbCrLf
+MSI = MSI + "name *2-ASUS-*; name *" + vbCrLf
+MSI = MSI + "name *1-ASUS-*; name *" + vbCrLf
+MSI = MSI + "name *3-LINDA-*; name *" + vbCrLf
+MSI = MSI + "name *4-ASUS-*; name *" + vbCrLf
+MSI = MSI + "name *5-ASUS-*; name *" + vbCrLf
+MSI = MSI + "name *7-ASUS-*; name *" + vbCrLf
+MSI = MSI + "name *8-MSI-*; name *" + vbCrLf
+MSI = MSI + "name *9-ASUS-*; name *" + vbCrLf
+MSI = MSI + "name *55-88-HAPPY*; name *" + vbCrLf
+MSI = MSI + "name *MATT-555ROIDS*; name *" + vbCrLf
+MSI = MSI + "name *ASUS-X5DIJ*; name *" + vbCrLf
+MSI = MSI + "name *LINDA-PC*; name *" + vbCrLf
+MSI = MSI + "name *MATT-555ROIDS*; name *" + vbCrLf
+MSI = MSI + "name *MININT-0G58L6G*; name *" + vbCrLf
+MSI = MSI + "name *MININT-82SO8CF*; name *" + vbCrLf
+MSI = MSI + "name *MININT-GNNFCHO*; name *" + vbCrLf
+MSI = MSI + "name *MININT-HLFAN8N*; name *" + vbCrLf
+MSI = MSI + "name *55-88-HAPPY*; name *" + vbCrLf
+MSI = MSI + "name *ASUS-4-GL522VW*; name *" + vbCrLf
+MSI = MSI + "name *ASUS-BIGGER*; name *" + vbCrLf
+MSI = MSI + "name *ASUSEEE*; name *" + vbCrLf
+MSI = MSI + "name *ASUS-EEE*; name *" + vbCrLf
+MSI = MSI + "name *ASUS-EEE-XPHOME*; name *" + vbCrLf
+MSI = MSI + "name *ASUS-MACHINE*; name *" + vbCrLf
+MSI = MSI + "name *#NFS*" + vbCrLf
+MSI = MSI + "name name *#NFS*; name *" + vbCrLf
+MSI = MSI + "name 0TextData" + vbCrLf
+MSI = MSI + "name # DATA" + vbCrLf
+MSI = MSI + "name Day-Data" + vbCrLf
+MSI = MSI + "name # DATA" + vbCrLf
+MSI = MSI + "name Text Loggs" + vbCrLf
+MSI = MSI + "name 00_Text_Data_02" + vbCrLf
+MSI = MSI + "name 00_Text_Data_KeyLogg" + vbCrLf
+MSI = MSI + "name # DATA" + vbCrLf
+
+
+VAR_ST_1 = MSI
+
+Do
+    On Error Resume Next
+    Clipboard.Clear
+    VAR_ST_2 = Clipboard.GetText
+    On Error GoTo 0
+    If VAR_ST_2 <> "" Then
+        DoEvents
+        Sleep 500
+    End If
+Loop Until VAR_ST_2 = ""
+Sleep 100
+Do
+    On Error Resume Next
+    Clipboard.SetText VAR_ST_1, vbCFText
+    Sleep 100
+    VAR_ST_2 = Clipboard.GetText
+    On Error GoTo 0
+    If VAR_ST_2 <> VAR_ST_1 Then
+        DoEvents
+        Sleep 500
+    End If
+Loop Until VAR_ST_2 = VAR_ST_1
+
+If Err.Number = 0 Then
+    WORKER_WITH_PICKER = True
+    If WORKER_WITH_PICKER = True Then
+        FRM_ClipTest.Visible = False
+        Else
+        FRM_ClipTest.Visible = True
+    End If
+
+    If AlwaysOnTop_MODE = False Then
+        FRM_ClipTest.WindowState = vbMinimized
+        LINE_PICKER_COMMON.WindowState = vbMinimized
+        
+        RESULT_API = NotAlwaysOnTop(Me.hWnd)
+    End If
+End If
+
+Beep
+
 
 End Sub
 
@@ -1419,10 +1564,10 @@ Private Sub Timer_MONITOR_FORM_SIZE_WIDTH_HEIGHT_Timer()
     If MOUSE_DOWN = True Then Exit Sub
     
     If OLD_HEIGHT_WIDTH = 0 Then
-        OLD_HEIGHT_WIDTH = Me.Height + Me.Width
+        OLD_HEIGHT_WIDTH = Me.height + Me.width
     End If
-    If Me.Height + Me.Width <> OLD_HEIGHT_WIDTH Then
-        OLD_HEIGHT_WIDTH = Me.Height + Me.Width
+    If Me.height + Me.width <> OLD_HEIGHT_WIDTH Then
+        OLD_HEIGHT_WIDTH = Me.height + Me.width
         TIMER_TO_RESIZE.Enabled = False
         TIMER_TO_RESIZE.Interval = 100
         TIMER_TO_RESIZE.Enabled = True
@@ -1464,7 +1609,7 @@ Public Function NotAlwaysOnTop(ByVal hWnd As Long)
 '    If Me.WindowState <> vbMinimized Then
 '    End If
 '    If Me.WindowState = vbMinimized Then
-    If Me.Height < 200 Then
+    If Me.height < 200 Then
         Call ME_POSITION
     End If
     
@@ -1520,11 +1665,11 @@ Public Sub ME_POSITION()
     HY = HY + ((Menu_Height * Screen.TwipsPerPixelY) - Menu_Height) + OFFSET_HY
     WX = WX + (Screen.TwipsPerPixelX) + OFFSET_WX
 
-    If HY <> Me.Height Then
-        Me.Height = HY
+    If HY <> Me.height Then
+        Me.height = HY
     End If
-    Me.Width = WX ' LISTVIEW1.Left + LISTVIEW1.Width + 200 ' WX (+) LISTVIEW1.Left + LISTVIEW1.Width + 200
-    WL = ((Screen.Width) / 2 - ((Me.Width / 2)))
+    Me.width = WX ' LISTVIEW1.Left + LISTVIEW1.Width + 200 ' WX (+) LISTVIEW1.Left + LISTVIEW1.Width + 200
+    WL = ((Screen.width) / 2 - ((Me.width / 2)))
     Me.Left = WL
     Me.Top = 200
 
@@ -1540,10 +1685,10 @@ Public Sub ME_POSITION_HALIFAX()
     HY = ((Menu_Height * Screen.TwipsPerPixelY) - Menu_Height) + OFFSET_HY
 
     NOT_RESIZE_ROUTINE = True
-    Me.Height = HY
+    Me.height = HY
     
     NOT_RESIZE_ROUTINE = True
-    Me.Width = 7000
+    Me.width = 7000
     Me.Left = 15500
     Me.Top = 400
     Me.Visible = True

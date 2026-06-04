@@ -213,6 +213,35 @@ REM :NOT_WINDOWS_10
 
 @IF NOT "%WIN10__%"=="YES" GOTO NOT_WINDOWS_10
 @ECHO WINDOWS 10
+
+REM AI ANSWER
+REM ----------------------------------------
+REM HOW DO I RESTORE ADMIN$ C:\Windows - Google Search
+REM ----------------------------------------
+REM https://www.google.com/search?q=HOW+DO+I+RESTORE+ADMIN%24+C%3A%5CWindows&rlz=1C1HKFL_en-GBGB1193GB1193&oq=HOW+DO+I+RESTORE+ADMIN%24+++++++C%3A%5CWindows+&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDYwMTBqMGo3qAIIsAIB8QVAXYlXfmocHw&sourceid=chrome&ie=UTF-8
+REM ----------------------------------------
+Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" /v "AutoShareWks" /t REG_DWORD /d "1" /f
+
+
+REM PAUSE
+REM ----------------------------------------
+REM Can the scroll bar be wider? - Microsoft Q&A
+REM ----------------------------------------
+REM https://learn.microsoft.com/en-us/answers/questions/4434164/can-the-scroll-bar-be-wider
+REM --------------------------------------------------------------------------------
+REM add "HKCU\Control Panel\Desktop\WindowMetrics" /f /v "ScrollWidth" /t REG_SZ /d "-252" /f - Google Search
+REM ----------------------------------------
+REM https://www.google.com/search?q=add+%22HKCU%5CControl+Panel%5CDesktop%5CWindowMetrics%22+%2Ff+%2Fv+%22ScrollWidth%22+%2Ft+REG_SZ+%2Fd+%22-252%22+%2Ff
+REM ----------------------------------------
+REM FOR WINDOWS 10
+REM BUT WINDOWS 11 REQUIRE MORE WIDTH -300 -- SIGN OUT OR REBOOT TO TAKE EFFECT
+REM ----------------------------------------
+Reg.exe add "HKCU\Control Panel\Desktop\WindowMetrics" /f /v "ScrollWidth" /t REG_SZ /d "-252" /f
+Reg.exe add "HKCU\Control Panel\Desktop\WindowMetrics" /f /v "ScrollHeight" /t REG_SZ /d "-252" /f
+
+
+
+
 @REM __ SET THE RIBBON AT TOP OF EXPLORER SHOW HER
 Reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Ribbon" /v "MinimizedStateTabletModeOff" /t REG_DWORD /d "0" /f
 
@@ -226,6 +255,8 @@ REM ---------------------------------------------------------------------
 REM Registry: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
 REM https://renenyffenegger.ch/notes/Windows/registry/tree/HKEY_LOCAL_MACHINE/Software/Microsoft/Windows/CurrentVersion/Policies/System/index
 REM ConsentPromptBehaviorAdmin Setting this value to 0 allows administrators to perform operations that require elevation without the respective annoying popup prompt. EnableLUA Setting EnableLUA to 0 (zero) disables User Account Control (UAC), that is, users are not prompted for a confirmation when a program is about to perform an operation that requires administrator privileges. This key is called EnableLUA because User Access Control was previously called Limited User Account (LUA). The following cmd.exe batch file sets the value to zero and thus diables UAC:
+REM
+REM -- THIS IS THE START OF THE REG_DWORD -- IT DON'T MATTER IF /D VALUE IS ENCLOSED IN "" OR NOT 
 ---------------------------------------------------------------------
 reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /t REG_DWORD /v EnableLUA /d 0 /f
 ---------------------------------------------------------------------
@@ -928,12 +959,12 @@ REM -- THIS LINE DIDN'T FIX IT -- PRESSS THE MORE BUTTON AND RUN HER
 
 @REM __ RESTART COMPUTER REQUIRED FOR THIS ONE
 @REM __ DISABLE UAC USER ACCOUNT CONTROL
-reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /f /v "EnableLUA" /t REG_DWORD /d 0
+reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /f /v "EnableLUA" /t REG_DWORD /d "0"
 
 
 REM PAUSE
 @REM __ ENABLE UAC USER ACCOUNT CONTROL
-REM reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /f /v "EnableLUA" /t REG_DWORD /d 1
+REM reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /f /v "EnableLUA" /t REG_DWORD /d "1"
 
 :JUMP_NOT_HERE
 :JUMP_OVER
@@ -1346,7 +1377,7 @@ Reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /
 @REM IN SECOND
 @REM 60*60 = 3600
 
-reg.exe ADD "HKLM\SYSTEM\ControlSet001\Services\W32Time\TimeProviders\NtpClient" /f /v "SpecialPollInterval" /t REG_DWORD /d 3600
+reg.exe ADD "HKLM\SYSTEM\ControlSet001\Services\W32Time\TimeProviders\NtpClient" /f /v "SpecialPollInterval" /t REG_DWORD /d "3600"
 
 
 @ECHO WINDOWS 10
@@ -1354,11 +1385,11 @@ reg.exe ADD "HKLM\SYSTEM\ControlSet001\Services\W32Time\TimeProviders\NtpClient"
 	@REM ----------------------------------------------------------------
 	@REM -- How to Fix High CPU Usage by RuntimeBroker.exe on Windows 10 - Google Chrome
 	@REM ----------------------------------------------------------------
-	@REM reg.exe ADD "HKLM\SYSTEM\CurrentControlSet\Services\TimeBroker" /f /v "Start" /t REG_DWORD /d 3
+	@REM reg.exe ADD "HKLM\SYSTEM\CurrentControlSet\Services\TimeBroker" /f /v "Start" /t REG_DWORD /d "3"
 
 	@REM -----------------------------------------
 	@REM -- HERE WAS SETTER BUT DON'T WANT ANYMORE
-	@REM reg.exe ADD "HKLM\SYSTEM\CurrentControlSet\Services\TimeBrokerSvc" /f /v "Start" /t REG_DWORD /d 4
+	@REM reg.exe ADD "HKLM\SYSTEM\CurrentControlSet\Services\TimeBrokerSvc" /f /v "Start" /t REG_DWORD /d "4"
 	@REM -----------------------------------------
 
 
@@ -1375,11 +1406,11 @@ reg.exe ADD "HKLM\SYSTEM\ControlSet001\Services\W32Time\TimeProviders\NtpClient"
 :NOT_WINDOWS_10
 
 @REM ----------------------------------------------------------------
-reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OptimalLayout" /f /v "EnableAutoLayout" /t REG_DWORD /d 0
+reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OptimalLayout" /f /v "EnableAutoLayout" /t REG_DWORD /d "0"
 
 reg.exe ADD "HKCU\Control Panel\Desktop\WindowMetrics" /f /v "MinAnimate" /t REG_SZ /d "0"
 
-reg.exe ADD "HKCU\Control Panel\Desktop" /f /v "PaintDesktopVersion" /t REG_DWORD /d 0
+reg.exe ADD "HKCU\Control Panel\Desktop" /f /v "PaintDesktopVersion" /t REG_DWORD /d "0"
 reg.exe ADD "HKCU\Control Panel\Desktop" /f /v "CursorBlinkRate" /t REG_SZ /d "200"
 reg.exe ADD "HKCU\Control Panel\Desktop" /f /v "DragFullWindows" /t REG_SZ /d "1"
 reg.exe ADD "HKCU\Control Panel\Desktop" /f /v "WheelScrollLines" /t REG_SZ /d "5"
@@ -1439,35 +1470,39 @@ reg.exe ADD "HKCU\Control Panel\Desktop\WindowMetrics" /f /v "IconTitleWrap" /t 
 @REM __ Value exists by default?
 @REM __ No, needs to be added.
 @REM ________________________________________________________________
-@REM - SET REG_DWORD /d 0 -- UNDO
+@REM - SET REG_DWORD /d "0" -- UNDO
 @REM ________________________________________________________________
-reg.exe ADD "HKCU\Control Panel\Desktop\WindowMetrics" /f /v "NtfsMftZoneReservation" /t REG_DWORD /d 4
+reg.exe ADD "HKCU\Control Panel\Desktop\WindowMetrics" /f /v "NtfsMftZoneReservation" /t REG_DWORD /d "4"
 
-reg.exe ADD "HKLM\SYSTEM\CurrentControlSet\Control\SessionManager\Executive" /f /v "AdditionalDelayedWorkerThreads" /t REG_DWORD /d 16
+reg.exe ADD "HKLM\SYSTEM\CurrentControlSet\Control\SessionManager\Executive" /f /v "AdditionalDelayedWorkerThreads" /t REG_DWORD /d "16"
 @REM __ DEFAULT 0 __ AdditionalDelayedWorkerThreads        __________________________________
-reg.exe ADD "HKLM\SYSTEM\CurrentControlSet\Control\SessionManager\Executive" /f /v "AdditionalCriticalWorkerThreads" /t REG_DWORD /d 16
+reg.exe ADD "HKLM\SYSTEM\CurrentControlSet\Control\SessionManager\Executive" /f /v "AdditionalCriticalWorkerThreads" /t REG_DWORD /d "16"
 @REM __ DEFAULT 0 __ AdditionalCriticalWorkerThreads       __________________________________
-reg.exe ADD "HKCU\Control Panel\Desktop\WindowMetrics" /f /v "NtfsMftZoneReservation" /t REG_DWORD /d 4
-reg.exe ADD "HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" /f /v "MaxWorkItems" /t REG_DWORD /d 8192
+reg.exe ADD "HKCU\Control Panel\Desktop\WindowMetrics" /f /v "NtfsMftZoneReservation" /t REG_DWORD /d "4"
+reg.exe ADD "HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" /f /v "MaxWorkItems" /t REG_DWORD /d "8192"
 @REM __ DEFAULT Configured dynamically __ MaxWorkItems    __________________________________
-reg.exe ADD "HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" /f /v "MaxMpxCt" /t REG_DWORD /d 2048
+reg.exe ADD "HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" /f /v "MaxMpxCt" /t REG_DWORD /d "2048"
 @REM __ DEFAULT 50 __ MaxMpxCt                            __________________________________
-reg.exe ADD "HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters" /f /v "MaxCmds" /t REG_DWORD /d 2048
+reg.exe ADD "HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters" /f /v "MaxCmds" /t REG_DWORD /d "2048"
 @REM __ DEFAULT 50 __ MaxCmds                             __________________________________
-reg.exe ADD "HKLM\System\CurrentControlSet\Control\Session Manager\MemoryManagement" /f /v "LargeSystemCache" /t REG_DWORD /d 0
-reg.exe ADD "HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters" /f /v "Size" /t REG_DWORD /d 3
-reg.exe ADD "HKLM\SYSTEM\CurrentControlSet\Control\FileSystem" /f /v "DontVerifyRandomDrivers" /t REG_DWORD /d 1
+reg.exe ADD "HKLM\System\CurrentControlSet\Control\Session Manager\MemoryManagement" /f /v "LargeSystemCache" /t REG_DWORD /d "0"
+reg.exe ADD "HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters" /f /v "Size" /t REG_DWORD /d "3"
+reg.exe ADD "HKLM\SYSTEM\CurrentControlSet\Control\FileSystem" /f /v "DontVerifyRandomDrivers" /t REG_DWORD /d "1"
 @REM __ DEFAULT 0 ___ DontVerifyRandomDrivers             __________________________________
 @REM __ ------------------------------------------------------------------------------
-@REM NERO TUNEITUP RECOMENDER SETTING
-Reg.exe add "HKLM\SYSTEM\ControlSet001\Services\LanmanServer\Parameters" /v "AutoShareWks" /t REG_DWORD /d "0" /f
-@REM OTHER SETTING FROM THE LAN NETWORK BY NERO_TUNEITUP
+@REM -- NERO TUNEITUP RECOMENDER SETTING -- FALSE NEWS RECOMMENDER TO SET TO D_WORD VALUE 1 -- AS SET ABOVE NOW
+REM Reg.exe add "HKLM\SYSTEM\ControlSet001\Services\LanmanServer\Parameters" /v "AutoShareWks" /t REG_DWORD /d "0" /f
+
+@REM -- OTHER SETTING FROM THE LAN NETWORK BY NERO_TUNEITUP
 Reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "NoNetCrawling" /t REG_DWORD /d "1" /f
-Reg.exe add "HKLM\SYSTEM\ControlSet001\Services\Tcpip\Parameters" /v "EnablePMTUBHDetect" /t REG_DWORD /d "1" /f
-Reg.exe add "HKLM\SYSTEM\ControlSet001\Services\Tcpip\Parameters" /v "EnablePMTUDiscovery" /t REG_DWORD /d "1" /f
-Reg.exe add "HKLM\SYSTEM\ControlSet001\Services\Tcpip\Parameters" /v "DefaultTTL" /t REG_DWORD /d "128" /f
-Reg.exe add "HKLM\SYSTEM\ControlSet001\Services\Dnscache\Parameters" /v "MaxNegativeCacheTtl" /t REG_DWORD /d "0" /f
-Reg.exe add "HKLM\SYSTEM\ControlSet001\Services\Dnscache\Parameters" /v "NetFailureCacheTime" /t REG_DWORD /d "0" /f
+
+REM -- REMMER OUT THIS BLOCK DON'T WANT NERO TUNEITUP
+REM Reg.exe add "HKLM\SYSTEM\ControlSet001\Services\Tcpip\Parameters" /v "EnablePMTUBHDetect" /t REG_DWORD /d "1" /f
+REM Reg.exe add "HKLM\SYSTEM\ControlSet001\Services\Tcpip\Parameters" /v "EnablePMTUDiscovery" /t REG_DWORD /d "1" /f
+REM Reg.exe add "HKLM\SYSTEM\ControlSet001\Services\Tcpip\Parameters" /v "DefaultTTL" /t REG_DWORD /d "128" /f
+REM Reg.exe add "HKLM\SYSTEM\ControlSet001\Services\Dnscache\Parameters" /v "MaxNegativeCacheTtl" /t REG_DWORD /d "0" /f
+REM Reg.exe add "HKLM\SYSTEM\ControlSet001\Services\Dnscache\Parameters" /v "NetFailureCacheTime" /t REG_DWORD /d "0" /f
+
 Reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Psched" /v "NonBestEffortLimit" /t REG_DWORD /d "0" /f
 
 @REM INTERNET EXPLORER NETWORK SETTING NERO_TUNEITUP WANT CHANGING ARE A FEW ABOUT 4 TO THE IDEAL
@@ -1523,7 +1558,7 @@ Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v "Aut
 @REM __ https://msdn.microsoft.com/en-us/library/ee377084(v=bts.10).aspx
 @REM __ ----
 netsh int ipv4 set dynamicport tcp start=1025 num=64511  
-reg.exe ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" /f /v "TcpTimedWaitDelay" /t REG_DWORD /d 30
+reg.exe ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" /f /v "TcpTimedWaitDelay" /t REG_DWORD /d "30"
 @REM __ DEFAULT 120 __ TcpTimedWaitDelay                  __________________________________
 
 :NOT_WHEN_WIN_07
@@ -1558,16 +1593,16 @@ GOTO TEXT_JUMP_@REMMER_01
 
 
 
-@REM __ reg.exe ADD "" /f /v "" /t REG_DWORD /d 1
-@REM __ reg.exe ADD "" /f /v "" /t REG_DWORD /d 1
-@REM __ reg.exe ADD "" /f /v "" /t REG_DWORD /d 1
-@REM __ reg.exe ADD "" /f /v "" /t REG_DWORD /d 1
+@REM __ reg.exe ADD "" /f /v "" /t REG_DWORD /d "1"
+@REM __ reg.exe ADD "" /f /v "" /t REG_DWORD /d "1"
+@REM __ reg.exe ADD "" /f /v "" /t REG_DWORD /d "1"
+@REM __ reg.exe ADD "" /f /v "" /t REG_DWORD /d "1"
 
 
 
 
 reg.exe ADD "HKCU\Control Panel\Desktop\Sound" /f /v "Beep" /t REG_SZ /d "4" 
-reg.exe ADD "HKCU\Control Panel\Desktop" /f /v "PaintDesktopVersion" /t REG_DWORD /d 0
+reg.exe ADD "HKCU\Control Panel\Desktop" /f /v "PaintDesktopVersion" /t REG_DWORD /d "0"
 
 @REM ------------------------------------
 @REM -- JUMP TO REGISTRY KEY CHANGE SETTING BRING BACK HERE
@@ -1598,7 +1633,7 @@ reg.exe ADD "HKCU\Control Panel\Desktop" /f /v "MenuShowDelay" /t REG_SZ /d "100
 reg.exe ADD "HKCU\Control Panel\Desktop" /f /v "DragFullWindows" /t REG_SZ /d "1"
 reg.exe ADD "HKCU\Control Panel\Desktop" /f /v "CursorBlinkRate" /t REG_SZ /d "10"
 
-reg.exe ADD "HKCU\Control Panel\Desktop" /f /v "CaretWidth" /t REG_DWORD /d 3
+reg.exe ADD "HKCU\Control Panel\Desktop" /f /v "CaretWidth" /t REG_DWORD /d "3"
 @REM  __ REG_DWORD NOT AS MISTAKER REG_SZ 
 
 @REM -------------------------------------------------
@@ -1664,8 +1699,8 @@ reg.exe ADD "HKCU\Control Panel\Accessibility\ShowSounds" /f /v "On" /t REG_SZ /
 	@ECHO WINDOWS 10
 
 	@ECHO ____ WINDOW 10
-	@REM reg.exe ADD "HKCU\Control Panel\Personalization\Desktop Slideshow" /f /v "Interval" /t REG_DWORD /d 10000
-	@REM reg.exe ADD "HKCU\Control Panel\Personalization\Desktop Slideshow" /f /v "Shuffle" /t REG_DWORD /d 0
+	@REM reg.exe ADD "HKCU\Control Panel\Personalization\Desktop Slideshow" /f /v "Interval" /t REG_DWORD /d "10000"
+	@REM reg.exe ADD "HKCU\Control Panel\Personalization\Desktop Slideshow" /f /v "Shuffle" /t REG_DWORD /d "0"
 	@REM reg.exe ADD "HKCU\Control Panel\PowerCfg" /f /v "CurrentPowerPolicy" /t REG_SZ /d "0"
 	@REM -- WIN 10 -- DEFAULT Wallpaper
 	@REM __ NOT SURE @IF CHANGE
@@ -1677,7 +1712,7 @@ reg.exe ADD "HKCU\Control Panel\Accessibility\ShowSounds" /f /v "On" /t REG_SZ /
 @REM ----------------------------------------------------------------
 @IF NOT "%WINXP__%"=="YES" GOTO NOT_WINDOWS_XP
 	ECHO WINDOWS XP
-	@REM reg.exe ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellImageView" /f /v "Timeout" /t REG_DWORD /d 1
+	@REM reg.exe ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellImageView" /f /v "Timeout" /t REG_DWORD /d "1"
 :NOT_WINDOWS_XP
 @REM ----------------------------------------------------------------
 
@@ -1711,24 +1746,24 @@ reg.exe ADD "HKCU\Control Panel\Accessibility\ShowSounds" /f /v "On" /t REG_SZ /
 @REM __ THE CURSOR SIZE OF DOS CMD COMMAND WINDOW DIFFERENT TO SYSTEM GUI ONE
 @REM __ ---------------------------------------------------------------------
 @REM -- MEDIUM CURSOR SIZE __ MAX 50 MAYBE TRUE FOR SYSTEM GUI ONE
-@REM reg.exe ADD "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /f /v "CursorSize" /t REG_DWORD /d 50
-reg.exe ADD "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /f /v "HistoryBufferSize" /t REG_DWORD /d 90
-reg.exe ADD "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /f /v "InsertMode" /t REG_DWORD /d 1
-reg.exe ADD "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /f /v "NumberOfHistoryBuffers" /t REG_DWORD /d 4
+@REM reg.exe ADD "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /f /v "CursorSize" /t REG_DWORD /d "50"
+reg.exe ADD "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /f /v "HistoryBufferSize" /t REG_DWORD /d "90"
+reg.exe ADD "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /f /v "InsertMode" /t REG_DWORD /d "1"
+reg.exe ADD "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /f /v "NumberOfHistoryBuffers" /t REG_DWORD /d "4"
 
 @REM __ :: 655294544 equals 9999 lines in the GUI
-reg.exe add "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /v ScreenBufferSize /t REG_DWORD /d 655294544 /f
+reg.exe add "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /v ScreenBufferSize /t REG_DWORD /d "655294544" /f
 
 @REM __ :: We also need to change the Window Height, 3276880 = 50 lines
 @REM __ reg.exe add "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /v WindowSize /t REG_DWORD /d 3276880 /f
 @REM __ @IF YOU HAVE DEFAULT 25 LINES WONT BE A REGISTRY KEY GET DELETED
 
 @REM reg.exe ADD "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /f /v "FaceName" /t REG_SZ /d "Lucida Console"
-@REM reg.exe ADD "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /f /v "FontFamily" /t REG_DWORD /d 54
-@REM reg.exe ADD "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /f /v "FontSize" /t REG_DWORD /d 1048576
-@REM reg.exe ADD "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /f /v "FontWeight" /t REG_DWORD /d 700
-reg.exe ADD "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /f /v "HistoryNoDup" /t REG_DWORD /d 0
-reg.exe ADD "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /f /v "QuickEdit" /t REG_DWORD /d 2048
+@REM reg.exe ADD "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /f /v "FontFamily" /t REG_DWORD /d "54"
+@REM reg.exe ADD "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /f /v "FontSize" /t REG_DWORD /d "1048576"
+@REM reg.exe ADD "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /f /v "FontWeight" /t REG_DWORD /d "700"
+reg.exe ADD "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /f /v "HistoryNoDup" /t REG_DWORD /d "0"
+reg.exe ADD "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /f /v "QuickEdit" /t REG_DWORD /d "2048"
 
 
 @REM -- WELL BEEN SETTING ALL THESE TODAY 11-12-2015 FOUND NEW ICON WITH REGMON TO JUMP TO REGISTRY
@@ -1747,9 +1782,9 @@ reg.exe ADD "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /f /v "QuickEdit" /t 
 	@REM -- NOT SURE
 	@REM -- SEEMS TO BE A FAULT WITH ANOTHER ALMOST SAME SETTING HERE -- BagMRU Size
 	@REM -- HEX 1F4 = 500
-	@REM -- reg.exe ADD "HKCU\SOFTWARE\Microsoft\Windows\ShellNoRoam" /f /v "Bag MRU Size" /t REG_DWORD /d 500
+	@REM -- reg.exe ADD "HKCU\SOFTWARE\Microsoft\Windows\ShellNoRoam" /f /v "Bag MRU Size" /t REG_DWORD /d "500"
 	@REM -- SEEMS TO BE A FAULT WITH ANOTHER ALMOST SAME SETTING HERE -- BagMRU Size
-	@REM -- reg.exe ADD "HKCU\SOFTWARE\Microsoft\Windows\Shell" /f /v "Bag MRU Size" /t REG_DWORD /d 500
+	@REM -- reg.exe ADD "HKCU\SOFTWARE\Microsoft\Windows\Shell" /f /v "Bag MRU Size" /t REG_DWORD /d "500"
 :NOT_WINDOWS_XP
 
 @IF NOT "%WINXP__%"=="YES" GOTO NOT_WINDOWS_XP
@@ -1761,13 +1796,13 @@ reg.exe ADD "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /f /v "QuickEdit" /t 
 	@ECHO WINDOWS XP
 
 	@REM -- -------------------------------
-	reg.exe ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /f /v "ThumbnailQuality" /t REG_DWORD /d 95
-	reg.exe ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /f /v "ThumbnailSize" /t REG_DWORD /d 100
+	reg.exe ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /f /v "ThumbnailQuality" /t REG_DWORD /d "95"
+	reg.exe ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /f /v "ThumbnailSize" /t REG_DWORD /d "100"
 	@REM -- EXPLORER CUSTOMIZE
 	@REM -- SLIDE SHOW DELAY
 	@REM -- ------------------
 	@REM -- NOT WIN_10 IS CORRECT VERIFY
-	reg.exe ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellImageView" /f /v "Timeout" /t REG_DWORD /d 1
+	reg.exe ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellImageView" /f /v "Timeout" /t REG_DWORD /d "1"
 	@ECHO.
 :NOT_WINDOWS_XP
 
@@ -1806,21 +1841,23 @@ reg.exe ADD "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /f /v "QuickEdit" /t 
 @REM ----------------------------------------------------------------
 @REM -- WINDOWS UPDATE TO NOT RUN AUTO BUT RUN MANUAL WHEN WANT WORKING NOT DO STOP SERVICE
 @REM ----------------------------------------------------------------
-@REM IF "%VARLATCH2%" == "WIN10" reg.exe ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /f /v "AU" /t REG_DWORD /d 1
+@REM IF "%VARLATCH2%" == "WIN10" reg.exe ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /f /v "AU" /t REG_DWORD /d "1"
 @REM ----------------------------------------------------------------
 
 @REM Turn off the Error Dialog Via the Registry
 @REM --------------------------------
-IF "%VARLATCH2%" == "WIN10" reg.exe ADD "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /f /v "DontShowUI" /t REG_DWORD /d 1
+IF "%VARLATCH2%" == "WIN10" reg.exe ADD "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /f /v "DontShowUI" /t REG_DWORD /d "1"
 @REM --------------------------------
 
 REM REG ADD "HKCR\exefile\shell\Run with Above Normal Priority" /ve /f
 REM REG ADD "HKCR\exefile\shell\Run with Above Normal Priority\Command" /ve /t REG_SZ /d "cmd.exe /c start \"Run with Above Normal Priority\" /AboveNormal \"%%1\"" /f
 
 REM --
-REM GOT TO HAVE THIS RUNNING AS DEPENDENCY  
-REM REMOTE HAVE DEPENDENCY ON IT OR NOT HAVE ANY HOMEGROUP OUTSIDE WORLD
+REM -- GOT TO HAVE THIS RUNNING AS DEPENDENCY  
+REM -- REMOTE HAVE DEPENDENCY ON IT OR NOT HAVE ANY HOMEGROUP OUTSIDE WORLD
 REM --------------------------------------------------------------------
+REM -- DON'T USE HOME GROUP ANYMORE -- IF SET GOT TO UNSELECTED SCAN OF ALL DRIVE
+REM -- BAD NEWS NETWORK DON'T RUN GOOD WITH HERE DISABLED
 ECHO OFF
 IF %VARLATCH2% == WIN10 (
 	ECHO WIN 10 _ WIN SEARCH STARTER
@@ -1986,8 +2023,8 @@ reg QUERY hkcr\typelib\{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}\2.0
 @REM ----------------------------------------------------------------
 @REM -- PREVIOUS VERSION MICROSOFT KEYBOARD NOT GOODER
 @REM ----------------------------------------------------------------
-@REM reg.exe ADD "HKCU\SOFTWARE\Microsoft\IntelliPoint\Scrolling" /f /v "ScrollLines" /t REG_DWORD /d 5
-@REM reg.exe ADD "HKCU\SOFTWARE\Microsoft\IntelliPoint\Scrolling" /f /v "AccelerationCurve" /t REG_DWORD /d 5
+@REM reg.exe ADD "HKCU\SOFTWARE\Microsoft\IntelliPoint\Scrolling" /f /v "ScrollLines" /t REG_DWORD /d "5"
+@REM reg.exe ADD "HKCU\SOFTWARE\Microsoft\IntelliPoint\Scrolling" /f /v "AccelerationCurve" /t REG_DWORD /d "5"
 @REM ----------------------------------------------------------------
 
 :JUMPER_ENDER

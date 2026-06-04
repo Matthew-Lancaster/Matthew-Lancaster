@@ -168,7 +168,6 @@ Begin VB.Form FRM_ClipTest
       _ExtentY        =   5779
       _Version        =   393217
       BorderStyle     =   0
-      Enabled         =   -1  'True
       ScrollBars      =   3
       Appearance      =   0
       TextRTF         =   $"frmClipTest.frx":1272
@@ -183,7 +182,6 @@ Begin VB.Form FRM_ClipTest
       _ExtentY        =   5779
       _Version        =   393217
       BorderStyle     =   0
-      Enabled         =   -1  'True
       ScrollBars      =   3
       Appearance      =   0
       TextRTF         =   $"frmClipTest.frx":12F4
@@ -198,7 +196,6 @@ Begin VB.Form FRM_ClipTest
       _ExtentX        =   2180
       _ExtentY        =   445
       _Version        =   393217
-      Enabled         =   -1  'True
       TextRTF         =   $"frmClipTest.frx":1376
    End
    Begin VB.Timer Timer_Test_Logic 
@@ -1892,7 +1889,7 @@ Sub GO_VIRTUAL_GIRL()
     
     Me.WindowState = vbMaximized
 
-    With LISTVIEW1
+    With ListView1
         .ColumnHeaders.Add , "PID", "PID", 700 - 50, lvwColumnLeft
         .ColumnHeaders.Add , "EXE", "EXE", 9000, lvwColumnLeft
         .View = lvwReport
@@ -2126,7 +2123,7 @@ Sub GO_VIRTUAL_GIRL()
                 INX = Mid(File1.List(RL), 1, 4)
                 FF2 = Mid(File1.List(RL), 7)
             End If
-            With LISTVIEW1
+            With ListView1
                 Set LV1 = .ListItems.Add(, , INX)
                 LV1.SubItems(1) = FF2
                 '------------------------
@@ -2152,9 +2149,9 @@ Sub GO_VIRTUAL_GIRL()
             
         Next
 
-        LISTVIEW1.SortOrder = lvwAscending
-        LISTVIEW1.SortKey = 1
-        LISTVIEW1.Sorted = True
+        ListView1.SortOrder = lvwAscending
+        ListView1.SortKey = 1
+        ListView1.Sorted = True
     Next
 End
     
@@ -2351,7 +2348,7 @@ Private Sub Form_Load()
     ' -------------------------------------------
     COMMAND_STRING = Command$
     
-'    COMMAND_STRING = """C:\SCRIPTER\NOTEPAD TALK\ZZ TEXT 2018-08-15 __ EMMA D & B _ AOT.txt"" ""\\4-ASUS-GL522VW\4_ASUS_GL522VW_01_C_DRIVE\SCRIPTER\NOTEPAD TALK\ZZ TEXT 2018-08-15 __ EMMA D & B _ AOT.txt"""
+'    COMMAND_STRING = """C:\SCRIPTER\NOTEPAD TALK\ZZ TEXT 2018-08-15 __ EMMA D & B _ AOT.txt"" ""\\4-ASUS-GL522VW\4_Asus_Gl522Vw_C_Drive\SCRIPTER\NOTEPAD TALK\ZZ TEXT 2018-08-15 __ EMMA D & B _ AOT.txt"""
 
     ' --------------------------------------
     ' TEST DEBUGGER
@@ -3054,14 +3051,20 @@ For Each Form In Forms
 Next Form
 
 
-If AT_END_EXIT_CLOSE = True Then Me.EXIT_TRUE = True
+If AT_END_EXIT_CLOSE = True Then
+    Me.EXIT_TRUE = True
+End If
 ' CHECK RIPER DON'T WANT TO EXIT
 ' ------------------------------
 If AT_END_EXIT_CLOSE = False Then
 If IsIDE = False Then
     If Me.WindowState <> vbMinimized And Me.EXIT_TRUE = False Then
         Me.WindowState = vbMinimized
-        End
+        ' --------------------------
+        ' ONLY USE END TO DEBUGGER
+        ' --------------------------
+'        End
+        ' --------------------------
         Cancel = True
         Exit Sub
     End If
@@ -3083,20 +3086,49 @@ On Error Resume Next
 On Error GoTo 0
 
 If AT_END_EXIT_CLOSE = True Then Me.EXIT_TRUE = True
-If Me.EXIT_TRUE = True Then Cancel = False
+If Me.EXIT_TRUE = True Then
+    Cancel = False
+End If
 
 ' DELETE THE TEMP FILE FOR MULTI COMPARE IS ONLY 1 INSTANCE
 ' ---------------------------------------------------------
 Call Label_FindWindowPart_VB_CLIPVIEWER_AUTO_COMP_2
 
-For Each Form In Forms
-    Unload Form
-    Set Form = Nothing
-Next Form
+
+If Me.EXIT_TRUE = True Then
+    For Each Form In Forms
+        Unload Form
+        Set Form = Nothing
+    Next Form
+End If
+
+If Me.WindowState = vbMinimized And Me.EXIT_TRUE = False Then
+    Me.EXIT_TRUE = True
+    DoEvents
+    For Each Form In Forms
+        Form.EXIT_TRUE = True ' ---- THAT THE WAS CURE -- 2026 MAY 30
+        Unload Form
+        Set Form = Nothing
+        DoEvents
+    Next Form
+    
+    Cancel = False
+    Exit Sub
+    ' NEED DEBUGGER NOT ALL FORMS ARE UNLOADING
+    ' ENDER
+    ' END
+End If
+
+If Me.EXIT_TRUE = False Then
+    Me.WindowState = vbMinimized
+    Cancel = True
+End If
 
 
 
-End
+
+
+'End
 
 
 End Sub
@@ -3387,9 +3419,9 @@ End Sub
 
 Private Sub MNU_GOODSYN_CCONVERT_SMBD_PATH_TO_DOS_Click()
 
-' smbd://4-ASUS-GL522VW/4_ASUS_GL522VW_40_4_SAMSUNG_5TB/DSC_4G_1TB/2015+SONY_MP4/2020 CyberShot HX60V __ MP4smbd://4-ASUS-GL522VW/4_ASUS_GL522VW_40_4_SAMSUNG_5TB/DSC_4G_1TB/2015+SONY_MP4/2020 CyberShot HX60V __ MP4smbd://4-ASUS-GL522VW/4_ASUS_GL522VW_40_4_SAMSUNG_5TB/DSC_4G_1TB/2015+SONY_MP4/2020 CyberShot HX60V __ MP4smbd://4-ASUS-GL522VW/4_ASUS_GL522VW_40_4_SAMSUNG_5TB/DSC_4G_1TB/2015+SONY_MP4/2020 CyberShot HX60V __ MP4
+' smbd://4-ASUS-GL522VW/4_Asus_Gl522Vw_U_Samsung_5TB/DSC_4G_1TB/2015+SONY_MP4/2020 CyberShot HX60V __ MP4smbd://4-ASUS-GL522VW/4_Asus_Gl522Vw_U_Samsung_5TB/DSC_4G_1TB/2015+SONY_MP4/2020 CyberShot HX60V __ MP4smbd://4-ASUS-GL522VW/4_Asus_Gl522Vw_U_Samsung_5TB/DSC_4G_1TB/2015+SONY_MP4/2020 CyberShot HX60V __ MP4smbd://4-ASUS-GL522VW/4_Asus_Gl522Vw_U_Samsung_5TB/DSC_4G_1TB/2015+SONY_MP4/2020 CyberShot HX60V __ MP4
 ' TO EXAMPLE
-' \\4-asus-gl522vw\4_asus_gl522vw_02_d_drive
+' \\4-asus-gl522vw\4_Asus_Gl522Vw_D_Drive
 On Error Resume Next
 
 Dim VAT_ST_7
@@ -4682,7 +4714,7 @@ End Sub
 
 Private Sub MNU_RS232_LOGGER_OPEN_Click()
     PATH_2 = "VB6\VB-NT\00_Best_VB_01\Tidal_Info"
-    NET_PATH = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_01_C_DRIVE"
+    NET_PATH = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_C_Drive"
     If GetComputerName = "4-ASUS-GL522VW" Then
         NET_PATH = "C:"
     End If
@@ -4715,7 +4747,7 @@ End Sub
 
 Private Sub MNU_RS232_LOGGER_CLOSE_Click()
     PATH_2 = "VB6\VB-NT\00_Best_VB_01\Tidal_Info"
-    NET_PATH = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_01_C_DRIVE"
+    NET_PATH = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_C_Drive"
     If GetComputerName = "4-ASUS-GL522VW" Then
         NET_PATH = "C:"
     End If

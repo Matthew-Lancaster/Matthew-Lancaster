@@ -1,19 +1,7 @@
-
-
-
-
-
-
-
-
-
-
-
-
 ;  =============================================================
-;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 88-PROCESS PRIORITY CLASS.ahk
 ;# __ 
-;# __ Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
+;# __ Autokey -- 88-PROCESS PRIORITY CLASS.ahk
 ;# __ 
 ;# BY Matthew __ Matt.Lan@Btinternet.com __ 
 ;# __ 
@@ -27,7 +15,7 @@
 ;---------------------------------------------------------------------
 ; ----
 ; Matthew-Lancaster/Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
-; https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOHOTKEY/Autokey%20--%2019-SCRIPT_TIMER_UTIL_2.ahk
+; 
 ; ----
 ; -------------------------------------------------------------------
 

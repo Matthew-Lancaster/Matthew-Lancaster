@@ -1,5 +1,10 @@
 Option Explicit
 
+' CHECK IF ANY WSCRIPT ALREADY RUNNER AND QUIT OTHER ONE IF IS WORKER
+' -------------------------------------------------------------------
+CALL ROUTINE_DELETE_WSCRIPT_FINDER_RUN
+
+
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
 
 DIM FILE_NAME , PARAM
@@ -90,6 +95,9 @@ STRPATH="U:\VI_ DSC 01 V0 02 V1_V2_MORPHIONAN"
 STRPATH="U:\VI_ DSC 01 V0 02 V2_I2_MORPHIOUS"
 STRPATH="U:\DSC_4G_1TB"
 STRPATH="C:\SCRIPTOR GITHUB"
+STRPATH="D:\VB6\VB-NT\00_BEST_VB_01\Tidal_Info\00_Text_Data"
+STRPATH="D:\VB6\VB-NT\00_BEST_VB_01\Tidal_Info"
+STRPATH="H:\DCIM"
 ' STRPATH=""
 ' STRPATH=""
 ' STRPATH=""
@@ -100,8 +108,7 @@ STRPATH="C:\SCRIPTOR GITHUB"
 ' STRPATH=""
 ' STRPATH=""
 ' STRPATH=""
-' STRPATH=""
-' STRPATH=""
+
 
 Dim objFolder
 DIM objFolderERR
@@ -114,7 +121,26 @@ IF LEN(STRPATH) = 2 AND MID(STRPATH,2,1) = ":" THEN STRPATH = STRPATH + "\"
 
 IF FSO.FOLDEREXISTS(STRPATH) = TRUE THEN 
 		Set objFolder = FSO.GetFolder(STRPATH)
-		WScript.Echo STRPATH & VBCRLF & "TO GO _ KILL PROCESS IF NOT SURE ____"
+		DIM STRING_MSGBOX
+		DIM RESULT 
+		
+		STRING_MSGBOX=  "DELETE EMPTY -- HERE" & VBCRLF & VBCRLF & STRPATH & VBCRLF & VBCRLF & "GO AHEAD" & VBCRLF &  "YES NO STOP" & VBCRLF & VBCRLF &  "20 SECOND MESSENGER" & VBCRLF & "DEFAULT NO"
+		
+		' GOOGLE AI ANSWER
+		' ----------------------------------------
+		' WSHShell.Popup - Google Search
+		' ----------------------------------------
+		' https://www.google.com/search?q=WSHShell.Popup
+		' ----------------------------------------
+		
+		RESULT = WSHShell.Popup(STRING_MSGBOX, 20,Wscript.ScriptName, 3 + 16 + 4096) ' 3 = vbYESNOCANCLE
+		
+		IF RESULT<>6 THEN RESULT=VBNO  ' 6 = VBYES
+		
+		IF RESULT=VBNO THEN 
+			WScript.Quit(0)
+		END IF
+
 		DeleteEmptyFolders objFolder
 		EXECUTE_LANUCHED = TRUE
 	ELSE
@@ -189,6 +215,108 @@ END IF
 '	IF FSO.FOLDEREXISTS(folder.Path) = TRUE THEN
 '		IF FSO.ISFOLDER(folder.Path) = TRUE THEN
 '			IF FSO.ISFILE(folder.Path) = FALSE THEN
+
+
+WScript.Quit(0)
+
+
+SUB ROUTINE_DELETE_WSCRIPT_FINDER_RUN
+' -------------------------------------------------------------------
+' 01 OF 02 
+' SOME CONFLICT DISAGREE-ER IN CODE STYLE 
+' SOME PEOPLE TALK THIS HAS ERROR 
+' THIS ONE IS CORRECT 
+' THIS WAS CORRECT 
+' THING ARE EXPLAIN HERE
+' MSHTA.EXE DELETE ITSELF TOO QUICK FOR RESULT FIND
+' NOW WITH BEST EXAMPLE ALSO FIND HIDDEN PROCESS TOP SPEED
+' -------------------------------------------------------------------
+' PID - FIND MY OWN PROCESS ID IN VBSCRIPT - STACK OVERFLOW 
+' https://stackoverflow.com/questions/8296037/find-my-own-process-id-in-vbscript
+' -------------------------------------------------------------------
+On Error Resume Next
+Dim iMyPID
+' -------------------
+' OLD WAY AND NEW WAY
+' -------------------
+' iMyPID = GetObject("winmgmts:root\cimv2").Get("Win32_Process.Handle='" & CreateObject("WScript.Shell").Exec("mshta.exe").ProcessID & "'").ParentProcessId
+' -------------------
+iMyPID=ThisProcessId
+On Error Goto 0
+ 
+' -------------------------------------------------------------------
+' GOOD CODE TO PASTE ON VB6
+' -------------------------------------------------------------------
+DIM WSHSHELL
+SET WSHSHELL = CreateObject("WScript.Shell")
+DIM objWMIService
+DIM colProcesses
+DIM i1
+DIM i2
+DIM objProcess
+DIM strScriptName
+DIM PID_Script
+
+Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
+' -------------------------------------------------------------------
+i1 = 0 ' ANY PROGRAM WSCRIPT 
+i2 = 0 ' MY  PROGRAM WSCRIPT 
+FOR EACH objProcess IN colProcesses
+    IF NOT (IsNull(objProcess.CommandLine )) THEN
+		strScriptName = Trim(Right(objProcess.CommandLine,Len(objProcess.CommandLine) - InstrRev(objProcess.CommandLine,"\")))
+        strScriptName = Left(strScriptName, Len(strScriptName) - 1)
+		PID_Script = objProcess.ProcessID
+		
+		IF strScriptName = Wscript.ScriptName THEN
+			i2=i2+1
+		END IF
+		IF strScriptName <> Wscript.ScriptName THEN
+			i1=i1+1
+		END IF
+		
+		IF i1 > 0 THEN ' ANY PROGRAM WSCRIPT 
+			' Wscript.Quit
+		END IF
+		
+		IF iMyPID<>PID_Script THEN 
+			' MSGBOX iMyPID & VBCR & PID_Script
+			objProcess.Terminate() 
+			' WSHSHELL.Run "TASKKILL /F /IM """+CSTR(PID_Script)+"""", DONTShowWindow, WaitUntilFinished
+		END IF
+    END IF
+NEXT
+' -------------------------------------------------------------------
+END SUB
+' -------------------------------------------------------------------
+' THING ARE EXPLAIN HERE
+' MSHTA.EXE DELETE ITSELF TOO QUICK FOR RESULT FIND
+' NOW WITH BEST EXAMPLE ALSO FIND HIDDEN PROCESS TOP SPEED
+' -------------------------------------------------------------------
+' PID - FIND MY OWN PROCESS ID IN VBSCRIPT - STACK OVERFLOW 
+' https://stackoverflow.com/questions/8296037/find-my-own-process-id-in-vbscript
+' -------------------------------------------------------------------
+' I like Kul-Tigin's idea (+1), and Asok Smith's idea (based on .Exec) deserve respect (+1), 
+' and it w'd been even better if .Exec run hidden process. So, to feed my curiosity, 
+' I also toyed with this and this's what I did.
+' -------------------------------------------------------------------
+Function ThisProcessId
+    ThisProcessId = 0
+    Dim sTFile, oPrc
+    With CreateObject("Scripting.FileSystemObject")
+        sTFile = .BuildPath(.GetSpecialFolder(2), "sleep.vbs")
+        With .OpenTextFile(sTFile, 2, True)
+            .Write "WScript.Sleep 1000"
+        End With
+    End With
+    With CreateObject("WScript.Shell").Exec("WScript " & sTFile)
+        For Each oPrc In GetObject("winmgmts:\\.\root\cimv2").ExecQuery(_
+        "Select * From Win32_Process Where ProcessId=" & .ProcessID)
+        Exit For : Next
+        ThisProcessId = oPrc.ParentProcessId
+    End With
+End Function
+
 
 
 ' ---------------------

@@ -1,21 +1,21 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
-Object = "{C1A8AF28-1257-101B-8FB0-0020AF039CA3}#1.1#0"; "mci32.Ocx"
-Object = "{3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0"; "richtx32.Ocx"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
+Object = "{C1A8AF28-1257-101B-8FB0-0020AF039CA3}#1.1#0"; "MCI32.OCX"
+Object = "{3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0"; "RICHTX32.OCX"
 Begin VB.Form CID_Run_Me 
    AutoRedraw      =   -1  'True
    BackColor       =   &H00808080&
    BorderStyle     =   1  'Fixed Single
    Caption         =   "CID Run Me"
-   ClientHeight    =   10716
+   ClientHeight    =   10725
    ClientLeft      =   21540
-   ClientTop       =   16956
-   ClientWidth     =   13512
+   ClientTop       =   16950
+   ClientWidth     =   13515
    Icon            =   "frmCentral.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
-   ScaleHeight     =   10716
-   ScaleWidth      =   13512
+   ScaleHeight     =   10725
+   ScaleWidth      =   13515
    WindowState     =   1  'Minimized
    Begin MSComctlLib.ProgressBar ProgressBar1 
       Height          =   240
@@ -23,7 +23,7 @@ Begin VB.Form CID_Run_Me
       TabIndex        =   71
       Top             =   0
       Width           =   4512
-      _ExtentX        =   7959
+      _ExtentX        =   7964
       _ExtentY        =   423
       _Version        =   393216
       Appearance      =   0
@@ -75,7 +75,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "Stop in 3 Hour"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   9.6
+         Size            =   9.75
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -118,7 +118,7 @@ Begin VB.Form CID_Run_Me
    End
    Begin VB.ListBox Lst1 
       Enabled         =   0   'False
-      Height          =   240
+      Height          =   255
       Left            =   6960
       TabIndex        =   39
       Top             =   3204
@@ -154,7 +154,7 @@ Begin VB.Form CID_Run_Me
    End
    Begin VB.ListBox List4 
       Enabled         =   0   'False
-      Height          =   432
+      Height          =   255
       Left            =   7560
       TabIndex        =   37
       Top             =   4668
@@ -170,7 +170,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "Stop on Folder"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   9.6
+         Size            =   9.75
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -194,7 +194,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "Stop in 1 Hour"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   9.6
+         Size            =   9.75
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -213,7 +213,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "Stop in 10 Sec"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   9.6
+         Size            =   9.75
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -289,7 +289,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "Stop at the Track End Buffer"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   9.6
+         Size            =   9.75
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -308,7 +308,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "Stop in 15 Min"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   9.6
+         Size            =   9.75
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -348,7 +348,7 @@ Begin VB.Form CID_Run_Me
    End
    Begin VB.ListBox List3 
       Enabled         =   0   'False
-      Height          =   1008
+      Height          =   840
       Left            =   9435
       Sorted          =   -1  'True
       TabIndex        =   17
@@ -361,7 +361,7 @@ Begin VB.Form CID_Run_Me
       Enabled         =   0   'False
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   12.6
+         Size            =   12.75
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -378,7 +378,7 @@ Begin VB.Form CID_Run_Me
    End
    Begin VB.ListBox List2 
       Enabled         =   0   'False
-      Height          =   240
+      Height          =   255
       Left            =   7404
       Sorted          =   -1  'True
       TabIndex        =   15
@@ -392,8 +392,8 @@ Begin VB.Form CID_Run_Me
       TabIndex        =   14
       Top             =   6792
       Width           =   5868
-      _ExtentX        =   10351
-      _ExtentY        =   2477
+      _ExtentX        =   10345
+      _ExtentY        =   2487
       _Version        =   393217
       BackColor       =   16711680
       Enabled         =   0   'False
@@ -404,7 +404,7 @@ Begin VB.Form CID_Run_Me
       TextRTF         =   $"frmCentral.frx":0E42
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
          Name            =   "Arial"
-         Size            =   9.6
+         Size            =   9.75
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -415,7 +415,7 @@ Begin VB.Form CID_Run_Me
    Begin VB.ListBox List1 
       BackColor       =   &H0080FFFF&
       Enabled         =   0   'False
-      Height          =   2352
+      Height          =   2205
       Left            =   -30
       TabIndex        =   13
       Top             =   6870
@@ -452,7 +452,7 @@ Begin VB.Form CID_Run_Me
       Visible         =   0   'False
       Width           =   3540
       _ExtentX        =   6244
-      _ExtentY        =   593
+      _ExtentY        =   582
       _Version        =   393216
       DeviceType      =   ""
       FileName        =   ""
@@ -485,7 +485,7 @@ Begin VB.Form CID_Run_Me
       TabIndex        =   72
       Top             =   240
       Width           =   4512
-      _ExtentX        =   7959
+      _ExtentX        =   7964
       _ExtentY        =   423
       _Version        =   393216
       Appearance      =   0
@@ -497,8 +497,8 @@ Begin VB.Form CID_Run_Me
       TabIndex        =   73
       Top             =   555
       Width           =   1110
-      _ExtentX        =   1969
-      _ExtentY        =   445
+      _ExtentX        =   1958
+      _ExtentY        =   450
       _Version        =   393216
       Appearance      =   0
       Scrolling       =   1
@@ -527,7 +527,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "Time Now"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.8
+         Size            =   10.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -566,7 +566,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "# 1"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.8
+         Size            =   10.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -586,7 +586,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "# 2"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.8
+         Size            =   10.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -665,7 +665,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "Internet Hardwire Radio Playing"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.2
+         Size            =   10.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -684,7 +684,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "WINAMP V."
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.8
+         Size            =   7.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -703,7 +703,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "Tunes"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.8
+         Size            =   10.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -722,7 +722,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "File Name"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.8
+         Size            =   7.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -851,7 +851,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "Process Set Licked And Are Still on The Runner"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.8
+         Size            =   7.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -928,7 +928,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "Play Day B4"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.8
+         Size            =   10.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -966,7 +966,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "Play Today "
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.8
+         Size            =   10.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -986,7 +986,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "Idle Stop "
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1005,7 +1005,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "Tott Time "
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.8
+         Size            =   10.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1024,7 +1024,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "Time Left "
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.8
+         Size            =   10.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1043,7 +1043,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "Play Time "
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.8
+         Size            =   10.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1063,7 +1063,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "MP3 1 Before"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.8
+         Size            =   10.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1083,7 +1083,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "MP3 Now"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.8
+         Size            =   10.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1198,7 +1198,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "0:00:00"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   12.6
+         Size            =   12.75
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1219,7 +1219,7 @@ Begin VB.Form CID_Run_Me
       Enabled         =   0   'False
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   18.6
+         Size            =   18.75
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1240,7 +1240,7 @@ Begin VB.Form CID_Run_Me
       Enabled         =   0   'False
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.8
+         Size            =   7.5
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1259,7 +1259,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "00:00"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1298,7 +1298,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "100%"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   12.6
+         Size            =   12.75
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1378,7 +1378,7 @@ Begin VB.Form CID_Run_Me
       Enabled         =   0   'False
       BeginProperty Font 
          Name            =   "Comic Sans MS"
-         Size            =   9.6
+         Size            =   9.75
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1398,7 +1398,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "10@"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1439,7 +1439,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "Key"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   12.6
+         Size            =   12.75
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1459,7 +1459,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "Mouse "
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   12.6
+         Size            =   12.75
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1480,7 +1480,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "Key"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   12.6
+         Size            =   12.75
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1501,7 +1501,7 @@ Begin VB.Form CID_Run_Me
       Caption         =   "Mouse"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   12.6
+         Size            =   12.75
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1523,7 +1523,7 @@ Begin VB.Form CID_Run_Me
       Enabled         =   0   'False
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   18.6
+         Size            =   18.75
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False

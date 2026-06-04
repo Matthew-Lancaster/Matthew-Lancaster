@@ -1,6 +1,6 @@
 @CD\
 
-REM C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 48-OWNER-C-DRIVE-ONLY & NOT-SUB-FOLDER.BAT  /QUITE
+REM C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 48-OWNER-ALL-DRIVE-AND-FOLDER.BAT  /QUITE
 REM ---------------------------------------------------------------- 
 REM I LIKE THIS CODE GIVE ACCESS TO ALL FOLDER QUICKER
 REM HAVE A READER READ
@@ -121,7 +121,7 @@ REM @FOR %%G IN (D,O) DO (
 				SET "VAR_FLAG="
 				SET VAR_FLAG=YES
 				IF "%%F"=="System Volume Information" SET VAR_FLAG=NOT
-				REM IF "%%F"=="$Recycle.Bin" SET VAR_FLAG=NOT
+				IF "%%F"=="$Recycle.Bin" SET VAR_FLAG=NOT
 				IF "%%F"=="$RECYCLE.BIN" SET VAR_FLAG=NOT
 				IF "%%F"=="Recovery" SET VAR_FLAG=NOT
 				IF "%%F"=="Windows" SET VAR_FLAG=NOT
@@ -148,24 +148,43 @@ REM @FOR %%G IN (D,O) DO (
 				IF "%%F"=="$AV_NLL" SET VAR_FLAG=NOT
 				IF "%%F"=="$Windows.~WS" SET VAR_FLAG=NOT
 				IF "%%F"=="_gsdata_" SET VAR_FLAG=NOT
+				IF "%%F"=="Intel" SET VAR_FLAG=NOT
+				IF "%%F"=="inetpub" SET VAR_FLAG=NOT
+				REM IF "%%F"=="" SET VAR_FLAG=NOT
+				REM IF "%%F"=="" SET VAR_FLAG=NOT
+				REM IF "%%F"=="" SET VAR_FLAG=NOT
+				REM IF "%%F"=="" SET VAR_FLAG=NOT
 				REM IF "%%F"=="" SET VAR_FLAG=NOT
 				REM IF "%%F"=="" SET VAR_FLAG=NOT
 				REM IF "%%F"=="" SET VAR_FLAG=NOT
 				
 				REM CHECK IF NOT A SUB FOLDER MEANS IT A FILE -- CANT PROCESS SUB FOLDER SCAN WHEN ASK FILE ERROR
 				REM DOES THE WHOLE DRIVE IN A ROOT
-				ECHO ---------------------------------------------------------------------------
-				IF NOT EXIST "%%G:\%%F\" ECHO FILE -- "%%F"
-				IF EXIST "%%G:\%%F\" ECHO FOLDER -- "%%F"
 
-				IF "!VAR_FLAG!"=="NOT" ECHO NOT RUN WITH -- "%%G:\%%F"
+				IF NOT EXIST "%%G:\%%F\" (
+					ECHO ---------------------------------------------------------------------------
+					ECHO FILE -- "%%F"
+					ECHO ---------------------------------------------------------------------------
+				)
+				IF EXIST "%%G:\%%F\" (
+					ECHO ---------------------------------------------------------------------------
+					ECHO FOLDER -- "%%F"
+					ECHO ---------------------------------------------------------------------------					
+				)
+				
+				IF "!VAR_FLAG!"=="NOT" (
+					ECHO ---------------------------------------------------------------------------
+					ECHO NOT RUN WITH XXXXXXXXXX -- "%%G:\%%F"
+					ECHO ---------------------------------------------------------------------------
+					ECHO.
+				)
 				IF "!VAR_FLAG!"=="YES" (
 					IF NOT EXIST "%%G:\%%F\" SET VAR_FLAG=GO
 				)
 				
 				IF "!VAR_FLAG!"=="GO" (
 				
-						ECHO.
+						REM ECHO.
 						
 						REM __ TAKEOWNER IS THE SAME AS GET GRANT ACCESS EVERYONE
 						REM TITLE #01 OF #03 __ TAKEOWN ___________ "%%G:\%%F"
@@ -180,6 +199,7 @@ REM @FOR %%G IN (D,O) DO (
 						REM TITLE #01 OF #01 __ ICACLS /SETOWNER __ "%%G:\%%F"
 						ECHO ---------------------------------------------------------------------------
 						ECHO "%%G:\%%F"
+						ECHO ---------------------------------------------------------------------------
 						REM ECHO #01 OF 02 __ ICACLS "%%G:\%%F" /setowner "administrators"
 						REM ECHO #01 OF 02 __ ICACLS "%%G:\%%F" /setowner "administrators"
 						REM GOT TO DO ADMIN 1ST BEFORE EVERYONE
@@ -188,6 +208,7 @@ REM @FOR %%G IN (D,O) DO (
 						ECHO ---------------------------------------------------------------------------
 						TAKEOWN /F "%%G:\%%F" /A
 						ECHO ---------------------------------------------------------------------------
+						ECHO.
 						REM PAUSE
 						REM ICACLS "%%G:\%%F" /C /L /Q /T /setowner "administrators" 
 						REM ICACLS "%%G:\%%F" /C /L /Q /T /setowner "administrators" 
@@ -222,6 +243,7 @@ REM @FOR %%G IN (D,O) DO (
 						REM TITLE #01 OF #01 __ ICACLS /SETOWNER __ "%%G:\%%F"
 						ECHO ---------------------------------------------------------------------------
 						ECHO "%%G:\%%F"
+						ECHO ---------------------------------------------------------------------------
 						REM ECHO #01 OF 02 __ ICACLS "%%G:\%%F" /setowner "administrators"
 						ECHO #01 OF 02 __ TAKEOWN /F "%%G:\%%F" /A
 						ECHO ---------------------------------------------------------------------------
@@ -254,13 +276,17 @@ REM @FOR %%G IN (D,O) DO (
 						REM ICACLS "%%G:\%%F" /C /L /Q /grant administrators:F >NUL
 						REM ICACLS "%%G:\%%F" /C /L /Q /grant Everyone:F >NUL
 						REM TIMEOUT /T 2
-						ECHO.
+						REM ECHO.
 				)
 			)
+		
+		REM PAUSE
 		)
 	)
 )
 
+
+PAUSE
 
 REM -------------------------------------------------------------------------------------------------
 REM -------------------------------------------------------------------------------------------------

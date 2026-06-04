@@ -45,6 +45,8 @@
 #NoEnv
 #SingleInstance Force
 
+
+
 SET_GO=TRUE
 Process, Exist, wscript.exe
 If ErrorLevel > 0 ; errorlevel will = 0 if process doesn't exist
@@ -57,6 +59,9 @@ If  ErrorLevel > 0 ; errorlevel will = 0 if process doesn't exist
 	SET_GO=FALSE 
 }
 
+
+
+; READER THE COMMAND-LINE PARAMETERS
 String=
 
 NoP = %0%
@@ -69,10 +74,20 @@ If (NoP > 0)
 	StringTrimRight, String, String, 2
 }
 
+IF !STRING
+	MSGBOX  "VICE VERSA AUTOHOTKEYS -- READER THE COMMAND-LINE PARAMETERS = NONE -- " %STRING%
+
+; -------------------------------------------------------------------
+;  IT RUN BUT IT QUIT .VBS WSCRIPT FROM GETCOMPUTERNAME 
+; MATCH WINDOWS 11 MY ASUS MACHINE --  9-ASUS-G815LM
+; DON;T WANT COPY ROOT FOLDER BY VICEVERSA HERE MACHINE 
+; 25-MAY-2026 14:43:00 MON
+; -------------------------------------------------------------------
 IF SET_GO=TRUE 
 {
-	;  MSGBOX "VICE VERSA AUTOHOTKEYS " %STRING%
+	; MSGBOX "VICE VERSA AUTOHOTKEYS " %STRING%
 	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 10-VICEVERSA _ SHELL FOLDERING__.VBS"
 	IfExist, %FN_VAR%
 		RunWait, "%FN_VAR%" %String%
 }
+

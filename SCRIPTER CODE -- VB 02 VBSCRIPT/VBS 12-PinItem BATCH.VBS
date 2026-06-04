@@ -352,14 +352,18 @@ FOR R_SET=1 TO UBOUND(ARRAY_1)
 		If objFSO.FileExists(ARRAY_1(R_SET)) = TRUE Then
 			FILE_SCAN_FIND_1=UCASE(MID(ARRAY_1(R_SET),INSTRREV(ARRAY_1(R_SET),"\")+1))
 			FILE_SCAN_FIND_1=UCASE(MID(FILE_SCAN_FIND_1,1,INSTRREV(FILE_SCAN_FIND_1,".")-1))
+
+			
 			' MSGBOX FILE_SCAN_FIND_1,vbMsgBoxSetForeground,Wscript.ScriptName
 			
 			IF INSTR(LINK_SET_STRING_1,FILE_SCAN_FIND_1)>0 THEN
 				ARRAY_2(R_SET)=TRUE
 				LINK_SET_ALREADY_EXIST_TOTAL=LINK_SET_ALREADY_EXIST_TOTAL+1
+
 			ELSE
 				ITEM_TO_PUT_TASKBAR=ITEM_TO_PUT_TASKBAR+1
 				' MSGBOX FILE_SCAN_FIND_1,vbMsgBoxSetForeground,Wscript.ScriptName
+				' IF INSTR(UCASE(ARRAY_1(R_SET)),"PHOTO")>0 THEN MSGBOX ARRAY_1(R_SET) & VBCRLF & FILE_SCAN_FIND_1
 			END IF
 		END IF
 	END IF
@@ -403,6 +407,8 @@ FOR R_SET_1=1 TO UBOUND(ARRAY_1)
 		END IF
 	END IF
 	
+	' IF INSTR(UCASE(ARRAY_1(R_SET_1)),"PHOTO")>0 THEN MSGBOX ARRAY_1(R_SET_1) 
+	
 NEXT
 ' ------------------------------------
 
@@ -418,7 +424,9 @@ FOR R_SET=1 TO UBOUND(ARRAY_1)
 	IF ARRAY_1(R_SET)<>"" THEN 
 		If objFSO.FileExists(ARRAY_1(R_SET)) = TRUE Then
 			COUNT_I=COUNT_I+1
+						' IF INSTR(UCASE(ARRAY_1(R_SET)),"PHOTO")>0 THEN MSGBOX ARRAY_1(R_SET) 
 		ELSE
+
 			IF QUITE_MODE_ENDING=FALSE THEN 
 				WScript.Echo "01 OF 02 -- ITEM DON'T EXIST" & VBCRLF & VBCRLF & ARRAY_1(R_SET)
 			END IF
@@ -459,36 +467,18 @@ Set objShell = WScript.CreateObject("WScript.Shell")
 strDesktop = objShell.SpecialFolders("Desktop")
 Set FOLDER = FSO.GETFOLDER(strDesktop)
 
-IF ARRAY_1(R_SET2)<>"" THEN
-	ITEM_VAR_PATH=MID(ARRAY_1(R_SET2),1,INSTRREV(ARRAY_1(R_SET2),"\")-1)
-	ITEM_VAR_FILE=MID(ARRAY_1(R_SET2),INSTRREV(ARRAY_1(R_SET2),"\")+1)
-	ITEM_VAR_FILE_NOT_EXT=MID(ITEM_VAR_FILE,1,INSTRREV(ITEM_VAR_FILE,".")-1)
-END IF
+' IF ARRAY_1(R_SET2)<>"" THEN
+	' ITEM_VAR_PATH=MID(ARRAY_1(R_SET2),1,INSTRREV(ARRAY_1(R_SET2),"\")-1)
+	' ITEM_VAR_FILE=MID(ARRAY_1(R_SET2),INSTRREV(ARRAY_1(R_SET2),"\")+1)
+	' ITEM_VAR_FILE_NOT_EXT=MID(ITEM_VAR_FILE,1,INSTRREV(ITEM_VAR_FILE,".")-1)
+' END IF
 
 ' LINKS THAT ALREADY EXIST ON DESKTOP
 ' -----------------------------------
 IF AATRUE="" THEN 
 	AATRUE=LINK_ALREADY_EXIST_DOUBLE_VERIFY_2(FOLDER)
+	AATRUE_STRING=AATRUE
 END IF
-
-AATRUE="LINKS THAT ALREADY EXIST ON DESKTOP -- COPIER TO CLIPBOARD" & VBCRLF & "ALL THE DESKTOP ICONS" & VBCRLF & VBCRLF & AATRUE
-
-MSGBOX AATRUE,vbMsgBoxSetForeground,Wscript.ScriptName
-'
-' Get clipboard text
-' Set objHTML = CreateObject("htmlfile")
-' text = objHTML.ParentWindow.ClipboardData.GetData("text")
-
-' EDIT: I use this snippet to put text back on the clipboard, but it needs third party software; a standalone executable 'clip.exe' which can be found on Windows 2003 Server or just on the internet:
-
-' Put it back to the clipboard
-Set WshShell = CreateObject("WScript.Shell")
-Set oExec = WshShell.Exec("clip")
-
-Set oIn = oExec.stdIn
-
-oIn.WriteLine AATRUE
-oIn.Close
 
 
 
@@ -497,9 +487,10 @@ oIn.Close
 ' DO TWO SWEEP SO KNOW IF ASK QUESTION ANYTHING TO DO
 ' TAKER A BIT LONGER
 ' ------------------------------------------------------------------------
+COUNT_ICON_PLACE_TASKBAR=0			
 FOR R_SWEEP= 1 TO 2
 
-	COUNT_ICON_PLACE_TASKBAR=0			
+
 	IF R_SWEEP=1 THEN LOAD_TO_TASKBAR_EXPLORER=VBYES
 	IF R_SWEEP=2 THEN LOAD_TO_TASKBAR_EXPLORER=VBNO
 
@@ -508,10 +499,14 @@ FOR R_SWEEP= 1 TO 2
 		I_VAR=I_VAR + "--------------------------------------------------------"+VBCRLF
 		I_VAR=I_VAR + "DO YOU LIKE ME TO PIN ITEM TO TASKBAR LOAD EXPLORER SHORTCUT"+VBCRLF
 		I_VAR=I_VAR + "--------------------------------------------------------"+VBCRLF
+		I_VAR=I_VAR & COUNT_ICON_PLACE_TASKBAR  &  " * ITEM" & VBCRLF
+		I_VAR=I_VAR + "--------------------------------------------------------"+VBCRLF
 		I_VAR=I_VAR + "YesNoCancel"+VBCRLF
 		I_VAR=I_VAR + "--------------------------------------------------------"+VBCRLF
-
+		
+		COUNT_ICON_PLACE_TASKBAR=0			
 		LOAD_TO_TASKBAR_EXPLORER=VBNO
+		
 		IF Version_OS<>11 THEN
 			lRet = MsgBox(I_VAR, vbYesNoCancel + vbMsgBoxSetForeground , Wscript.ScriptName)
 			LOAD_TO_TASKBAR_EXPLORER=lRet
@@ -551,6 +546,8 @@ FOR R_SWEEP= 1 TO 2
 						ITEM_VAR_FILE_NOT_EXT=""
 						ITEM_VAR_PATH=MID(ARRAY_5(R_SET),1,INSTRREV(ARRAY_5(R_SET),"\")-1)
 						ITEM_VAR_FILE=MID(ARRAY_5(R_SET),INSTRREV(ARRAY_5(R_SET),"\")+1)
+
+						
 						
 						ITEM_VAR_FILE_NOT_EXT=MID(ITEM_VAR_FILE,1,INSTRREV(ITEM_VAR_FILE,".")-1)
 						' THERE MIGHT BE TWO PATH *.EXE.LNK -- REMOVE END ONE ONCE OKAY BUT NOT TWICE
@@ -644,13 +641,18 @@ FOR R_SWEEP= 1 TO 2
 	IF R_SWEEP=2 THEN LOAD_TO_DESKTOP=VBNO
 	
 	IF R_SWEEP=2 AND COUNT_ICON_PLACE_DESKTOP>0 THEN 
+
 		I_VAR=""
 		I_VAR=I_VAR + "--------------------------------------------------------"+VBCRLF
 		I_VAR=I_VAR + "DO YOU LIKE ME TO PIN ITEM TO DESKTOP SHORTCUT"+VBCRLF
 		I_VAR=I_VAR + "--------------------------------------------------------"+VBCRLF
+		I_VAR=I_VAR & COUNT_ICON_PLACE_DESKTOP  &  " * ITEM" & VBCRLF
+		I_VAR=I_VAR + "--------------------------------------------------------"+VBCRLF
 		I_VAR=I_VAR + "YesNoCancel"+VBCRLF
 		I_VAR=I_VAR + "--------------------------------------------------------"+VBCRLF
-
+		
+		COUNT_ICON_PLACE_DESKTOP=0			
+		
 		lRet = MsgBox(I_VAR, vbYesNoCancel  + vbMsgBoxSetForeground , Wscript.ScriptName)
 		LOAD_TO_DESKTOP=lRet
 	END IF
@@ -681,11 +683,16 @@ FOR R_SWEEP= 1 TO 2
 						ITEM_VAR_PATH=MID(ARRAY_1(R_SET),1,INSTRREV(ARRAY_1(R_SET),"\")-1)
 						ITEM_VAR_FILE=MID(ARRAY_1(R_SET),INSTRREV(ARRAY_1(R_SET),"\")+1)
 						ITEM_VAR_FILE_NOT_EXT=MID(ITEM_VAR_FILE,1,INSTRREV(ITEM_VAR_FILE,".")-1)
+						' ITEM_VAR_FILE_NOT_EXT=ITEM_VAR_FILE
 						' THERE MIGHT BE TWO PATH *.EXE.LNK -- REMOVE END ONE ONCE OKAY BUT NOT TWICE
 						' DO HERE INSTEAD
 						ITEM_VAR_FILE_NOT_EXT=REPLACE(UCASE(ITEM_VAR_FILE_NOT_EXT),".LNK","")
 						ITEM_VAR_FILE_NOT_EXT=REPLACE(UCASE(ITEM_VAR_FILE_NOT_EXT),".EXE","")
 						' MSGBOX "2222     " & ITEM_VAR_PATH,vbMsgBoxSetForeground,Wscript.ScriptName
+
+						' IF INSTR(UCASE(ARRAY_1(R_SET)),"PHOTO")>0 THEN MSGBOX ARRAY_1(R_SET) & VBCRLF & ITEM_VAR_FILE_NOT_EXT
+
+							
 
 						strDesktop = objShell.SpecialFolders("Desktop")
 						Set FOLDER = FSO.GETFOLDER(strDesktop)
@@ -710,11 +717,17 @@ FOR R_SWEEP= 1 TO 2
 						' IF INSTR(UCASE(AATRUEZ),UCASE("Visual Basic 6.0"))>0 THEN MSGBOX "HERE",vbMsgBoxSetForeground,Wscript.ScriptName
 						
 						IF ITEM_VAR_PATH<>"" THEN 
+						
+						
+						
 							' ----
 							' Shortcut - VBScript - SS64.com 
 							' https://ss64.com/vb/shortcut.html
 							' ----
 							IF INSTR(UCASE(AATRUEZ),UCASE(ITEM_VAR_FILE_NOT_EXT))=0 THEN 
+							
+												' IF INSTR(UCASE(ARRAY_1(R_SET)),"PHOTO")>0 THEN MSGBOX ARRAY_1(R_SET) & VBCRLF & ITEM_VAR_FILE_NOT_EXT
+
 							
 								COUNT_ICON_PLACE_DESKTOP=COUNT_ICON_PLACE_DESKTOP+1
 								IF R_SWEEP=2 THEN 
@@ -744,12 +757,14 @@ FOR R_SWEEP= 1 TO 2
 		NEXT
 	END IF
 NEXT		
+
+Set WshShell = CreateObject("WScript.Shell")
 						
 IF COUNT_ICON_PLACE_DESKTOP>0 THEN 
-	MSGBOX COUNT_ICON_PLACE_DESKTOP & " * ITEMS PLACED DESKTOP",vbMsgBoxSetForeground,Wscript.ScriptName 
+	RESULT = WSHShell.Popup(COUNT_ICON_PLACE_DESKTOP & " * ITEMS PLACED DESKTOP", 20,Wscript.ScriptName, 16 + 4096) ' (3 +) = vbYESNOCANCLE
 ELSE
 	IF LOAD_TO_DESKTOP=VBYES THEN
-		MSGBOX "NOTHING PLACER DESKTOP",vbMsgBoxSetForeground,Wscript.ScriptName 
+		RESULT = WSHShell.Popup("NOTHING PLACER DESKTOP" & VBCRLF & VBCRLF & "20 SECOND MSGBOX TIMER", 20,Wscript.ScriptName, 16 + 4096) ' (3 +) = vbYESNOCANCLE
 	END IF 
 END IF 
 
@@ -757,12 +772,38 @@ SOMETHING_TO_DO=FLASE
 IF COUNT_ICON_PLACE_TASKBAR>0 THEN SOMETHING_TO_DO=TRUE
 IF COUNT_ICON_PLACE_DESKTOP>0 THEN SOMETHING_TO_DO=TRUE
 
-IF  SOMETHING_TO_DO=TRUE THEN
-	MSGBOX "THE END-ER",vbMsgBoxSetForeground,Wscript.ScriptName 
+
+IF SOMETHING_TO_DO=TRUE THEN
+	AATRUE_STRING="LINKS THAT ALREADY EXIST ON DESKTOP -- COPIER TO CLIPBOARD" & VBCRLF & "ALL THE DESKTOP ICONS" & VBCRLF & VBCRLF & AATRUE_STRING
+
+	' -------------------------------------------------------------------
+	' Get clipboard text
+	' Set objHTML = CreateObject("htmlfile")
+	' text = objHTML.ParentWindow.ClipboardData.GetData("text")
+
+	' EDIT: I use this snippet to put text back on the clipboard, but it needs third party software; a standalone executable 'clip.exe' which can be found on Windows 2003 Server or just on the internet:
+	' -------------------------------------------------------------------
+	' -------------------------------------------------------------------
+	' Put it back to the clipboard
+	Set oExec = WshShell.Exec("clip")
+	Set oIn = oExec.stdIn
+	oIn.WriteLine AATRUE_STRING
+	oIn.Close	
+	' -------------------------------------------------------------------
+	
+	' SEARCH AI FOR WSHShell.Popup
+	RESULT = WSHShell.Popup(AATRUE_STRING, 20,Wscript.ScriptName, 16 + 4096) ' (3 +) = vbYESNOCANCLE
+
 END IF
- IF SOMETHING_TO_DO=FALSE THEN
-	MSGBOX "NOTHING TO DO" & VBCRLF &  VBCRLF & "THE END OF",vbMsgBoxSetForeground,Wscript.ScriptName 
+
+IF SOMETHING_TO_DO=TRUE THEN
+	RESULT = WSHShell.Popup("THE END-ER" & VBCRLF & VBCRLF & "20 SECOND TIMER", 20,Wscript.ScriptName, 16 + 4096) ' (3 +) = vbYESNOCANCLE
+END IF
+IF SOMETHING_TO_DO=FALSE THEN
+	RESULT = WSHShell.Popup("NOTHING TO DO" & VBCRLF & VBCRLF & "THE END OF" & VBCRLF & VBCRLF & "20 SECOND TIMER", 20,Wscript.ScriptName, 16 + 4096) ' (3 +) = vbYESNOCANCLE
 END IF 
+
+
 
 WScript.Quit(0)
 
@@ -953,8 +994,9 @@ END IF
 
 
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_BEST_VB_01\Run_AS\Matt_RunAS_v2017.exe"
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_BEST_VB_01\Run_AS 2011-06-11 VER 1.0.164\Matt_RunAS_v1.0.164.exe"
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_BEST_VB_01\Run_AS 2012-09-25 VER 1.0.192 EXE ONLY\Matt_RunAS_V1.0.192.exe"
+' I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_BEST_VB_01\Run_AS 2011-06-11 VER 1.0.164\Matt_RunAS_v1.0.164.exe"
+' I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_BEST_VB_01\Run_AS 2012-09-25 VER 1.0.192 EXE ONLY\Matt_RunAS_V1.0.192.exe"
+
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Clip_Type\Clip_Type.exe"
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell Execute Loader\Shell Execute Loader.exe"
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell Explorer Loader\Shell Explorer Loader.exe"
@@ -1282,32 +1324,20 @@ IF Version_OS=10 THEN
 	' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Evernote\Evernote\EvernoteClipper.exe"
 END IF
 
-IF GETCOMPUTERNAME="4-ASUS-GL522VW" THEN
-	FOR R_USERNAME=1 TO 8
-		U1=TRIM(CSTR(R_USERNAME))
-		U2="C:\Users\MATT 0"+U1+"\AppData\Roaming\Insync\App\Insync.exe"
-		If objFSO.FileExists(U2) = TRUE Then
-			I=I+1:ARRAY_1(I)=U2
-		END IF
-	NEXT
+FOR R_USERNAME=1 TO 8
+	U1=TRIM(CSTR(R_USERNAME))
+	U2="C:\Users\MATT 0"+U1+"\AppData\Roaming\Insync\App\Insync.exe"
+	If objFSO.FileExists(U2) = TRUE Then
+		I=I+1:ARRAY_1(I)=U2
+	END IF
+NEXT
 	
 	' THIS IS A WINDOWS APP AND WONT WORK PUT ON DESKTOP BY HERE
 	' press Win + R, type shell:AppsFolder, find the app, right-click it, and select "Create shortcut"
 	'
 	' I=I+1:ARRAY_1(I)="C:\Program Files\WindowsApps\DigitalVolcanoSoftware.40903F03D22BA_5.26.0.0_x64__55chcb595f864\Duplicate Cleaner 5\Duplicate Cleaner 5.exe"
 	
-END IF
 
-
-' IF GETCOMPUTERNAME="8-MSI-GP62M-7RD" THEN
-	FOR R_USERNAME=1 TO 8
-		U1=TRIM(CSTR(R_USERNAME))
-		U2="C:\Users\MATT 0"+U1+"\AppData\Roaming\Insync\App\Insync.exe"
-		If objFSO.FileExists(U2) = TRUE Then
-			I=I+1:ARRAY_1(I)=U2
-		END IF
-	NEXT
-' END IF
 
 
 IF Version_OS=10 THEN
@@ -1358,10 +1388,20 @@ I=I+1:ARRAY_1(I)="C:\Program Files\MiniTool Screen Recorder\MiniTool Screen Reco
 I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\mweather.exe"
 I=I+1:ARRAY_1(I)="C:\Windows\regedit.exe"
 
-I=I+1:ARRAY_1(I)=""
-I=I+1:ARRAY_1(I)=""
-I=I+1:ARRAY_1(I)=""
-I=I+1:ARRAY_1(I)=""
+I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft\Copilot\Application\mscopilot.exe"
+If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
+	ARRAY_1(I)=""
+END IF
+
+I=I+1:ARRAY_1(I)="C:\Program Files\WindowsApps\Microsoft.Windows.Photos_2026.11020.20001.0_x64__8wekyb3d8bbwe\Photos.exe"
+If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
+	ARRAY_1(I)=""
+END IF
+I=I+1:ARRAY_1(I)="C:\Program Files\NVIDIA Corporation\NVIDIA App\CEF\NVIDIA App.exe"
+If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
+	ARRAY_1(I)=""
+END IF
+I=I+1:ARRAY_1(I)="C:\Program Files (x86)\SanDisk\Dashboard\Dashboard.exe"
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
@@ -1663,8 +1703,8 @@ I=I+1:ARRAY_5(I)=""
 	I_22=I_22+1:ARRAY_FILTER_5(I_22)="VSPlayer.exe"  ' HIKVISION
 	I_22=I_22+1:ARRAY_FILTER_5(I_22)="mweather.exe"	
 	I_22=I_22+1:ARRAY_FILTER_5(I_22)="SetPoint.exe"
-	I_22=I_22+1:ARRAY_FILTER_5(I_22)=""
-	I_22=I_22+1:ARRAY_FILTER_5(I_22)=""	
+	I_22=I_22+1:ARRAY_FILTER_5(I_22)="Photos.exe"
+	I_22=I_22+1:ARRAY_FILTER_5(I_22)="NVIDIA App.exe"	
 	I_22=I_22+1:ARRAY_FILTER_5(I_22)=""
 	I_22=I_22+1:ARRAY_FILTER_5(I_22)=""
 	I_22=I_22+1:ARRAY_FILTER_5(I_22)=""	
@@ -1686,9 +1726,9 @@ I=I+1:ARRAY_5(I)=""
 				SEARCH_WITH_NOT_EXT=MID(SEARCH_WITH_NOT_EXT,1,INSTR(SEARCH_WITH_NOT_EXT,".")-1)
 			END IF
 			IF INSTR(UCASE(ARRAY_5(R_INDEX_2)),SEARCH_WITH_NOT_EXT)>0 THEN 
-				IF INSTR(SEARCH_WITH_NOT_EXT,"ENC2")>0 THEN 
-					' MSGBOX SEARCH_WITH_NOT_EXT
-				END IF
+				' IF INSTR(SEARCH_WITH_NOT_EXT,"PHOTO")>0 THEN 
+					' ' MSGBOX SEARCH_WITH_NOT_EXT
+				' END IF
 				ARRAY_5(R_INDEX_2)=""
 				' MSGBOX SEARCH_WITH_NOT_EXT
 			END IF
@@ -1708,7 +1748,7 @@ I=I+1:ARRAY_5(I)=""
 	FOR R_INDEX_2 = 1 TO UBOUND(ARRAY_1)
  		IF ARRAY_FILTER_5(R_INDEX_1)<>"" THEN
  		IF ARRAY_1(R_INDEX_2)<>"" THEN
-			' MSGBOX ARRAY_5(R_INDEX_2)
+			' IF INSTR(UCASE(ARRAY_1(R_INDEX_2)),"PHOTO")>0 THEN  AA=1:MSGBOX ARRAY_1(R_INDEX_2)
 			SEARCH_WITH_NOT_EXT=UCASE(ARRAY_FILTER_5(R_INDEX_1))
 			' THERE MIGHT BE TWO PATH *.EXE.LNK -- REMOVE END ONE ONCE OKAY BUT NOT TWICE
 			' DO HERE INSTEAD
@@ -1716,11 +1756,13 @@ I=I+1:ARRAY_5(I)=""
 			SEARCH_WITH_NOT_EXT=REPLACE(UCASE(SEARCH_WITH_NOT_EXT),".EXE","")
 			IF INSTR(SEARCH_WITH_NOT_EXT,".")>0 THEN 
 				SEARCH_WITH_NOT_EXT=MID(SEARCH_WITH_NOT_EXT,1,INSTR(SEARCH_WITH_NOT_EXT,".")-1)
+							' IF AA=1 THEN MSGBOX SEARCH_WITH_NOT_EXT & VBCRLF & ARRAY_1(R_INDEX_2)
 			END IF
+
 			IF INSTR(UCASE(ARRAY_1(R_INDEX_2)),SEARCH_WITH_NOT_EXT)>0 THEN 
-				IF INSTR(SEARCH_WITH_NOT_EXT,"ENC2")>0 THEN 
+				' IF INSTR(SEARCH_WITH_NOT_EXT,"PHOTO")>0 THEN 
 					' MSGBOX SEARCH_WITH_NOT_EXT
-				END IF
+				' END IF
 				ARRAY_1(R_INDEX_2)=""
 				' MSGBOX SEARCH_WITH_NOT_EXT
 			END IF
@@ -2175,6 +2217,13 @@ On Error Goto 0
 ' -------------------------------------------------------------------
 DIM WSHSHELL
 SET WSHSHELL = CreateObject("WScript.Shell")
+DIM objWMIService
+DIM colProcesses
+DIM i1
+DIM i2
+DIM objProcess
+DIM strScriptName
+DIM PID_Script
 
 Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
 Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
@@ -2200,7 +2249,9 @@ FOR EACH objProcess IN colProcesses
 		
 		IF iMyPID<>PID_Script THEN 
 			' MSGBOX iMyPID & VBCR & PID_Script
+			ON ERROR RESUME NEXT ' ERROR HERE PROCESS NOT FOUND WITH SELECTION
 			objProcess.Terminate() 
+			ON ERROR GOTO 0
 			' WSHSHELL.Run "TASKKILL /F /IM """+CSTR(PID_Script)+"""", DONTShowWindow, WaitUntilFinished
 		END IF
     END IF

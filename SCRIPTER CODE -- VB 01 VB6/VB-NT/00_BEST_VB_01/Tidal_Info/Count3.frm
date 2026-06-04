@@ -244,8 +244,8 @@ Counter3.Height = HC
 
 
 
-If Dir$(App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\00 Knocker Boy3.txt") <> "" Then
-    Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\00 Knocker Boy3.txt" For Input As #1
+If Dir$(App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\00 Knocker Boy3.txt") <> "" Then
+    Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\00 Knocker Boy3.txt" For Input As #1
     Do
     Line Input #1, R2$
 '    If Mid$(r2$, 12, 3) <> mm$ Then TTCount1 = 0
@@ -269,7 +269,7 @@ OldDate3 = DateValue(Mid$(R2$, 16, 9)) + TimeValue(Mid$(R2$, 26, 9))
 
 Label10.Caption = Trim(str(TTCount5))
 
-'    Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\00 Knocker Boy.txt" For Output As #1
+'    Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\00 Knocker Boy.txt" For Output As #1
 '    For R = 1 To List1.ListCount - 1
 '    Print #1, List1.List(R)
 '    Next
@@ -293,7 +293,7 @@ Public Sub WriteCounter()
     
     OldDate3 = Now
     
-    FILENAME_IN_USE_CHECK = App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\00 Knocker Boy3.txt"
+    FILENAME_IN_USE_CHECK = App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\00 Knocker Boy3.txt"
     FILENAME_IN_USE_CHECK_4 = FILENAME_IN_USE_CHECK
     DumVar = IsFileOpenDelay(FILENAME_IN_USE_CHECK)
     FILENAME_IN_USE_CHECK = FILENAME_IN_USE_CHECK_4
@@ -354,7 +354,7 @@ End Sub
 
 
 Private Sub Mnu_Now2_Click()
-'Shell "notepad " + App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\Idle and Active Logger Now2.txt", vbNormalFocus
+'Shell "notepad " + App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\Idle and Active Logger Now2.txt", vbNormalFocus
 
 End Sub
 

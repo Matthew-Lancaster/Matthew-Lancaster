@@ -3,10 +3,10 @@ Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Begin VB.Form Form1 
    BackColor       =   &H00400000&
    Caption         =   "VB_KEEP_RUNNER"
-   ClientHeight    =   9480
+   ClientHeight    =   9780
    ClientLeft      =   48
-   ClientTop       =   1212
-   ClientWidth     =   12744
+   ClientTop       =   912
+   ClientWidth     =   15540
    BeginProperty Font 
       Name            =   "MS Sans Serif"
       Size            =   7.8
@@ -18,8 +18,8 @@ Begin VB.Form Form1
    EndProperty
    Icon            =   "VB_KEEP_RUNNER.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   9480
-   ScaleWidth      =   12744
+   ScaleHeight     =   9780
+   ScaleWidth      =   15540
    WindowState     =   1  'Minimized
    Begin VB.Timer TIMER_SET_FORM_START_POSITION_01 
       Interval        =   100
@@ -3356,22 +3356,10 @@ Begin VB.Form Form1
       Caption         =   "WINMERGE_ON_TOP_ALLTME=YES"
    End
    Begin VB.Menu MNU_TASK_KILLER_AUTOHOTKEYS 
-      Caption         =   "KILL AUTOHOTKEY"
-      Visible         =   0   'False
-   End
-   Begin VB.Menu MNU_LAUNCH_AUTORUNS_SET_BOOT 
-      Caption         =   "AUTOHOTKEY BOOT"
-      Visible         =   0   'False
-   End
-   Begin VB.Menu MNU_AUTOHOTKEY_STARTING 
-      Caption         =   "AUTOHOTKEY AUTORUN"
-   End
-   Begin VB.Menu MNU_AUTOHOTKEYS_SET 
-      Caption         =   "RUN AUTOHOTKEY SET"
-      Visible         =   0   'False
+      Caption         =   "AHK_TASKKILLER_AUTOHOTKEY"
    End
    Begin VB.Menu MNU_KILL_MAX_AHK 
-      Caption         =   "AHK KILL MAX"
+      Caption         =   "AHK_KILL MAX"
    End
    Begin VB.Menu MNU_CMD_KILL_MAX 
       Caption         =   "CMD KILL MAX"
@@ -3381,14 +3369,26 @@ Begin VB.Form Form1
    End
    Begin VB.Menu MNU_EXE_01 
       Caption         =   "EXE_MNU_01"
+      Begin VB.Menu MNU_AUTOHOTKEY_STARTING 
+         Caption         =   "AHK_AUTOHOTKEY AUTORUN"
+      End
+      Begin VB.Menu MNU_AUTOHOTKEYS_SET 
+         Caption         =   "AHK_RUN AUTOHOTKEY SET"
+      End
+      Begin VB.Menu MNU_LAUNCH_AUTORUNS_SET_BOOT 
+         Caption         =   "AHK_AUTOHOTKEY BOOT"
+      End
+      Begin VB.Menu MNU_VB_LAUNCH_FAV_SET 
+         Caption         =   "AHK  LAUNCH FAV SET - VB - AHK - WHEN BOOTER"
+      End
+      Begin VB.Menu MNU_VB_EXPLORER_LOADER 
+         Caption         =   "VB EXPLORER LOADER"
+      End
       Begin VB.Menu MNU_LAUNCH_BATCH_COMPILER 
          Caption         =   "VB BATCH COMPILER"
       End
       Begin VB.Menu MNU_LAUNCH_Shell_VBasic_6_Loader 
          Caption         =   "VB Shell_VBasic_6_Loader"
-      End
-      Begin VB.Menu MNU_VB_LAUNCH_FAV_SET 
-         Caption         =   "VB LAUNCH FAV SET"
       End
       Begin VB.Menu MNU_PIN_ITEM_BATCH_VBS 
          Caption         =   "VBS 12-PinItem BATCH.VBS"
@@ -5252,6 +5252,17 @@ End Sub
 Private Sub MNU_TIMEZONE_CLOCK_02_Click()
     Call MNU_TIMEZONE_CLOCK_Click
     Me.WindowState = vbMinimized
+End Sub
+
+Private Sub MNU_VB_EXPLORER_LOADER_Click()
+        Dim WSHShell
+        Set WSHShell = CreateObject("WScript.Shell")
+            WSHShell.RUN """" + "D:\VB6\VB-NT\00_BEST_VB_01\Shell Explorer Loader\Shell Explorer Loader.exe" + """"
+        Set WSHShell = Nothing
+        Beep
+        If MNU_NOT_MINIMIZE_VALUE = False Then
+            Me.WindowState = vbMinimized
+        End If
 End Sub
 
 Sub TIMER_FORM_LOAD_INIT_TIMER()
@@ -8718,7 +8729,7 @@ For r = 1 To 9
     End If
 Next
 
-'\\4-asus-gl522vw\4_asus_gl522vw_03_fat32_4gb
+'\\4-asus-gl522vw\4_Asus_Gl522Vw_E_Drive
 '03_FAT32_4GB
 '03_FAT32_4GB
 ' -----------------------------------------------------------------------------------------------
@@ -8941,7 +8952,10 @@ Private Sub Label_KILL_AND_RUN_ANOTHER_AUTOHOTKEY_Click()
         Set WSHShell = CreateObject("WScript.Shell")
     WSHShell.RUN """" + FN_VAR_1 + """", DontShowWindow, DontWaitUntilFinished
         Set WSHShell = Nothing
-        Call MNU_AUTOHOTKEYS_SET_Click
+        
+        ' Call MNU_AUTOHOTKEYS_SET_Click
+        Call MNU_VB_LAUNCH_FAV_SET_Click
+        
 End Sub
 
 Private Sub Label_KILL_CMD_AND_AHK_Click()
@@ -13479,7 +13493,7 @@ Sub TIMER_IS_TEAMVIEWER_RUNNER_Timer()
         TEAMVIEWER_GONE_TIMER = 0
         PATH_1 = "C:\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
         FILE_1 = "TEAMVIEWER_RUNNER_" + GetComputerName + ".TXT"
-        PATH_2 = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_01_C_DRIVE\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
+        PATH_2 = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_C_Drive\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
         FILE_2 = "TEAMVIEWER_RUNNER_4-ASUS-GL522VW.TXT"
         PATH_3 = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_01_C_DRIVE\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
         FILE_3 = "TEAMVIEWER_RUNNER_7-ASUS-GL522VW.TXT"
@@ -13564,7 +13578,7 @@ Sub TIMER_IS_TEAMVIEWER_RUNNER_Timer()
     If TEAMVIEWER_KILL_REMOTE = True Then
         PATH_1 = "C:\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
         FILE_1 = "TEAMVIEWER_RUNNER_" + GetComputerName + ".TXT"
-        PATH_2 = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_01_C_DRIVE\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
+        PATH_2 = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_C_Drive\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
         FILE_2 = "TEAMVIEWER_RUNNER_4-ASUS-GL522VW.TXT"
         PATH_3 = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_01_C_DRIVE\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
         FILE_3 = "TEAMVIEWER_RUNNER_7-ASUS-GL522VW.TXT"

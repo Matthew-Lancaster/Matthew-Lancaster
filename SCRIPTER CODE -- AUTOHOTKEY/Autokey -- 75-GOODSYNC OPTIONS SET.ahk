@@ -172,6 +172,7 @@ SetStoreCapslockMode, off
 
 SETTIMER TIMER_PREVIOUS_INSTANCE,1
 
+
 ; IF A_ComputerName=2-ASUS-EEE
 	; Exitapp
 
@@ -186,7 +187,18 @@ GLOBAL GOODSYNC_CHECK_CHANGE_OLD_2GO_HANDLE
 GLOBAL GOODSYNC_CHECK_CHANGE_OLD_2GO_PID
 GLOBAL GOODSYNC_CHECK_CHANGE_OLD_ONE_PID
 GLOBAL O_Status_GSDATA
-GLOBAL O_HWND_2
+
+O_HWND_2=
+
+OLD_HWND_2=
+
+O_HWND_4=
+OutputVar_3=
+VALUE_PASTE_IN= 
+
+AOKAY=
+
+SETTIMER TIMER_SUB_GOODSYNC_CHANGE_NET_PATH_AS_SWEEPING_CHANGE_BASTARD,100
 
 TEMPORARY_FILE_HWND=
 PERIODICALLY_SET_VALUE_HWND=
@@ -252,7 +264,7 @@ FILE_NAME_DATE_MOD_GOODSYNC_KEY_SCRIPT=0
 SET_GOODSYNC_CONNECT_BOX_HWND=0
 ; SETTIMER TIMER_SET_GOODSYNC_CONNECT_BOX,1000
 
-SETTIMER TIMER_SUB_GOODSYNC_OPTIONS,10
+SETTIMER TIMER_SUB_GOODSYNC_OPTIONS,1
 
 ; SETTIMER TOOLTIP_REMOVER_TIMER,1000
 
@@ -270,6 +282,8 @@ HDD_HUBIC_HWND=
 
 ; SETTIMER GOODYSNC_REMOVABLE_DRIVE_WITH_VOLUME_NAME, 2000
 
+
+SETTIMER SUB__GoodSync_Dialog_220373_TIMER,500
 
 RETURN
 ; -------------------------------------------------------------------
@@ -307,7 +321,8 @@ F5:: ; CTRL+F5
 		
 		IF INSTR(" VBS AHK BAT BAS VBP CLS FRM TXT ",OutExtension)
 			RUN,C:\PROGRAM FILES (X86)\NOTEPAD++\NOTEPAD++.EXE "%OutputVar_1%" ,, MAX
-			
+		
+		; TOOLTIP "5555"
 		SOUNDBEEP 1500,100
 	}
 RETURN
@@ -315,11 +330,470 @@ RETURN
 
 
 ; -------------------------------------------------------------------
+TIMER_SUB_GOODSYNC_CHANGE_NET_PATH_AS_SWEEPING_CHANGE_BASTARD:
+
+	dhw := A_DetectHiddenWindows
+	DetectHiddenWindows, OFF
+	SetTitleMatchMode 3
+	
+	HWND_1_EXENAME=
+	HWND_1=
+	HWND_2=
+	OutputVar_3=
+	
+	WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+	IF !HWND_1
+	{
+	    O_HWND_4=
+		TOOLTIP
+		DetectHiddenWindows, % dhw
+		RETURN
+	}
+	
+	
+
+	
+	; #Requires AutoHotkey v1.1
+	WinGet, ControlList, ControlList, aHK_ID %HWND_1%
+	visibleList := ""
+	TRUE_TO_GO=
+	TRUE_END_ROUTINE=
+	
+	Loop, Parse, controlList, `n
+	{
+		ControlGet, isVisible, Visible, , %A_LoopField%, A
+		if (isVisible) {
+			; visibleList .= A_LoopField "`n"
+			IF INSTR(A_LoopField,"ATL:0000000140E507004")>0
+				TRUE_TO_GO=TRUE
+			IF INSTR(A_LoopField,"ATL:0000000140E507003")>0 
+				TRUE_TO_GO=TRUE
+			; ---- HIGHLY CHANGE 
+			IF INSTR(A_LoopField,"ATL:0000000140E627104")>0 
+				TRUE_TO_GO=TRUE			
+			IF INSTR(A_LoopField,"ATL:0000000140E627103")>0 
+				TRUE_TO_GO=TRUE
+				
+			IF INSTR(A_LoopField,"ATL:0000000140E507004")>0
+				BREAK
+			IF INSTR(A_LoopField,"ATL:0000000140E507003")>0 
+				BREAK
+			
+			IF INSTR(A_LoopField,"ATL:0000000140E627103")>0
+				BREAK
+			IF INSTR(A_LoopField,"ATL:0000000140E627104")>0
+				BREAK
+			
+		}
+	}
+	; TOOLTIP % visibleList
+	
+	; TOOLTIP % TRUE_END_ROUTINE
+	
+	IF !TRUE_TO_GO
+	{
+		DetectHiddenWindows, % dhw
+		TOOLTIP
+		O_HWND_4=
+		; MSGBOX "HERE"
+		RETURN
+	}
+	
+
+	WinGet, HWND_2, ID, A
+	WinGetTitle OutputVar_3, ahk_id %HWND_2%
+
+	IF HWND_1<>%HWND_2% ; DON'T WANT MAIN FORM ONLY OPTIONS BOTH GOT SAME "GoodSync - " 
+	{
+		O_HWND_4=
+		DetectHiddenWindows, % dhw
+		RETURN
+	}
+	
+	CORRECT_VALUE_MET=3
+	
+	; TOOLTIP % HWND_1 "`n" HWND_2
+	
+	; MSGBOX % OutputVar_3
+	
+	IF INSTR(OutputVar_3,"GoodSync - ")>0
+	IF O_HWND_4<>%HWND_2%	
+	{
+		; CORRECT_VALUE_MET=1
+		; -----------------------------------------------------------------------
+		; -----------------------------------------------------------------------
+		; TOOLTIP % HWND_1 "`n" HWND_2 "`n" INSTR(OutputVar_3,"GoodSync - ")
+		OutputVar_3=
+		VALUE_PASTE_IN=
+		ControlGet, OutputVar_3, Line, 1, Edit1, ahk_id %HWND_2%
+		
+		; smbd://4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/#0 1 INSTALLATIONS/00 INSTALLER_SET/# 00 Install Progs
+		
+		IF INSTR(OutputVar_3,"smbd://")>0
+			VALUE_PASTE_IN=%OutputVar_3%
+		
+		IF INSTR(OutputVar_3,"smbd://")=0
+			OutputVar_3=
+		
+		IF INSTR(OutputVar_3,"smbd://")>0
+			GOSUB SUB_GOODSYNC_CHANGE_NET_PATH_AS_SWEEPING_CHANGE_STRINGREPLACE
+
+		IF OutputVar_3
+		IF OutputVar_3<>%VALUE_PASTE_IN%
+		{
+			ControlSetText, Edit1,, ahk_id %HWND_2%
+			SLEEP 500
+			Control, EditPaste, %VALUE_PASTE_IN%, Edit1, ahk_id %HWND_2%
+			SoundBeep , 1000 , 100
+			SLEEP 800
+			ControlGet, OutputVar_3, Line, 1, Edit1, ahk_id %HWND_2%
+			IF OutputVar_3<>%VALUE_PASTE_IN%
+					CORRECT_VALUE_MET=2
+			IF OutputVar_3=%VALUE_PASTE_IN%
+			{
+				RESULT_FINE=FALSE
+				COUNTER_LOOP=200
+				LOOP
+				{
+					ControlFocus, Edit1, ahk_id %HWND_2%
+					OutputVar_3=
+					SLEEP 1500 ; HAS TO BE LONG HERE
+					ControlGet, OutputVar_3, Line, 1, Edit1, ahk_id %HWND_2%
+					IF OutputVar_3=%VALUE_PASTE_IN%
+					{
+						SoundBeep , 1000 , 100
+						SendInput, {enter}
+						RESULT_FINE=TRUE
+						BREAK
+						SLEEP 100
+						COUNTER_LOOP-=1
+						IF COUNTER_LOOP=0
+							BREAK
+					}
+				}
+				IF RESULT_FINE=FALSE
+					CORRECT_VALUE_MET=2
+			}
+		}
+
+		; -----------------------------------------------------------------------
+		; -----------------------------------------------------------------------
+
+
+		OutputVar_3=
+		VALUE_PASTE_IN=
+		ControlGet, OutputVar_3, Line, 1, Edit2, ahk_id %HWND_2%
+
+		; TOOLTIP % OutputVar_3
+
+		IF INSTR(OutputVar_3,"smbd://")>0
+			VALUE_PASTE_IN=%OutputVar_3%
+		IF INSTR(OutputVar_3,"smbd://")=0
+			OutputVar_3=
+		
+		
+		IF INSTR(OutputVar_3,"smbd://")>0
+			GOSUB SUB_GOODSYNC_CHANGE_NET_PATH_AS_SWEEPING_CHANGE_STRINGREPLACE
+
+		IF OutputVar_3
+		IF OutputVar_3<>%VALUE_PASTE_IN%
+		{
+			ControlSetText, Edit2 , ahk_id %HWND_2%
+			Control, EditPaste, %VALUE_PASTE_IN%, Edit2, ahk_id %HWND_2%
+			SoundBeep , 3000 , 100
+			SLEEP 800
+			ControlGet, OutputVar_3, Line, 1, Edit2, ahk_id %HWND_2%
+			IF OutputVar_3<>%VALUE_PASTE_IN%
+					CORRECT_VALUE_MET=2
+			
+			IF OutputVar_3=%VALUE_PASTE_IN%
+			{
+				RESULT_FINE=FALSE
+				COUNTER_LOOP=200
+				LOOP
+				{
+					ControlFocus, Edit2, ahk_id %HWND_2%
+					SLEEP 1500 ; HAS TO BE LONG HERE
+					OutputVar_3=
+					ControlGet, OutputVar_3, Line, 1, Edit2, ahk_id %HWND_2%
+					IF OutputVar_3=%VALUE_PASTE_IN%
+					{
+						SoundBeep , 1000 , 100
+						SendInput, {enter}
+						RESULT_FINE=TRUE
+						BREAK
+						SLEEP 100
+						COUNTER_LOOP-=1
+						IF COUNTER_LOOP=0
+							BREAK
+					}
+				}
+				IF RESULT_FINE=FALSE
+					CORRECT_VALUE_MET=2
+
+			}
+		}
+	}
+
+	BOKAY=-------------------`nALL SETTING SET`n-------------------
+	
+	; TIP % OutputVar_3 "`n`n" VALUE_PASTE_IN
+	
+	IF OutputVar_3=%VALUE_PASTE_IN%
+	IF AOKAY<>%BOKAY%
+	IF CORRECT_VALUE_MET=1
+	{
+		AOKAY=-------------------`nALL SETTING SET`n-------------------
+		TOOLTIP -------------------`nALL SETTING SET`n-------------------,500,10
+		SETTIMER TOOLTIP_TO_CLEAR,4000
+	}
+
+	O_HWND_4=%HWND_4%
+	
+	IF CORRECT_VALUE_MET=2
+		O_HWND_4=
+	
+	IF OutputVar_3<>%VALUE_PASTE_IN%
+	{
+		AOKAY=
+		O_HWND_4=
+	}
+	DetectHiddenWindows, % dhw
+
+RETURN
+
+
+
+
+SUB__GoodSync_Dialog_220373_TIMER:
+
+
+	WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+	
+	IF !HWND_1
+	{
+		RETURN
+	}
+	
+	; IfWinNotActive, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+	; RETURN
+	IfWinNotActive, ahk_exe GOODSYNC.exe
+	RETURN
+	
+	WinGet, HWND_5, ID, ahk_class #32770
+	WinGet, HWND_2, ID, A
+	WinGetText  OutputVar_3, ahk_id %HWND_2%
+
+	; TOOLTIP % OutputVar_3
+	IF INSTR(OutputVar_3,"_GoodSync_Dialog_220373_")=0
+	{
+		RETURN
+	}
+
+	WinGet, HWND_5, ID, ahk_class #32770
+	IF HWND_5
+	{
+		; WinGetText  OutputVar_3, ahk_id %HWND_5%
+		WinGetTITLE OutputVar_4, ahk_id %HWND_5%
+		SET_GO_44=FALSE
+		IfInString, OutputVar_3, _GoodSync_Dialog_220373_
+			SET_GO_44=TRUE
+		IF INSTR(OutputVar_3,"Propagate Deletions")>0
+			SET_GO_44=FALSE
+		IF INSTR(OutputVar_4,"Account Sync - matt.lan@btinternet.com")>0
+			SET_GO_44=FALSE
+		IF INSTR(OutputVar_3,"Do you want to delete R Folder")>0 
+			SET_GO_44=FALSE
+		IF INSTR(OutputVar_3,"Do you want to delete L Folder")>0 
+			SET_GO_44=FALSE
+			; Do you want to delete 4 selected items?
+		IF INSTR(OutputVar_4,"Do you want to delete")>0 
+			SET_GO_44=FALSE	
+		IF INSTR(OutputVar_3,"Do you want to delete")>0    ; THIS ONE WORK THE TEXT IN THE TEXTBOX
+			SET_GO_44=FALSE	
+		IF INSTR(OutputVar_3,"Do you really want to delete")>0    ; 	DELETE A JOB
+			SET_GO_44=FALSE	
+		IF INSTR(OutputVar_4,"Clone Job")>0 
+			SET_GO_44=FALSE			
+		IF INSTR(OutputVar_4,"Copying")>0 
+			SET_GO_44=FALSE						
+		IF INSTR(OutputVar_4,"New Folder")>0 
+			SET_GO_44=FALSE	
+		IF INSTR(OutputVar_4,"Rename Job")>0 
+			SET_GO_44=FALSE		
+		IF INSTR(OutputVar_4,"Program Options")>0 
+			SET_GO_44=FALSE	
+		IF INSTR(OutputVar_3,"Program Options")>0 
+			SET_GO_44=FALSE	
+		IF INSTR(OutputVar_3,"One or more jobs are running now")>0  ; -- WHEN YOU GO TO E-- MENU EXIT
+			SET_GO_44=FALSE	
+		IF INSTR(OutputVar_4,"GoodSync Account Setup")>0 
+			SET_GO_44=FALSE
+			
+		ControlGet, isVisible1, Visible, , Button1, A
+		ControlGet, isVisible2, Visible, , Button2, A
+		if (!isVisible1) and (!isVisible2)
+		{
+			SET_GO_44=FALSE
+			SETTIMER TOOLTIP_TO_CLEAR,3000
+			RETURN
+		}
+
+
+GO_44=FALSE	
+
+; MSGBOX % OutputVar_4
+			
+; TOOLTIP % SET_GO_44
+		; ARE YOU SURE YOU WANT TO CHANGE THE SYNC FOLDER
+		IfInString, OutputVar_3, _GoodSync_Dialog_220373_
+		IF INSTR(OUTPUTVAR_3,"Yes")
+		IF INSTR(OUTPUTVAR_3,"No")
+		IF INSTR(OUTPUTVAR_3,"Cancel")
+			SET_GO_44=TRUE
+			
+		IF SET_GO_44=TRUE
+		{
+			; -----------------------------------------------------
+			; ARE YOU SURE YOU WANT TO CHANGE THE SYNC FOLDER
+			; CHANGING SYNC FOLDER WILL INVALIDATE JOB PATH FILTERS
+			; -----------------------------------------------------
+
+			; IF INSTR(OutputVar_3,"Are you sure you want to change the sync folder")>0 
+			ControlGet, isVisible1, Visible, , Button1, A
+			if isVisible1
+			{
+				A2B=-----------------------------------------------------`n
+				A2B=%A2B% ARE YOU SURE YOU WANT TO CHANGE THE SYNC FOLDER`n
+				A2B=%A2B% CHANGING SYNC FOLDER WILL INVALIDATE JOB PATH FILTERS`n
+				A2B=%A2B% -----------------------------------------------------`n
+				TOOLTIP %A2B%,500,10
+				ControlClick, Button1, ahk_id %HWND_2%
+				SoundBeep , 3000 , 100
+				SETTIMER TOOLTIP_TO_CLEAR,3000
+			}
+			ControlGet, isVisible2, Visible, , Button2, A
+			if isVisible2
+			IF INSTR(OutputVar_3,"Are you sure you want to keep _GSDATA_ folder in GoodSync profile folder?")>0 
+			{
+				A2B=-----------------------------------------------------`n
+				A2B=%A2B% ARE YOU SURE YOU WANT TO CHANGE THE SYNC FOLDER`n
+				A2B=%A2B% CHANGING SYNC FOLDER WILL INVALIDATE JOB PATH FILTERS`n
+				A2B=%A2B% -----------------------------------------------------`n
+				TOOLTIP %A2B%,500,10
+				ControlClick, Button2, ahk_id %HWND_2%
+				SoundBeep , 3000 , 100
+				SETTIMER TOOLTIP_TO_CLEAR,3000
+			}
+		}
+	}
+	
+	
+RETURN
+
+TOOLTIP_TO_CLEAR:
+	SETTIMER TOOLTIP_TO_CLEAR,OFF
+	TOOLTIP
+RETURN
+
+SUB_GOODSYNC_CHANGE_NET_PATH_AS_SWEEPING_CHANGE_STRINGREPLACE:
+
+		; TOOLTIP % VALUE_PASTE_IN 
+		IF !VALUE_PASTE_IN 
+			RETURN 
+		
+		; HARD DRIVE 1 TO 3 -- C D & E ON 3 COMPUTER
+		VALUE_SWAP_1:="4_ASUS_GL522VW_01_C_DRIVE"
+		VALUE_SWAP_2:="4_Asus_Gl522Vw_C_Drive"
+		StringReplace, VALUE_PASTE_IN, VALUE_PASTE_IN ,%VALUE_SWAP_1%,%VALUE_SWAP_2%
+
+		VALUE_SWAP_1:="4_ASUS_GL522VW_02_D_DRIVE"
+		VALUE_SWAP_2:="4_Asus_Gl522Vw_D_Drive"
+		StringReplace, VALUE_PASTE_IN, VALUE_PASTE_IN ,%VALUE_SWAP_1%,%VALUE_SWAP_2%
+	
+		VALUE_SWAP_1:="4_ASUS_GL522VW_03_FAT32_4GB"
+		VALUE_SWAP_2:="4_Asus_Gl522Vw_E_Drive"
+		StringReplace, VALUE_PASTE_IN, VALUE_PASTE_IN ,%VALUE_SWAP_1%,%VALUE_SWAP_2%
+
+		VALUE_SWAP_1:="8_MSI_GP62M_7RD_01_C_DRIVE"
+		VALUE_SWAP_2:="8_Msi_Gp62m_7rd_C_Drive"		
+		StringReplace, VALUE_PASTE_IN, VALUE_PASTE_IN ,%VALUE_SWAP_1%,%VALUE_SWAP_2%
+
+
+		VALUE_SWAP_1:="8_MSI_GP62M_7RD_02_D_DRIVE"
+		VALUE_SWAP_2:="8_Msi_Gp62m_7rd_D_Drive"		
+		IF VALUE_SWAP_1
+			StringReplace, VALUE_PASTE_IN, VALUE_PASTE_IN ,%VALUE_SWAP_1%,%VALUE_SWAP_2%
+		VALUE_SWAP_1:="8_MSI_GP62M_7RD_03_FAT32_4GB"
+		VALUE_SWAP_2:="8_Msi_Gp62m_7rd_E_Drive"	
+		IF VALUE_SWAP_1
+			StringReplace, VALUE_PASTE_IN, VALUE_PASTE_IN ,%VALUE_SWAP_1%,%VALUE_SWAP_2%
+
+		VALUE_SWAP_1:="9_ASUS_G815LM_01_C_DRIVE"
+		VALUE_SWAP_2:="9_Asus_G815LM_C_Drive"		
+		IF VALUE_SWAP_1
+			StringReplace, VALUE_PASTE_IN, VALUE_PASTE_IN ,%VALUE_SWAP_1%,%VALUE_SWAP_2%
+
+		VALUE_SWAP_1:="9_ASUS_G815LM_02_D_DRIVE"
+		VALUE_SWAP_2:="9_Asus_G815LM_D_Drive"
+		StringReplace, VALUE_PASTE_IN, VALUE_PASTE_IN ,%VALUE_SWAP_1%,%VALUE_SWAP_2%
+	
+		VALUE_SWAP_1:="9_ASUS_G815LM_03_FAT32_4GB"
+		VALUE_SWAP_2:="9_Asus_G815LM_E_Drive"		
+		IF VALUE_SWAP_1
+			StringReplace, VALUE_PASTE_IN, VALUE_PASTE_IN ,%VALUE_SWAP_1%,%VALUE_SWAP_2%
+
+		; USB HARD DRIVE SET -- BACKUP OF COMPUTER HDD 1 2 3 C D & E 
+		VALUE_SWAP_1:="4_ASUS_GL522VW_14_1_SAMSUNG_5TB_C"
+		VALUE_SWAP_2:="4_Asus_Gl522Vw_I_Samsung_5TB_C"		
+		IF VALUE_SWAP_1
+			StringReplace, VALUE_PASTE_IN, VALUE_PASTE_IN ,%VALUE_SWAP_1%,%VALUE_SWAP_2%
+		VALUE_SWAP_1:="4_ASUS_GL522VW_15_1_SAMSUNG_5TB_D"
+		VALUE_SWAP_2:="4_Asus_Gl522Vw_J_Samsung_5TB_D"		
+		IF VALUE_SWAP_1
+			StringReplace, VALUE_PASTE_IN, VALUE_PASTE_IN ,%VALUE_SWAP_1%,%VALUE_SWAP_2%
+		VALUE_SWAP_1:="4_ASUS_GL522VW_18_1_SAMSUNG_5TB_E"
+		VALUE_SWAP_2:="4_Asus_Gl522Vw_K_Samsung_5TB_E"		
+		IF VALUE_SWAP_1
+			StringReplace, VALUE_PASTE_IN, VALUE_PASTE_IN ,%VALUE_SWAP_1%,%VALUE_SWAP_2%
+
+		; USB HARD DRIVE SET -- BACKUP OF 4 HDD -- 2 BACKUP P & V
+		VALUE_SWAP_1:="4_ASUS_GL522VW_30_1_SAMSUNG_4TB_D"
+		VALUE_SWAP_2:="4_Asus_Gl522Vw_O_Samsung_4TB"		
+		IF VALUE_SWAP_1
+			StringReplace, VALUE_PASTE_IN, VALUE_PASTE_IN ,%VALUE_SWAP_1%,%VALUE_SWAP_2%
+		VALUE_SWAP_1:="4_ASUS_GL522VW_30_2_SAMSUNG_5TB_D"
+		VALUE_SWAP_2:="4_Asus_Gl522Vw_P_Samsung_5TB"		
+		IF VALUE_SWAP_1
+			StringReplace, VALUE_PASTE_IN, VALUE_PASTE_IN ,%VALUE_SWAP_1%,%VALUE_SWAP_2%
+		VALUE_SWAP_1:="4_ASUS_GL522VW_40_4_SAMSUNG_5TB"
+		VALUE_SWAP_2:="4_Asus_Gl522Vw_U_Samsung_5TB"		
+		IF VALUE_SWAP_1
+			StringReplace, VALUE_PASTE_IN, VALUE_PASTE_IN ,%VALUE_SWAP_1%,%VALUE_SWAP_2%
+		VALUE_SWAP_1:="4_ASUS_GL522VW_40_5_SAMSUNG_5TB"
+		VALUE_SWAP_2:="4_Asus_Gl522Vw_V_Samsung_5TB"		
+		IF VALUE_SWAP_1
+			StringReplace, VALUE_PASTE_IN, VALUE_PASTE_IN ,%VALUE_SWAP_1%,%VALUE_SWAP_2%
+
+
+		VALUE_SWAP_1:=""
+		VALUE_SWAP_2:=""		
+		IF VALUE_SWAP_1
+			StringReplace, VALUE_PASTE_IN, VALUE_PASTE_IN ,%VALUE_SWAP_1%,%VALUE_SWAP_2%
+		VALUE_SWAP_1:=""
+		VALUE_SWAP_2:=""		
+		IF VALUE_SWAP_1
+			StringReplace, VALUE_PASTE_IN, VALUE_PASTE_IN ,%VALUE_SWAP_1%,%VALUE_SWAP_2%
+
+RETURN
+
+
+; -------------------------------------------------------------------
 TIMER_SUB_GOODSYNC_OPTIONS:
 
 	dhw := A_DetectHiddenWindows
-	DetectHiddenWindows, ON
-	SetTitleMatchMode 2  ; Avoids Specify Full path.
+	DetectHiddenWindows, OFF
+	SetTitleMatchMode 3  ; Avoids Specify Full path.
 	
 	HWND_1_EXENAME=
 	HWND_1=
@@ -332,198 +806,297 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 		RETURN
 	}
 	
+	OutputVar_3=
 	WinGet, HWND_2, ID, A
+	IF OLD_HWND_2<>%HWND_2%
+	{
+		O_HWND_2=1
+		TOOLTIP
+	}
+	OLD_HWND_2=%HWND_2%
+	
+	
 	WinGetTitle OutputVar_3, ahk_id %HWND_2%
+	; IF OutputVar_3
 	IF INSTR(OutputVar_3,"] Options")=0
 	{
-		O_HWND_2=
+		; O_HWND_2=
 		DetectHiddenWindows, % dhw
 		RETURN
 	}
+	
+	CORRECT_VALUE_SET=TRUE
+	VALUE_CHANGE=FALSE
 
+	IF HWND_1<>%HWND_2%
 	IF O_HWND_2<>%HWND_2%	
 	{
+		; CORRECT_VALUE_SET=2
 		;---------------------------------------------------------
 		; WinGet, OutputVar, ControlList, ahk_id %HWND_1%
 		;---------------------------------------------------------
 		; Tooltip, % OutputVar ; List All Controls of Active Window
 		;---------------------------------------------------------
 		; -----------------------------------------------------------
-
+		; TOOLTIP "TTTTX"
 		
-		VALUE_PASTE_IN=2147483647
+		VALUE_PASTE_IN:=2147483647
 
 		IF INSTR(OutputVar_3,"ASUS_GL522VW_01")>0
-			VALUE_PASTE_IN=48
+			VALUE_PASTE_IN:=48
 		IF INSTR(OutputVar_3,"1_SAMSUNG_4TB")>0
-			VALUE_PASTE_IN=48
+			VALUE_PASTE_IN:=48
 		IF INSTR(OutputVar_3,"4_SAMSUNG_5TB")>0
-			VALUE_PASTE_IN=48			
+			VALUE_PASTE_IN:=48			
 			
 
 		IF (A_ComputerName = "4-ASUS-GL522VW") 
-			VALUE_PASTE_IN=2147483647
+			VALUE_PASTE_IN:=2147483647
 
 
 		IF INSTR(OutputVar_3,"[QNAP 0")>0 
-			VALUE_PASTE_IN=48
+			VALUE_PASTE_IN:=48
 
 
 
-		VALUE_CHECKBOX_PERIODIC=
+		VALUE_CHECKBOX_PERIODIC:=1
 	
 		IF INSTR(OutputVar_3,"[VB VB")>0 
 		{
-			VALUE_PASTE_IN=48
-			VALUE_CHECKBOX_PERIODIC=FALSE
+			VALUE_PASTE_IN:=48
+			VALUE_CHECKBOX_PERIODIC:=0
 		}
 	
 		IF INSTR(OutputVar_3,"02_ EXE")>0 
-			VALUE_PASTE_IN=48
+			VALUE_PASTE_IN:=48
 
 		IF INSTR(OutputVar_3,"GD C ")>0 
-			VALUE_PASTE_IN=48
+			VALUE_PASTE_IN:=48
 		IF INSTR(OutputVar_3,"GD D ")>0 
-			VALUE_PASTE_IN=48
+			VALUE_PASTE_IN:=48
 		IF INSTR(OutputVar_3,"GD E ")>0 
-			VALUE_PASTE_IN=48
+			VALUE_PASTE_IN:=48
 
 		IF INSTR(OutputVar_3,"GOOGLE DRIVE")>0 
-			VALUE_PASTE_IN=48
+			VALUE_PASTE_IN:=48
 
 		IF INSTR(OutputVar_3,"E DESKTOP ")>0 
-			VALUE_PASTE_IN=24
+			VALUE_PASTE_IN:=24
 
 		
 		IF (A_ComputerName = "9-ASUS-G815LM") 
 		IF INSTR(OutputVar_3,"[MS 0")=1
-			VALUE_PASTE_IN=48
+			VALUE_PASTE_IN:=48
+		IF (A_ComputerName = "4-ASUS-GL522VW") 
+		IF INSTR(OutputVar_3,"[MS 0")=1
+			VALUE_PASTE_IN:=48
 		
 		IF INSTR(OutputVar_3,"D MUSIC MP3 HDD SAMSUNG")>0
-			VALUE_PASTE_IN=48
+			VALUE_PASTE_IN:=48
 		
 		IF (A_ComputerName = "4-ASUS-GL522VW") 
 		IF INSTR(OutputVar_3,"GD C SCRIPTOR")>0
-			VALUE_PASTE_IN=48
+			VALUE_PASTE_IN:=48
 
 		IF (A_ComputerName = "8-MSI-GP62M-7RD") 
-			VALUE_PASTE_IN=2147483647
+			VALUE_PASTE_IN:=2147483647
 		
 			
-		CORRECT_VALUE_SET=
-			
-		
-			
+		CORRECT_VALUE_SET=TRUE
+		VALUE_CHANGE=FALSE
+	
+
+
 		; -----------------------------------------------------------------------
-		; ClassNN:	Button16
-		; Text:	Periodically (On Timer), every
-		; ControlGet, Status, Checked,, Button16, ahk_id %HWND_2%
+		; CREATE LEFT/RIGHT SYNC FOLDERS IF THEY ARE NOT FOUND -- CHECKER
+		; -----------------------------------------------------------------------
+		ControlGettext, OutputVar_2, Button2, ahk_id %HWND_2%
+		IF INSTR(OutputVar_2,"right Sync folders if they")>0 
+		{
+			ControlGet, Status, Checked,, Button2, ahk_id %HWND_2%
+			If Status=1 ; ---- CHECK
+			{
+				Control, UNCheck,, Button2, ahk_id %HWND_2%
+				SoundBeep , 4000 , 100
+				VALUE_CHANGE=TRUE
+				ControlGet, Status, Checked,, Button2, ahk_id %HWND_2%
+				IF Status=1 ; ---- CHECK
+				{
+					TOOLTIP CREATE LEFT/RIGHT SYNC FOLDERS IF THEY ARE NOT FOUND -- CHECKER,500,10
+					SETTIMER TOOLTIP_TO_CLEAR,3000
+					CORRECT_VALUE_SET=FALSE
+				}
+			}
+		}
+
+		; -----------------------------------------------------------------------
+		; -----------------------------------------------------------------------
+		; PERIODICALLY (ON TIMER) -- CHECKED
 		; -----------------------------------------------------------------------
 		ControlGettext, OutputVar_2, Button16, ahk_id %HWND_2%
-		
-		; -----------------------------------------------------------------------
-		; -----------------------------------------------------------------------
-
 		IF INSTR(OutputVar_2,"Periodically (On Timer)")>0 
 		{
 			ControlGet, Status, Checked,, Button16, ahk_id %HWND_2%
-			If Status=1 ; ---- CHECK
-			IF VALUE_CHECKBOX_PERIODIC
+			; TOOLTIP % Status "`n" !%VALUE_CHECKBOX_PERIODIC%
+			If Status<>%VALUE_CHECKBOX_PERIODIC%
 			{
-				Control, UNCheck,, Button16, ahk_id %HWND_2%
-				SoundBeep , 2000 , 100	
-				ControlGet, Status, Checked,, Button16, ahk_id %HWND_2%
-				If Status=1 ; ---- CHECK
-					CORRECT_VALUE_SET=FALSE
-				
-			}
-
-			ControlGet, Status, Checked,, Button16, ahk_id %HWND_2%
-			If Status=0 ; ---- UNCHECK
-			IF !VALUE_CHECKBOX_PERIODIC
-			{
-				Control, Check,, Button16, ahk_id %HWND_2%
+				IF VALUE_CHECKBOX_PERIODIC=1
+					Control, CHECK,, Button16, ahk_id %HWND_2%
+				IF VALUE_CHECKBOX_PERIODIC=0
+					Control, UNCHECK,, Button16, ahk_id %HWND_2%
 				SoundBeep , 2000 , 100
+				VALUE_CHANGE=TRUE
 				ControlGet, Status, Checked,, Button16, ahk_id %HWND_2%
-				If Status=0 ; ---- UNCHECK
+				If Status<>%VALUE_CHECKBOX_PERIODIC%
+				{
+					TOOLTIP PERIODICALLY (ON TIMER) -- CHECKED,500,10	
+					SETTIMER TOOLTIP_TO_CLEAR,3000
 					CORRECT_VALUE_SET=FALSE
+				}
 			}
-			
+						
+			; -----------------------------------------------------------------------
+			; PERIODICALLY (ON TIMER) EDIT BOX
+			; -----------------------------------------------------------------------
 			ControlGet, Status, Checked,, Button16, ahk_id %HWND_2%
 			ControlGet, OutputVar_3, Line, 1, Edit3, ahk_id %HWND_2%
-			If Status=1 ; ---- CHECK
+			If Status=%VALUE_CHECKBOX_PERIODIC%
 			IF OutputVar_3<>%VALUE_PASTE_IN%
 			{
+
 				ControlSetText, Edit3,, ahk_id %HWND_2%
 				Control, EditPaste, %VALUE_PASTE_IN%, Edit3, ahk_id %HWND_2%
 				SoundBeep , 3000 , 100
-				
-				ControlGet, Status, Checked,, Button16, ahk_id %HWND_2%
+				VALUE_CHANGE=TRUE
 				ControlGet, OutputVar_3, Line, 1, Edit3, ahk_id %HWND_2%
-				IF OutputVar_3<>%VALUE_PASTE_IN%
+				IF INSTR(OutputVar_3,%VALUE_PASTE_IN%)=0
+				{
+					TOOLTIP PERIODICALLY (ON TIMER) EDIT BOX,500,10
+					SETTIMER TOOLTIP_TO_CLEAR,3000
 					CORRECT_VALUE_SET=FALSE
+				}
 			}
 		}
-			
-		; -----------------------------------------------------------------------			
-		; ClassNN:	Button2
-		; Text:	Create left/right Sync folders if they a (...)
-		; ControlGet, Status, Checked,, Button2, ahk_id %HWND_2%
-		; -----------------------------------------------------------------------
-		ControlGettext, OutputVar_2, Button2, ahk_id %HWND_2%
-		ControlGet, Status, Checked,, Button2, ahk_id %HWND_2%
-		If Status=1 ; ---- CHECK
-		IF INSTR(OutputVar_2,"right Sync folders if they")>0 
-		{
-			Control, UNCheck,, Button2, ahk_id %HWND_2%
-			SoundBeep , 4000 , 100
-			ControlGet, Status, Checked,, Button2, ahk_id %HWND_2%
-			IF Status=1 ; ---- CHECK
-				CORRECT_VALUE_SET=FALSE
-		}
+
 		
 		; -----------------------------------------------------------------------
-		; ClassNN:	Button41
-		; Text:	Run Parallel Threads in Sync, this many:
+		; RUN PARALLEL THREADS IN SYNC, THIS MANY -- CHECK
 		; -----------------------------------------------------------------------
 		ControlGettext, OutputVar_2, Button41, ahk_id %HWND_2%
-		
 		IF INSTR(OutputVar_2,"Run Parallel Threads in Sync")>0 
 		{
 			ControlGet, Status, Checked,, Button41, ahk_id %HWND_2%
 			If Status=0 ; ---- UNCHECK
 			{
 				Control, Check,, Button41, ahk_id %HWND_2%
-				SoundBeep , 5000 , 100	
+				SoundBeep , 5000 , 100
+				VALUE_CHANGE=TRUE
+
+				ControlGet, Status, Checked,, Button41, ahk_id %HWND_2%
+				IF Status=0 ; ---- UNCHECK
+				{
+					TOOLTIP RUN PARALLEL THREADS IN SYNC, THIS MANY -- CHECK,500,10
+					SETTIMER TOOLTIP_TO_CLEAR,3000
+					CORRECT_VALUE_SET=FALSE
+				}
+				
 			}
+			
+			; -----------------------------------------------------------------------
+			; RUN PARALLEL THREADS IN SYNC, THIS MANY -- EDIT BOX
+			; -----------------------------------------------------------------------
 			VALUE_PASTE_IN=2
 			ControlGet, OutputVar_3, Line, 1, Edit10, ahk_id %HWND_2%
 			IF OutputVar_3<>%VALUE_PASTE_IN%
 			{
 				ControlSetText, Edit10,, ahk_id %HWND_2%
 				Control, EditPaste, %VALUE_PASTE_IN%, Edit10, ahk_id %HWND_2%
-				SoundBeep , 6000 , 100
+				SoundBeep , 5000 , 100
+				VALUE_CHANGE=TRUE
+
+				ControlGet, OutputVar_3, Line, 1, Edit10, ahk_id %HWND_2%
+				IF OutputVar_3<>%VALUE_PASTE_IN%
+				{
+					TOOLTIP RUN PARALLEL THREADS IN SYNC, THIS MANY -- EDIT BOX,500,10
+					SETTIMER TOOLTIP_TO_CLEAR,3000
+					CORRECT_VALUE_SET=FALSE
+				}
 			}
-			ControlGet, Status, Checked,, Button41, ahk_id %HWND_2%
-			ControlGet, OutputVar_3, Line, 1, Edit10, ahk_id %HWND_2%
-			IF Status=0 ; ---- UNCHECK 
-				CORRECT_VALUE_SET=FALSE
-			IF OutputVar_3<>%VALUE_PASTE_IN%
-				CORRECT_VALUE_SET=FALSE
 		}
 	}
-						
+		
+	; TOOLTIP % CORRECT_VALUE_SET
+		
+	IF O_HWND_2<>%HWND_2%
+	IF VALUE_CHANGE=TRUE
+	{
+		ControlGetText, tooltip2,,ahk_class tooltips_class32
+		IF tooltip2
+		{
+			COUNT_ENDER=1000
+			LOOP
+			{
+				ControlGetText, tooltip2,,ahk_class tooltips_class32
+				IF !tooltip2
+					BREAK
+				COUNT_ENDER-=1
+				IF COUNT_ENDER<0 
+					BREAK
+				SLEEP 100
+			}
+			}
+		SLEEP 1000
+		TOOLTIP --------------------------------------------------------------------`nALL SETTER SET`n--------------------------------------------------------------------,500,10
+		SETTIMER TOOLTIP_TO_CLEAR,OFF
+		SETTIMER TOOLTIP_TO_CLEAR,5000
+	}
+
+
+	IF O_HWND_2<>%HWND_2%
+	IF VALUE_CHANGE=FALSE
+	{
+		ControlGetText, tooltip2,,ahk_class tooltips_class32
+		IF tooltip2
+		{
+			COUNT_ENDER=1000
+			LOOP
+			{
+				ControlGetText, tooltip2,,ahk_class tooltips_class32
+				IF !tooltip2
+					BREAK
+				COUNT_ENDER-=1
+				IF COUNT_ENDER<0 
+					BREAK
+				SLEEP 100
+			}
+			}
+		SLEEP 1000
+		TOOLTIP --------------------------------------------------------------------`nALL SETTER SET -- NOT A CHANGE`n--------------------------------------------------------------------,500,10
+		SETTIMER TOOLTIP_TO_CLEAR,OFF
+		SETTIMER TOOLTIP_TO_CLEAR,5000
+	}
+
+
+
+		
 	O_HWND_2=%HWND_2%
 	
-	IF CORRECT_VALUE_SET=FALSE
+	; IF VALUE_CHANGE=TRUE
+		; O_HWND_2= ; GIVE IT ANOTHER PASS WHEN CHANGES
+	
+	IF CORRECT_VALUE_SET=FALSE ;; IF FALSE RUN AGAIN
+	{
+		; MSGBOX % CORRECT_VALUE_SET
 		O_HWND_2=
+	}
+
 	
 	DetectHiddenWindows, % dhw
 
 RETURN
 			
 		
-	
+; DONT GET CALL
 TEMP:
 			
 			; -----------------------------------------------------------
@@ -622,7 +1195,7 @@ TEMP:
 					TT_1:=% TT_1 "_DO_NOT_SYNC_IF_`n"
 
 					ControlSetText, Edit11,, ahk_id %HWND_1%
-					VALUE_PASTE_IN=80
+					VALUE_PASTE_IN:=80
 					Control, EditPaste, %VALUE_PASTE_IN%, Edit11, ahk_id %HWND_1%
 					SoundBeep , 4000 , 100
 				}
@@ -2534,7 +3107,12 @@ Return
 
 ;# ------------------------------------------------------------------
 TIMER_PREVIOUS_INSTANCE:
+
+
 SETTIMER TIMER_PREVIOUS_INSTANCE,10000
+
+
+
 
 if ScriptInstanceExist()
 {

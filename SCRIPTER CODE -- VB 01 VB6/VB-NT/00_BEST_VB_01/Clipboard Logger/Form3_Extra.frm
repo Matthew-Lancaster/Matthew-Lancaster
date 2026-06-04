@@ -77,7 +77,7 @@ Exit Sub
 
 'GIVE UP ON THIS A BIT
 
-VAR2 = "D:\0 00 ART LOGGERS\# APP AND SCREEN\" + GetComputerName + "\AUTO_Form_Shot\"
+VAR2 = "D:\0 00 ART LOGGERS\# APP AND SCREEN AUTO\" + GetComputerName + "\AUTO_Form_Shot\"
 
 VAR2 = "D:\0 00 MUSIC ---"
 VAR2 = "D:\0 00 MUSIC -Z0x"

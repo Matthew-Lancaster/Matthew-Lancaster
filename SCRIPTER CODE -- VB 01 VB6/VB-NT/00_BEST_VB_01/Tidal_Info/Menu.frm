@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Begin VB.Form Menu 
    BackColor       =   &H80000007&
    Caption         =   "Tidal Menu"
@@ -462,9 +462,9 @@ MenuWorking = 1
 
 Call zzLoadChecks
 
-If Dir$(App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\Check.txt") <> "" And 1 = 2 Then
+If Dir$(App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\Check.txt") <> "" And 1 = 2 Then
     freeval = FreeFile
-    Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\Check.txt" For Input As #freeval
+    Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\Check.txt" For Input As #freeval
     For Each Control In Menu.Controls
         If EOF(freeval) Then Exit For
         If InStr(Control.Name, "Slider") = 0 Then
@@ -482,7 +482,7 @@ MenuWorking = 0
 
 
 
-'Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\Slider Hiss.txt" For Input As #1
+'Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\Slider Hiss.txt" For Input As #1
 'Line Input #1, sv
 'Close #1
 'Slider1.Value = Val(sv)
@@ -501,7 +501,7 @@ Menu.Hide
 Call zzSave_Checks
 End If
 'cool = FreeFile
-'Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\Slider Hiss.txt" For Output As #cool
+'Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\Slider Hiss.txt" For Output As #cool
 'Print #cool, Slider1.Value
 'Close #cool
 
@@ -563,7 +563,7 @@ Call zzLoadChecks
 Exit Sub
 
 freeval = FreeFile
-Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\Check.txt" For Output As #freeval
+Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\Check.txt" For Output As #freeval
 For Each Control In Menu.Controls
 '    If InStr(Control.name, "Check") Then
     If InStr(Control.Name, "Slider") = 0 Then
@@ -590,18 +590,18 @@ End Sub
 Sub zzLoadChecks()
 
 '---------------------
-If Dir(App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\", vbDirectory) = "" Then
+If Dir(App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\", vbDirectory) = "" Then
     On Error Resume Next
         MkDir App.Path + "\00_Text_Data\"
-        MkDir App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\"
+        MkDir App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\"
     On Error GoTo 0
 End If
 
-If Dir(App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\Check.txt") <> "" Then
+If Dir(App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\Check.txt") <> "" Then
     dxx = 0
     i = 0
     On Error Resume Next
-    Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\Check.txt" For Input As #1
+    Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\Check.txt" For Input As #1
     If Err.Number > 0 Then Exit Sub
     
     Do
@@ -622,12 +622,12 @@ If Dir(App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\C
     '    If InStr(Control.name, "Check") Then xx = 1
         
         xxd = 0: gogo = 0
-        For R = 0 To tit
+        For r = 0 To tit
             
-            If Control.Name = Th(R) Then
+            If Control.Name = Th(r) Then
     '        If Control.name = "MuteAllMal" Then Stop
                 
-                xxd = R: gogo = 1: Exit For
+                xxd = r: gogo = 1: Exit For
             End If
         Next
         
@@ -658,7 +658,7 @@ Sub zzSave_Checks()
 'Me.Visible = True
 
 On Local Error Resume Next
-Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\Check.txt" For Output As #1
+Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\Check.txt" For Output As #1
 'Open App.Path + "\00_Text_Data\ChkSettings-" + YinVectKeli$ + ".txt" For Output As #1
 For Each Control In Me.Controls
     Err.Clear

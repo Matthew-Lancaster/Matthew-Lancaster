@@ -7,7 +7,7 @@ Dim FILENAME_IN_USE_CHECK As String
 Private Declare Function GetForegroundWindow Lib "user32" () As Long
 Public Declare Function SetFocuses Lib "user32" Alias "SetFocus" (ByVal hWnd As Long) As Long
 Private Declare Function SetWindowPos Lib "user32" (ByVal hWnd As Long, _
-    ByVal hWndInsertAfter As Long, ByVal X As Long, ByVal Y As Long, ByVal cx As Long, _
+    ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, _
     ByVal cy As Long, ByVal wFlags As Long) As Long
 
 Public PopBack
@@ -156,8 +156,8 @@ Public Sub ActivateForm()
     Const SWP_NOMOVE = &H2
     Const SWP_NOACTIVATE = &H10
     Const SWP_SHOWWINDOW = &H40
-    Const HWND_TOPMOST = -1
-    Const HWND_NOTOPMOST = -2
+    Const hWnd_TOPMOST = -1
+    Const hWnd_NOTOPMOST = -2
      lngFlags = SWP_NOMOVE Or SWP_NOSIZE Or SWP_SHOWWINDOW Or SWP_NOACTIVATE
        
     
@@ -212,11 +212,11 @@ frmPassLock.txtUser.Text = lpStrUser
 frmPassLock.Show
 'frmPassLock.Hide
 
-FILENAME_IN_USE_CHECK = App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\00 Extreme Lock.txt"
+FILENAME_IN_USE_CHECK = App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\00 Extreme Lock.txt"
 FILENAME_IN_USE_CHECK_4 = FILENAME_IN_USE_CHECK
 DumVar = IsFileOpenDelay(FILENAME_IN_USE_CHECK)
 FILENAME_IN_USE_CHECK = FILENAME_IN_USE_CHECK_4
-FOLDER_CHECK = App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--"
+FOLDER_CHECK = App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + ""
 Set FSO = CreateObject("Scripting.FileSystemObject")
 If FSO.FolderExists(FOLDER_CHECK) = False Then
     i = CreateFolderTree(FOLDER_CHECK)

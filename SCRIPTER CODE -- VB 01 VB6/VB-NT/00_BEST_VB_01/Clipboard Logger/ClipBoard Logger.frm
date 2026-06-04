@@ -126,7 +126,6 @@ Begin VB.Form Form1
       _ExtentX        =   4572
       _ExtentY        =   1588
       _Version        =   393217
-      Enabled         =   -1  'True
       ReadOnly        =   -1  'True
       ScrollBars      =   2
       Appearance      =   0
@@ -143,7 +142,6 @@ Begin VB.Form Form1
       _ExtentX        =   7535
       _ExtentY        =   1397
       _Version        =   393217
-      Enabled         =   -1  'True
       TextRTF         =   $"ClipBoard Logger.frx":094C
    End
    Begin VB.Timer Timer_1_MINUTE 
@@ -2154,7 +2152,7 @@ Dim POn() As Boolean
 
 Dim inten As Integer
 
-Dim I As Integer, j As Integer
+Dim i As Integer, j As Integer
 
 Dim Ri As Long, Wo As Long
 Dim RealRi As Long
@@ -2345,7 +2343,7 @@ Set FSO = CreateObject("Scripting.FileSystemObject")
 Debug.Print "FORM_LOAD"
 
 
-Dim reg_valuename, WShell, Cmd, cmdLine, I
+Dim reg_valuename, WShell, Cmd, cmdLine, i
 GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\default:StdRegProv").EnumValues &H80000003, "S-1-5-19\Environment", reg_valuename
 If IsArray(reg_valuename) <> 0 Then
     RequireAdmin = 1
@@ -2680,8 +2678,8 @@ Debug.Print "CALL ZZLOAD_CHECKS"
     
 vPathSOUND2 = App.Path + "\Sound_Wav's--2\" + GetComputerName + "\"
 If Dir(vPathSOUND2, vbDirectory) = "" Then
-    I = MkDirNested(vPathSOUND2)
-    If I = False Then
+    i = MkDirNested(vPathSOUND2)
+    If i = False Then
         ' MsgBox "UABLE TO MKDIR NESTED" + vbCrLf + vPathSOUND2, vbMsgBoxSetForeground
     End If
 End If
@@ -3205,16 +3203,16 @@ End Sub
 
 
 
-Function GET_MENU_CONTROL_LENGTH(I)
+Function GET_MENU_CONTROL_LENGTH(i)
 
 Dim Control As Control
 Dim Text_Checker_Form_Menu As String
 GET_MENU_CONTROL_LENGTH = 0
 
-For I = 0 To Forms.Count - 1
-    If Forms(I).hWnd = Me.hWnd Then
+For i = 0 To Forms.Count - 1
+    If Forms(i).hWnd = Me.hWnd Then
         Text_Checker_Form_Menu = ""
-        frmListMenu.GetMenuInfo_Not_SUB GetMenu(Forms(I).hWnd), 0, "", Text_Checker_Form_Menu
+        frmListMenu.GetMenuInfo_Not_SUB GetMenu(Forms(i).hWnd), 0, "", Text_Checker_Form_Menu
         GET_MENU_CONTROL_LENGTH = Len(Text_Checker_Form_Menu)
     End If
 Next
@@ -3234,9 +3232,9 @@ Dim R_NEXT
 
 Dim Text_Checker_Form_Menu As String
 
-For I = 0 To Forms.Count - 1
+For i = 0 To Forms.Count - 1
     
-    For Each Control In Forms(I).Controls
+    For Each Control In Forms(i).Controls
         If InStr(UCase(Control.Name), "MNU_") And InStr(UCase(Control.Name), "TIMER_") = 0 Then
             
             On Error Resume Next
@@ -3263,12 +3261,12 @@ i_Menu_Count = 0
 
 
 
-For I = 0 To Forms.Count - 1
+For i = 0 To Forms.Count - 1
     Text_Checker_Form_Menu = ""
-    frmListMenu.GetMenuInfo_Not_Indented GetMenu(Forms(I).hWnd), 0, "", Text_Checker_Form_Menu
+    frmListMenu.GetMenuInfo_Not_Indented GetMenu(Forms(i).hWnd), 0, "", Text_Checker_Form_Menu
     'frmListMenu.GetMenuInfo_Not_Indented GetMenu(Forms(I).hWnd), 0, "", Text_Checker_Form_Menu
     Text_Checker_Form_Menu = UCase(Text_Checker_Form_Menu)
-    For Each Control In Forms(I).Controls
+    For Each Control In Forms(i).Controls
         If InStr(UCase(Control.Name), "MNU_") > 0 And InStr(UCase(Control.Name), "TIMER_") = 0 Then
             MENU_ITEM_VAR = Replace(Control.Caption, "[__ ", "")
             MENU_ITEM_VAR = Replace(MENU_ITEM_VAR, " __]", "")
@@ -4189,7 +4187,7 @@ Set WSHShell = CreateObject("WScript.Shell")
 
 EXECUTE_FILE_NAME = "C:WINDOWS\EXPLORER.EXE " + EXECUTE_PARAM
 
-EXECUTE_FILE_NAME = "D:\0 00 ART LOGGERS\# APP AND SCREEN\SavedCriteria IMAGE.srf"
+EXECUTE_FILE_NAME = "D:\0 00 ART LOGGERS\# APP AND SCREEN SHOT\SavedCriteria IMAGE.srf"
 
 If Dir(EXECUTE_FILE_NAME) = "" Then
     MsgBox "FILE NOT EXIST" + vbCrLf + vbCrLf + EXECUTE_FILE_NAME
@@ -4446,8 +4444,8 @@ Me.WindowState = vbMinimized
 
 Dim EE As String, O_EE As String
 
-I = MsgBox("REPLACE DOUBLE VBCRLF TO SINGLE YES NO", vbYesNo)
-If I = vbNo Then Exit Sub
+i = MsgBox("REPLACE DOUBLE VBCRLF TO SINGLE YES NO", vbYesNo)
+If i = vbNo Then Exit Sub
 
 EE = AD$
 'Do
@@ -4491,8 +4489,8 @@ Me.WindowState = vbMinimized
 
 Dim EE As String, O_EE As String
 
-I = MsgBox("REPLACE TRIPLE VBCRLF TO DOUBLE YES NO", vbYesNo)
-If I = vbNo Then Exit Sub
+i = MsgBox("REPLACE TRIPLE VBCRLF TO DOUBLE YES NO", vbYesNo)
+If i = vbNo Then Exit Sub
 
 EE = AD$
 'Do
@@ -5122,7 +5120,7 @@ If Timer_API_Test_Logick_Var1 = Timer_API_Test_Logick_Var1_OLD Then
     DoEvents
 
     Timer_API_OKAY_COLOUR.Enabled = False
-    I = MsgBox("ClipBoard API Has Stopped and Gone Missing" + vbCrLf + "Use the Menu Option *INFO* to Diagnostic and Reload It" + vbCrLf + "This Can Happen If ChkDsk Unlocked All Handles to The Hard Drive and the ClipboardViewer.ocx Driver Couldn't Get Access", vbMsgBoxSetForeground)
+    i = MsgBox("ClipBoard API Has Stopped and Gone Missing" + vbCrLf + "Use the Menu Option *INFO* to Diagnostic and Reload It" + vbCrLf + "This Can Happen If ChkDsk Unlocked All Handles to The Hard Drive and the ClipboardViewer.ocx Driver Couldn't Get Access", vbMsgBoxSetForeground)
         
     End If
 End If
@@ -5229,15 +5227,15 @@ Exit Sub
 
 Dim HOOKSTAT
 
-I = API_CLIPBOARD_HOOK
+i = API_CLIPBOARD_HOOK
 
 'If HOOKSTATold = HOOK_CLIPBOARD_API_lOADED Then Exit Sub
-If HOOKSTATold = I Then Exit Sub
+If HOOKSTATold = i Then Exit Sub
 
-HOOKSTATold = I
+HOOKSTATold = i
 
 
-If I = True Then
+If i = True Then
     HOOKSTAT = "True"
 Else
     HOOKSTAT = "False"
@@ -5274,8 +5272,8 @@ Private Sub MNU_CLIPBOARD_EXPLORER_FILE_FOLDER_Click()
     TYPE_VAR = "FILE, FOLDER AND NETWORK PATH"
     
     If XPOS = 0 Then
-        I = MsgBox("LAST CLIPBOARD NOT CONTAIN A VERIFIABLE STRING " + TYPE_VAR + " TO LOAD" + vbCrLf + vbCrLf + TEXT_PATH + vbCrLf + vbCrLf + "----" + vbCrLf + vbCrLf + "WANT MINIMIZE ", vbYesNo, vbMsgBoxSetForeground)
-        If I = vbYes Then Me.WindowState = vbMinimized
+        i = MsgBox("LAST CLIPBOARD NOT CONTAIN A VERIFIABLE STRING " + TYPE_VAR + " TO LOAD" + vbCrLf + vbCrLf + TEXT_PATH + vbCrLf + vbCrLf + "----" + vbCrLf + vbCrLf + "WANT MINIMIZE ", vbYesNo, vbMsgBoxSetForeground)
+        If i = vbYes Then Me.WindowState = vbMinimized
         Exit Sub
     End If
    
@@ -5320,8 +5318,8 @@ Private Sub MNU_CLIPBOARD_EXPLORER_FILE_FOLDER_Click()
             MINFO = MINFO + vbCrLf + vbCrLf + "SOME PATH INFO WAS SEARCH FOUND AND STILL NOT VERIFY" + vbCrLf + vbCrLf + TEXT_PATH + vbCrLf + vbCrLf
         End If
         
-        I = MsgBox("PATH ON CLIPBOARD DOES NOT EXIST AS FILE OR FOLDER EVEN AFTER HACKNG PATH TREE DOWN" + MINFO + "WANT MINIMIZE", vbYesNo, vbMsgBoxSetForeground)
-        If I = vbYes Then Me.WindowState = vbMinimized
+        i = MsgBox("PATH ON CLIPBOARD DOES NOT EXIST AS FILE OR FOLDER EVEN AFTER HACKNG PATH TREE DOWN" + MINFO + "WANT MINIMIZE", vbYesNo, vbMsgBoxSetForeground)
+        If i = vbYes Then Me.WindowState = vbMinimized
     Else
         Shell "Explorer.exe /e, " + FileSpec, vbNormalFocus
         Me.WindowState = vbMinimized
@@ -5995,14 +5993,14 @@ Private Sub MNU_CPC_Click()
             INOW = Int(Now) + Timer + 1
             Do
                 
-                I = 0
-                For I = 0 To 255
-                    GET_KEY = GetAsyncKeyState(I)
+                i = 0
+                For i = 0 To 255
+                    GET_KEY = GetAsyncKeyState(i)
                 '    If GET_KEY < -300 Then GET_KEY = I: Debug.Print GET_KEY: Exit For
                 
                     'I <> 116 -- NOT F5 FOR TEST
-                    If GET_KEY < -300 And (ISIDE_VAR = False And I <> 116) Then
-                        GET_KEY = I
+                    If GET_KEY < -300 And (ISIDE_VAR = False And i <> 116) Then
+                        GET_KEY = i
                         'Debug.Print GET_KEY
                         Exit For
                     End If
@@ -6460,7 +6458,7 @@ Sub LAST_IMAGE(VAR1, VAR2)
 
 'GIVE UP ON THIS A BIT
 
-' VAR2 = "D:\0 00 ART LOGGERS\# APP AND SCREEN\" + GetComputerName + "\AUTO_Form_Shot\"
+' VAR2 = "D:\0 00 ART LOGGERS\# APP AND SCREEN AUTO\" + GetComputerName + "\AUTO_Form_Shot\"
 
 MNU_SCANPATH_COUNTER.Visible = True
 
@@ -6475,7 +6473,7 @@ LAST_FILE_DATE_PATH = ""
 'ScanPath.chk_LIST_VIEW_SHORT_5 = vbChecked
 
 LAST_FILE_DATE_TIME = DateSerial(100, 1, 1)
-'SCAN_PARTMASK = "# APP AND SCREEN\"+GETCOMPUTERNAME+"\Hot-Key-"
+'SCAN_PARTMASK = "# APP AND SCREEN SHOT\"+GETCOMPUTERNAME+"\Hot-Key-"
 
 ScanPath.cboMask = "*.JPG"
 ScanPath.chkSubFolders = vbUnchecked
@@ -6517,7 +6515,7 @@ If FileSpec = "" Then MsgBox "NOT ANY OF THOSE FILES" + vbCrLf + vbCrLf + ScanPa
 'ScanPath.lblCount7 = ""
 'ScanPath.ListView1.ListItems.Clear
 '
-'ScanPath.TxtPath = "D:\0 00 Art Loggers\# APP AND SCREEN\"
+'ScanPath.TxtPath = "D:\0 00 Art Loggers\# APP AND SCREEN SHOT\"
 'Call ScanPath.cmdScan_Click
 
 
@@ -6553,7 +6551,7 @@ If VAR1 = "EXPLORER" Then
 '    Exit Sub
 
     'VAR2 = "D:\0 00 ART LOGGERS\# APP AND SCREEN\" + GetComputerName + "\AUTO_Form_Shot\*.JPG"
-    VAR2 = "D:\0 00 ART LOGGERS\# APP AND SCREEN\" + GetComputerName '+ "\AUTO_Form_Shot\"
+    VAR2 = "D:\0 00 ART LOGGERS\# APP AND SCREEN SHOT\" + GetComputerName '+ "\AUTO_Form_Shot\"
     
     On Error Resume Next
     PID = Shell("C:\Program Files\Mythicsoft\FileLocator Pro\FileLocatorPro.exe " + """" + VAR2 + """", vbMaximizedFocus)
@@ -6720,8 +6718,8 @@ End Sub
 
 Private Sub MNU_LAST_ART_PIC_IVIEW_Click()
 
-'Call LAST_IMAGE("IVIEW", "D:\0 00 ART LOGGERS\# APP AND SCREEN\" + GetComputerName + "\Hot-Key-App-Shots\") ' = I_VIEW
-'Call LAST_IMAGE("IVIEW", "D:\0 00 ART LOGGERS\# APP AND SCREEN\" + GetComputerName)  ' = I_VIEW
+'Call LAST_IMAGE("IVIEW", "D:\0 00 ART LOGGERS\# APP AND SCREEN SHOT\" + GetComputerName + "\Hot-Key-App-Shots\") ' = I_VIEW
+'Call LAST_IMAGE("IVIEW", "D:\0 00 ART LOGGERS\# APP AND SCREEN SHOT\" + GetComputerName)  ' = I_VIEW
 
 
 Call RECURSIVE_SEARCH_LAST_CLIPBOARD_ART_FOLDER
@@ -6761,10 +6759,10 @@ Me.WindowState = vbMinimized
 'ScanPath.chk_LIST_VIEW_SHORT_5 = vbChecked
 
 LAST_FILE_DATE_TIME = DateSerial(100, 1, 1)
-SCAN_PARTMASK = "# APP AND SCREEN\" + GetComputerName + "\CLIP_"
+SCAN_PARTMASK = "# APP AND SCREEN SHOT\" + GetComputerName + "\CLIP_"
 ScanPath.cboMask = "*.JPG"
 ScanPath.chkSubFolders = vbChecked
-ScanPath.TxtPath = "D:\0 00 Art Loggers\# APP AND SCREEN\"
+ScanPath.TxtPath = "D:\0 00 Art Loggers\# APP AND SCREEN SHOT\"
 
 Call ScanPath.CMDScan_NO_LIST_FAST_Click
 SCAN_PARTMASK = ""
@@ -6782,7 +6780,7 @@ If FileSpec = "" Then MsgBox "NOT ANY OF THOSE FILES" + vbCrLf + ScanPath.TxtPat
 'ScanPath.lblCount7 = ""
 'ScanPath.ListView1.ListItems.Clear
 '
-'ScanPath.TxtPath = "D:\0 00 Art Loggers\# APP AND SCREEN\"
+'ScanPath.TxtPath = "D:\0 00 Art Loggers\# APP AND SCREEN SHOT\"
 'Call ScanPath.cmdScan_Click
 
 
@@ -7243,8 +7241,8 @@ Private Sub MNU_REG_JUMP_Click()
     TYPE_VAR = "REG_KEY"
     
     If XPOS = 0 Then
-        I = MsgBox("LAST CLIPBOARD NOT CONTAIN A VERIFIABLE STRING " + TYPE_VAR + " TO LOAD" + vbCrLf + vbCrLf + TEXT_PATH + vbCrLf + vbCrLf + "----" + vbCrLf + vbCrLf + "WANT MINIMIZE ", vbYesNo, vbMsgBoxSetForeground)
-        If I = vbYes Then Me.WindowState = vbMinimized
+        i = MsgBox("LAST CLIPBOARD NOT CONTAIN A VERIFIABLE STRING " + TYPE_VAR + " TO LOAD" + vbCrLf + vbCrLf + TEXT_PATH + vbCrLf + vbCrLf + "----" + vbCrLf + vbCrLf + "WANT MINIMIZE ", vbYesNo, vbMsgBoxSetForeground)
+        If i = vbYes Then Me.WindowState = vbMinimized
         Exit Sub
     End If
    
@@ -7283,7 +7281,7 @@ Private Sub MNU_RENAME_MP3_TAG_MUSIC_FOLDER_Click()
 
 'Call FILE_OPERATIONS_HANDLER
 
-Dim I As Long
+Dim i As Long
 
 Beep
 
@@ -7306,13 +7304,13 @@ Do
     If ScanPath.ListView1.ListItems.Count > 0 Then
         MSGBOX_OPTION = vbYesNoCancel  'vbRetryABORTCancel
         If IsIDE = False Then MSGBOX_OPTION = vbYesNo 'vbRetryOnly + vbAbortONLY
-        I = MsgBox("SCAN PATH -- IS OCCUPIED WITH ANOTHER TASK" + vbCrLf + vbCrLf + "RETRY", MSGBOX_OPTION, vbMsgBoxSetForeground)
-        If I = vbCancel Then
+        i = MsgBox("SCAN PATH -- IS OCCUPIED WITH ANOTHER TASK" + vbCrLf + vbCrLf + "RETRY", MSGBOX_OPTION, vbMsgBoxSetForeground)
+        If i = vbCancel Then
             Stop
             Exit Sub
         End If
         Exit Sub
-        If I = vbNo Then
+        If i = vbNo Then
             Exit Sub
         End If
     End If
@@ -7344,8 +7342,8 @@ Me.Refresh
 
 ScanPath.TxtPath = "D:\0 00 MUSIC ---"
 Call ScanPath.cmdScan_Click
-I = ScanPath.ListView1.ListItems.Count
-MNU_F_O_M.Caption = "* FILE OPERATIONS MENU * SCANNING" + Str(I)
+i = ScanPath.ListView1.ListItems.Count
+MNU_F_O_M.Caption = "* FILE OPERATIONS MENU * SCANNING" + Str(i)
 Beep
 Me.Refresh
 GoTo JUMP22442
@@ -7354,24 +7352,24 @@ GoTo JUMP22442
 ScanPath.cboMask = "*.MP3"
 ScanPath.TxtPath = "D:\0 00 MUSIC -Z0x"
 Call ScanPath.cmdScan_Click
-I = ScanPath.ListView1.ListItems.Count
-MNU_F_O_M.Caption = "* FILE OPERATIONS MENU * SCANNING" + Str(I)
+i = ScanPath.ListView1.ListItems.Count
+MNU_F_O_M.Caption = "* FILE OPERATIONS MENU * SCANNING" + Str(i)
 Beep
 Me.Refresh
 'MsgBox I
 '----------------
 ScanPath.TxtPath = "\\4-asus-gl522vw\4-asus-gl522vw_02_d-drive\0 00 MUSIC ---"
 Call ScanPath.cmdScan_Click
-I = ScanPath.ListView1.ListItems.Count
-MNU_F_O_M.Caption = "* FILE OPERATIONS MENU * SCANNING" + Str(I)
+i = ScanPath.ListView1.ListItems.Count
+MNU_F_O_M.Caption = "* FILE OPERATIONS MENU * SCANNING" + Str(i)
 Beep
 Me.Refresh
 'MsgBox I
 '----------------
 ScanPath.TxtPath = "\\4-asus-gl522vw\4-asus-gl522vw_02_d-drive\0 00 MUSIC -Z0x"
 Call ScanPath.cmdScan_Click
-I = ScanPath.ListView1.ListItems.Count
-MNU_F_O_M.Caption = "* FILE OPERATIONS MENU * SCANNING" + Str(I)
+i = ScanPath.ListView1.ListItems.Count
+MNU_F_O_M.Caption = "* FILE OPERATIONS MENU * SCANNING" + Str(i)
 Beep
 Me.Refresh
 'MsgBox I
@@ -7384,8 +7382,8 @@ JUMP22442:
 If ScanPath.ListView1.ListItems.Count = 0 Then
     MSGBOX_OPTION = vbOKCancel
     If IsIDE = False Then MSGBOX_OPTION = vbOKOnly
-    I = MsgBox("SCAN PATH -- RESULT RETURNED ** EMPTY ** NOT SUCCESSFUL " + vbCrLf + vbCrLf + "ScanPath.ListView1.ListItems.Count = 0" + vbCrLf + vbCrLf + "REQUEST TO SCAN WAS EMPTY VARIABLE" + vbCrLf + vbCrLf + "EXIT RUN", MSGBOX_OPTION, vbMsgBoxSetForeground)
-    If I = vbCancel Then
+    i = MsgBox("SCAN PATH -- RESULT RETURNED ** EMPTY ** NOT SUCCESSFUL " + vbCrLf + vbCrLf + "ScanPath.ListView1.ListItems.Count = 0" + vbCrLf + vbCrLf + "REQUEST TO SCAN WAS EMPTY VARIABLE" + vbCrLf + vbCrLf + "EXIT RUN", MSGBOX_OPTION, vbMsgBoxSetForeground)
+    If i = vbCancel Then
         Stop
         Exit Sub
     End If
@@ -7573,7 +7571,7 @@ Sub RECURSIVE_SEARCH_LAST_CLIPBOARD_ART_FOLDER()
     Dim objFolders As Folders, objFolder As FOLDER
     Dim fld As FOLDER
 
-    Call RecursiveSearch_Most_Recent_01("D:\0 00 Art Loggers\# APP AND SCREEN\" + GetComputerName)
+    Call RecursiveSearch_Most_Recent_01("D:\0 00 Art Loggers\# APP AND SCREEN SHOT\" + GetComputerName)
     LAST_CLIPBOARD_FILE = RecursiveSearch_Most_Recent_VAR
 
 End Sub
@@ -7600,7 +7598,7 @@ Private Sub MNU_SHOW_IMAGE_1_Click()
     Clipboard.Clear
     Clipboard.SetText LAST_CLIPBOARD_FILE
     
-    'Call LAST_IMAGE("IVIEW", "D:\0 00 ART LOGGERS\# APP AND SCREEN\" + GetComputerName)  ' = I_VIEW
+    'Call LAST_IMAGE("IVIEW", "D:\0 00 ART LOGGERS\# APP AND SCREEN SHOT\" + GetComputerName)  ' = I_VIEW
     
     If IRFANVIEW_PATH <> "" Then
         Shell IRFANVIEW_PATH + " """ + LAST_CLIPBOARD_FILE + """ /fs /silent", vbMaximizedFocus
@@ -7818,8 +7816,8 @@ If MNU_TEST_STOP_ALL_TIMER.Checked = True And 1 = 2 Then
     Dim Control
     'SET ALL TIMERS IN ALL FORMS ENABLED=FALSE
     On Error Resume Next
-        For I = 0 To Forms.Count - 1
-            For Each Control In Forms(I).Controls
+        For i = 0 To Forms.Count - 1
+            For Each Control In Forms(i).Controls
                 If InStr(UCase(Control.Name), "TIMER") > 0 Then
                     TTCOUNT = TTCOUNT + 1
                     If TIMER_CODE_TEST(TTCOUNT) = True Then
@@ -7828,7 +7826,7 @@ If MNU_TEST_STOP_ALL_TIMER.Checked = True And 1 = 2 Then
                     End If
                 End If
             Next
-        Next I
+        Next i
     On Error GoTo 0
     
     Exit Sub
@@ -7847,8 +7845,8 @@ If MNU_TEST_STOP_ALL_TIMER.Checked = False And 1 = 1 Then
             CTRL_ENABLED = False
             'SET ALL TIMERS IN ALL FORMS ENABLED=FALSE
             On Error Resume Next
-                For I = 0 To Forms.Count - 1
-                    For Each Control In Forms(I).Controls
+                For i = 0 To Forms.Count - 1
+                    For Each Control In Forms(i).Controls
                         
                         If InStr(UCase(Control.Name), "TIMER") > 0 Then
                             'Control.Name
@@ -7861,7 +7859,7 @@ If MNU_TEST_STOP_ALL_TIMER.Checked = False And 1 = 1 Then
                             If Control.Enabled = True Then CTRL_ENABLED = True
                         End If
                     Next
-                Next I
+                Next i
             On Error GoTo 0
             DoEvents
         Loop Until CTRL_ENABLED = False
@@ -7986,7 +7984,7 @@ LAST_FILE_DATE_PATH_HOT_KEY_SCREENSHOT = ""
 'ScanPath.chk_LIST_VIEW_SHORT_5 = vbChecked
 
 LAST_FILE_DATE_TIME = DateSerial(100, 1, 1)
-'SCAN_PARTMASK = "# APP AND SCREEN\"+GETCOMPUTERNAME+"\CLIP_"
+'SCAN_PARTMASK = "# APP AND SCREEN SHOT\"+GETCOMPUTERNAME+"\CLIP_"
 ScanPath.cboMask = "*.JPG"
 ScanPath.chkSubFolders = vbChecked
 ScanPath.TxtPath = "D:\0 00 Art Loggers\URL SCREEN SHOT\"
@@ -8845,7 +8843,7 @@ Timer_MENU_HEIGHT_CHANGED.Enabled = True
 
 HHH = Now + TimeSerial(0, 2, 0) ' vbMinimized WINDOW
 
-GMCL_I = GET_MENU_CONTROL_LENGTH(I)
+GMCL_I = GET_MENU_CONTROL_LENGTH(i)
 If GMCL_I + Menu_Height + Me.Top + Me.Left + Me.width + Me.height = OLTLWH_3 Then Exit Sub
 OLTLWH_3 = Menu_Height + Me.Top + Me.Left + Me.width + Me.height + GMCL_I
 O_GMCL_I = GMCL_I
@@ -9043,12 +9041,12 @@ Private Sub Mnu_Center_Click()
 End Sub
 
 
-Function GET_PARENT(I)
+Function GET_PARENT(i)
    'I = GetForegroundWindow
-    GET_PARENT = I
-    Do While I <> 0
-         GET_PARENT = I
-         I = GetParent(I)
+    GET_PARENT = i
+    Do While i <> 0
+         GET_PARENT = i
+         i = GetParent(i)
       Loop
 End Function
 
@@ -10219,7 +10217,7 @@ Private Sub MNU_LAST_GRAB_ALL_CAPS_Click()
         ' ----------------------------------------
         MNU_TEXT_CAPITAL_MODE_ON.Checked = False
         ITXT = MNU_TEXT_CAPITAL_MODE_ON.Caption
-        ITXT = Replace(I, "_ON", "_OFF")
+        ITXT = Replace(i, "_ON", "_OFF")
         MNU_TEXT_CAPITAL_MODE_ON.Caption = ITXT
     End If
 
@@ -10986,7 +10984,7 @@ Private Sub MNU_LAST_ART_PIC_Click()
     Beep
 
 
-'Call LAST_IMAGE("EXPLORER", "D:\0 00 ART LOGGERS\# APP AND SCREEN\" + GetComputerName + "\Hot-Key-App-Shots\") '=EXPLORER
+'Call LAST_IMAGE("EXPLORER", "D:\0 00 ART LOGGERS\# APP AND SCREEN SHOT\" + GetComputerName + "\Hot-Key-App-Shots\") '=EXPLORER
 
 
 End Sub
@@ -10995,38 +10993,38 @@ Private Sub MNU_LOGGEXPLORER_Click(Index As Integer)
 
 Dim M()
 ReDim M(MNU_LOGGEXPLORER.Count)
-I = 0
-I = I + 1: M(I) = "OPEN LOGG EXPLORER"
-I = I + 1: M(I) = "----"
-I = I + 1: M(I) = "INFO RAPID ALL FOLDERS"
-I = I + 1: M(I) = "INFO RAPID ALL FOLDERS AND SMALL FILES BEGIN CLIPBOARD-*.TXT"
-I = I + 1: M(I) = "INFO RAPID MY USER"
-I = I + 1: M(I) = "INFO RAPID TRIM LOGG"
-I = I + 1: M(I) = "INFO RAPID TOTAL LOGG" ' __ BETTER DATE ORDER SORT __ MIGHT SOME MISS AH DUE TO OLD DAY AND CRASH APP"
-I = I + 1: M(I) = "----"
-I = I + 1: M(I) = "TEXTCRAWLER ALL FOLDERS"
-I = I + 1: M(I) = "TEXTCRAWLER TRIM LOGG"
-I = I + 1: M(I) = "TEXTCRAWLER STRIP LOGG"
-I = I + 1: M(I) = "----"
-I = I + 1: M(I) = "FILELOCATOR ALL FOLDERS"
-I = I + 1: M(I) = "FILELOCATOR IMAGE SET"
-I = I + 1: M(I) = "FILELOCATOR IMAGE SET AUTO"
-I = I + 1: M(I) = "FILELOCATOR IMAGE SET AUTO ALL COMPUTER"
-I = I + 1: M(I) = "----"
-I = I + 1: M(I) = "HEX OPEN RECENT TRIM LOGG"
-I = I + 1: M(I) = "----"
-I = I + 1: M(I) = "EDIT RECENT TRIM LOGG"
-I = I + 1: M(I) = "EDIT THIS LOGG"
-I = I + 1: M(I) = "EDIT TOTAL LOGG"
-I = I + 1: M(I) = "EDIT STRIP LOGG"
-I = I + 1: M(I) = "----"
-I = I + 1: M(I) = "TEXT VIEW RECENT TRIM LOGG"
-I = I + 1: M(I) = "TEXT VIEW THIS LOGG"
-I = I + 1: M(I) = "TEXT VIEW TOTAL LOGG"
-I = I + 1: M(I) = "TEXT VIEW STRIP LOGG"
-I = I + 1: M(I) = "----"
-I = I + 1: M(I) = "SHELL T -- THIS LOGG"
-I = I + 1: M(I) = "SHELL T -- TOTAL LOGG"
+i = 0
+i = i + 1: M(i) = "OPEN LOGG EXPLORER"
+i = i + 1: M(i) = "----"
+i = i + 1: M(i) = "INFO RAPID ALL FOLDERS"
+i = i + 1: M(i) = "INFO RAPID ALL FOLDERS AND SMALL FILES BEGIN CLIPBOARD-*.TXT"
+i = i + 1: M(i) = "INFO RAPID MY USER"
+i = i + 1: M(i) = "INFO RAPID TRIM LOGG"
+i = i + 1: M(i) = "INFO RAPID TOTAL LOGG" ' __ BETTER DATE ORDER SORT __ MIGHT SOME MISS AH DUE TO OLD DAY AND CRASH APP"
+i = i + 1: M(i) = "----"
+i = i + 1: M(i) = "TEXTCRAWLER ALL FOLDERS"
+i = i + 1: M(i) = "TEXTCRAWLER TRIM LOGG"
+i = i + 1: M(i) = "TEXTCRAWLER STRIP LOGG"
+i = i + 1: M(i) = "----"
+i = i + 1: M(i) = "FILELOCATOR ALL FOLDERS"
+i = i + 1: M(i) = "FILELOCATOR IMAGE SET"
+i = i + 1: M(i) = "FILELOCATOR IMAGE SET AUTO"
+i = i + 1: M(i) = "FILELOCATOR IMAGE SET AUTO ALL COMPUTER"
+i = i + 1: M(i) = "----"
+i = i + 1: M(i) = "HEX OPEN RECENT TRIM LOGG"
+i = i + 1: M(i) = "----"
+i = i + 1: M(i) = "EDIT RECENT TRIM LOGG"
+i = i + 1: M(i) = "EDIT THIS LOGG"
+i = i + 1: M(i) = "EDIT TOTAL LOGG"
+i = i + 1: M(i) = "EDIT STRIP LOGG"
+i = i + 1: M(i) = "----"
+i = i + 1: M(i) = "TEXT VIEW RECENT TRIM LOGG"
+i = i + 1: M(i) = "TEXT VIEW THIS LOGG"
+i = i + 1: M(i) = "TEXT VIEW TOTAL LOGG"
+i = i + 1: M(i) = "TEXT VIEW STRIP LOGG"
+i = i + 1: M(i) = "----"
+i = i + 1: M(i) = "SHELL T -- THIS LOGG"
+i = i + 1: M(i) = "SHELL T -- TOTAL LOGG"
 
 For r = 1 To MNU_LOGGEXPLORER.Count
     If MNU_LOGGEXPLORER(r).Caption <> M(r) Then
@@ -11094,8 +11092,8 @@ Shell "C:\Program Files\Mythicsoft\FileLocator Pro\FileLocatorPro.exe " + iTX, v
 
 Case "FILELOCATOR IMAGE SET"
 Me.WindowState = 1
-ART_FOLDER = "D:\0 00 ART LOGGERS\# APP AND SCREEN\" + GetComputerName
-ART_FOLDER = "D:\0 00 ART LOGGERS\# APP AND SCREEN"
+ART_FOLDER = "D:\0 00 ART LOGGERS\# APP AND SCREEN SHOT\" + GetComputerName
+ART_FOLDER = "D:\0 00 ART LOGGERS\# APP AND SCREEN SHOT"
 iTX = "-d """ + ART_FOLDER + """ -fed -f ""*.JPG"" -c """
 Shell "C:\Program Files\Mythicsoft\FileLocator Pro\FileLocatorPro.exe " + iTX, vbMaximizedFocus
 ' -c -- NONE CONTENT IF FIELD EXIST FROM BEFORE CLEAR IT GONE
@@ -11364,7 +11362,7 @@ Private Sub MNU_SCREEN_SHOT_Click()
 
 Me.WindowState = vbMinimized
 
-ART_FOLDER = "D:\0 00 ART LOGGERS\# APP AND SCREEN\" + GetComputerName
+ART_FOLDER = "D:\0 00 ART LOGGERS\# APP AND SCREEN SHOT\" + GetComputerName
 
 Shell "Explorer.exe /e, " + """" + ART_FOLDER + """", vbMaximizedFocus
 
@@ -11628,8 +11626,8 @@ Private Sub MNU_URL_Browser_Click()
     TYPE_VAR = "URL LINK HTTP OR WWW"
     
     If XPOS = 0 Then
-        I = MsgBox("LAST CLIPBOARD NOT CONTAIN A VERIFIABLE STRING " + TYPE_VAR + " TO LOAD" + vbCrLf + vbCrLf + TEXT_PATH + vbCrLf + vbCrLf + "----" + vbCrLf + vbCrLf + "WANT MINIMIZE ", vbYesNo, vbMsgBoxSetForeground)
-        If I = vbYes Then Me.WindowState = vbMinimized
+        i = MsgBox("LAST CLIPBOARD NOT CONTAIN A VERIFIABLE STRING " + TYPE_VAR + " TO LOAD" + vbCrLf + vbCrLf + TEXT_PATH + vbCrLf + vbCrLf + "----" + vbCrLf + vbCrLf + "WANT MINIMIZE ", vbYesNo, vbMsgBoxSetForeground)
+        If i = vbYes Then Me.WindowState = vbMinimized
         Exit Sub
     End If
    
@@ -11730,7 +11728,7 @@ Private Sub VB_RUN_NOT_WHEN_IDE_AND_THEN_SHOW()
         Exit Sub
     End If
     Dim ReturnHwnd As Long
-    Dim I
+    Dim i
     'VB ONLY WANTS THE 1ST OF THE 2 HWND
     'ReturnHwnd = FindWindowPartVB("ClipBoard Logger - Microsoft Visual Basic[")
     '------------------------------------------------
@@ -11749,8 +11747,8 @@ Private Sub VB_RUN_NOT_WHEN_IDE_AND_THEN_SHOW()
         WIN_SPY_NAME = "ClipBoard Logger"
         If InStr(X2, WIN_SPY_NAME) > 0 Then
             MsgBox "DON'T RUN VB IDE - LOADED"
-            I = GetWindowState(x1)
-            If I = vbMinimized Then
+            i = GetWindowState(x1)
+            If i = vbMinimized Then
                 SHOWVAR = SW_SHOWDEFAULT
                 ShowWindow ReturnHwnd, SHOWVAR
             End If
@@ -11776,8 +11774,8 @@ Private Sub VB_RUN_NOT_WHEN_IDE_AND_THEN_SHOW()
         End If
     End If
     If ReturnHwnd > 0 Then
-        I = GetWindowState(ReturnHwnd1)
-        If I = vbMinimized Then
+        i = GetWindowState(ReturnHwnd1)
+        If i = vbMinimized Then
     '        SHOWVAR = SW_RESTORE
     '        SHOWVAR = SW_SHOW
     '        SHOWVAR = SW_SHOWNA
@@ -12257,16 +12255,16 @@ Sub GetFormat_And_Display()
 
 On Error Resume Next
 
-I = False
+i = False
 ClipFormatDescription = ""
 ClipFormatDesc2 = ""
 
 Do
     Err.Clear
-    If I = False Then
-        I = Clipboard.GetFormat(vbCFText)
+    If i = False Then
+        i = Clipboard.GetFormat(vbCFText)
         '"Clip Format:- "+"Text (.txt file)"
-        If I = True And ClipFormatDescription = "" Then
+        If i = True And ClipFormatDescription = "" Then
             ClipFormatDescription = "Text (.txt file)"
             ClipFormatDesc2 = "Text"
         End If
@@ -12279,9 +12277,9 @@ If ClipFormatDesc2 <> "Text" Then
     ' Two Most Important First
     Do
         Err.Clear
-        If I = False Then
-            I = Clipboard.GetFormat(vbCFBitmap)
-            If I = True And ClipFormatDescription = "" Then
+        If i = False Then
+            i = Clipboard.GetFormat(vbCFBitmap)
+            If i = True And ClipFormatDescription = "" Then
                 ClipFormatDescription = "Bitmap (.bmp file)"
                 ClipFormatDesc2 = "Image"
             End If
@@ -12291,9 +12289,9 @@ End If
 
 Do
     Err.Clear
-    If I = False Then
-        I = Clipboard.GetFormat(vbCFRTF)
-        If I = True And ClipFormatDescription = "" Then
+    If i = False Then
+        i = Clipboard.GetFormat(vbCFRTF)
+        If i = True And ClipFormatDescription = "" Then
             ClipFormatDescription = "Rich Text Format (.rtf file)"
             ClipFormatDesc2 = "Rich Text Format File"
         End If
@@ -12302,9 +12300,9 @@ Loop Until Err.Number = 0
 
 Do
     Err.Clear
-    If I = False Then
-        I = Clipboard.GetFormat(vbCFLink)
-        If I = True And ClipFormatDescription = "" Then
+    If i = False Then
+        i = Clipboard.GetFormat(vbCFLink)
+        If i = True And ClipFormatDescription = "" Then
             ClipFormatDescription = "DDE Conversation information"
             ClipFormatDesc2 = "DDE Conversation info"
         End If
@@ -12313,9 +12311,9 @@ Loop Until Err.Number = 0
 
 Do
     Err.Clear
-    If I = False Then
-        I = Clipboard.GetFormat(vbCFMetafile)
-        If I = True Then
+    If i = False Then
+        i = Clipboard.GetFormat(vbCFMetafile)
+        If i = True Then
             ClipFormatDescription = "Metafile (.wmf file)"
             ClipFormatDesc2 = "Metafile .WMF"
         End If
@@ -12324,9 +12322,9 @@ Loop Until Err.Number = 0
 
 Do
     Err.Clear
-    If I = False Then
-        I = Clipboard.GetFormat(vbCFEMetafile)
-        If I = True And ClipFormatDescription = "" Then
+    If i = False Then
+        i = Clipboard.GetFormat(vbCFEMetafile)
+        If i = True And ClipFormatDescription = "" Then
             ClipFormatDescription = "Device-independent bitmap - E Type"
             ClipFormatDesc2 = "Device-independent bitmap - E Type"
         End If
@@ -12335,9 +12333,9 @@ Loop Until Err.Number = 0
 
 Do
     Err.Clear
-    If I = False Then
-        I = Clipboard.GetFormat(vbCFDIB)
-        If I = True And ClipFormatDescription = "" Then
+    If i = False Then
+        i = Clipboard.GetFormat(vbCFDIB)
+        If i = True And ClipFormatDescription = "" Then
             ClipFormatDescription = "Device-independent bitmap"
             ClipFormatDesc2 = "Device-independent bitmap"
         End If
@@ -12346,9 +12344,9 @@ Loop Until Err.Number = 0
 
 Do
     Err.Clear
-    If I = False Then
-        I = Clipboard.GetFormat(vbCFPalette)
-        If I = True And ClipFormatDescription = "" Then
+    If i = False Then
+        i = Clipboard.GetFormat(vbCFPalette)
+        If i = True And ClipFormatDescription = "" Then
             ClipFormatDescription = "Color palette"
             ClipFormatDesc2 = "Color Palette"
         End If
@@ -12357,9 +12355,9 @@ Loop Until Err.Number = 0
 
 Do
     Err.Clear
-    If I = False Then
-        I = Clipboard.GetFormat(vbCFFiles)
-        If I = True And ClipFormatDescription = "" Then
+    If i = False Then
+        i = Clipboard.GetFormat(vbCFFiles)
+        If i = True And ClipFormatDescription = "" Then
             ClipFormatDescription = "File list from Windows Explorer"
             ClipFormatDesc2 = "File list from Windows Explorer"
         End If
@@ -12368,9 +12366,9 @@ Loop Until Err.Number = 0
 
 Do
     Err.Clear
-    If I = False Then
-        I = Clipboard.GetFormat(-15694) 'Pasted Objects on VB IDE Form Designer
-        If I = True And ClipFormatDescription = "" Then
+    If i = False Then
+        i = Clipboard.GetFormat(-15694) 'Pasted Objects on VB IDE Form Designer
+        If i = True And ClipFormatDescription = "" Then
             ClipFormatDescription = "VB IDE (Form Designer) Object -15694"
             ClipFormatDesc2 = "VB IDE (Form Designer) Object -15694"
         End If
@@ -12382,12 +12380,12 @@ Loop Until Err.Number = 0
 'And Then Check All - Don't Let Any Escape
 
 iindex = -32000
-If I = False Then
+If i = False Then
     For r = -30000 To 32000
-        If I = False Then
+        If i = False Then
             Do
                 Err.Clear
-                I = Clipboard.GetFormat(r)
+                i = Clipboard.GetFormat(r)
                 iindex = r
             Loop Until Err.Number = 0
         Else
@@ -12395,13 +12393,13 @@ If I = False Then
         End If
     Next
 
-    If I = True And iindex <> -32000 And ClipFormatDescription = "" Then
+    If i = True And iindex <> -32000 And ClipFormatDescription = "" Then
         ClipFormatDescription = "Format Unknown #" + Str(iindex) + " of -- Between -30000 and 32000"
         ClipFormatDesc2 = "Format Unknown #" + Str(iindex) + " of -- Between -30000 and 32000"
     End If
 End If
 
-If I = False Then
+If i = False Then
     ClipFormatDescription = "Empty Clipboard"
     ClipFormatDesc2 = "Empty Clipboard"
 End If
@@ -13790,18 +13788,18 @@ Exit Sub
 End Sub
 
 Public Function GetActiveWindowTitle(ByVal ReturnParent As Boolean) As String
-   Dim I As Long
+   Dim i As Long
    Dim j As Long
-   I = GetForegroundWindow
+   i = GetForegroundWindow
    ReturnParent = False
    If ReturnParent Then
-      Do While I <> 0
-         j = I
-         I = GetParent(I)
+      Do While i <> 0
+         j = i
+         i = GetParent(i)
       Loop
-   I = j
+   i = j
    End If
-   GetActiveWindowTitle = GetWindowTitle(I)
+   GetActiveWindowTitle = GetWindowTitle(i)
 End Function
 
 'Function GetWindowTitle(ByVal hwnd As Long) As String
@@ -13855,7 +13853,7 @@ Sub SET_FOLDER_CLIPBOARD_LOGGER()
         End If
     End If
     
-    ART2$ = "D:\0 00 Art Loggers\# APP AND SCREEN\" + GetComputerName + "\"
+    ART2$ = "D:\0 00 Art Loggers\# APP AND SCREEN SHOT\" + GetComputerName + "\"
     ART4$ = "D:\0 00 Art Loggers\# APP AND SCREEN AUTO\" + GetComputerName + "_AUTO\"
     
     FF$ = Format$(Now, "YYYY-MM-MMM")
@@ -14368,23 +14366,23 @@ Dim TH(), ATD, FR1
 ReDim TH(Me.Controls.Count * 3)
 
 On Error Resume Next
-I = 0
+i = 0
 FR1 = FreeFile
 Open App.Path + "\# DATA\" + GetComputerName + "_" + GetUserName + "\ChkSettings.txt" For Input As #FR1
 Do
     If Not EOF(FR1) Then Line Input #FR1, vv$
-    TH(I) = vv$
-    I = I + 1
+    TH(i) = vv$
+    i = i + 1
     If Not EOF(FR1) Then Line Input #FR1, vv$
-    TH(I) = Val(vv$)
-    I = I + 1
+    TH(i) = Val(vv$)
+    i = i + 1
     If Not EOF(FR1) Then Line Input #FR1, vv$
-    TH(I) = Val(vv$)
-    I = I + 1
+    TH(i) = Val(vv$)
+    i = i + 1
 Loop Until EOF(1)
 Close #1
     
-tit = I
+tit = i
 For Each Control In Me.Controls
     ATD = 1
     
@@ -14580,7 +14578,7 @@ If FSO.FileExists(FDS) = True Then
                 ED = FindWindow("IrfanView", vbNullString)
                 If ED > 0 Then
                 'Shell "C:\Program Files\IrfanView\i_view32.exe/killmesoftly"
-                I = ExecCmdWAIT("C:\Program Files\IrfanView\i_view32.exe /killmesoftly")
+                i = ExecCmdWAIT("C:\Program Files\IrfanView\i_view32.exe /killmesoftly")
                 'i=0 NORMAL
             End If
             
@@ -14619,13 +14617,13 @@ Private Sub Timer6_Timer()
 Timer6.Enabled = False
 Exit Sub
 
-Dim I As Long
+Dim i As Long
 ED = FindWindow("IrfanView", vbNullString)
 If ED > 0 Then
     ShowWindow ED, SW_SHOWMAXIMIZED
     SetForegroundWindow (ED)
 '    Debug.Print "CODE SET FOREGROUND COMPLETE"
-    I = GetForegroundWindow
+    i = GetForegroundWindow
     'If i <> ed Then Stop
     Timer6.Enabled = False
     
@@ -14659,8 +14657,8 @@ Private Sub TIMER_RETRY_WRITE_INFO_UNTIL_DONE1_Timer()
     
     FOLDERNAME2 = "D:\VB6-EXE'S\#00 RELOAD_MIRROR\" + GetComputerName
     If Dir(FOLDERNAME2, vbDirectory) = "" Then
-        I = CreateFolderTree(FOLDERNAME2)
-        If I = False Then Exit Sub
+        i = CreateFolderTree(FOLDERNAME2)
+        If i = False Then Exit Sub
     End If
     
     FR1 = FreeFile
@@ -15594,12 +15592,12 @@ If FindWindow("Progman", "Program Manager") = 0 Then
     
     'ONLY REQUIRE WIN XP
     FORM_STAY_UP_WITH_MSGBOX = True
-    I = MsgBox("Do You Want to Reload Explorer, Crash -- Disappeared", vbYesNo + vbMsgBoxSetForeground)
+    i = MsgBox("Do You Want to Reload Explorer, Crash -- Disappeared", vbYesNo + vbMsgBoxSetForeground)
     FORM_STAY_UP_WITH_MSGBOX = False
 
 '    Me.WindowState = Normal
 
-    If I = vbYes Then
+    If i = vbYes Then
         'Shell "c:\windows\Explorer.exe", vbNormalFocus
         
         'cmdLine$ = "c:\windows\Explorer.exe"
@@ -15622,7 +15620,7 @@ End If
 If FindWindow("Progman", "Program Manager") <> 0 And ExplorerGone = True Then
 
     'BRING WINDOWS FRONT
-    I = FindWinPartExplorerGone(False) ' True = Quite Mode Don't Display  Result
+    i = FindWinPartExplorerGone(False) ' True = Quite Mode Don't Display  Result
 '    Debug.Print str(i) + " Windows Brought Forward"
  
     MNU_BRing_Front.Caption = "Bring All Windows Front -- Explorer Crash/Terminated @ " + Format(Now, "DD-MMM-YYYY HH:MM:SS")
@@ -15642,9 +15640,9 @@ Exit Sub
 'This is Not Enabled unless Selected from the Menu
 'SOMETHING TO DO - NOTEPAD2 SCROLL DOWN
 
-I = 0 ': KASC = 0
-For I = 1 To 255
-    BDF = GetAsyncKeyState(I)
+i = 0 ': KASC = 0
+For i = 1 To 255
+    BDF = GetAsyncKeyState(i)
     If BDF < -300 Then KCODE = Now + TimeSerial(0, 0, 3): Exit Sub
 Next
 
@@ -15743,16 +15741,16 @@ Next
 'DEBUG.PRINT INFO
 
 
-Dim I As Long
+Dim i As Long
 'ESCAPE KEY
 If KASC = 27 And KASC_TRIGGER <> KASC Then
-    I = FindWindow(vbNullString, "MSDN Library Visual Studio 6.0")
-    If I > 0 And I = GetForegroundWindow Then
+    i = FindWindow(vbNullString, "MSDN Library Visual Studio 6.0")
+    If i > 0 And i = GetForegroundWindow Then
         
         'CRAPPER
         'SendKeys "{%}{F4)", True
         
-        TargetHwnd = I
+        TargetHwnd = i
         TargetHwnd = PostMessage(TargetHwnd, WM_CLOSE, 0&, 0&)
         
         'PROCESS CLOSE KILL CRAPPER
@@ -16116,11 +16114,11 @@ If YES_VAR = True Then
     'Debug.Print FOLDERNAME_AUTO
     If FSO.FolderExists(FOLDERNAME_AUTO) = False Then
         'If IsIDE = True Then Stop
-        I = CreateFolderTree(FOLDERNAME_AUTO)
+        i = CreateFolderTree(FOLDERNAME_AUTO)
         If FSO.FolderExists(FOLDERNAME_AUTO) = True Then
-            I = True
+            i = True
         End If
-        If I = False Then
+        If i = False Then
             MSGBOX2 = "ERROR PROBLEM MAKE CAPTURE FOLDER" + vbCrLf + FOLDERNAME_AUTO
             On Error Resume Next
             frm_MSGBOX.Timer1.Enabled = True
@@ -16133,11 +16131,11 @@ If YES_VAR = True Then
     FF_COUNT_FORM_CAPTURE1 = FF_COUNT_FORM_CAPTURE1 + 1
     If FSO.FolderExists(FOLDERNAME_AUTO) = False Then
         'If IsIDE = True Then Stop
-        I = CreateFolderTree(FOLDERNAME_AUTO)
+        i = CreateFolderTree(FOLDERNAME_AUTO)
         If FSO.FolderExists(FOLDERNAME_AUTO) = True Then
-            I = True
+            i = True
         End If
-        If I = False Then
+        If i = False Then
             MSGBOX2 = "ERROR PROBLEM MAKE CAPTURE FOLDER" + vbCrLf + FOLDERNAME_AUTO
             On Error Resume Next  ' WHEN D DRIVE IS DOWN NOT LABELED
             frm_MSGBOX.Timer1.Enabled = True
@@ -16172,11 +16170,11 @@ If YES_VAR = False Then
         FF_FORM3 = FOLDERNAME_AUTO
         FF_COUNT_FORM_CAPTURE3 = FF_COUNT_FORM_CAPTURE3 + 1
         If FSO.FolderExists(FOLDERNAME_AUTO) = False Then
-            I = CreateFolderTree(FOLDERNAME_AUTO)
+            i = CreateFolderTree(FOLDERNAME_AUTO)
             If FSO.FolderExists(FOLDERNAME_AUTO) = True Then
-                I = True
+                i = True
             End If
-            If I = False Then
+            If i = False Then
                 MSGBOX2 = "ERROR PROBLEM MAKE CAPTURE FOLDER" + vbCrLf + FOLDERNAME_AUTO
                 On Error Resume Next
                 frm_MSGBOX.Timer1.Enabled = True
@@ -16201,11 +16199,11 @@ If YES_VAR = False Then
         FF_FORM4 = FOLDERNAME_AUTO
         FF_COUNT_FORM_CAPTURE4 = FF_COUNT_FORM_CAPTURE4 + 1
         If FSO.FolderExists(FOLDERNAME_AUTO) = False Then
-            I = CreateFolderTree(FOLDERNAME_AUTO)
+            i = CreateFolderTree(FOLDERNAME_AUTO)
             If FSO.FolderExists(FOLDERNAME_AUTO) = True Then
-                I = True
+                i = True
             End If
-            If I = False Then
+            If i = False Then
                 MSGBOX2 = "ERROR PROBLEM MAKE CAPTURE FOLDER" + vbCrLf + FOLDERNAME_AUTO
                 On Error Resume Next
                 frm_MSGBOX.Timer1.Enabled = True
@@ -16220,11 +16218,11 @@ End If
 If YES_VAR = False Then Exit Sub
 
     If FSO.FolderExists(FOLDERNAME_AUTO) = False Then
-        I = CreateFolderTree(FOLDERNAME_AUTO)
+        i = CreateFolderTree(FOLDERNAME_AUTO)
         If FSO.FolderExists(FOLDERNAME_AUTO) = True Then
-            I = True
+            i = True
         End If
-        If I = False Then
+        If i = False Then
             MSGBOX2 = "ERROR PROBLEM MAKE CAPTURE FOLDER" + vbCrLf + FOLDERNAME_AUTO
             On Error Resume Next
             frm_MSGBOX.Timer1.Enabled = True
@@ -16312,8 +16310,8 @@ Exit Sub
 'FF2$ = "FormCapture_" + Format$(Now, "YYYY-MM-DD-DDD")
 '
 'On Error Resume Next
-'FOLDERNAME1 = "D:\0 00 ART LOGGERS\# APP AND SCREEN\" + GetComputerName + "\CLIP_Screen-Shots\" + FF1$
-'FOLDERNAME_AUTO = "D:\0 00 ART LOGGERS\# APP AND SCREEN\" + GetComputerName + "\CLIP_Form-Shots\" + FF2$
+'FOLDERNAME1 = "D:\0 00 ART LOGGERS\# APP AND SCREEN AUTO\" + GetComputerName + "\CLIP_Screen-Shots\" + FF1$
+'FOLDERNAME_AUTO = "D:\0 00 ART LOGGERS\# APP AND SCREEN AUTO\" + GetComputerName + "\CLIP_Form-Shots\" + FF2$
 '
 ''ONLY USE FOLDERNAME_AUTO AT THE MOMENT
 'If FSO.FolderExists(FOLDERNAME_AUTO) = False Then
@@ -16402,8 +16400,8 @@ Sub CHECK_PATH_FOLDER_FILE_URL_REGISTRY_KEY(RUN_CALL)
     TEXT_PATH_L = LCase(TEXT_PATH)
     TEXT_PATH_U = UCase(TEXT_PATH)
     
-    If RUN_CALL = True Then I = True
-    I = RUN_CALL
+    If RUN_CALL = True Then i = True
+    i = RUN_CALL
     XPOS = 0
     
     'FOLDER_FILE_PATH
@@ -16437,18 +16435,18 @@ Sub CHECK_PATH_FOLDER_FILE_URL_REGISTRY_KEY(RUN_CALL)
     If XPOS > 0 Then OXPOS = 5
 
     'EXPLORER FOLDER FILE
-    If OXPOS = 1 And XPOS > 0 And I Then Call MNU_CLIPBOARD_EXPLORER_FILE_FOLDER_Click
+    If OXPOS = 1 And XPOS > 0 And i Then Call MNU_CLIPBOARD_EXPLORER_FILE_FOLDER_Click
     If OXPOS = 1 And XPOS > 0 Then TEXT_MNU = "GO -- FILE FOLDER -- OPEN"
     'NETWORK FOLDER FILE
-    If OXPOS = 2 And XPOS > 0 And I Then Call MNU_CLIPBOARD_EXPLORER_FILE_FOLDER_Click
+    If OXPOS = 2 And XPOS > 0 And i Then Call MNU_CLIPBOARD_EXPLORER_FILE_FOLDER_Click
     If OXPOS = 2 And XPOS > 0 Then TEXT_MNU = "GO -- NETOWRK FILE FOLDER -- OPEN"
     
     'REG_KEY
-    If OXPOS = 3 And XPOS > 0 And I Then Call MNU_REG_JUMP_Click
+    If OXPOS = 3 And XPOS > 0 And i Then Call MNU_REG_JUMP_Click
     If OXPOS = 3 And XPOS > 0 Then TEXT_MNU = "GO -- REGISTRY KEY -- OPEN"
     
     'WEB
-    If OXPOS = 4 And XPOS > 0 And I Then Call MNU_URL_Browser_Click
+    If OXPOS = 4 And XPOS > 0 And i Then Call MNU_URL_Browser_Click
     If OXPOS = 4 And XPOS > 0 Then TEXT_MNU = "GO -- WEB WWW HTTP URL LINK BROWSER -- OPEN"
     
     'CPC WEB
@@ -16459,7 +16457,7 @@ Sub CHECK_PATH_FOLDER_FILE_URL_REGISTRY_KEY(RUN_CALL)
     
     End If
     
-    If OXPOS = 5 And XPOS > 0 And I Then
+    If OXPOS = 5 And XPOS > 0 And i Then
         Call MNU_CPC_Click
     End If
     If OXPOS = 5 And XPOS > 0 Then

@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Begin VB.Form frmPassLock 
    BackColor       =   &H00000000&
    BorderStyle     =   0  'None
@@ -1089,7 +1089,7 @@ Private Type RECT
     Right As Long
     Bottom As Long
 End Type
-Private Declare Function GetWindowRect Lib "user32" (ByVal hwnd As Long, lpRect As RECT) As Long
+Private Declare Function GetWindowRect Lib "user32" (ByVal hWnd As Long, lpRect As RECT) As Long
 
 Dim OldControlValueChanges
 Dim Th(200)
@@ -1218,13 +1218,13 @@ Call StartTheWhirl
 End Sub
 
 
-Private Sub Form_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub Form_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
 'If Button <> 2 Or MLeg = 1 Then Exit Sub
 'Call KnockerLogg
 'MLeg = 1
 End Sub
 
-Private Sub Form_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub Form_MouseUp(Button As Integer, Shift As Integer, x As Single, y As Single)
 'MLeg = 0
 End Sub
 
@@ -1357,23 +1357,23 @@ Sub SubSwitches2()
     XPud = False
 End Sub
 
-Private Sub Slider1_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub Slider1_MouseUp(Button As Integer, Shift As Integer, x As Single, y As Single)
     Call SubSwitches2
 End Sub
 
-Private Sub Slider2_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub Slider2_MouseUp(Button As Integer, Shift As Integer, x As Single, y As Single)
     Call SubSwitches2
 End Sub
 
-Private Sub Slider3_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub Slider3_MouseUp(Button As Integer, Shift As Integer, x As Single, y As Single)
     Call SubSwitches2
 End Sub
 
-Private Sub Slider4_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub Slider4_MouseUp(Button As Integer, Shift As Integer, x As Single, y As Single)
     Call SubSwitches2
 End Sub
 
-Private Sub Slider5_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub Slider5_MouseUp(Button As Integer, Shift As Integer, x As Single, y As Single)
     Call SubSwitches2
 End Sub
 
@@ -1683,7 +1683,7 @@ Frame1.Visible = False
 
 Call zzLoadChecks
 
-lngI = SetFocuses(frmPassLock.hwnd)
+lngI = SetFocuses(frmPassLock.hWnd)
 
 Call ComboChange
 
@@ -1833,7 +1833,7 @@ XPud = False
 
 End Sub
 
-Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub Form_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
 Yui = Now + TimeSerial(0, 0, 30)
 End Sub
 
@@ -1938,7 +1938,7 @@ End If
 On Error Resume Next
 If YinVectKeli$ = "" Then
     dxx = 1
-    Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\ChkSettings-YinVectKeli.txt" For Input As #1
+    Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\ChkSettings-YinVectKeli.txt" For Input As #1
         Line Input #1, QQ$
     Close #1
     If QQ$ <> "" Then
@@ -1953,7 +1953,7 @@ YinVectKeli$ = Combo1.List(Combo1.ListIndex)
 'MsgBox "Load " + YinVectKeli$
 
 i = 0
-Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\ChkSettings-" + YinVectKeli$ + ".txt" For Input As #1
+Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\ChkSettings-" + YinVectKeli$ + ".txt" For Input As #1
 Do
     Line Input #1, vv$
     Th(i) = vv$
@@ -1972,9 +1972,9 @@ For Each Control In Me.Controls
 '    If InStr(Control.name, "Check") Then xx = 1
     
     xxd = 0: gogo = 0
-    For R = 0 To tit
-        If Control.Name = Th(R) Then
-            xxd = R: gogo = 1: Exit For
+    For r = 0 To tit
+        If Control.Name = Th(r) Then
+            xxd = r: gogo = 1: Exit For
         End If
     Next
     
@@ -2012,14 +2012,14 @@ If App.title = "Tidal Information..." Then Exit Sub
 If YinVectKeli$ = "" Then Exit Sub
 'Me.Visible = True
 
-Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\ChkSettings-YinVectKeli.txt" For Output As #1
+Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\ChkSettings-YinVectKeli.txt" For Output As #1
     'Print #1, OldCombo1ListIndex
     Print #1, Combo1.ListIndex
     'Print #1, YinVectKeli$
 Close #1
 
 On Error Resume Next
-Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\ChkSettings-" + YinVectKeli$ + ".txt" For Output As #1
+Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\ChkSettings-" + YinVectKeli$ + ".txt" For Output As #1
 For Each Control In Me.Controls
     Err.Clear
     A = Control.Value

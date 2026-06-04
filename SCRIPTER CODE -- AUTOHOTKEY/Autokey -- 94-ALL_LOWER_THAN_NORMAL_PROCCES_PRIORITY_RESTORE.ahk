@@ -99,6 +99,9 @@
 
 DetectHiddenWindows, on
 
+; HAVING PROBLEM WITH THIS ONE  -- 2026 MAY
+ExitApp
+
 ; -------------------------------------------------------------------
 ; CREDIT TO **** AUTOHOTKEYS **** HELP PAGE -- SEARCH WORD -- Process
 ; -------------------------------------------------------------------
@@ -181,6 +184,9 @@ FILTER=%FILTER%--`n
 ; -------------------------------------------------------------------
 COUNTER_V=0
 VAR_INFO=
+PRIORITY_SET=
+PIDV_PAD=
+PIDNAME=
 ; -------------------------------------------------------------------
 LOOP, parse, l, `n
 {
@@ -224,7 +230,7 @@ LOOP, parse, l, `n
 		Num := PIDV
 		Pack := "000000"
 		PIDV_PAD = % (SubStr(Pack, 1, StrLen(Pack) - StrLen(Num)) . Num)
-		Process, Priority, %PIDV%, R
+		Process, Priority, %PIDV%, N
 	}
 }
 
@@ -253,33 +259,42 @@ LOOP, parse, l, `n
 
 ; -------------------------------------------------------------------
 DASH_STRING=------------------------------------------------------------------------------------------
-VAR_INFO= % COUNTER_V "  ALL LOWER THAN NORMAL PROCCES PRIORITY RESTORE HIGH" "`n" DASH_STRING "`n" VAR_INFO DASH_STRING
+VAR_INFO= % COUNTER_V " x ITEMS -- LOWER THAN NORMAL PROCCES PRIORITY RESTORE NORMAL" "`n" "BUTTER NOT WORKING FOR AUTOHOTKEYS -- CHECK HER" "`n" DASH_STRING "`n" VAR_INFO DASH_STRING
 ; -------------------------------------------------------------------
 ; GUI ROUTINE HAS INFO ABOUT TIME OUT COUNTER
 ; -------------------------------------------------------------------
 COUNTDOWN_TIME:=40
+IF COUNTER_V<1
+	COUNTDOWN_TIME:=10
+
 ; -------------------------------------------------------------------
-COUNTDOWN_TEXT_01=Second To EXIT Or ESC Key
+COUNTDOWN_TEXT_01=Second To EXIT Or ESC Key Or Clicker
 COUNTDOWN_TEXT_02=%COUNTDOWN_TIME%  %COUNTDOWN_TEXT_01%
 
 ; DISPLAY FIND
 ; -------------------------------------------------------------------
+
+
+
 Gui, -caption +toolwindow +AlwaysOnTop +Disabled -SysMenu +Owner  ; +Owner avoid taskbar button.
 Gui, Color, White
 Gui, Font, s11 bold, Arial
 DASH_STRING=----------------------------------------------------
-Gui, Add, Text, x10 y10 , % VAR_INFO
+GUI, ADD, TEXT,X10 Y10,%A_ScriptName%
+Gui, Add, Text, , % VAR_INFO
 Gui, Add, Text, vCOUNTDOWN_TIME, %COUNTDOWN_TEXT_02%
 ; Gui, Show, NoActivate, Title of Window  ; NoActivate avoids deactivating the currently active window.
+;
+
+
 Gui, Show
-; -------------------------------------------------------------------
+
+
+; ; -------------------------------------------------------------------
 SETTIMER TIMER_EXIT_ROUTINE,1000
 ; -------------------------------------------------------------------
 
 
-; -------------------------------------------------------------------
-; OnMessage(0x201, "WM_LBUTTONDOWN")
-; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
 ; DONE LETS GET OUT OF HERE
@@ -288,6 +303,29 @@ SETTIMER TIMER_EXIT_ROUTINE,1000
 ; -------------------------------------------------------------------
 RETURN
 ; -------------------------------------------------------------------
+
+
+
+
+
+GuiClose:
+ExitApp
+
+; ---- EXITAPP DOUBLE CLICK THE GUI
+LButton::
+if (A_PriorHotkey = "LButton" and A_TimeSincePriorHotkey < 400)
+{
+	EXITAPP
+    ; Click 2
+}
+else
+{
+    Click
+}
+return
+
+
+
 
 
 ; -------------------------------------------------------------------

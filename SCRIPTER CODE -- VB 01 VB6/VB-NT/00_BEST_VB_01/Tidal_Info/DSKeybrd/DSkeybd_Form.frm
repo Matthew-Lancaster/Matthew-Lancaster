@@ -3,15 +3,15 @@ Begin VB.Form DSkeybd_F
    BackColor       =   &H00000000&
    BorderStyle     =   1  'Fixed Single
    Caption         =   " DS KEYSTROKE ANALYZER"
-   ClientHeight    =   6090
-   ClientLeft      =   1350
-   ClientTop       =   1605
-   ClientWidth     =   4575
+   ClientHeight    =   6084
+   ClientLeft      =   1356
+   ClientTop       =   1608
+   ClientWidth     =   4572
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   6090
-   ScaleWidth      =   4575
+   ScaleHeight     =   6084
+   ScaleWidth      =   4572
    Begin VB.Timer Timer2 
       Interval        =   100
       Left            =   1890
@@ -173,7 +173,7 @@ Begin VB.Form DSkeybd_F
       End
    End
    Begin VB.ListBox List1 
-      Height          =   3570
+      Height          =   3504
       Left            =   135
       TabIndex        =   0
       Top             =   450
@@ -258,12 +258,12 @@ Attribute VB_Exposed = False
 '***********************************************
 Dim CHANGE_PATH_FOR_Dskbhook
 Dim HALO
-Private Const HWND_TOPMOST& = -1
+Private Const hWnd_TOPMOST& = -1
 Private Const SWP_NOMOVE& = &H2
 Private Const SWP_NOSIZE& = &H1
 Private Declare Function SetWindowPos& Lib "user32" _
 (ByVal hWnd&, ByVal hWndInsertAfter&, ByVal x&, _
-ByVal Y&, ByVal cx&, ByVal cy&, ByVal wFlags&)
+ByVal y&, ByVal cx&, ByVal cy&, ByVal wFlags&)
 '***********************************************
 Dim dl&, dc&, rp&, i%, o2%
 Public IsHook As Boolean
@@ -294,9 +294,14 @@ Public Sub Command1_Click()
     
     If CHANGE_PATH_FOR_Dskbhook = False Then
         If IsIDE = True Then
+            ' MIGHT BE ON NETOWRK PATH CANT RUN HERE
+            ' ERROR TRAP
+            ' --------------------------------------
+            On Error Resume Next
             ChDrive (App.Path)
+            On Error GoTo 0
             ChDir (App.Path)
-            If Dir("Dskbhook.dll") = "" Then msgbox "Dskbhook.dll -- NOT FOUND"
+            If Dir("Dskbhook.dll") = "" Then MsgBox "Dskbhook.dll -- NOT FOUND"
             CHANGE_PATH_FOR_Dskbhook = True
         End If
     End If
@@ -360,7 +365,7 @@ If MAIN_FORM_READY_YET = False Then Exit Sub
 
 DSkeybd_F.BackColor = &H8000000F
 
-Call SetWindowPos(hWnd, HWND_TOPMOST, 0, 0, 0, 0, _
+Call SetWindowPos(hWnd, hWnd_TOPMOST, 0, 0, 0, 0, _
                   SWP_NOMOVE Or SWP_NOSIZE)
 
 'If TestKeyLoggOff = True Then Exit Sub
@@ -428,7 +433,7 @@ Call SkipInjected(1)
 
 End Sub
 
-Private Sub Form_MouseMove(Button As Integer, Shift As Integer, x As Single, Y As Single)
+Private Sub Form_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
 'If IsHook = False Then Call Command1_Click
 
 End Sub
@@ -462,7 +467,7 @@ Private Sub List1_Click()
 End Sub
 
 '***********************************************
-Private Sub Option1_Click(Index As Integer)
+Private Sub Option1_Click(index As Integer)
 For i = 0 To Option1.Count - 1
   If Option1(i) Then Exit For
 Next
@@ -471,7 +476,7 @@ Call SetGlobalParams(rp, dc)                      '# Set the (new) Discard value
 End Sub
 
 '***********************************************
-Private Sub Option2_Click(Index As Integer)
+Private Sub Option2_Click(index As Integer)
 
 'Option2(1) = True
 

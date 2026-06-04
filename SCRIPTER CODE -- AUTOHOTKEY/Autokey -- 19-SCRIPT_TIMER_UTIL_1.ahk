@@ -322,7 +322,7 @@ setTimer TIMER_SUB_NOTEPAD_PLUS_PLUS,1000
 setTimer TIMER_SUB_WINDOWS_UPDATE,OFF
 ; STARTS AS 1 SECOND AND THEN GOES TO EVERY HOUR
 
-setTimer TIMER_SUB_WINDOWS_DESKTOP_ICON,10000
+setTimer TIMER_SUB_WINDOWS_DESKTOP_ICON,OFF
 ; STARTS AS 10 SECOND AND THEN GOES TO 10 MINUTE
 
 setTimer TIMER_SUB_VICE_VERSA,OFF
@@ -331,7 +331,8 @@ setTimer TIMER_SUB_VICE_VERSA,OFF
 setTimer TIMER_SUB_SCRIPT_SHELL_FOLDERING, 1000
 ; STARTS AS 1 SECOND AND THEN GOES TO EVERY HOUR
 
-setTimer TIMER_SUB_OWNER, 1000 ; After1Hours
+; TIMER SET TO OFF THIS IS FOR -- TEAMVIEWER
+setTimer TIMER_SUB_OWNER, OFF ; 1000 ; After1Hours
 ; STARTS AS AFTER 1 HOUR AND THEN GOES TO EVERY 24 HOUR
 
 ;setTimer TIMER_SUB_WSCRIPT,100
@@ -420,7 +421,7 @@ DATE_CALC_DAY=
 
 HWNDID=
 
-SETTIMER ONE_SECOND,1000
+SETTIMER ONE_SECOND_LACLIENT,1000
 
 ; SETTIMER TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY_01,5000
 
@@ -533,30 +534,36 @@ RETURN
 
 
 
-ONE_MOMENT_CLOSE_CMD:
+ONE_MOMENT_CLOSE_CMD_LACLIENT:
 
-	WinGet, HWNDID, ID ,C:\Program Files\Common Files\Logishrd\LAClient\laclient.exe ahk_class ConsoleWindowClass
-	WINCLOSE ahk_id %HWNDID%
-	HWNDID=
-	SETTIMER ONE_MOMENT_CLOSE_CMD,OFF
-	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	; C:\Program Files\Common Files\Logishrd\LAClient\laclient.exe
+	SetTitleMatchMode 2
+	WinGet, HWNDID, ID , laclient.exe ahk_class ConsoleWindowClass
+	IF HWNDID
+	{
+		WINCLOSE ahk_id %HWNDID%
+		HWNDID=
+		SETTIMER ONE_MOMENT_CLOSE_CMD_LACLIENT,OFF
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	}
 
 RETURN
 
-ONE_SECOND:
+ONE_SECOND_LACLIENT:
 
 	; STAY SHOWING MOSTLY ON 8-MSI COMPUTER
 	; -------------------------------------
+
+	SetTitleMatchMode 2
 	IF !HWNDID
 	{
-		WinGet, HWNDID, ID ,C:\Program Files\Common Files\Logishrd\LAClient\laclient.exe ahk_class ConsoleWindowClass
+		WinGet, HWNDID, ID ,laclient.exe ahk_class ConsoleWindowClass
 		IF HWNDID
 		{
-			SETTIMER ONE_MOMENT_CLOSE_CMD,120000
+			SETTIMER ONE_MOMENT_CLOSE_CMD_LACLIENT,120000
 			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
 	}
-
 RETURN
 
 KILL_ALL_PROCESS_BY_REMOTE_INSTRUCTION:
@@ -815,7 +822,7 @@ SET_OWNER_RUN_BATCH_FILER:
 	; ERROR FOR ADD COMMAND LINE ADMIN 
 	; QUIETLY
 	; ---------------------------------------------------------------
-	Element_1:="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 48-OWNER-C-DRIVE-ONLY & NOT-SUB-FOLDER.BAT"
+	Element_1:="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 48-OWNER-ALL-DRIVE-AND-FOLDER.BAT"
 	IfExist, %Element_1%
 		Run, "%Element_1%"  /QUITE , , MIN ; HIDE
 	; ---------------------------------------------------------------
@@ -1478,14 +1485,15 @@ If (A_Now<ID_ConsoleWindowClass_TIMER)
 ; MAYBE WANT IT
 ; DetectHiddenWindows, OFF
 
-
-if (WinExist("Output ahk_class #32770"))
-{
-WinGet, HWND, ID, Output ahk_class #32770
-WinGet, PATH, ProcessName, ahk_id %HWND%
-IF PATH=ViceVersa.exe
-	WINCLOSE
-}
+; WHATS OUTPUT FOR
+; -------------------------------------------------------------------
+; if (WinExist("Output ahk_class #32770"))
+; {
+; WinGet, HWND, ID, Output ahk_class #32770
+; WinGet, PATH, ProcessName, ahk_id %HWND%
+; IF PATH=ViceVersa.exe
+	; WINCLOSE
+; }
 
 
 ; -------------------------------------------------------------------
@@ -1930,15 +1938,16 @@ IfWinExist RoboForm Question
 ; MAYBE WANT IT
 ; DetectHiddenWindows, OFF
 
-IfWinExist Microsoft OneDrive
-{
-	ControlGetText, OutputVar, Close OneDrive , Microsoft OneDrive
-	IF OutputVar 
-	{	
-		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		ControlClick, Close OneDrive, Microsoft OneDrive
-	}
-}
+; MAYBE SOME COMPUTER
+; IfWinExist Microsoft OneDrive
+; {
+	; ControlGetText, OutputVar, Close OneDrive , Microsoft OneDrive
+	; IF OutputVar 
+	; {	
+		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		; ControlClick, Close OneDrive, Microsoft OneDrive
+	; }
+; }
 
 ; MAYBE WANT IT
 ; DetectHiddenWindows, OFF
@@ -1996,12 +2005,14 @@ IfWinExist, Replace ahk_exe VB6.EXE
 ; MAYBE WANT IT
 ; DetectHiddenWindows, OFF
 
-;DuplicateCleaner
-IfWinExist Finished deleting files.
-{
-	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-	ControlClick, OK, Finished deleting files.
-}
+
+; PUT BACK LATER 2026
+; DuplicateCleaner
+; IfWinExist Finished deleting files.
+; {
+	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	; ControlClick, OK, Finished deleting files.
+; }
 
 ; MAYBE WANT IT
 ; DetectHiddenWindows, OFF
@@ -2138,6 +2149,8 @@ SetTitleMatchMode 3  ; Exactly
 SET_GO=TRUE
 IF (A_ComputerName="7-ASUS-GL522VW")
 	SET_GO=FALSE
+	
+SET_GO=FALSE
 
 IF SET_GO=TRUE
 IfWinExist Configure Permanent Access
@@ -2528,7 +2541,17 @@ Return
 
 
 
-	
+; ALREADY GOT THIS ONE	
+; TIMER_SUB_VB_KEEP_RUNNER_02:
+; IF TIMER_SUB_VB_KEEP_RUNNER__01_VAR_NOT_FIRST_TIME
+; {
+	; TIMER_SUB_VB_KEEP_RUNNER__01_VAR_NOT_FIRST_TIME=
+	; RETURN
+; }
+
+; ; TOOLTIP % A_TimeIdleMouse
+; IF A_TimeIdleMouse<60000
+	; RETURN
 TIMER_SUB_VB_KEEP_RUNNER_02:
 IF TIMER_SUB_VB_KEEP_RUNNER__01_VAR_NOT_FIRST_TIME
 {
@@ -2540,29 +2563,30 @@ IF TIMER_SUB_VB_KEEP_RUNNER__01_VAR_NOT_FIRST_TIME
 IF A_TimeIdleMouse<60000
 	RETURN
 
-; -------------------------------------------------------------------
-dhw := A_DetectHiddenWindows
-DetectHiddenWindows, ON
-SetTitleMatchMode 2  ; Avoids Specify Full path.
+; ; -------------------------------------------------------------------
+; dhw := A_DetectHiddenWindows
+; DetectHiddenWindows, ON
+; SetTitleMatchMode 2  ; Avoids Specify Full path.
 
-IfWinNotExist VB_KEEP_RUNNER
-{
-	FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
-	Process, Exist, VB_KEEP_RUNNER.exe
-	If NOT ErrorLevel
-	IfExist, %FN_VAR%
-		{
-			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-			Run, %FN_VAR%
-		}
-}
-DetectHiddenWindows, % dhw
-Return
+; IfWinNotExist VB_KEEP_RUNNER
+; {
+	; FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
+	; Process, Exist, VB_KEEP_RUNNER.exe
+	; If NOT ErrorLevel
+	; IfExist, %FN_VAR%
+		; {
+			; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+			; Run, %FN_VAR%
+		; }
+; }
+; DetectHiddenWindows, % dhw
+
+; Return
 
 	
 	
 	
-
+; TIMER SET TO OFF
 MSGBOX_COUNTDOWN_VB_KEEP_RUNNER_OS_RESTART:
 
 VAR_WORKER_MSGBOX_DELAY_COUNT_01=VB_KEEP_RUNNER ahk_class #32770
@@ -2703,7 +2727,7 @@ SUB_MESS_SPARE_CODE:
 		
 Return
 
-
+; CHECK THIS ONE OUT 
 TIMER_COPY_SYNC_VBSCRIPT_CODE_SYNC_ER:
 
 SETTIMER TIMER_COPY_SYNC_VBSCRIPT_CODE_SYNC_ER, 600000 ; 10 MINUTE
@@ -2747,7 +2771,7 @@ SETTIMER TIMER_KILL_GOOGLE_CHROME_UPDATE_GOING_TO_USE_AD_BLOCK_KILLER, OFF
 	
 RETURN
 
-
+; TIMER NOT ISSUE FOR THIS ONE
 ; -------------------------------------------------------------------
 TIMER_ROBOFORM_MYSMS_LOGIN:
 ; -------------------------------------------------------------------
@@ -2889,7 +2913,7 @@ IF UniqueID>0
 	}
 
 
-
+; TIMER NOT ISSUE THIS ONE
 ; -------------------------------------------------------------------
 TIMER_SUB_HUBIC_1:
 ; -------------------------------------------------------------------
@@ -2906,9 +2930,13 @@ TIMER_SUB_HUBIC_1:
 
 Return
 
+; TIMER NOT ISSUE THIS ONE
 ; -------------------------------------------------------------------
 TIMER_SUB_HUBIC_2:
 ; -------------------------------------------------------------------
+	SETTIMER TIMER_SUB_HUBIC_2,OFF
+	RETURN
+	
 	
 	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 34-HUBIC DELETE-ER.VBS"
 	IfExist, %FN_VAR%
@@ -2939,7 +2967,8 @@ TIMER_SUB_WINDOWS_DESKTOP_ICON:
 ; ONLY AFTER TIME WHEN LOPP COME AROUND AGAIN
 ; -------------------------------------------------------------------
 
-setTimer TIMER_SUB_WINDOWS_DESKTOP_ICON,600000 ; 10 MINUTE
+setTimer TIMER_SUB_WINDOWS_DESKTOP_ICON,OFF ;600000 ; 10 MINUTE
+RETURN
 
 ;C:\Windows10Upgrade\Windows10UpgraderApp.exe /ClientID "Win10Upgrade:VNL:NHV13SIH:{}"
 
@@ -2985,8 +3014,10 @@ IfExist, %FN_VAR_1%
 	
 RETURN
 
-Multiple_Thread_Port_Scanner_ROUTINE_MAIN:
 
+
+; NOTHING CODER TO CALL HERE
+Multiple_Thread_Port_Scanner_ROUTINE_MAIN:
 
 ; THIS NOT FINISHED WORK
 ; THE MAIN OUTPUT FILE IS POST EDITED
@@ -3082,7 +3113,7 @@ RETURN
 
 
 
-
+; TIMER NOT CALL FOR HERE
 ;--------------------------------------------------------------------
 TIMER_SUB_WSCRIPT:
 dhw := A_DetectHiddenWindows
@@ -3099,7 +3130,7 @@ DetectHiddenWindows, % dhw
 
 Return
 
-
+; TIMER NOT CALL FOR HERE
 ;--------------------------------------------------------------------
 TIMER_SUB__MY_IP:
 
@@ -3113,6 +3144,8 @@ IfExist, %FN_VAR_20%
 
 RETURN
 
+
+; TIMER SET TO OFF FOR HERE
 ;--------------------------------------------------------------------
 TIMER_SUB__SendSMTP__0__LOG_BAT:
 
@@ -3126,6 +3159,7 @@ IfExist, %FN_VAR_3%
 
 RETURN
 
+; TIMER NOT CALL FOR HERE
 ;--------------------------------------------------------------------
 TIMER_SUB_I_VIEW32_CONVERT_CCSE:
 
@@ -3146,6 +3180,12 @@ IfExist, %FN_VAR_01%
 
 RETURN
 
+
+; TIMER NOT SET TO RUN HERE OR ANYWHERE
+; CODE IS IN Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk
+; CODE IS IN Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
+; --
+; TIMER SET TO OFF FOR HERE -- THINK RUN MANUAL AT START OFF ANOTHER CODE
 ;--------------------------------------------------------------------
 TIMER_SUB_VICE_VERSA:
 
@@ -3193,7 +3233,7 @@ Return
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 TIMER_SUB_ESIF_ASSIST_64_SUSPEND:
-	; RETURN
+	RETURN
 	
 	; Process, Exist, esif_assist_64.exe
 	; NewPID_1 = %ErrorLevel%  ; Save the value immediately ErrorLevel is often changed
@@ -3250,7 +3290,8 @@ Return
 
 ;--------------------------------------------------------------------
 TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR:
-	; RETURN
+
+	RETURN
 	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	Process_Resume("esif_assist_64.exe")
 	SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND, 20000 ; ---- 20 SECONDS
@@ -3326,7 +3367,7 @@ ProcExist(PID_or_Name=""){
 }
 
 
-
+; RUNS IN TIMER -- Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk -- ALSO -- NOT ANYMORE NUMBER UTIL_2
 ;----------------------------------------
 TIMER_SUB_SCRIPT_SHELL_FOLDERING:
 ; STARTS AS 1 SECOND AND THEN GOES TO EVERY HOUR
@@ -3343,6 +3384,8 @@ Run, "C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 10-VICEVERSA _ SHELL FOLDE
 Return
 
 
+
+; TIMER SET TO OFF
 ; ----------------------------------------
 TIMER_SUB_LOGGER:
 
@@ -3357,6 +3400,8 @@ If FileExist(FILE_PATH_DUPLICATE_CLEANER)
 
 Return
 
+
+; TIMER SET TO OFF
 ; ----------------------------------------
 TIMER_SUB_BLUETOOTH_LOGGER:
 	
@@ -3434,7 +3479,7 @@ TIMER_SUB_BLUETOOTH_LOGGER:
 	
 Return
 
-
+; TIMER SET TO OFF
 ;----------------------------------------
 TIMER_SUB_WINDOWS_UPDATE:
 
@@ -3473,6 +3518,7 @@ If (ALLOW_UPDATE_KILLER=1)
 Return
 
 
+; TIMER SET TO OFF THIS IS FOR -- TEAMVIEWER
 ;----------------------------------------
 TIMER_SUB_OWNER:
 
@@ -3661,7 +3707,7 @@ IF SET_GO=TRUE
 	; ---------------------------------------------------------------
 	; BAT 49-OWNER-ALL-DRIVES.BAT
 	; ---------------------------------------------------------------
-	Run, "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 48-OWNER-C-DRIVE-ONLY & NOT-SUB-FOLDER.BAT" , , MIN ; HIDE
+	Run, "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 48-OWNER-ALL-DRIVE-AND-FOLDER.BAT" , , MIN ; HIDE
 	SLEEP 4000
 }
 DetectHiddenWindows, % dhw

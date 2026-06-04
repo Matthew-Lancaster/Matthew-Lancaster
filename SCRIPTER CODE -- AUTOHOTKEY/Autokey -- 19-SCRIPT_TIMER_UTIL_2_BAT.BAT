@@ -1,4 +1,0 @@
-
-TITLE Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
-VOL V:
-CHKDSK.EXE V: /F

@@ -328,10 +328,10 @@ Private Sub Form_Load()
         Dim Filename, A1, FR, A_JOY_2
         Filename = "Error With Joypad Driver Message Display Counter.txt"
         
-        If Dir(App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\" + Filename) <> "" Then
+        If Dir(App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\" + Filename) <> "" Then
             On Error Resume Next
             FR = FreeFile
-            Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\" + Filename For Input As #FR
+            Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\" + Filename For Input As #FR
                 Line Input #FR, A1
             Close #FR
         End If
@@ -342,7 +342,7 @@ Private Sub Form_Load()
         A_JOY_2 = Val(A1) + 1
         If A_JOY_2 > 10 Then A_JOY_2 = 1
         FR = FreeFile
-        Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\" + Filename For Output As #FR
+        Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\" + Filename For Output As #FR
             Print #FR, A_JOY_2
         Close #FR
     

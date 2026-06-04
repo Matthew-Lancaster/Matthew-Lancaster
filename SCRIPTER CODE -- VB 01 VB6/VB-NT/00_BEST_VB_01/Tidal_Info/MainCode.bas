@@ -98,8 +98,8 @@ Public Declare Function PolyBezier Lib "gdi32" (ByVal HDC As Long, lppt As POINT
 Public ptBez1() As POINTAPI
 
 Private Type POINTAPI
-        X As Long
-        Y As Long
+        x As Long
+        y As Long
 End Type
 
 Dim ExeGo
@@ -318,12 +318,12 @@ Public URLLoc$
          lpRect As RECT) As Long
 
       Declare Function MoveWindow Lib "user32" (ByVal hWnd As Long, _
-         ByVal X As Long, ByVal Y As Long, ByVal nWidth As Long, _
+         ByVal x As Long, ByVal y As Long, ByVal nWidth As Long, _
          ByVal nHeight As Long, ByVal bRepaint As Long) As Long
 
       Declare Function GetDesktopWindow Lib "user32" () As Long
 
-      Declare Function EnumThreadWindows Lib "user32" (ByVal dwThreadId _
+      Declare Function EnumThreadWindows Lib "user32" (ByVal dwThreadID _
          As Long, ByVal lpfn As Long, ByVal lParam As Long) As Long
 
       Declare Function GetWindowThreadProcessId Lib "user32" _
@@ -1645,7 +1645,7 @@ If dks = 1 And 1 = 2 Then
         End If
         
         'visa password extra check
-        ' 
+        '
 
         DF$ = "https://www.bankcardservices.co.uk/NASApp/NetAccessXX/EFormSubmitProcess"
         dh$ = "type=payOnline"
@@ -1683,10 +1683,10 @@ If dks = 1 And 1 = 2 Then
           
 
         'visa password extra check
-        ' 
+        '
 
         DF$ = "        'visa password extra check"
-        ' 
+        '
         dh$ = "type=payOnline"
         
         If InStr(ash$, DF$) > 0 And InStr(URL$, dh$) > 0 Then
@@ -2131,7 +2131,7 @@ Public Sub ErrorTrap(A1, A2$, a3)
 
 If A1 = 0 Then Exit Sub
 
-FILENAME_IN_USE_CHECK = App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\ErrorLog.txt"
+FILENAME_IN_USE_CHECK = App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\ErrorLog.txt"
 FILENAME_IN_USE_CHECK_4 = FILENAME_IN_USE_CHECK
 DumVar = IsFileOpenDelay(FILENAME_IN_USE_CHECK)
 FILENAME_IN_USE_CHECK = FILENAME_IN_USE_CHECK_4

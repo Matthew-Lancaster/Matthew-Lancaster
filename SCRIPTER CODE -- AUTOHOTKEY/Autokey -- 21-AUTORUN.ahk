@@ -750,12 +750,12 @@ IF SET_GO_1=1
 	; -------------------------------------------------------------------
 	; -------------------------------------------------------------------
 
-	; Element_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk"
-	; if FileExist(Element_1)
-	; {
-		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		; Run, %Element_1%
-	; }
+	Element_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk"
+	if FileExist(Element_1)
+	{
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		Run, %Element_1%
+	}
 }
 
 
@@ -885,21 +885,21 @@ IF (A_ComputerName = "3-LINDA-PC")
 
 IF SET_GO_8=TRUE
 {
-	; MSGBOX HERE1
-	If ProcessExist("ClipBoard Logger.exe", A_UserName)=0
-	{
-		FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.exe"
-		if FileExist(FN_VAR)
-		{
-				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-				Run, "%FN_VAR%"
-		}
-	}
+	; ; MSGBOX HERE1
+	; If ProcessExist("ClipBoard Logger.exe", A_UserName)=0
+	; {
+		; FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.exe"
+		; if FileExist(FN_VAR)
+		; {
+				; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+				; Run, "%FN_VAR%"
+		; }
+	; }
 }
 
 ; WIN_XP 5 WIN_7 6 WIN_10 10
 ; --------------------------
-If (OSVER_N_VAR>10)
+If (OSVER_N_VAR=10)
 {
 	; MSGBOX HERE1
 	If ProcessExist("ClipBoard Viewer.exe", A_UserName)=0
@@ -1027,17 +1027,28 @@ SET_GO_2=TRUE
 IF SET_GO_2=TRUE
 If ProcessExist("VB_KEEP_RUNNER.exe", A_UserName)=0
 {
-	FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
-	if FileExist(FN_VAR)
-	{
-		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		Run, "%FN_VAR%" , , MIN
-		; SLEEP 8000
-		; -----------------------------------------------------------------
-		; GIVE TIME TO RUN FOR XP THE TWO BLUEOOTH APP ON TASK BAR TOGETHER
-		; DOING A SEARCH ON XP TERMINATES THE APP
-		; -----------------------------------------------------------------
-	}
+	; FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
+	; if FileExist(FN_VAR)
+	; {
+		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		; Run, "%FN_VAR%" , , MIN
+		; ; SLEEP 8000
+		; ; -----------------------------------------------------------------
+		; ; GIVE TIME TO RUN FOR XP THE TWO BLUEOOTH APP ON TASK BAR TOGETHER
+		; ; DOING A SEARCH ON XP TERMINATES THE APP
+		; ; -----------------------------------------------------------------
+	; }
+}
+
+DetectHiddenWindows On
+FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 31-AUTORUN SET FAV VB & AUTOHOTKEY.ahk"
+SplitPath, FN_VAR, name
+IFWINNOTEXIST, %NAME%
+if FileExist(FN_VAR)
+IF !WinExist(NAME) 
+{
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	Run, "%FN_VAR%"
 }
 
 ; -------------------------------------------------------------------
@@ -1941,7 +1952,7 @@ IF SET_GO_RUN_CMD=TRUE
 IF (A_ComputerName = "9-ASUS-G815LM") 
 IfWinNotExist BAT 01 REGISTRY AT BOOTER_WIN_11
 	{
-		MSGBOX "HERE ---- BAT 01 REGISTRY AT BOOTER_WIN_11.BAT ---- Autokey -- 21-AUTORUN.ahk"
+		; MSGBOX "HERE ---- BAT 01 REGISTRY AT BOOTER_WIN_11.BAT ---- Autokey -- 21-AUTORUN.ahk"
 		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01 REGISTRY AT BOOTER_WIN_11.BAT"
 		if FileExist(FN_VAR)
 		{
@@ -2935,6 +2946,32 @@ If ProcessExist(OutFILENAME, A_UserName)=0
 ; SETTIMER MINIMIZE_GOODSYNC_AT_BOOT_TIMER,1000
 
 
+
+
+; SetTitleMatchMode 2 
+
+FN_VAR:="c:\program files\wordweb\wweb32.exe"
+IfNOTExist, %FN_VAR%
+FN_VAR:="c:\program files (x86)\wordweb\wweb32.exe"  ; ---- THIS ONE
+; "C:\Program Files (x86)\WordWeb\wweb32.exe" -startup
+SplitPath, FN_VAR, name
+Process, Exist, %name%
+If Not ErrorLevel
+IfExist, %FN_VAR%
+{
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	Run, "%FN_VAR%" -startup
+}
+
+RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run, WordWeb
+
+
+
+
+
+
+
+
 TIMER_MINIMIZE_BLUETOOTH_NIRSOFT_AT_BOOT = % A_Now
 TIMER_MINIMIZE_BLUETOOTH_NIRSOFT_AT_BOOT+= 5, SECONDS
 ; SETTIMER MINIMIZE_ALL_BLUETOOTH_TIMER,1000
@@ -3348,6 +3385,11 @@ RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, hubi
 
 
 
+
+
+
+
+
 ; FN_VAR_2=
 ; FN_VAR:="C:\Program Files (x86)\IObit\Driver Booster\7.4.0\DriverBooster.exe"
 ; if FileExist(FN_VAR)
@@ -3509,7 +3551,7 @@ CLOSE_SOME_LEFT_OVER_WINDOWS:
 			
 			IFWinEXIST, %LOGIOPTIONS%
 			{
-				MSGBOX "HERE01"
+				; MSGBOX "HERE01" ; YES IT IS FIND THIS 2026 MAY 31
 				WINCLOSE
 				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			}

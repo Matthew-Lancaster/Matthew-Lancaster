@@ -4,8 +4,8 @@ Begin VB.Form Form1
    BackColor       =   &H80000007&
    Caption         =   "Explorer Loader"
    ClientHeight    =   5925
-   ClientLeft      =   60
-   ClientTop       =   630
+   ClientLeft      =   225
+   ClientTop       =   1095
    ClientWidth     =   8880
    Icon            =   "Shell Loader.frx":0000
    LinkTopic       =   "Form1"

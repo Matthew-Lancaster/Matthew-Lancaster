@@ -783,6 +783,8 @@ RETURN
 
 
 
+
+
 ; -------------------------------------------------------------------
 ; MOUSE_POS_TOP_LEFT_CORNER_TIMER_BEGIN=
 ; MOUSE_POS_TOP_LEFT_CORNER_TIMER_ENDER=
@@ -823,6 +825,46 @@ TIMER_CHECK_MOUSE_TOP_LEFT_CORNER_LONG:
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	}
 RETURN
+
+
+
+
+
+
+
+MAXIMIZE_ALL_EXPLORER_MNU:
+	SetTitleMatchMode 3
+	DetectHiddenWindows, OFF
+
+	; ---------------------------------------------------------------
+	; BLUETOOTHVIEW
+	; ---------------------------------------------------------------
+	WinGet, id, list, ahk_class CabinetWClass
+	Loop, %id%
+	{
+
+		table := id%A_Index%
+		WinGet STYLE_WINDOW, MinMax, ahk_id %table%
+		
+		If STYLE_WINDOW<>1
+		{	
+			WinMaximize, ahk_id %table%
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		}	
+	} 
+
+	; ---------------------------------------------------------------
+	; 1 MAXIMIZED  0 NORMAL  -1 MINIMIZED
+	; ---------------------------------------------------------------
+
+RETURN
+
+
+
+
+
+
+
 
 
 TERMINATE_ALL_AUTOHOTKEYS_GONE:

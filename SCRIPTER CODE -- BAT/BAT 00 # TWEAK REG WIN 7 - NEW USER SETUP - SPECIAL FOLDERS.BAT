@@ -36,6 +36,9 @@
 ECHO ____ # TWEAK REG WIN 7 - NEW USER SETUP - SPECIAL FOLDERS.BAT ____ 
 TITLE %~f0
 
+
+
+
 @REM ----------------------------------------------------------------
 @REM __ SET ADMIN A SAFE DOUBLE CHECKER WAY NOT A LOOPY ONE
 @REM __ IF CAN'T GET IT TO GO ADMIN DOESN'T RSI INJURY ITSELF AND YOU
@@ -311,7 +314,7 @@ ECHO #### -- USING FIRST PATH FOUND DRIVE ---------------------- DRIVE %DRIVEPAT
 @IF "%DRIVEPATH%"=="NOT_BEEN_SET" PAUSE
 @IF "%DRIVEPATH%"=="NOT_BEEN_SET" GOTO VERY_END
 @ECHO.
-PAUSE
+PAUSE 
 
 @ECHO #### -- --------------------------------------------------------    -- ####
 @ECHO #### -- DOUBLE CHECK THIS RESULT IS NOT MORE THAN ONE
@@ -2369,7 +2372,7 @@ REM '### -----
 REM ' USE SYSINTERNALS SUITE BGINFO IF YOU DO USE THAT
 REM ' YOUR NEED TO UPDATE BECAUSE OF THE NEW LOGON
 REM ' I RUN IT FROM HERE C:\Program Files\# NO INSTALL REQUIRED\01 www.System Internals.com\SysInternals\SysinternalsSuite\Bginfo.exe
-REM ' BUT I HAVE'NT GOT A LINK NEAR ONE IN START FOLDER
+REM ' BUT I HAVEN'T GOT A LINK NEAR ONE IN START FOLDER
  
 REM ' ###############
 REM ' ###############
@@ -2650,4 +2653,5 @@ REM Downloads	No	Yes	No	C:\DOWNLOAD			%SystemDrive%\DOWNLOAD
 EXIT /B
 
 :ENDE
+
 EXIT /B

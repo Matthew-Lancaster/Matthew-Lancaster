@@ -74,7 +74,7 @@ gstps://matt-lan-btinternet-com
 smb://
 7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/GoodSync
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/GoodSync
+4-ASUS-GL522VW/4_Asus_Gl522Vw_D_Drive/GoodSync
 ----------------------------------------
 0027--0  0001 C GOODSYNC 2 GO -- D TO D __ 7G 4G _ JOB SET
 file://@
@@ -102,37 +102,37 @@ gstps://matt-lan-btinternet-com
 ----------------------------------------
 0035--0  1 C # DRIVE TOTAL WHOLE __ 4G __1X
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE
+4-ASUS-GL522VW/4_Asus_Gl522Vw_C_Drive
 gstps://matt-lan-btinternet-com
 2-asus-x5dij/C:
 ----------------------------------------
 0037--0  1 C # DRIVE TOTAL WHOLE __ 4G __2E
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE
+4-ASUS-GL522VW/4_Asus_Gl522Vw_C_Drive
 gstps://matt-lan-btinternet-com
 1-asus-eee/C:
 ----------------------------------------
 0039--0  1 C # DRIVE TOTAL WHOLE __ 4G __3L
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE
+4-ASUS-GL522VW/4_Asus_Gl522Vw_C_Drive
 gstps://matt-lan-btinternet-com
 3-linda-pc/C:
 ----------------------------------------
 0041--0  1 C # DRIVE TOTAL WHOLE __ 4G __5P
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE
+4-ASUS-GL522VW/4_Asus_Gl522Vw_C_Drive
 gstps://matt-lan-btinternet-com
 5-asus-p2520la/C:
 ----------------------------------------
 0043--0  1 C # DRIVE TOTAL WHOLE __ 4G __7G
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE
+4-ASUS-GL522VW/4_Asus_Gl522Vw_C_Drive
 gstps://matt-lan-btinternet-com
 7-asus-gl522vw/C:
 ----------------------------------------
 0045--0  1 C # DRIVE TOTAL WHOLE __ 4G __8M
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE
+4-ASUS-GL522VW/4_Asus_Gl522Vw_C_Drive
 gstps://matt-lan-btinternet-com
 8-msi-gp62m-7rd/C:
 ----------------------------------------
@@ -144,7 +144,7 @@ gstps://matt-lan-btinternet-com
 ----------------------------------------
 0049--0  1 D # DRIVE TOTAL WHOLE __ 4G__5P
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE
+4-ASUS-GL522VW/4_Asus_Gl522Vw_C_Drive
 gstps://matt-lan-btinternet-com
 5-asus-p2520la/D:
 ----------------------------------------
@@ -296,7 +296,7 @@ smb://
 smb://
 7-ASUS-GL522VW/7_ASUS_GL522VW_01_C_DRIVE/0 00 LOGGERS TEXT
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE/0 00 LOGGERS TEXT
+4-ASUS-GL522VW/4_Asus_Gl522Vw_C_Drive/0 00 LOGGERS TEXT
 ----------------------------------------
 0101--0  C 0 LOGGERS TEXT __ 7G TO 5P_
 smb://
@@ -414,55 +414,55 @@ file://@
 ----------------------------------------
 0139--0  C SCRIPTOR 00 4G 7G
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE/SCRIPTER
+4-ASUS-GL522VW/4_Asus_Gl522Vw_C_Drive/SCRIPTER
 gstps://matt-lan-btinternet-com
 7-asus-gl522vw/C:/SCRIPTER
 ----------------------------------------
 0141--0  C SCRIPTOR 4G 1X
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE/SCRIPTER
+4-ASUS-GL522VW/4_Asus_Gl522Vw_C_Drive/SCRIPTER
 gstps://matt-lan-btinternet-com
 2-asus-x5dij/C:/SCRIPTER
 ----------------------------------------
 0143--0  C SCRIPTOR 4G 1X #NFS
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE/SCRIPTER
+4-ASUS-GL522VW/4_Asus_Gl522Vw_C_Drive/SCRIPTER
 gstps://matt-lan-btinternet-com
 2-asus-x5dij/C:/SCRIPTER
 ----------------------------------------
 0145--0  C SCRIPTOR 4G 1X NOT GSD
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE/SCRIPTER
+4-ASUS-GL522VW/4_Asus_Gl522Vw_C_Drive/SCRIPTER
 smb://
 1-ASUS-X5DIJ/1_ASUS_X5DIJ_01_C_DRIVE/SCRIPTER
 ----------------------------------------
 0147--0  C SCRIPTOR 4G 2E
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE/SCRIPTER
+4-ASUS-GL522VW/4_Asus_Gl522Vw_C_Drive/SCRIPTER
 gstps://matt-lan-btinternet-com
 1-asus-eee/C:/SCRIPTER
 ----------------------------------------
 0149--0  C SCRIPTOR 4G 3L
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE/SCRIPTER
+4-ASUS-GL522VW/4_Asus_Gl522Vw_C_Drive/SCRIPTER
 smb://
 3-LINDA-PC/3_LINDA_PC_01_C_DRIVE/SCRIPTER
 ----------------------------------------
 0151--0  C SCRIPTOR 4G 5P
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE/SCRIPTER
+4-ASUS-GL522VW/4_Asus_Gl522Vw_C_Drive/SCRIPTER
 gstps://matt-lan-btinternet-com
 5-asus-p2520la/C:/SCRIPTER
 ----------------------------------------
 0153--0  C SCRIPTOR 4G 7G
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE/SCRIPTER
+4-ASUS-GL522VW/4_Asus_Gl522Vw_C_Drive/SCRIPTER
 gstps://matt-lan-btinternet-com
 7-asus-gl522vw/C:/SCRIPTER
 ----------------------------------------
 0155--0  C SCRIPTOR 4G 8M
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE/SCRIPTER
+4-ASUS-GL522VW/4_Asus_Gl522Vw_C_Drive/SCRIPTER
 gstps://matt-lan-btinternet-com
 8-msi-gp62m-7rd/C:/SCRIPTER
 ----------------------------------------
@@ -494,7 +494,7 @@ smb://
 file://@
 /C:/SCRIPTER
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE/SCRIPTER
+4-ASUS-GL522VW/4_Asus_Gl522Vw_C_Drive/SCRIPTER
 ----------------------------------------
 0167--0  C SCRIPTOR 7G 4G 1 #GSD
 gstps://matt-lan-btinternet-com
@@ -552,7 +552,7 @@ gstps://matt-lan-btinternet-com
 ----------------------------------------
 0185--0  C SCRIPTOR DATA -- 4G 2E
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE/SCRIPTOR DATA
+4-ASUS-GL522VW/4_Asus_Gl522Vw_C_Drive/SCRIPTOR DATA
 gstps://matt-lan-btinternet-com
 1-asus-eee/C:/SCRIPTOR DATA
 ----------------------------------------
@@ -668,13 +668,13 @@ smb://
 file://@
 /D:/# MY DOCS
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/# MY DOCS
+4-ASUS-GL522VW/4_Asus_Gl522Vw_D_Drive/# MY DOCS
 ----------------------------------------
 0225--0  D # MY DOC __ 7G TO 4G_1
 file://@
 /D:/# MY DOCS
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/# MY DOCS
+4-ASUS-GL522VW/4_Asus_Gl522Vw_D_Drive/# MY DOCS
 ----------------------------------------
 0227--0  D # MY DOC __ 7G TO 5P_0_INCL GSD
 file://@
@@ -704,7 +704,7 @@ gstps://matt-lan-btinternet-com
 smb://
 7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/# MY DOCS COMMON
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/# MY DOCS COMMON
+4-ASUS-GL522VW/4_Asus_Gl522Vw_D_Drive/# MY DOCS COMMON
 ----------------------------------------
 0237--0  D # MY DOCS COMMON _ 7G 8M
 smb://
@@ -728,7 +728,7 @@ smb://matt-lan-btinternet-com
 smb://
 7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/# MY DOCS _ IN SYNC
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/# MY DOCS _ IN SYNC
+4-ASUS-GL522VW/4_Asus_Gl522Vw_D_Drive/# MY DOCS _ IN SYNC
 ----------------------------------------
 0245--0  D # MY DOCS _ IN SYNC _ 7G 8M
 smb://
@@ -752,13 +752,13 @@ smb://
 smb://
 5-ASUS-P2520LA/5_ASUS_P2520LA_02_D_DRIVE/0 00 ART LOGGERS
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/0 00 ART LOGGERS
+4-ASUS-GL522VW/4_Asus_Gl522Vw_D_Drive/0 00 ART LOGGERS
 ----------------------------------------
 0253--0  D 0 00 ART LOGGERS _ 7G 4G
 smb://
 7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/0 00 Art Loggers
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/0 00 ART LOGGERS
+4-ASUS-GL522VW/4_Asus_Gl522Vw_D_Drive/0 00 ART LOGGERS
 ----------------------------------------
 0255--0  D 0 00 ART LOGGERS _ 7G 8M
 smb://
@@ -1176,7 +1176,7 @@ gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
 ----------------------------------------
 0393--0  D DSC EVER GOOGLE #4 +2015 _ 4G TO GD
 smb://matt-lan-btinternet-com
-4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/DSC
+4-ASUS-GL522VW/4_Asus_Gl522Vw_D_Drive/DSC
 gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
 /DSC
 ----------------------------------------
@@ -1188,7 +1188,7 @@ gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
 ----------------------------------------
 0397--0  D DSC EVER GOOGLE #5 -2015 _ 4G TO GD
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/DSC
+4-ASUS-GL522VW/4_Asus_Gl522Vw_D_Drive/DSC
 gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
 /DSC
 ----------------------------------------
@@ -1458,7 +1458,7 @@ gstps://matt-lan-btinternet-com
 ----------------------------------------
 0487--0  D DSC VI_2 __  G P DSC SYNC DSC ARC 01 - 400 DAY 01 NOT GSD
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/DSC
+4-ASUS-GL522VW/4_Asus_Gl522Vw_D_Drive/DSC
 smb://matt-lan-btinternet-com
 7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/DSC ARC 01 IM 400 DAY
 ----------------------------------------
@@ -1812,7 +1812,7 @@ smb://
 smb://
 7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/DSC
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/DSC
+4-ASUS-GL522VW/4_Asus_Gl522Vw_D_Drive/DSC
 ----------------------------------------
 0605--0  D DSC __ 7G 4G #GSD
 gstps://matt-lan-btinternet-com
@@ -1842,7 +1842,7 @@ gstps://matt-lan-btinternet-com
 smb://
 7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/DSC
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/DSC
+4-ASUS-GL522VW/4_Asus_Gl522Vw_D_Drive/DSC
 ----------------------------------------
 0615--0  D DSC __ 7G 5P
 file://@
@@ -2172,19 +2172,19 @@ gstps://matt-lan-btinternet-com
 file://@
 /E:
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_03_FAT32_4GB
+4-ASUS-GL522VW/4_Asus_Gl522Vw_E_Drive
 ----------------------------------------
 0725--0  E 0 FAT32 4GB _ 7G 4G _2_ INCL -- 4G SUCCESS
 file://@
 /E:
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_03_FAT32_4GB
+4-ASUS-GL522VW/4_Asus_Gl522Vw_E_Drive
 ----------------------------------------
 0727--0  E 0 FAT32 4GB _ 7G 4G _3_ QUICKER
 file://@
 /E:
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_03_FAT32_4GB
+4-ASUS-GL522VW/4_Asus_Gl522Vw_E_Drive
 ----------------------------------------
 0729--x--E 0 FAT32 4GB _ 7G 5P 0____ ____ ____
 @
@@ -2370,7 +2370,7 @@ smb://
 gstps://matt-lan-btinternet-com
 7-asus-gl522vw/D:/VB6/VB-NT
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/VB6/VB-NT
+4-ASUS-GL522VW/4_Asus_Gl522Vw_D_Drive/VB6/VB-NT
 ----------------------------------------
 0791--0  VB VB-NT 01 EXE 7G 8M _001_ EXE
 gstps://matt-lan-btinternet-com
@@ -2400,7 +2400,7 @@ smb://
 file://@
 /D:/VB6/VB-NT
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/VB6-EXE/VB-NT
+4-ASUS-GL522VW/4_Asus_Gl522Vw_D_Drive/VB6-EXE/VB-NT
 ----------------------------------------
 0801--0  VB VB-NT 02 EXE 5P _002_ EXE
 file://@
@@ -2526,7 +2526,7 @@ smb://
 file://@
 /D:/VB6/VB-NT
 smb://
-4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/VB6/VB-NT
+4-ASUS-GL522VW/4_Asus_Gl522Vw_D_Drive/VB6/VB-NT
 ----------------------------------------
 0843--0  VB VB-NT 05 5P _005_ QUICKER _NEW_GO
 file://@

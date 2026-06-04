@@ -88,6 +88,7 @@ Menu, Tray, Add, RUN HERE NOW, MenuHandler  ; Creates a new menu item.
 
 
 Menu, Tray, Add  
+Menu, Tray, Add, MAXIMIZE ALL EXPLORER, MenuHandler
 Menu, Tray, Add, TERMINATE SCRIPT, MenuHandler
 Menu, Tray, Add, TERMINATE ALL AUTOHOTKEY.EXE -- LEFT(CTRL)+WINKEY+ESCAPE, MenuHandler
 Menu, Tray, Add, TERMINATE ALL AUTOHOTKEY.EXE GONE, MenuHandler
@@ -325,6 +326,12 @@ if A_ThisMenuItem=SET_GITHUB_GO_AR
 	GOSUB SET_GITHUB_GO_AR
 }
 
+if A_ThisMenuItem=MAXIMIZE ALL EXPLORER
+{
+	; ---------------------------------------------------------------
+	; ---------------------------------------------------------------
+	GOSUB MAXIMIZE_ALL_EXPLORER_MNU
+}
 
 
 

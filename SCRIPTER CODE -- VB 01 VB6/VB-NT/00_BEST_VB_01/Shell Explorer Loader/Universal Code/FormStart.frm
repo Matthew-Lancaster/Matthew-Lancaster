@@ -1,12 +1,12 @@
 VERSION 5.00
 Begin VB.Form FormStart 
    Caption         =   "Form2"
-   ClientHeight    =   3192
+   ClientHeight    =   3195
    ClientLeft      =   60
-   ClientTop       =   348
+   ClientTop       =   345
    ClientWidth     =   4680
    LinkTopic       =   "Form2"
-   ScaleHeight     =   3192
+   ScaleHeight     =   3195
    ScaleWidth      =   4680
    StartUpPosition =   3  'Windows Default
 End
@@ -272,26 +272,26 @@ For R3 = 0 To UBound(NET_PATH_ALL_R)
     If InStr(CK1, "1_ASUS") > 0 Then NET_PATH_ALL_R(R3) = ""
     If InStr(CK1, "2_ASUS") > 0 Then NET_PATH_ALL_R(R3) = ""
     If InStr(CK1, "D_DRIVE") > 0 Then NET_PATH_ALL_R(R3) = ""
-    If InStr(CK1, "03_FAT32") > 0 Then NET_PATH_ALL_R(R3) = ""
+    If InStr(CK1, "E_DRIVE") > 0 Then NET_PATH_ALL_R(R3) = ""
 Next
 For R3 = 0 To UBound(NET_PATH_ALL_R)
     If NET_PATH_ALL_R(R3) <> "" Then
         
         For R5 = 1 To 5
         
-        CK1 = NET_PATH_ALL_R(R3)
-        CK3 = CK1 + "\USERS\MATT " + Format(R5, "00")
-        If 1 = 1 Then
-        SKIP_01 = True
-        ' ---- BLOCK SOME
-        If InStr(CK1, "1_ASUS") > 0 Then SKIP_01 = False ' SPEED REQUIRE LATER ON
-        If InStr(CK1, "2_ASUS") > 0 Then SKIP_01 = False ' SPEED REQUIRE LATER ON
-        If InStr(CK1, "3_LINDA") > 0 Then SKIP_01 = False ' SPEED REQUIRE LATER ON
-        If InStr(CK1, "5_ASUS") > 0 Then SKIP_01 = False ' SPEED REQUIRE LATER ON
-        If InStr(CK1, "7_ASUS") > 0 Then SKIP_01 = False ' SPEED REQUIRE LATER ON
-        If SKIP_01 = True Then
-        If Dir(CK1 + "\USERS\MATT " + Format(R5, "00") + "\Desktop", vbDirectory) <> "" Then
-            
+            CK1 = NET_PATH_ALL_R(R3)
+            CK3 = CK1 + "\USERS\MATT " + Format(R5, "00")
+            If 1 = 1 Then
+            SKIP_01 = True
+            ' ---- BLOCK SOME
+            If InStr(CK1, "1_ASUS") > 0 Then SKIP_01 = False ' SPEED REQUIRE LATER ON
+            If InStr(CK1, "2_ASUS") > 0 Then SKIP_01 = False ' SPEED REQUIRE LATER ON
+            If InStr(CK1, "3_LINDA") > 0 Then SKIP_01 = False ' SPEED REQUIRE LATER ON
+            If InStr(CK1, "5_ASUS") > 0 Then SKIP_01 = False ' SPEED REQUIRE LATER ON
+            If InStr(CK1, "7_ASUS") > 0 Then SKIP_01 = False ' SPEED REQUIRE LATER ON
+            If SKIP_01 = True Then
+            If Dir(CK1 + "\USERS\MATT " + Format(R5, "00") + "\Desktop", vbDirectory) <> "" Then
+                
             Path = "--DriveRemote_USER"
             CK2 = Mid(CK1, 1, InStr(4, CK1, "\") - 1)
             If InStr(CK1, "3_LINDA") > 0 Then STRV = 7
@@ -1023,6 +1023,9 @@ For R3 = 0 To UBound(NET_PATH_ALL_R)
     End If
     ' If InStr(CK1, "7_ASUS") > 0 And InStr(CK1, "D_DRIVE") > 0 Then NET_PATH_ALL_R(R3) = ""
     If InStr(CK1, "8_MSI") > 0 And InStr(CK1, "D_DRIVE") > 0 Then NET_PATH_ALL_R(R3) = ""
+    If InStr(CK1, "9_ASUS") > 0 And InStr(CK1, "D_DRIVE") > 0 Then
+        NET_PATH_ALL_R(R3) = ""
+    End If
 Next
 i = -1
 For R3 = 0 To UBound(NET_PATH_ALL_R)
@@ -1033,6 +1036,7 @@ For R3 = 0 To UBound(NET_PATH_ALL_R)
         If InStr(CK1, "4_ASUS") > 0 Then SET_GO = True
         If InStr(CK1, "7_ASUS") > 0 Then SET_GO = True
         If InStr(CK1, "8_MSI") > 0 Then SET_GO = True
+        If InStr(CK1, "9_ASUS") > 0 Then SET_GO = True
         If SET_GO = True Then
         If InStr(CK1, "C_DRIVE") > 0 Then
             i = i + 1: M(i) = CK2 + "\GoodSync\Profile\jobs-groups-options.tic"
@@ -1066,6 +1070,7 @@ For R3 = 0 To UBound(M)
             HDD = ""
             If InStr(TT1, "D_DRIVE") > 0 Then HDD = "D"
             If InStr(TT1, "C_DRIVE") > 0 Then HDD = "C"
+            If InStr(TT1, "E_DRIVE") > 0 Then HDD = "E"
             X5 = InStr(TT1, "_DRIVE")
             TT2 = Mid(TT1, X5 + 7)
             TT3 = Mid(TT2, 1, InStrRev(TT2, "\") - 1)
@@ -1151,14 +1156,14 @@ Sub GET_COMPUTR_NETWORK_NAME()
             COMPUTER_NAME_VAR = Mid(B1, 3, InStr(B1, "__") - 3)
             COMPUTER_NAME_UNDERSCORE_VAR = Replace(COMPUTER_NAME_VAR, "-", "_")
             COMPUTER_NAME_DRIVE_LETTER_VAR = Mid(B1, InStr(B1, "__") + 2, 1)
-            If COMPUTER_NAME_DRIVE_LETTER_VAR = "C" Then DRIVE_VAR = "01"
-            If COMPUTER_NAME_DRIVE_LETTER_VAR = "D" Then DRIVE_VAR = "02"
-            If COMPUTER_NAME_DRIVE_LETTER_VAR = "E" Then DRIVE_VAR = "03"
-            COMPUTER_NAME_PUT_01 = "\\" + COMPUTER_NAME_VAR + "\" + COMPUTER_NAME_UNDERSCORE_VAR + "_"
+'            If COMPUTER_NAME_DRIVE_LETTER_VAR = "C" Then DRIVE_VAR = "01"
+'            If COMPUTER_NAME_DRIVE_LETTER_VAR = "D" Then DRIVE_VAR = "02"
+'            If COMPUTER_NAME_DRIVE_LETTER_VAR = "E" Then DRIVE_VAR = "03"
+            COMPUTER_NAME_PUT_01 = "\\" + COMPUTER_NAME_VAR + "\" + COMPUTER_NAME_UNDERSCORE_VAR
             COMPUTER_NAME_PUT_02 = DRIVE_VAR + "_" + COMPUTER_NAME_DRIVE_LETTER_VAR + "_DRIVE"
             If InStr(COMPUTER_NAME_PUT_02, "E_DRIVE") > 0 Then
                 'fat32_4gb
-                COMPUTER_NAME_PUT_02 = Replace(COMPUTER_NAME_PUT_02, "E_DRIVE", UCase("fat32_4gb"))
+'                COMPUTER_NAME_PUT_02 = Replace(COMPUTER_NAME_PUT_02, "E_DRIVE", UCase("fat32_4gb"))
             End If
             COMPUTER_NAME_PUT = COMPUTER_NAME_PUT_01 + COMPUTER_NAME_PUT_02
             ' \\8-msi-gp62m-7rd\8_msi_gp62m_7rd_02_d_drive
@@ -1316,14 +1321,14 @@ If Mid(A1$, 1, 2) = "--" Then
             COMPUTER_NAME_VAR = Mid(B1, 3, InStr(B1, "__") - 3)
             COMPUTER_NAME_UNDERSCORE_VAR = Replace(COMPUTER_NAME_VAR, "-", "_")
             COMPUTER_NAME_DRIVE_LETTER_VAR = Mid(B1, InStr(B1, "__") + 2, 1)
-            If COMPUTER_NAME_DRIVE_LETTER_VAR = "C" Then DRIVE_VAR = "01"
-            If COMPUTER_NAME_DRIVE_LETTER_VAR = "D" Then DRIVE_VAR = "02"
-            If COMPUTER_NAME_DRIVE_LETTER_VAR = "E" Then DRIVE_VAR = "03"
+'            If COMPUTER_NAME_DRIVE_LETTER_VAR = "C" Then DRIVE_VAR = "01"
+'            If COMPUTER_NAME_DRIVE_LETTER_VAR = "D" Then DRIVE_VAR = "02"
+'            If COMPUTER_NAME_DRIVE_LETTER_VAR = "E" Then DRIVE_VAR = "03"
             COMPUTER_NAME_PUT_01 = "\\" + COMPUTER_NAME_VAR + "\" + COMPUTER_NAME_UNDERSCORE_VAR + "_"
-            COMPUTER_NAME_PUT_02 = DRIVE_VAR + "_" + COMPUTER_NAME_DRIVE_LETTER_VAR + "_DRIVE"
+            COMPUTER_NAME_PUT_02 = COMPUTER_NAME_DRIVE_LETTER_VAR + "_DRIVE"
             If InStr(COMPUTER_NAME_PUT_02, "E_DRIVE") > 0 Then
                 'fat32_4gb
-                COMPUTER_NAME_PUT_02 = Replace(COMPUTER_NAME_PUT_02, "E_DRIVE", UCase("fat32_4gb"))
+'                COMPUTER_NAME_PUT_02 = Replace(COMPUTER_NAME_PUT_02, "E_DRIVE", UCase("fat32_4gb"))
             End If
 
             COMPUTER_NAME_PUT = COMPUTER_NAME_PUT_01 + COMPUTER_NAME_PUT_02
@@ -1761,7 +1766,7 @@ Sub LOAD_NETWORK_PATH_TO_EXPLORER()
         MsgBox "FOLDER NOT EXIST" + vbCrLf + D1$ + vbCrLf + "TRY AND PLAY ANOTHER" + vbCrLf + "NOT ABLE RESELECT NETWORK FOLDER AGAIN YET"
         End
     End If
-    '\\4-asus-gl522vw\4_asus_gl522vw_02_d_drive\0 00 ART LOGGERS
+    '\\4-asus-gl522vw\4_Asus_Gl522Vw_D_Drive\0 00 ART LOGGERS
 End Sub
 
 

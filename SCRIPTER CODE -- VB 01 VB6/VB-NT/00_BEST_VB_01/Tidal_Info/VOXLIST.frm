@@ -3,8 +3,8 @@ Begin VB.Form VOXLIST
    BackColor       =   &H00FFFFFF&
    Caption         =   "VOX-SCRIPT"
    ClientHeight    =   5184
-   ClientLeft      =   132
-   ClientTop       =   780
+   ClientLeft      =   192
+   ClientTop       =   840
    ClientWidth     =   9552
    LinkTopic       =   "Form1"
    ScaleHeight     =   5184
@@ -121,12 +121,12 @@ If Me.WindowState = vbMinimized Then Me.Hide
 'put in your form load
 
 x = 1
-Y = 1
+y = 1
 On Error Resume Next
 For Each Control In Controls
     If Control.Enabled = True And Control.Visible = True Then
         If Control.Width + Control.Left > x Then x = Control.Width + Control.Left
-        If Control.Height + Control.Top > Y Then Y = Control.Height + Control.Top
+        If Control.Height + Control.Top > y Then y = Control.Height + Control.Top
         If InStr(UCase(Control.Name), "MNU_") > 0 Then mnu = 1
     End If
 Next
@@ -139,7 +139,7 @@ Else
     pluso = 450
 End If
 
-Me.Height = (Y + pluso)
+Me.Height = (y + pluso)
 Me.Refresh
 DoEvents
 
@@ -153,7 +153,7 @@ List1.Top = Label1.Top + Label1.Height + 20
 
 End Sub
 
-Private Sub Form_MouseMove(Button As Integer, Shift As Integer, x As Single, Y As Single)
+Private Sub Form_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
 
 VOXLIST_NOT_ACTIVE = 0
 
@@ -196,12 +196,12 @@ Label1 = List1.List(List1.ListIndex)
 
 End Sub
 
-Private Sub List1_MouseDown(Button As Integer, Shift As Integer, x As Single, Y As Single)
+Private Sub List1_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
 '    Clipboard.Clear
 '    Clipboard.SetText List1.List(List1.ListIndex)
 End Sub
 
-Private Sub List1_MouseMove(Button As Integer, Shift As Integer, x As Single, Y As Single)
+Private Sub List1_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
 
 VOXLIST_NOT_ACTIVE = 0
 
@@ -219,7 +219,7 @@ Private Sub MNU_EXPLORER_LOGG_Click()
 
 'MsgBox "COMMAND NOT READY YET -- LOG FILE NOT BEING WRITEN DEACTIVATED", vbMsgBoxSetForeground
 Dim PATH_SET_VAR As String
-PATH_SET_VAR = App.Path + "\00_Text_Data\Voice_logg_Text\" + GetComputerName + "-" + GetUserName + "--"
+PATH_SET_VAR = App.Path + "\00_Text_Data\Voice_logg_Text\" + GetComputerName + "-" + GetUserName + ""
 If Not FolderExists(PATH_SET_VAR) Then CreateFolderTree (PATH_SET_VAR)
 
 FEEFILE_XP_LOGG = FreeFile
@@ -232,14 +232,14 @@ Close #FEEFILE_XP_LOGG
 'Shell "Explorer.exe /SELECT, """" + PATH_SET_VAR_2 + """, vbNormalFocus
 Dim WSHShell
 Set WSHShell = CreateObject("WScript.Shell")
-WSHShell.Run """" + PATH_SET_VAR_2 + """"
+WSHShell.RUN """" + PATH_SET_VAR_2 + """"
 Set WSHShell = Nothing
 
 End Sub
 
 Public Sub MNU_SELECTION_Click()
 
-For R = 1 To 100
+For r = 1 To 100
     ro1 = Len(SELECT_AND_GO)
     SELECT_AND_GO = Replace(SELECT_AND_GO, "  ", " ")
     

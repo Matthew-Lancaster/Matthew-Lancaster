@@ -222,7 +222,7 @@ START:
 	ArrayCount += 1
 	FN_Array[ArrayCount]:="Winamp.exe"             ; ---- MUSICAL MP3 AUDIO PROGRAM
 	ArrayCount += 1
-	FN_Array[ArrayCount]:="GoodSync-v10.exe"       ; ---- NOW GOODSYNC GOING ANNOYING CAN'T SEE MON 03 DEC 2018
+	FN_Array[ArrayCount]:="GoodSync.exe"       ; ---- NOW GOODSYNC GOING ANNOYING CAN'T SEE MON 03 DEC 2018
 	
 	
 	; ArrayCount += 1
@@ -335,6 +335,9 @@ WTSEnumProcesses()
 
 GuiEscape:
 GuiClose:
+
+; SLEEP 40000
+
 ExitApp
 
 RETURN
@@ -496,8 +499,9 @@ isProcessSuspended_2(processID_N)
 ; -------------------------------------------------------------------
 
 
-MenuHandler:
-#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-02_INCLUDE MENU 02 of 03.ahk
+#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
+
+
 RETURN
 
 

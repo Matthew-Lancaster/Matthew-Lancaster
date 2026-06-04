@@ -642,7 +642,7 @@ OLD_VAR_DSR_3 = VAR_DSR_3
 Dim AR(4)
 AR(1) = "\\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE"
 AR(2) = "\\2-ASUS-EEE\2_ASUS_EEE_01_C_DRIVE"
-AR(3) = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_01_C_DRIVE"
+AR(3) = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_C_Drive"
 AR(4) = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_01_C_DRIVE"
 
 On Error Resume Next
@@ -677,7 +677,7 @@ Function FILE_NAME_PIR(INDEX)
     Dim AR(4)
     AR(1) = "\\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE"
     AR(2) = "\\2-ASUS-EEE\2_ASUS_EEE_01_C_DRIVE"
-    AR(3) = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_01_C_DRIVE"
+    AR(3) = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_C_Drive"
     AR(4) = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_01_C_DRIVE"
     FILE_NAME_PIR = "Autokey -- 14-Brightness With Dimmer #NFS__" + Mid(AR(INDEX), 3, InStr(4, AR(INDEX), "\") - 3) + ".txt"
     FOLDER_NAME = AR(INDEX) + "\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY"
@@ -689,7 +689,7 @@ Function FOLDER_NAME_PIR(INDEX)
     Dim AR(4)
     AR(1) = "\\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE"
     AR(2) = "\\2-ASUS-EEE\2_ASUS_EEE_01_C_DRIVE"
-    AR(3) = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_01_C_DRIVE"
+    AR(3) = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_C_Drive"
     AR(4) = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_01_C_DRIVE"
     FOLDER_NAME_PIR = AR(INDEX) + "\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY"
 End Function
@@ -766,7 +766,7 @@ OLD_VAR_DSR_4 = VAR_DSR_4
 Dim AR(1)
 'AR(1) = "\\1-asus-x5dij\1_asus_x5dij_01_c_drive"
 'AR(2) = "\\2-asus-eee\2_asus_eee_01_c_drive"
-AR(1) = "\\4-asus-gl522vw\4_asus_gl522vw_01_c_drive"
+AR(1) = "\\4-asus-gl522vw\4_Asus_Gl522Vw_C_Drive"
 AR(1) = "C:"
 
 FILE_NAME_2 = "RS232 FRONT DOOR.txt"

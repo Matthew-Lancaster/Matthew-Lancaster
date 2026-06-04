@@ -233,7 +233,7 @@ Me.BackColor = 0
 
 
 
-tr$ = App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\00 Knocker Boy1.txt"
+tr$ = App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\00 Knocker Boy1.txt"
 
 If Dir$(tr$) <> "" Then
     Open tr$ For Input As #1
@@ -293,7 +293,7 @@ Public Sub WriteCounter()
     
     
     'Call FileInUseDelay(tr$, True)
-    FILENAME_IN_USE_CHECK = App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\00 Knocker Boy1.txt"
+    FILENAME_IN_USE_CHECK = App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\00 Knocker Boy1.txt"
     FILENAME_IN_USE_CHECK_4 = FILENAME_IN_USE_CHECK
     DumVar = IsFileOpenDelay(FILENAME_IN_USE_CHECK)
     FILENAME_IN_USE_CHECK = FILENAME_IN_USE_CHECK_4
@@ -456,7 +456,7 @@ Private Sub Timer5_Timer()
     Exit Sub
 
     On Local Error Resume Next
-    FileSpec = App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\00 Knocker Boy1.txt"
+    FileSpec = App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\00 Knocker Boy1.txt"
     Set F = FS.GetFile((FileSpec))
     Adate1 = F.DateLastModified
     If ADate1Old > 0 And ADate1Old <> Adate1 Then
@@ -466,7 +466,7 @@ Private Sub Timer5_Timer()
     
     ADate1Old = Adate1
 
-    FileSpec = App.Path + "\00_Text_Data" + GetComputerName + "-" + GetUserName + "--\\00 Knocker Boy2.txt"
+    FileSpec = App.Path + "\00_Text_Data" + GetComputerName + "-" + GetUserName + "\\00 Knocker Boy2.txt"
     Set F = FS.GetFile((FileSpec))
     Adate1 = F.DateLastModified
     If ADate2Old > 0 And ADate2Old <> Adate1 Then
@@ -475,7 +475,7 @@ Private Sub Timer5_Timer()
     End If
     ADate2Old = Adate1
 
-    FileSpec = App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\00 Knocker Boy3.txt"
+    FileSpec = App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\00 Knocker Boy3.txt"
     Set F = FS.GetFile((FileSpec))
     Adate1 = F.DateLastModified
     If ADate3Old > 0 And ADate3Old <> Adate1 Then
@@ -485,7 +485,7 @@ Private Sub Timer5_Timer()
     ADate3Old = Adate1
     
     On Local Error Resume Next
-    FileSpec = App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\00 Knocker Boy4.txt"
+    FileSpec = App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\00 Knocker Boy4.txt"
     Set F = FS.GetFile((FileSpec))
     Adate1 = F.DateLastModified
     If ADate4Old > 0 And ADate4Old <> Adate1 Then

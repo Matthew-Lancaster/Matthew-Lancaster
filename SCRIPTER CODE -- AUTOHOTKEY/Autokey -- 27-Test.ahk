@@ -62,11 +62,31 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; #Include GO WITH FULL PATH AS SOME LAUNCHER DO NOT SET WORK PATH WHEN RUNNER
 ; RATHER THAN CHANGE THE WORKING PATH WITHIN-AH
 ; ---------------------------------------------------------------
-#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 04 of 04_SETTIMER.ahk
-#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
+; #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 04 of 04_SETTIMER.ahk
+; #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
 
 
-settimer GO_SOUND, 2000
+; settimer GO_SOUND, 2000
+
+
+; SetTimer, WatchActiveWindow, 200
+
+
+WinGet, ActiveControlList, ControlList, A
+Loop, Parse, ActiveControlList, `n
+{
+	TEXTSTRING=%A_LoopField%
+	STRINGUPPER TEXTSTRING,TEXTSTRING
+	IF INSTR(TEXTSTRING,"LOGI")>0 
+    {
+		MsgBox, 4,, Control #%A_Index% is "%A_LoopField%". Continue?
+	
+		IfMsgBox, No
+			break
+	}
+}
+
+
 
 RETURN
 
@@ -80,10 +100,16 @@ SoundBeep , 2500 , 100
 RETURN
 
 
+return
+
+WatchActiveWindow:
+WinGet, ControlList, ControlList, A
+ToolTip, %ControlList%
+return
 
 
 
-#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
+; #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
 
 
 ;# ------------------------------------------------------------------

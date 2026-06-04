@@ -245,8 +245,8 @@ Counter2.Height = HC
 
 
 
-If Dir$(App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\00 Knocker Boy2.txt") <> "" Then
-    Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\00 Knocker Boy2.txt" For Input As #1
+If Dir$(App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\00 Knocker Boy2.txt") <> "" Then
+    Open App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\00 Knocker Boy2.txt" For Input As #1
     Do
     Line Input #1, R2$
 '    If Mid$(r2$, 12, 3) <> mm$ Then TTCount1 = 0
@@ -302,7 +302,7 @@ Public Sub WriteCounter()
 
     OldDate2 = Now
     
-    FILENAME_IN_USE_CHECK = App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--\00 Knocker Boy2.txt"
+    FILENAME_IN_USE_CHECK = App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "\00 Knocker Boy2.txt"
     FILENAME_IN_USE_CHECK_4 = FILENAME_IN_USE_CHECK
     DumVar = IsFileOpenDelay(FILENAME_IN_USE_CHECK)
     FILENAME_IN_USE_CHECK = FILENAME_IN_USE_CHECK_4

@@ -289,7 +289,7 @@ SETTIMER TIMER_SUB_SCRIPT_SHELL_FOLDERING,1000
 ; ; SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR,3600000 ; ---- 1 HOUR
 
 
-; ; SETTIMER TIMER_Check_Any_PID_Suspended_Warning, 10000 ; ---- 10 SECONDS ---- And Then 1 Hour
+SETTIMER TIMER_Check_Any_PID_Suspended_Warning, 10000 ; ---- 10 SECONDS ---- And Then 1 Hour
 
 
 GITHUB_HOUR_NOW=
@@ -343,6 +343,10 @@ SETTIMER FREEMAKER_MAXIMIZE_VIDEO_WINDOW_SUB,500
 OLD_PARTITIONWIZARD_EXE_WINDOW_STR=
 SETTIMER PARTITIONWIZARD_EXE_MAXIMIZE_VIDEO_WINDOW_SUB,1000
 
+OLD_ENGLISH_MEANING_CAMBRIDGE_DICTIONARY_WINDOW_STR=
+SETTIMER TIMER_ENGLISH_MEANING_CAMBRIDGE_DICTIONARY_WINDOW_SUB,1000
+
+
 
 OLD_MAXIMIZE_ALL_MEDIA=
 SETTIMER MAXIMIZE_ALL_MEDIA,400
@@ -365,7 +369,7 @@ SETTIMER HIGHER_SPEED,100
 
 ; SET OKAY BOX AFTER MADE SELECTION
 ; -------------------------------------------------------------------
-SETTIMER NOTEPAD_PLUS_PLUS_DO_YOU_WANT_RELOAD_THIS_DOCUMENT,1000
+SETTIMER NOTEPAD_PLUS_PLUS_DO_YOU_WANT_RELOAD_THIS_DOCUMENT,500
 SETTIMER VISUAL_BASIC_IDE_RUN_TIME_ERROR_PRESS_CLICKER,1000
 
 SETTIMER TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE,10000
@@ -382,7 +386,7 @@ SETTIMER TIMER_PROCESS_KILLER,10000
 
 WIN_COMPARE_HWND_1=
 CHECK_BOX_WIN_COMPARE_CTRL_H_SEARCH_REPLACE_HWND=
-SETTIMER TIMER_SET_CHECK_BOX_WIN_COMPARE_CTRL_H_SEARCH_REPLACE,1000
+SETTIMER TIMER_SET_CHECK_BOX_WIN_COMPARE_CTRL_H_SEARCH_REPLACE,OFF ;1000
 
 TIMER_SET_GO_GOOGLEDRIVESYNC_VAR=0
 ; SETTIMER TIMER_SET_GO_GOOGLEDRIVESYNC,1000
@@ -449,16 +453,14 @@ VAR_GET_2_OLD=
 SETTIMER COPY_CAMERA_MEDIA_CARD_BRING_FRONT,1000
 
 VAR_GET_4_OLD=
-SETTIMER NORTON_ERROR_MSGBOX_ARRIVE_WINDOWS_XP,4000
-
-SETTIMER INSTALL_REGISTER,2000
+SETTIMER NORTON_ERROR_MSGBOX_ARRIVE_WINDOWS_XP,OFF ;4000
 
 
 VAR_GET_5_OLD=
 SETTIMER INSYNCUPDATER_EXE_ERROR_MSGBOX_ARRIVE,4000
 
 VAR_GET_8_OLD=
-SETTIMER CODE_C___DEBUG_IDE_ERROR_MSGBOX_ARRIVE_WINDOWS_XP_2_ASUS_EEE,4000
+SETTIMER CODE_C___DEBUG_IDE_ERROR_MSGBOX_ARRIVE_WINDOWS_XP_2_ASUS_EEE,OFF ;4000
 
 VAR_GET_10_OLD=
 SETTIMER DDE_SERVER_WINDOW_MSDEV_EXE_APPLICATION_ERROR_MSGBOX_ARRIVE_WINDOWS_XP_2_ASUS_EEE,4000
@@ -473,7 +475,7 @@ SETTIMER ENTER_DETAIL_TO_AUTO_SETTER_FOR_FREEMAKE_AND_OTHER_SET,1000
 
 SETTIMER SUB_SET_SECURITY,400
 OLD_VAR_GET_A=
-SETTIMER TIMER_FILE_LOCATOR_GET_CONTROL__SET_FOCUS_ACTIVATE,100
+SETTIMER TIMER_FILE_LOCATOR_GET_CONTROL__SET_FOCUS_ACTIVATE,OFF ;100
 
 SETTIMER TIMER_GOOLGE_DRIVE_SYNC_REQUIRE_QUIT,1000
 
@@ -492,6 +494,13 @@ OL_Day_Get__01=
 
 DAY_AND_HOUR_NOW_2=
 SETTIMER MIDNIGHT_AND_HOUR_TIMER_2, 1000
+
+
+GOSUB ALL_LOW_PROCCES_PRIORITY_TO_NORMAL
+
+
+
+
 
 
 RETURN
@@ -585,7 +594,8 @@ RETURN
 
 
 TIMER_1_SECOND_BLAST_ERROR_NAGGER:
-
+	; SOUNDBLASTER
+	; BLAST FROM THE PAST
 
 	; REMOVE 2026
 	RETURN
@@ -911,6 +921,9 @@ RETURN
 
 
 DDE_SERVER_WINDOW_MSDEV_EXE_APPLICATION_ERROR_MSGBOX_ARRIVE_WINDOWS_XP_2_ASUS_EEE:
+
+	RETURN ; WINDOWS XP NOT USER ANYMORE
+
 	IF OSVER_N_VAR>5                            ; ---- HIGHER THAN XP
 	{
 		SETTIMER DDE_SERVER_WINDOW_MSDEV_EXE_APPLICATION_ERROR_MSGBOX_ARRIVE_WINDOWS_XP_2_ASUS_EEE,OFF
@@ -951,6 +964,8 @@ INSYNCUPDATER_EXE_ERROR_MSGBOX_ARRIVE:
 	; #32770
 	; C:\TEMP\-4-ASU~1\insync-upd-3.1.7.40811\Updater\InsyncUpdater.exe
 	; C:\Users\MATT 04\AppData\Roaming\Insync\App\Insync.exe
+
+	RETURN
 
 	IF OSVER_N_VAR<10       	; ---- HIGHER THAN XP
 	{
@@ -1004,6 +1019,9 @@ RETURN
 ; LINK TO NORTON CRASH AND CALL UP C++ DEBUG IDE -- WHERE INSTALL 
 ; VB6 BUT FAULT COMPONENT FILE GONE -- RATHER UN-INSTALL GO
 ; -------------------------------------------------------------------
+; DON'T USER WINDOWS XP ANYMORE
+; REMOVE 2026 MAY
+; -------------------------------------------------------------------
 CODE_C___DEBUG_IDE_ERROR_MSGBOX_ARRIVE_WINDOWS_XP_2_ASUS_EEE:
 	IF OSVER_N_VAR>5                            ; ---- HIGHER THAN XP
 	{
@@ -1046,7 +1064,7 @@ CODE_C___DEBUG_IDE_ERROR_MSGBOX_ARRIVE_WINDOWS_XP_2_ASUS_EEE:
 	
 RETURN
 
-
+; SET TIMER TO OFF DON'T USER WINDOWS XP ANYMORE
 NORTON_ERROR_MSGBOX_ARRIVE_WINDOWS_XP:
 	IF OSVER_N_VAR>5                            ; ---- HIGHER THAN XP
 	{
@@ -1082,29 +1100,14 @@ RETURN
 
 
 
-INSTALL_REGISTER:
 
-
-	WinGet,VAR_GET_7, ID, Easy CD-DA Extractor 5.1 ahk_class TTrialForm
-	IF !VAR_GET_7
-		RETURN
-	
-	ControlGettext, OutVar_22, TEdit2,           ahk_id %VAR_GET_7%
-	IF INSTR(OutVar_22,"ttdown@ttdown.com")=0
-		ControlSetText,TEdit2,ttdown@ttdown.com, ahk_id %VAR_GET_7%
-
-	ControlGettext, OutVar_22, TEdit1,           ahk_id %VAR_GET_7%
-	IF INSTR(OutVar_22,"7RUHUBGBLD")=0
-		ControlSetText,TEdit1,7RUHUBGBLD,        ahk_id %VAR_GET_7%
-	
-	
-RETURN
 	
 
 
 
 
-
+; WORKER WITH HERE -- VBS 29-COPY CAMERA PHOTO IMAGES.VBS
+; -------------------------------------------------------------------
 COPY_CAMERA_MEDIA_CARD_BRING_FRONT:
 	IF OSVER_N_VAR<5
 		RETURN
@@ -1154,6 +1157,9 @@ RETURN
 
 
 REMOTE_APP_RUN_SET_UP_AND_RUN_AUTOKEY_85_C_HDD:
+	
+	RETURN ; SET HERE 2026 MAY
+	
 	SET_GO_2=
 	IF (A_ComputerName="4-ASUS-GL522VW")
 		SET_GO_2=TRUE
@@ -1189,7 +1195,8 @@ RETURN
 DELETE_FILE_WHEN_TESTER_MPG:
 ; FOR THIS ROUTINE
 ; RUN_VIDEO_WHEN_TESTER_MPG
-return
+
+RETURN
 
 DetectHiddenWindows, ON
 SetTitleMatchMode 2  ; SPECIFY PARTIAL PATH
@@ -1221,7 +1228,7 @@ IfWinNOTEXIST ahk_class MediaPlayerClassicW
 RETURN
 
 
-MPC_DELETE_FILE_TO_RECYCLE_BUTTON_CLICKER:
+MPC_DELETE_FILE_TO_RECYCLE_BUTTON_CLICKER_OLDER:
 	; ahk_exe mpc-hc64.exe
 
 	WinGet,VAR_GET, ID, Delete File ahk_class #32770
@@ -1237,6 +1244,24 @@ MPC_DELETE_FILE_TO_RECYCLE_BUTTON_CLICKER:
 	}
 
 RETURN
+
+MPC_DELETE_FILE_TO_RECYCLE_BUTTON_CLICKER:
+	; ahk_exe mpc-hc64.exe
+
+	WinGet,VAR_GET, ID, MPC-HC ahk_class #32770
+	IF !VAR_GET
+		RETURN
+	
+	ControlGettext, OutVar_2, Static2, ahk_id %VAR_GET%
+	IF INSTR(OutVar_2,"Move file to recycle bin?")>0
+	{
+		ControlClick, Button1, ahk_id %VAR_GET%
+		; ControlClick, &Yes, ahk_id %VAR_GET%
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	}
+
+RETURN
+
 
 
 RUN_VIDEO_WHEN_TESTER_MPG:
@@ -1451,6 +1476,9 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 FOCUS_TABBER_APP_ESCAPE_KEY_STOP_THE_PULL_DOWN_TIMER:
+
+	RETURN
+
 	DetectHiddenWindows,  ON ; ---- ON HAS FAULTY
 	DetectHiddenWindows,  OFF ; ---- ON HAS FAULTY
 	SetTitleMatchMode 2  ; SPECIFY PARTIAL PATH
@@ -1554,6 +1582,10 @@ RETURN
 
 
 FOCUS_TABBER_TAB_NEXT_ONE__MACH_VERSION_01:
+
+
+	RETURN
+	
 	DetectHiddenWindows,  ON ; ---- ON HAS FAULTY
 	DetectHiddenWindows,  OFF ; ---- ON HAS FAULTY
 	SetTitleMatchMode 2  ; SPECIFY PARTIAL PATH
@@ -1712,6 +1744,9 @@ RETURN
 
 
 BT_COM_LOG_IN:
+
+
+	RETURN
 	
 	; ---------------------------------------------------------------
 	; Sat 22-Feb-2020 05:29:56
@@ -1807,6 +1842,9 @@ RETURN
 
 
 NOT_RESPOND_CLIPBOARD_LOGGER_01:
+
+
+	RETURN
 
 	SET_GO_COMPUTERNAME_01=1
 	IF (A_ComputerName = "1-ASUS-X5DIJ") 
@@ -1949,6 +1987,11 @@ RETURN
 
 
 NOT_RESPOND_CLIPBOARD_VIEWER_02:
+
+
+	RETURN
+	
+	
 	; -- Mon 17-Feb-2020 13:51:46
 	If OSVER_N_VAR<>10
 	{
@@ -2068,6 +2111,11 @@ RETURN
 
 
 NOT_RESPOND_URL_LOGGER_03:
+
+
+		
+	RETURN
+	
 	If OSVER_N_VAR<>10
 	{
 		SETTIMER NOT_RESPOND_URL_LOGGER_03,OFF
@@ -2373,7 +2421,7 @@ RETURN
 
 
 
-
+; NOT SETTIMER TO RUN
 TIMER_SET_GO_GOOGLEDRIVESYNC:
 
 	IF TIMER_SET_GO_GOOGLEDRIVESYNC_VAR>%A_NOW%
@@ -2437,10 +2485,10 @@ TIMER_PROCESS_KILLER:
 	; ----------------------------------------------------------------
 	; TASKKILL /F /IM laclient.exe /T
 	; ----------------------------------------------------------------
-	Process, Exist, laclient.exe
-	NewPID = %ErrorLevel%  ; Save the value immediately ErrorLevel is often changed
-	If NewPID > 0
-		Process, Close, laclient.exe
+	; Process, Exist, laclient.exe
+	; NewPID = %ErrorLevel%  ; Save the value immediately ErrorLevel is often changed
+	; If NewPID > 0
+		; Process, Close, laclient.exe
 	; ----------------------------------------------------------------
  
 	; ----------------------------------------------------------------
@@ -2453,10 +2501,10 @@ TIMER_PROCESS_KILLER:
 	
 	; ----------------------------------------------------------------
 	; C:\Program Files (x86)\Freemake\CaptureLib\CaptureLibService.exe
-	Process, Exist, CaptureLibService.exe
-	NewPID = %ErrorLevel%
-	If NewPID > 0
-	Process, Close, CaptureLibService.exe
+	; Process, Exist, CaptureLibService.exe
+	; NewPID = %ErrorLevel%
+	; If NewPID > 0
+	; Process, Close, CaptureLibService.exe
 	; ----------------------------------------------------------------
 	
 RETURN
@@ -2491,7 +2539,7 @@ RETURN
 
 
 
-
+; TIMESET NOT OFF 2026 MAY
 TIMER_FILE_LOCATOR_GET_CONTROL__SET_FOCUS_ACTIVATE:
 	DetectHiddenWindows, ON
 	SetTitleMatchMode 2  ; Specify PARTIAL path
@@ -2563,6 +2611,7 @@ TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE:
 	}
 RETURN
 
+; SET TIME TO OFF -- MAY 2026
 TIMER_SET_CHECK_BOX_WIN_COMPARE_CTRL_H_SEARCH_REPLACE:
 
 		WinGet, WIN_COMPARE_HWND_1, ID, Replace ahk_class #32770
@@ -2911,22 +2960,21 @@ HIGHER_SPEED:
 				}
 			}
 		}
-		
-		
 	}
 	OLD_id=%id%
 
 RETURN
 
-
+; -------------------------------------------------------------------
 ; *~ESC::
 	; GOSUB CHECK_ESC_KEY
 	; KEYWAIT, ESC  ; WAIT FOR THE ESC KEY TO BE RELEASED.
 ; RETURN	
 ; #ifwinactive
-
 ; -------------------------------------------------------------------
 ; DEMO ROUTINE
+; -------------------------------------------------------------------
+; THIS IS STILL IN USE ANOTHERESC HOTKEY ROUTINE SAME IS ABOVE HIGHER
 ; -------------------------------------------------------------------
 CHECK_ESC_KEY:
 	
@@ -2968,6 +3016,67 @@ MAXIMIZE_ALL_MEDIA:
 			WinMaximize, ahk_id %hwnd%
 			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			; MSGBOX "MAXIMIZE_ALL_MEDIA"
+		}
+	}
+RETURN
+
+; NEW CODE -- 03-JUN-2026 04:59:07 WED
+TIMER_ENGLISH_MEANING_CAMBRIDGE_DICTIONARY_WINDOW_SUB:
+	SETTITLEMATCHMODE 3  ; SPECIFY EXACT PATH
+	DETECTHIDDENWINDOWS, ON
+	; -----------------------------------------------------------
+	; -----------------------------------------------------------
+	;-----------------------------------------------------------
+	ID_FOR_MAXIMUM_CLASS=
+	ID_FOR_MAXIMUM_TITLE=
+	WinGetCLASS, ID_FOR_MAXIMUM_CLASS, A
+	WinGetTITLE, ID_FOR_MAXIMUM_TITLE, A
+	ACTIVE_ID := WINEXIST("A")
+
+	IF INSTR(ID_FOR_MAXIMUM_TITLE,"- Cambridge Dictionary")>0 
+	IF INSTR(ID_FOR_MAXIMUM_CLASS,"Chrome_WidgetWin_1")>0 
+	{
+		ID_STRING=%ACTIVE_ID% -- %ID_FOR_MAXIMUM_CLASS% -- %ID_FOR_MAXIMUM_TITLE% -- 
+		IF INSTR(OLD_ENGLISH_MEANING_CAMBRIDGE_DICTIONARY_WINDOW_STR,ID_STRING)=0
+		{
+			; WINMAXIMIZE, AHK_ID %ACTIVE_ID%
+			WINGET STYLE_GET, MinMax, AHK_ID %ACTIVE_ID%
+			IF STYLE_GET<>1
+			{
+				; MAXIMIZE FULL SCREEN HAPPEN
+				; WINDOW DOES NOT RESPOND CORRECTLY TO WINMAXIMIZE, TRY USING THE FOLLOWING INSTEAD
+				POSTMESSAGE, 0x112, 0xF030,,,AHK_ID %ACTIVE_ID%  ; 0x112 = WM_SYSCOMMAND, 0xF030 = SC_MAXIMIZE
+				WINGET STYLE_GET, MINMAX, AHK_ID %ACTIVE_ID%
+			}
+			
+			; TOOLTIP % STYLE_PARTITIONWIZARD
+			; ---- 1 MAXIMIZED 0 NORMAL -1 MINIMIZED
+			IF STYLE_GET=1
+			{
+				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+				
+				OLD_ENGLISH_MEANING_CAMBRIDGE_DICTIONARY_WINDOW_STR=%OLD_ENGLISH_MEANING_CAMBRIDGE_DICTIONARY_WINDOW_STR% -- %ID_STRING%
+				; ---------------------------------------------------
+				; 10 IS THE DEFAULT LENGTH FOR 1 BLOCK OF DATA
+				; ---------------------------------------------------
+				LENGTH_OLD:= StrLen(OLD_ENGLISH_MEANING_CAMBRIDGE_DICTIONARY_WINDOW_STR) ; OF MULTI
+				LEN_STRING:=StrLen(ID_STRING)                        ; OF ONE 
+				LEN_STRING*=10     ; LENGTH OF OLD BIGGER COMPARE ONE SAMPLE -- MULTIPLE OF 1
+				; ---------------------------------------------------
+				; OF HERE ROUTINE ONLY EVER DO ONE SHOT
+				; OTHER ROUTINE LIKE HERE 
+				; EXAMPLE WINDOWS EXPLORER MULTIPLE 
+				; AND USE ROUTINE THERE
+				; ---------------------------------------------------
+				IF LENGTH_OLD>LEN_STRING
+				LOOP
+				{
+					StringTrimRIGHT, OLD_ENGLISH_MEANING_CAMBRIDGE_DICTIONARY_WINDOW_STR, OLD_ENGLISH_MEANING_CAMBRIDGE_DICTIONARY_WINDOW_STR, 10
+					LENGTH_OLD:= StrLen(OLD_ENGLISH_MEANING_CAMBRIDGE_DICTIONARY_WINDOW_STR)
+					IF LENGTH_OLD>LEN_STRING
+						BREAK
+				}
+			}
 		}
 	}
 RETURN
@@ -3085,13 +3194,13 @@ FREEMAKER_MAXIMIZE_VIDEO_WINDOW_SUB:
 	}
 RETURN
 
-
+; THINK HERE IS A DUPLICATE SOMEWHERE ELSE
 ONE_MOMENT_CLOSE_CMD:
 
-	WINCLOSE ahk_id %HWNDID%
+	; WINCLOSE ahk_id %HWNDID%
 	HWNDID=
-	; SETTIMER ONE_MOMENT_CLOSE_CMD,OFF
-	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	SETTIMER ONE_MOMENT_CLOSE_CMD,OFF
+	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	; MSGBOX "ONE_MOMENT_CLOSE_CMD"
 RETURN
 
@@ -3104,19 +3213,19 @@ ONE_SECOND:
 		WinGet, HWNDID, ID ,C:\Program Files\Common Files\Logishrd\LAClient\laclient.exe ahk_class ConsoleWindowClass
 		IF HWNDID
 		{
-			; SETTIMER ONE_MOMENT_CLOSE_CMD,120000
-			; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+			SETTIMER ONE_MOMENT_CLOSE_CMD,120000
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
 	}
 
 	
-
-	IfWinExist CSR Harmony Wireless Software Stack ahk_class #32770
-	{
-		WINCLOSE
-		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		; MSGBOX "IfWinExist CSR Harmony Wireless Software Stack ahk_class #32770"
-	}
+	; REMOVE 2926 MAY
+	; IfWinExist CSR Harmony Wireless Software Stack ahk_class #32770
+	; {
+		; WINCLOSE
+		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		; ; MSGBOX "IfWinExist CSR Harmony Wireless Software Stack ahk_class #32770"
+	; }
 	
 	DetectHiddenWindows, ON
 	SETTITLEMATCHMODE 3  ; SPECIFY EXACT PATH
@@ -3139,31 +3248,33 @@ ONE_SECOND:
 	; Taskbar and Start Menu manipulation - AutoHotkey Community
 	; https://www.autohotkey.com/boards/viewtopic.php?t=37718
 	; ----
-	IF TRUE=FALSE
-	{
-		IF (OSVER_N_VAR = 10) ; WIN 10
-		{
-			fVisible=0
-			AppVisibility := ComObjCreate(CLSID_AppVisibility := "{7E5FE3D9-985F-4908-91F9-EE19F9FD1514}", IID_IAppVisibility := "{2246EA2D-CAEA-4444-A3C4-6DE827E44313}")
-			if (DllCall(NumGet(NumGet(AppVisibility+0)+4*A_PtrSize), "Ptr", AppVisibility, "Int*", fVisible) >= 0)
-			IF fVisible=1 
-			{
-				Send {LWin}
-			}
-		}
-		
-		; WANT THE START MENU GONE
-		IF (OSVER_N_VAR = 10) ; WIN 10
-		{
-			fVisible=0
-			AppVisibility := ComObjCreate(CLSID_AppVisibility := "{7E5FE3D9-985F-4908-91F9-EE19F9FD1514}", IID_IAppVisibility := "{2246EA2D-CAEA-4444-A3C4-6DE827E44313}")
-			if (DllCall(NumGet(NumGet(AppVisibility+0)+4*A_PtrSize), "Ptr", AppVisibility, "Int*", fVisible) >= 0)
-			IF fVisible=1 
-			{
-				Send {LWin}
-			}
-		}
-	}
+	; IF TRUE=FALSE
+	; {
+		; DUPLICATE CODE AS BELOW 2 STEP
+		; IF (OSVER_N_VAR = 10) ; WIN 10
+		; {
+			; fVisible=0
+			; AppVisibility := ComObjCreate(CLSID_AppVisibility := "{7E5FE3D9-985F-4908-91F9-EE19F9FD1514}", IID_IAppVisibility := "{2246EA2D-CAEA-4444-A3C4-6DE827E44313}")
+			; if (DllCall(NumGet(NumGet(AppVisibility+0)+4*A_PtrSize), "Ptr", AppVisibility, "Int*", fVisible) >= 0)
+			; IF fVisible=1 
+			; {
+				; Send {LWin}
+			; }
+		; }
+
+		; DUPLICATE CODE AS BELOW
+		; ; WANT THE START MENU GONE
+		; IF (OSVER_N_VAR = 10) ; WIN 10
+		; {
+			; fVisible=0
+			; AppVisibility := ComObjCreate(CLSID_AppVisibility := "{7E5FE3D9-985F-4908-91F9-EE19F9FD1514}", IID_IAppVisibility := "{2246EA2D-CAEA-4444-A3C4-6DE827E44313}")
+			; if (DllCall(NumGet(NumGet(AppVisibility+0)+4*A_PtrSize), "Ptr", AppVisibility, "Int*", fVisible) >= 0)
+			; IF fVisible=1 
+			; {
+				; Send {LWin}
+			; }
+		; }
+	; }
 	
 	IfWinExist End Program - CSR_SYNCML_CLASS_1EF5ED00AB77
 	{
@@ -3228,6 +3339,8 @@ ONE_SECOND:
 	; SOMETIME THE FILE IS LEFT BEHIND IF CRASHER
 	; OUTLOOK DOESN'T HAVE A WAY TO SOLVE THAT PART
 	; --------------------------------------------------
+	IF TRUE=FALSE
+	{
 	FN_VAR_OUTLOOK:="D:\GM OUTLOOK\File_Control_TEMP.txt"
 	WinGet, HWNDID_OUTLOOK, ID ,ahk_class rctrl_renwnd32
 	; MSGBOX %HWNDID_OUTLOOK%
@@ -3238,14 +3351,15 @@ ONE_SECOND:
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		; MSGBOX "FN_VAR_OUTLOOK D:\GM OUTLOOK\File_Control_TEMP.txt"
 	}
-	
-	
-	IfWinExist Notepad++ update ahk_class #32770
-	{
-		ControlClick, &No,  Notepad++ update ahk_class #32770,,,, NA x10 y10
-		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		; MSGBOX "IfWinExist Notepad++ update ahk_class #32770"
 	}
+	
+	; REMOVE 2026 MAY
+	; IfWinExist Notepad++ update ahk_class #32770
+	; {
+		; ControlClick, &No,  Notepad++ update ahk_class #32770,,,, NA x10 y10
+		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		; ; MSGBOX "IfWinExist Notepad++ update ahk_class #32770"
+	; }
 	
 
 RETURN
@@ -3253,7 +3367,7 @@ RETURN
 
 
 CLEAN_UP_HDD_SPACE_ONE_A_DAY:
-
+RETURN
 
 IF (OSVER_N_VAR=5) 
 {
@@ -3563,7 +3677,7 @@ RETURN
 
 
 TIMER_Check_Any_PID_Suspended_Warning:
-	; ; SETTIMER TIMER_Check_Any_PID_Suspended_Warning, 7200000 ; ---- 10 SECONDS ---- And Then 2 Hour
+	SETTIMER TIMER_Check_Any_PID_Suspended_Warning, 7200000 ; ---- 10 SECONDS ---- And Then 2 Hour
 
 	Element_1=C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 42-Check_Any_PID_Suspended_Warning.ahk
 
@@ -3579,7 +3693,7 @@ TIMER_Check_Any_PID_Suspended_Warning:
 RETURN
 
 
-
+; NOTHING RUNNER HERE
 
 MINIMIZE_ALL__EXPLORER_AT_BOOT:
 
@@ -3601,54 +3715,55 @@ Loop, %id%
 } 
 RETURN
 
+; REINTRODUCE HERE 2026 MAY
+CHECK_SET_OF_APP_NOT_RESPOND_MAIN:
 
-; CHECK_SET_OF_APP_NOT_RESPOND_MAIN:
+	WinGet, WIN_HWND_LIST, List
+	SET_VAR_NOT_RESPONDER=FALSE
 
-	; WinGet, WIN_HWND_LIST, List
-	; SET_VAR_NOT_RESPONDER=FALSE
+	Loop, %WIN_HWND_LIST%
+	{
+		table := WIN_HWND_LIST%A_Index%
+		WinGetTitle, title, ahk_id %table%
+		IF INSTR(title,"(Not Responding)")>0
+		{
+			SET_VAR_NOT_RESPONDER=TRUE
 
-	; Loop, %WIN_HWND_LIST%
-	; {
-		; table := WIN_HWND_LIST%A_Index%
-		; WinGetTitle, title, ahk_id %table%
-		; IF INSTR(title,"(Not Responding)")>0
-		; {
-			; SET_VAR_NOT_RESPONDER=TRUE
+			BREAK
+		}
+	}
 
-			; BREAK
-		; }
-	; }
-
-	; IF SET_VAR_NOT_RESPONDER=FALSE
-	; {
-		; TIMER_SET_NOT_RESPONDING=0
-		; ; TOOLTIP
-	; }
+	IF SET_VAR_NOT_RESPONDER=FALSE
+	{
+		TIMER_SET_NOT_RESPONDING=0
+		; TOOLTIP
+	}
 	
-	; IF SET_VAR_NOT_RESPONDER=TRUE
-		; IF TIMER_SET_NOT_RESPONDING=0
-		; {
-			; TIMER_SET_NOT_RESPONDING = % A_Now
-			; TIMER_SET_NOT_RESPONDING += 50, MINUTES
-			; ; IF A_ComputerName=8-MSI-GP62M-7RD
-			; ; TIMER_SET_NOT_RESPONDING += 40, MINUTES
+	IF SET_VAR_NOT_RESPONDER=TRUE
+		IF TIMER_SET_NOT_RESPONDING=0
+		{
+			TIMER_SET_NOT_RESPONDING = % A_Now
+			TIMER_SET_NOT_RESPONDING += 10, MINUTES
+			; IF A_ComputerName=8-MSI-GP62M-7RD
+			; TIMER_SET_NOT_RESPONDING += 10, MINUTES
 
-			; ; TIMER_SET_NOT_RESPONDING += 30, SECONDS
-			; ; TIMER_SET_NOT_RESPONDING += 4, SECONDS
-		; }
-		; IF TIMER_SET_NOT_RESPONDING>0
-			; IF TIMER_SET_NOT_RESPONDING<%A_Now%
-			; {
-				; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-				; TIMER_SET_NOT_RESPONDING=0
-				; TOOLTIP
-				; GOSUB CLOSE_MANY_APP__NOT_RESPONDER
-				; MSGBOX ,,, Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk`nSOME COMPUTER APP ARE NOT RESPONDER KILL THEM IS DUE`nAutokey -- 19-SCRIPT_TIMER_UTIL_2.ahk`n%TIMER_SET_NOT_RESPONDING%`n%A_Now% `nMSGBOX TIMEOUT 8 SECOND,8
+			; TIMER_SET_NOT_RESPONDING += 30, SECONDS
+			; TIMER_SET_NOT_RESPONDING += 4, SECONDS
+		}
+		IF TIMER_SET_NOT_RESPONDING>0
+			IF TIMER_SET_NOT_RESPONDING<%A_Now%
+			{
+				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+				TIMER_SET_NOT_RESPONDING=0
+				TOOLTIP
+				MSGBOX  , %A_ScriptName%,  SOME COMPUTER APP ARE NOT RESPONDER KILL THEM IS DUE`n`n%TIMER_SET_NOT_RESPONDING%`n%A_Now% `nMSGBOX TIMEOUT 10 SECOND,10
 
-				; }	
+				GOSUB CLOSE_MANY_APP__NOT_RESPONDER
+
+				}	
 			
 	
-; RETURN
+RETURN
 
 
 ; -------------------------------------------------------------------
@@ -3712,10 +3827,10 @@ CLOSE_MANY_APP__NOT_RESPONDER:
 	FN_Array_2[ArrayCount]:="EliteSpy.exe"
 	ArrayCount += 1
 	FN_Array_2[ArrayCount]:="ClipBoard Viewer.exe"
-	; ArrayCount += 1
-	; FN_Array_2[ArrayCount]:="URL Logger.exe"
-	; ArrayCount += 1
-	; FN_Array_2[ArrayCount]:="CPU % INDIVIDUAL PROCESS.exe"
+	ArrayCount += 1
+	FN_Array_2[ArrayCount]:="URL Logger.exe"
+	ArrayCount += 1
+	FN_Array_2[ArrayCount]:="CPU % INDIVIDUAL PROCESS.exe"
 	
 	; ArrayCount += 1
 	; FN_Array_2[ArrayCount]:="LogiOptions.exe"
@@ -3805,7 +3920,7 @@ CLOSE_MANY_APP__NOT_RESPONDER:
 					{
 						Process, Close, %PID_NUMBER_VAR%
 						SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-						; MSGBOX "CLOSE_MANY_APP__NOT_RESPONDER"
+						MSGBOX  , %A_ScriptName%, "001 CLOSE_MANY_APP__NOT_RESPONDER"
 						SOUND_TONE+=20
 					}
 				}
@@ -3852,21 +3967,30 @@ CLOSE_MANY_APP__NOT_RESPONDER:
 								
 								; -----------------------------------
 								IF FOUR_LOOP=1
+								{
 									PostMessage, 0x112, 0xF060,,, ahk_id %aParent%  ; 0x112 = WM_SYSCOMMAND, 0xF060 = SC_CLOSE
+									MSGBOX  , %A_ScriptName%, "002 KILL PROCESS -- NOT_RESPONDER"
+								}
 								; -----------------------------------
 
 								; -----------------------------------
 								; ANY NOT CLOSE AFTER FIRST SUCCESSFUL
 								; -----------------------------------
 								IF FOUR_LOOP=2
+								{
 									WINCLOSE ahk_id %aParent%
+									MSGBOX  , %A_ScriptName%, "004 KILL PROCESS -- NOT_RESPONDER"
+								}
 								; -----------------------------------
 									
 								; -----------------------------------
 								; ANY NOT CLOSE AFTER 2ND NOT SUCCESSFUL - AND THEN - BY EXE NAME
 								; -----------------------------------
 								IF FOUR_LOOP=3
+								{
 									WINCLOSE ahk_exe %Element%
+									MSGBOX  , %A_ScriptName%, "005 CLOSE PROCESS -- NOT_RESPONDER"
+								}
 								; -----------------------------------
 
 								; -----------------------------------
@@ -3879,7 +4003,7 @@ CLOSE_MANY_APP__NOT_RESPONDER:
 									{
 										Process, Close, %PID_NUMBER_VAR%
 										SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-										; MSGBOX "CLOSE 02 OF 03 - PART A"
+										MSGBOX  , %A_ScriptName%, "007 CLOSE PROCESS -- NOT_RESPONDER"
 									}
 								}
 								; -----------------------------------
@@ -3935,7 +4059,7 @@ CLOSE_MANY_APP__NOT_RESPONDER:
 					If Element="notepad++.exe"
 					{
 						MSGBOX %Element% "`nNOTEPAD DOESN'T WANT TO KILL AFTER WAIT LONG`nABORT USE LEFY CTRL KEY > LEFT WINDOWS KEY > AND ESCAPE"
-						; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+						SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 					}
 			}
 			; -------------------------------------------------------
@@ -3964,8 +4088,9 @@ CLOSE_MANY_APP__NOT_RESPONDER:
 					WINCLOSE ahk_id %HWND_RESULT%
 					
 					SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-					; MSGBOX "CLOSE NICELY 02 OF 02"
 					SOUND_TONE+=20
+					MSGBOX  , %A_ScriptName%, "008 WINCLOSE -- NOT_RESPONDER" 
+
 				}
 			}
 		}
@@ -4042,13 +4167,11 @@ RETURN
 ;----------------------------------------
 ;----------------------------------------
 ;----------------------------------------
-TIMER_SUB_1:
+; NOTHING RUNNER HERE
+TIMER_SUB_1_OLD:
 
 DetectHiddenWindows, ON
 SetTitleMatchMode 2
-
-
-
 
 RETURN
 
@@ -4111,6 +4234,8 @@ RETURN
 ; -------------------------------------------------------------------
 VISUAL_BASIC_IDE_RUN_TIME_ERROR_PRESS_CLICKER:
 
+	RETURN
+
 	DetectHiddenWindows, ON
 	SETTITLEMATCHMODE 3  ; SPECIFY EXACT PATH
 	
@@ -4162,7 +4287,7 @@ VISUAL_BASIC_IDE_RUN_TIME_ERROR_PRESS_CLICKER:
 RETURN
 
 
-TIMER_SUB_1_OLD:
+TIMER_SUB_1:
 	
 DetectHiddenWindows, ON
 SetTitleMatchMode 2
@@ -4211,14 +4336,14 @@ If (A_Now<ID_ConsoleWindowClass_TIMER)
 ; MAYBE WANT IT
 ; DETECTHIDDENWINDOWS, OFF
 
-
-if (WinExist("Output ahk_class #32770"))
-{
-WinGet, HWND, ID, Output ahk_class #32770
-WinGet, PATH, ProcessName, ahk_id %HWND%
-IF PATH=ViceVersa.exe
-	WINCLOSE
-}
+; MAYBE WANT HER
+; if (WinExist("Output ahk_class #32770"))
+; {
+; WinGet, HWND, ID, Output ahk_class #32770
+; WinGet, PATH, ProcessName, ahk_id %HWND%
+; IF PATH=ViceVersa.exe
+	; WINCLOSE
+; }
 
 
 ; -------------------------------------------------------------------
@@ -4275,6 +4400,9 @@ if (WinExist("Warning ahk_class #32770"))
 		WinHeightOS=256
 	}
 	
+	
+	; SORT HERE TO INCLUDE WINDOWS 11
+	;
 	; Include Multiple If-And Statement With Separated Lines
 	; ---------------------------------
 	IF (This_Class="#32770" 
@@ -4292,21 +4420,21 @@ if (WinExist("Warning ahk_class #32770"))
 DETECTHIDDENWINDOWS, OFF
 
 ;Would you like to switch to the following audio playback device?
-IfWinExist FxSound Message
-{
-	;WinGet, OutputVar, ControlList, FxSound Message
-	;Tooltip, % OutputVar ; List All Controls of Active Window
-	;---------------------------------------------------------
-	ControlGettext, OutVar_2, Static1,  FxSound Message
+; IfWinExist FxSound Message
+; {
+	; ;WinGet, OutputVar, ControlList, FxSound Message
+	; ;Tooltip, % OutputVar ; List All Controls of Active Window
+	; ;---------------------------------------------------------
+	; ControlGettext, OutVar_2, Static1,  FxSound Message
 	
-	IfInString, OutVar_2, Would you like to
-	{
-		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-	    Control, Check,, Button4, FxSound Message ahk_class #32770
-	    ControlClick, Button2, FxSound Message ahk_class #32770
-		; MSGBOX "Control, Check,, Button4, FxSound Message ahk_class #32770"
-	}
-}
+	; IfInString, OutVar_2, Would you like to
+	; {
+		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	    ; Control, Check,, Button4, FxSound Message ahk_class #32770
+	    ; ControlClick, Button2, FxSound Message ahk_class #32770
+		; ; MSGBOX "Control, Check,, Button4, FxSound Message ahk_class #32770"
+	; }
+; }
 
 IfWinExist File Access Denied ahk_class #32770
 {
@@ -4332,7 +4460,7 @@ IfWinExist File Access Denied ahk_class OperationStatusWindow
 	SENDINPUT {ENTER}
 	
 	; ControlClick, Continue, File Access Denied ahk_class OperationStatusWindow
-	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	; MSGBOX "WINACTIVATE, File Access Denied ahk_class OperationStatusWindow"
 }
 
@@ -4382,7 +4510,8 @@ DETECTHIDDENWINDOWS, OFF
 	; ;sendinput, !{F4}		I
 		; ; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 ; }
-
+; NOT DO ANYTHING
+IF TRUE=FALSE
 IfWinExist ahk_class #32770
 {
 
@@ -4510,21 +4639,21 @@ IfWinExist An update for Process Lasso is available! ahk_class #32770
 	SENDINPUT {ENTER}
 	; THIS LINE NOT WORK MOST LIKELY THE UPDATE PROGRAM IS NOT RUNNING PRIVILEGED ADMINISTRATOR
 	; ControlClick, Button1, RoboForm Update An update for Process Lasso is available!
-	SLEEP 1000
+	SLEEP 100
 	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 }
 
 
-;This operation will affect the entire list, not just the current filter. Continue?
-IfWinExist DuplicateCleaner ahk_class #32770
-{
-	WinGetText, OutputVar, DuplicateCleaner ahk_class #32770
-	IfInString, OutputVar, This operation will affect the entire list
-	{	
-	ControlClick, Button1, DuplicateCleaner ahk_class #32770
-	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-	}
-}
+; ;This operation will affect the entire list, not just the current filter. Continue?
+; IfWinExist DuplicateCleaner ahk_class #32770
+; {
+	; WinGetText, OutputVar, DuplicateCleaner ahk_class #32770
+	; IfInString, OutputVar, This operation will affect the entire list
+	; {	
+	; ControlClick, Button1, DuplicateCleaner ahk_class #32770
+	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	; }
+; }
 
 
 ; DetectHiddenWindows, on
@@ -4533,16 +4662,16 @@ IfWinExist DuplicateCleaner ahk_class #32770
 ;ahk_class #32770
 ;ahk_exe dfx.exe
 
-DETECTHIDDENWINDOWS, OFF
+; DETECTHIDDENWINDOWS, OFF
 
-IfWinExist left in trial
-{
-	WinActivate
-	sendinput, !{F4}		I
-	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-}
+; IfWinExist left in trial
+; {
+	; WinActivate
+	; sendinput, !{F4}		I
+	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+; }
 
-SETTITLEMATCHMODE 3  ; SPECIFY EXACT PATH
+; SETTITLEMATCHMODE 3  ; SPECIFY EXACT PATH
 
 ; REMOVE 2026
 ; DFXSTATIC
@@ -4738,12 +4867,13 @@ IfWinExist, Replace ahk_exe VB6.EXE
 ; MAYBE WANT IT
 ; DETECTHIDDENWINDOWS, OFF
 
+; PUT THIS BACK MAYBE
 ;DuplicateCleaner
-IfWinExist Finished deleting files.
-{
-	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-	ControlClick, OK, Finished deleting files.
-}
+; IfWinExist Finished deleting files.
+; {
+	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	; ControlClick, OK, Finished deleting files.
+; }
 
 ; MAYBE WANT IT
 ; DETECTHIDDENWINDOWS, OFF
@@ -4758,6 +4888,17 @@ IfWinExist DuplicateCleaner
 		ControlClick, &Yes, DuplicateCleaner
 	}
 }
+
+; MAYBE WANT IT
+; DETECTHIDDENWINDOWS, OFF
+
+;DuplicateCleaner
+IfWinExist Scan cancelled
+{
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	ControlClick, Close, Scan cancelled
+}
+
 
 
 ; --------------------------------------------------------------------
@@ -4797,7 +4938,7 @@ IfWinExist DuplicateCleaner
 
 ; MAYBE WANT IT
 ; DETECTHIDDENWINDOWS, OFF
-
+IF TRUE=FALSE
 IfWinExist Open File - Security Warning
 {
 	; ---------------------------------------------------------------
@@ -4961,6 +5102,11 @@ IF OLD_UniqueID_RfEditor<>%UniqueID%
 	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 }
 	
+	
+; WHY IS HERE RUNNER
+; WANT MAXIMIZED EVERY CHANGE HANDLE
+; 24-MAY-2026 18:58:32 SUN
+; -------------------------
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 ; Notepad++
 UniqueID := WinActive(" - Notepad++")
@@ -5108,7 +5254,7 @@ OLD_UniqueID_WINRAR_CONVERT=%UniqueID_WINRAR%
 ; 5
 ; }
 
-
+; WHAT THIS FOR
 SetTitleMatchMode 3  ; Exactly
 DetectHiddenText, Off
 HWND_ID_1 := WinExist(".NET-BroadcastEventWindow.4.0.0.0.1a8c1fa.0: chrome.exe - Application Error")
@@ -5318,7 +5464,9 @@ Return
 
 
 TIMER__WSCRIPT_EXE__IS_RUNNER_SOUND_EFFECT_START_AND_STOP:
-
+	RETURN
+	
+	
 	; SETTIMER TIMER__WSCRIPT_EXE__IS_RUNNER_SOUND_EFFECT_START_AND_STOP, 1000 
 	DETECTHIDDENWINDOWS, ON
 	SETTITLEMATCHMODE 2  ; NOT FULL PATH
@@ -5367,7 +5515,7 @@ RETURN
 
 
 
-
+; THE USE OF THIS CODE HAS BEEN REMMER
 GetCommandLine( PID ) { ;  by Sean          www.autohotkey.com/forum/viewtopic.php?t=16575 
  Static pFunc 
  pFunc=
@@ -5383,7 +5531,7 @@ GetCommandLine( PID ) { ;  by Sean          www.autohotkey.com/forum/viewtopic.p
  DllCall( "CloseHandle", UInt,hThrd ), DllCall( "CloseHandle", UInt,hProcess ) 
 Return sCmdLine 
 } 
-
+; THIS CODE IS THE SAME AS SUB BELOW AND NOTHING CALLS HER
 SetDebugPrivilege() {
  ;PROCESS_QUERY_INFORMATION=[color=red]0x400[/color], TOKEN_ADJUST_PRIVILEGES=[color=red]0x20[/color], SE_PRIVILEGE_ENABLED:=[color=red]0x2[/color]
  hProcess := DllCall( "OpenProcess", UInt,[color=red]0x400[/color],Int,0,UInt,DllCall("GetCurrentProcessId"))
@@ -5396,8 +5544,8 @@ SetDebugPrivilege() {
  DllCall( "CloseHandle", UInt,hProcess ), DllCall( "CloseHandle", UInt,hToken )
 Return Result 
 }
-
-SetDebugPrivilege() 
+; THIS CODE IS THE SAME AS SUB ABOVE AND NOTHING CALLS HER
+SetDebugPrivilege()
 MsgBox, % GetCommandLine( DllCall( "GetCurrentProcessId" ) ) 
 Process, Exist, svchost.exe 
 MsgBox,0, %errorLevel%, % GetCommandLine( errorLevel )
@@ -5413,7 +5561,7 @@ EXIST_WSCRIPT_EXE_SOUND_PLAY_02:
 RETURN
 
 
-
+; TIMER NOT SET TO RUN HERE -- IT RUNNING IN -- Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk
 TIMER_COPY_SYNC_VBSCRIPT_CODE_SYNC_ER:
 
 	; SETTIMER TIMER_COPY_SYNC_VBSCRIPT_CODE_SYNC_ER, 600000 ; 10 MINUTE
@@ -5430,7 +5578,7 @@ TIMER_COPY_SYNC_VBSCRIPT_CODE_SYNC_ER:
 	
 RETURN
 
-
+; TIMER NOT SET TO RUN HERE
 TIMER_KILL_GOOGLE_CHROME_UPDATE_GOING_TO_USE_AD_BLOCK_KILLER:
 
 ; SETTIMER TIMER_KILL_GOOGLE_CHROME_UPDATE_GOING_TO_USE_AD_BLOCK_KILLER, OFF
@@ -5452,6 +5600,7 @@ TIMER_KILL_GOOGLE_CHROME_UPDATE_GOING_TO_USE_AD_BLOCK_KILLER:
 RETURN
 
 
+; TIMER NOT SET TO RUN HERE
 ; -------------------------------------------------------------------
 TIMER_ROBOFORM_MYSMS_LOGIN:
 ; REMOVE 2026
@@ -5693,6 +5842,8 @@ IfExist, %FN_VAR_1%
 	
 RETURN
 
+
+; NOT CODE TO RUN THIS ONE
 Multiple_Thread_Port_Scanner_ROUTINE_MAIN:
 
 
@@ -5721,6 +5872,8 @@ IfExist, %FN_VAR%
 RETURN
 
 
+
+; NOT WRITTEN ANY SETTIMER CODE TO INITIALIZE THIS ONE
 ; -------------------------------------------------------------------
 Multiple_Thread_Port_Scanner_ROUTINE:
 ; -------------------------------------------------------------------
@@ -5800,6 +5953,9 @@ RETURN
 ; }
 ; RETURN
 
+
+
+; THIS TIMER IS NOT SET TO RUN 
 ; -------------------------------------------------------------------
 TIMER_SUB_GOODSYNC_OPTIONS:
 
@@ -6273,7 +6429,7 @@ RETURN
 
 
 
-
+; THIS TIMER IS NOT SET TO GO
 ;--------------------------------------------------------------------
 TIMER_SUB_GOODSYNC:
 ;--------------------------------------------------------------------
@@ -6482,6 +6638,8 @@ DetectHiddenWindows, % dhw
 
 Return
 
+
+; THIS TIMER IS NOT SET TO RUN
 ;--------------------------------------------------------------------
 TIMER_SUB_WSCRIPT:
 dhw := A_DetectHiddenWindows
@@ -6498,7 +6656,7 @@ DetectHiddenWindows, % dhw
 
 Return
 
-
+; THIS TIMER IS NOT SET TO RUN
 ;--------------------------------------------------------------------
 TIMER_SUB__MY_IP:
 ; REMOVE 2026
@@ -6514,6 +6672,8 @@ IfExist, %FN_VAR%
 
 RETURN
 
+
+; THIS TIMER IS NOT SET TO RUN
 ;--------------------------------------------------------------------
 TIMER_SUB__SendSMTP__0__LOG_BAT:
 
@@ -6548,6 +6708,11 @@ IfExist, %FN_VAR%
 
 RETURN
 
+
+
+; TIMER NOT SET TO RUN HERE OR ANYWHERE
+; CODE IS IN Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk
+; CODE IS IN Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
 ;--------------------------------------------------------------------
 TIMER_SUB_VICE_VERSA:
 
@@ -6627,6 +6792,10 @@ MIDNIGHT_AND_HOUR_TIMER_2:
 	IF OL_Hour_Get_01<>%Hour_Get_01%
 	{
 		OL_Hour_Get_01=%Hour_Get_01%
+		
+		
+		GOSUB ALL_LOW_PROCCES_PRIORITY_TO_NORMAL
+		
 	}
 
 	; ---------------------------------------------------------------
@@ -6669,6 +6838,9 @@ MIDNIGHT_AND_HOUR_TIMER_2:
 		{
 			SET_GO=TRUE
 		}
+		
+		
+
 	}	
 
 	IF !DAY_AND_HOUR_NOW_2
@@ -6730,6 +6902,8 @@ RAM_EMPTY_MAIN:
 	MSGBOX,,,% "EMPTY " dif1 "% OF RAM " dif2 "K", 50
 
 RETURN
+
+
 RAM_EMPTY:
 DetectHiddenWindows, On
 WinGet,processes_,List
@@ -6765,7 +6939,7 @@ ReadInteger( p_address, p_offset, p_size, p_hex=true )
 
 
 
-
+; HERE COULD BE MORE FEQENT THAN ONCE MIDNIGHT
 VB_NT_00_Best_VB_01_SYNCRONIZER:
 	; ---------------------------------------------------------------
 	; RISKER TO GET -- SYNCRONIZER
@@ -6786,7 +6960,7 @@ HANDBRAKE_COPY_THE_DLL_FILE:
 		IfNOTExist, C:\Program Files\HandBrake\libdvdcss-2.dll
 		IfExist, C:\Program Files\HandBrake
 		{
-			MSGBOX "FileCopy C:\Program Files\HandBrake\libdvdcss-2.dll"
+			MSGBOX "FileCopy C:\Program Files\HandBrake\libdvdcss-2.dll" `r`r "Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk"
 			FileCopy, %Element_1%, C:\Program Files\HandBrake\libdvdcss-2.dll,1 
 		}
 	}
@@ -6965,6 +7139,10 @@ ProcExist(PID_VAR_or_Name=""){
 ;----------------------------------------
 TIMER_SUB_SCRIPT_SHELL_FOLDERING:
 ; STARTS AS 1 SECOND AND THEN GOES TO EVERY HOUR
+
+; RUNS IN --Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk -- MAIN
+
+RETURN
 
 SETTIMER TIMER_SUB_SCRIPT_SHELL_FOLDERING,% -1 * 1000 * 60 * 60 ; After1Hours
 

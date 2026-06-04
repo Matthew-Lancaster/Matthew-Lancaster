@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
 Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "ComDlg32.OCX"
 Begin VB.Form TTSAppMain 
@@ -532,7 +532,7 @@ Private Sub Form_Load()
     
     On Error Resume Next
     FILENAME1 = "VoiceRateSldr.txt"
-    FILENAME2 = App.Path + "\TTSAppVB\" + GetComputerName + "-" + GetUserName + "--\" + FILENAME1
+    FILENAME2 = App.Path + "\TTSAppVB\" + GetComputerName + "-" + GetUserName + "\" + FILENAME1
     If Dir(FILENAME2) <> "" Then
         Open FILENAME2 For Input As #1
             Line Input #1, A_VAR1$
@@ -548,7 +548,7 @@ Private Sub Form_Load()
     End If
         
     FILENAME1 = "VoiceAudioOutPutCB.txt"
-    FILENAME2 = App.Path + "\TTSAppVB\" + GetComputerName + "-" + GetUserName + "--\" + FILENAME1
+    FILENAME2 = App.Path + "\TTSAppVB\" + GetComputerName + "-" + GetUserName + "\" + FILENAME1
     If Dir(FILENAME2) <> "" Then
         Open FILENAME2 For Input As #1
             Line Input #1, A_VAR1$
@@ -563,7 +563,7 @@ Private Sub Form_Load()
     End If
     
     FILENAME1 = "VoiceCB.txt"
-    FILENAME2 = App.Path + "\TTSAppVB\" + GetComputerName + "-" + GetUserName + "--\" + FILENAME1
+    FILENAME2 = App.Path + "\TTSAppVB\" + GetComputerName + "-" + GetUserName + "\" + FILENAME1
     If Dir(FILENAME2) <> "" Then
         Open FILENAME2 For Input As #1
             Line Input #1, A_VAR1$
@@ -575,7 +575,7 @@ Private Sub Form_Load()
     End If
     
     FILENAME1 = "Voice_Volume_Level_Slider.txt"
-    FILENAME2 = App.Path + "\TTSAppVB\" + GetComputerName + "-" + GetUserName + "--\" + FILENAME1
+    FILENAME2 = App.Path + "\TTSAppVB\" + GetComputerName + "-" + GetUserName + "\" + FILENAME1
     If Dir(FILENAME2) <> "" Then
         Open FILENAME2 For Input As #1
             Line Input #1, A_VAR1$
@@ -668,7 +668,7 @@ Sub WRITE_DATA_vAR_STORE(FILENAME2, VALUE_WRITE)
     '------------------------------------------
     '------------------------------------------
     
-    PATH_NAME1 = Mid(FILENAME2, 1, InStrRev(FILENAME2, "\")) 'App.Path + "\TTSAppVB\" + GetComputerName + "-" + GetUserName + "--"
+    PATH_NAME1 = Mid(FILENAME2, 1, InStrRev(FILENAME2, "\")) 'App.Path + "\TTSAppVB\" + GetComputerName + "-" + GetUserName + ""
     
     If Dir(PATH_NAME1, vbDirectory) = "" Then
         i = CreateFolderTree(PATH_NAME1)
@@ -712,7 +712,7 @@ Private Sub FormatCB_Click()
     Dim FILENAME2
     
     '------------------------------------------------------------------------------------------------------
-    FILENAME2 = App.Path + "\TTSAppVB\" + GetComputerName + "-" + GetUserName + "--\VoiceAudioOutPutCB.txt"
+    FILENAME2 = App.Path + "\TTSAppVB\" + GetComputerName + "-" + GetUserName + "\VoiceAudioOutPutCB.txt"
     'Call WRITE_DATA_vAR_STORE(FILENAME2, FormatCB.List(FormatCB.ListIndex))
     Call WRITE_DATA_vAR_STORE(FILENAME2, FormatCB.ListIndex)
     '------------------------------------------------------------------------------------------------------
@@ -752,7 +752,7 @@ Private Sub menuFileOpenText_Click()
     On Error GoTo ErrHandler
         
     ' Set flags
-    ComDlg.Flags = cdlOFNFileMustExist Or cdlOFNPathMustExist
+    ComDlg.flags = cdlOFNFileMustExist Or cdlOFNPathMustExist
     ' Set Dialog title
     ComDlg.DialogTitle = "Open a Text File"
     ' Set open directory
@@ -791,7 +791,7 @@ Private Sub menuFileSaveToWave_Click()
     On Error GoTo ErrHandler
 
     ' Set flags
-    ComDlg.Flags = cdlOFNOverwritePrompt Or cdlOFNPathMustExist Or cdlOFNNoReadOnlyReturn
+    ComDlg.flags = cdlOFNOverwritePrompt Or cdlOFNPathMustExist Or cdlOFNNoReadOnlyReturn
     ' Set Dialog title
     ComDlg.DialogTitle = "Save to a Wave File"
     ' Set filters
@@ -852,7 +852,7 @@ Private Sub menuFileSpeakWave_Click()
     ComDlg.CancelError = True
     On Error GoTo ErrHandler
     ' Set flags
-    ComDlg.Flags = cdlOFNFileMustExist Or cdlOFNPathMustExist
+    ComDlg.flags = cdlOFNFileMustExist Or cdlOFNPathMustExist
     ' Set Dialog title
     ComDlg.DialogTitle = "Speak a Wave File"
     ' Set filters
@@ -904,7 +904,7 @@ Public Sub RateSldr_Scroll()
     Dim FILENAME2
     
     '------------------------------------------------------------------------------------------------------
-    FILENAME2 = App.Path + "\TTSAppVB\" + GetComputerName + "-" + GetUserName + "--\VoiceRateSldr.txt"
+    FILENAME2 = App.Path + "\TTSAppVB\" + GetComputerName + "-" + GetUserName + "\VoiceRateSldr.txt"
     Call WRITE_DATA_vAR_STORE(FILENAME2, RateSldr.Value)
     '------------------------------------------------------------------------------------------------------
     
@@ -1165,7 +1165,7 @@ Private Sub VoiceCB_Click()
     Dim FILENAME2
     
     '------------------------------------------------------------------------------------------------------
-    FILENAME2 = App.Path + "\TTSAppVB\" + GetComputerName + "-" + GetUserName + "--\VoiceCB.txt"
+    FILENAME2 = App.Path + "\TTSAppVB\" + GetComputerName + "-" + GetUserName + "\VoiceCB.txt"
     Call WRITE_DATA_vAR_STORE(FILENAME2, VoiceCB.ListIndex)
     '------------------------------------------------------------------------------------------------------
     SAY_ONCE_MOST_LIKELY_A_INCORECT_VOICE_DRIVER = False
@@ -1178,7 +1178,7 @@ Private Sub VolumeSldr_Scroll()
     Dim FILENAME2
     
     '------------------------------------------------------------------------------------------------------
-    FILENAME2 = App.Path + "\TTSAppVB\" + GetComputerName + "-" + GetUserName + "--\Voice_Volume_Level_Slider.txt"
+    FILENAME2 = App.Path + "\TTSAppVB\" + GetComputerName + "-" + GetUserName + "\Voice_Volume_Level_Slider.txt"
     Call WRITE_DATA_vAR_STORE(FILENAME2, VolumeSldr.Value)
     '------------------------------------------------------------------------------------------------------
 

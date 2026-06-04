@@ -151,6 +151,9 @@ SetStoreCapslockMode, off
 DetectHiddenWindows, oFF
 SetTitleMatchMode 2  ; PARTIAL PATH
 
+
+
+
 GLOBAL Toggle
 
 
@@ -162,12 +165,16 @@ GroupAdd, FIND_WINDOW_1, GoodSync2Go -
 GroupAdd, FIND_WINDOW_1, GoodSync -
 
 
+; TOOGLE_MOUSE_CLICKER=
+
 
 VAR_REPEAT_F5_TOOGLE=
 ; SETTIMER REPEAT_F5_BASHING,20000
 
 VAR_REPEAT_LCLICK_TOOGLE=
 SETTIMER REPEAT_LCLICK_BASHING,OFF
+
+
 
 
 SETTIMER TIMER_PREVIOUS_INSTANCE,1
@@ -204,8 +211,11 @@ SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file belo
 GLOBAL FIND_WINDOW_1
 ; GOSUB GROUP_ADD_FIND_WINDOW_1
 
+
+
 SETTIMER TIMER_ENTER,OFF
 SETTIMER TIMER_CONVERT_CIPBOARD,400
+SETTIMER TIMER_CONVERT_CIPBOARD,OFF
 
 TOOGLE_SHIFT=
 
@@ -259,6 +269,7 @@ IF TRUE=FALSE
 ; Crazy Scripting : Scriptlet to find Scancode of a Key - Scripts and Functions - AutoHotkey Community
 ; https://autohotkey.com/board/topic/21105-crazy-scripting-scriptlet-to-find-scancode-of-a-key/
 ; ----
+
 
 ; HERE THE FUNCTION ROUTINE FOR GOODSYNC
 ; --------------------------------------
@@ -345,7 +356,67 @@ RETURN
 
 
 
+; $LButton::
+; MouseClick, left,,, 1, 0, D  ; Hold down the left mouse button.
+; TOOGLE_MOUSE_CLICKER=TRUE
+; Loop
+; {
+    ; Sleep, 10
+    ; if !GetKeyState("LButton", "P")  ; The key has been released, so break out of the loop.
+        ; break
+    ; ; ... insert here any other actions you want repeated.
+; }
+; SETTIMER TIMER_UPPER_MOUSE_DELAY_RELEASE,100
+; ; MouseClick, left,,, 1, 0, U  ; Release the mouse button.
+; ; TOOLTIP "HERE"
+; RETURN
 
+
+
+
+; ----------------------------------------
+; ----------------------------------------
+; ----------------------------------------
+; ----------------------------------------
+; ----------------------------------------
+; 31-MAY-2026 05:27:20 SUN
+; ----------------------------------------
+; How to check to see if I am holding down the right mouse button? - AutoHotkey Community
+; ----------------------------------------
+; https://www.autohotkey.com/boards/viewtopic.php?t=128405
+; ----------------------------------------
+; #Requires AutoHotkey v1.1.33.11
+; LButton::
+; If !GetKeyState("LButton") {  ; Button is up
+ ; Click L D
+ ; ; ToolTip % "===> PRESSED <==="
+ ; KeyWait LButton, T30
+ ; If ErrorLevel {              ; Held
+  ; SoundBeep 1500
+  ; Return
+ ; }
+; } Else KeyWait LButton
+; ; SETTIMER TIMER_UPPER_MOUSE_DELAY_RELEASE,OFF
+; ; SETTIMER TIMER_UPPER_MOUSE_DELAY_RELEASE,10
+; ; ToolTip
+; Click L U
+; Return
+; ----------------------------------------
+; ----------------------------------------
+; ----------------------------------------
+; ----------------------------------------
+
+
+; DOUBLE CHECK IT 1000 TIME THE MOUSE IS HOLDING DOWN
+; IT DON'T DETECT DOWN IS RELEASE WHEN OVERRIDE HOLD DOWN
+; -----------------------------------------------------------------------
+TIMER_UPPER_MOUSE_DELAY_RELEASE:
+; SLEEP 40
+Click L U
+TOOLTIP
+SETTIMER TIMER_UPPER_MOUSE_DELAY_RELEASE,OFF
+
+RETURN
 
 ; -------------------------------------------------------------------
 ; Difference between IfWinActive and #IfWinActive - Ask for Help - AutoHotkey Community
@@ -690,15 +761,55 @@ RETURN
 ; -------------------------------------------------------------------
 
 
-#IfWinActive .PS1 - Notepad++ ahk_class Notepad++
+; #IfWinActive .PS1 - Notepad++ ahk_class Notepad++
+; {
+; F5::
+	; SENDINPUT ^S
+	; ; SOUNDBEEP 1000,100
+	; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	; RETURN
+; }
+; #ifwinactive
+
+
+
+
+
+
+; #--
+; #-- 24-MAY-2026 17:54:08 SUN
+; #--
+; # FINALLY I CAN MAP F5 TO RUN POWERSHELL FILES
+; # LIKE HERE
+; # AUTOHOTKEY SCRIPT
+; # AFTER I SET-UP A CONTROL MACRO TO CONTROL F6
+; # WITH THE LINE
+; # THIS CODE DON'T HAVE TO RUN WINWAITACTIVE AND THE SEND ENTER
+; # IT A NICE WAY OF RUN PROGRAM MAINTAINING THE F5 KEY 
+; # --
+; # powershell -noexit -executionpolicy bypass -File "$(FULL_CURRENT_PATH)"
+; # --
+; 24-MAY-2026 17:57:02 SUN
+; ----------------------------------------
+; In Notepad++ how can I execute a script (like using F5) but with every save (Ctrl + S)? - Super User
+; ----------------------------------------
+; https://superuser.com/questions/390805/in-notepad-how-can-i-execute-a-script-like-using-f5-but-with-every-save-ctr
+; ----------------------------------------
+
+#IfWinActive,  .PS1 - Notepad++ ahk_class Notepad++
+F5:: 
 {
-F5::
-	SENDINPUT ^S
-	; SOUNDBEEP 1000,100
+	
+	
+	Send, ^S   ; ---- SAVE DOCUMENT SCRIPT BEFORE RUN 
+    Send, ^{F6}
+    ; WinWaitActive, Run...,, 4
+    ; Send, {Enter}
 	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-	RETURN
+    return
 }
-#ifwinactive
+#IfWinActive
+
 
 
 ; -------------------------------------------------------------------
@@ -757,6 +868,82 @@ RETURN
 
 
 
+^+Escape::
+{
+
+	; ROUTINE TAKEN FORM HERE
+	; GOSUB PROCESS_KILL_AUTOHOTKEY
+	
+
+Run Taskmgr.exe , , MAX
+WinMaximize "ahk_exe Taskmgr.exe"
+
+
+
+RUN C:\Program Files\Process Lasso\ProcessLasso.exe, ,MAX
+WINACTIVATE, "ahk_class Class_PLMain"
+WinMaximize, "ahk_class Class_PLMain"
+WinMaximize "ahk_exe ProcessLasso.exe"
+WINACTIVATE, "ahk_exe ProcessLasso.exe"
+
+
+
+
+
+
+
+
+; -------------------------------------------------------------------
+; KILL NOT RESPONDER
+; -------------------------------------------------------------------
+FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER NOT FORCE.BAT"
+	IfExist, %FN_VAR%
+	{
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		Run, "%FN_VAR%"
+	}
+
+FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER FORCE.BAT"
+	IfExist, %FN_VAR%
+	{
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		Run, "%FN_VAR%"
+	}
+		
+GOSUB CLOSE_ALL_VB__AHK_CLASS_WNDCLASS_DESKED_GSK_GONE
+GOSUB KILL_ALL_PROCESS_BY_NAME_CMD_CONHOST_WSCRIPT
+
+
+
+
+
+
+WINCLOSE EliteSpy+ by Andrea B 2001 __
+; WINCLOSE VB_KEEP_RUNNER
+WINCLOSE INDIVIDUAL PROCESS _ Ver
+WINCLOSE URL Logger
+WINCLOSE Clipboard Viewer
+WINCLOSE ClipBoard Logger
+
+GOSUB KILL_ALL_MPC_EXE_NAME
+
+
+GOSUB TERMINATE_ALL_AUTOHOTKEYS_GONE
+
+FN_VAR_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk"
+IfExist, %FN_VAR_1%
+{
+	Run, %FN_VAR_1%
+
+}
+
+IfWinNOTExist VB_KEEP_RUNNER ahk_class ThunderRT6FormDC
+	Run, "D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe" , , MIN
+
+
+}
+
+
 
 TIMER_USB_SAFELY_REMOVE:
 
@@ -794,7 +981,7 @@ RETURN
 ; ----------------------------------------
 ; https://www.autohotkey.com/boards/viewtopic.php?t=92611
 ; ----------------------------------------
-
+ 
 GetClipboardText() {
     static cf := A_IsUnicode ? 13 : 1
     if !DllCall("IsClipboardFormatAvailable", "int", cf)
@@ -1514,7 +1701,7 @@ RETURN
 
 
 WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON:
-
+	
 	id := WinExist("A")
 	WinGetTitle, Title_VAR, ahk_id %id%
 	; WinGetCLASS, CLASS_VAR, ahk_id %id%
@@ -1597,6 +1784,8 @@ WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON:
 	}
 	OLD_id=%id%
 	OLD_Title_VAR=%Title_VAR%
+
+
 	SetTitleMatchMode 2  ; PARTIAL PATH
 
 RETURN
@@ -1691,6 +1880,7 @@ TIMER_FAST_ERROR_APPLYING_SECURITY:
 
 	ifwinactive Error Applying Security ahk_class #32770
 	{
+	
 			SetTitleMatchMode 3  ; Specify Full path
 			VAR_IN_NAME=Error Applying Security ahk_class #32770
 			ControlGetText CONTROL_TEXT,Button1,%VAR_IN_NAME%
@@ -2759,14 +2949,12 @@ STATE_XYPOS_LIMIT:
 RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
-CHECK_NEW_WINDOW_TIMER_TOP_LEFT_MOUSE_CLOSE_MPC_SOUNDPLAY:
-	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-	SETTIMER CHECK_NEW_WINDOW_TIMER_TOP_LEFT_MOUSE_CLOSE_MPC_SOUNDPLAY,OFF
-RETURN
+
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 TIMER_TOP_LEFT_MOUSE_CLOSE_MPC:
 {
+
 	CoordMode, Mouse, Screen
 	MouseGetPos, xpos, ypos
 
@@ -2797,7 +2985,7 @@ TIMER_TOP_LEFT_MOUSE_CLOSE_MPC:
 	IF XR>0
 	IF STATE_XYPOS=0
 	IF STATE_XYPOS_COUNTER<>%OLD_STATE_XYPOS_COUNTER%
-		SOUNDBEEP 2000,100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 
 	IF STATE_XYPOS_COUNTER>0
 	IF STATE_XYPOS_COUNTER<>%OLD_STATE_XYPOS_COUNTER%
@@ -2814,7 +3002,7 @@ TIMER_TOP_LEFT_MOUSE_CLOSE_MPC:
 			; TOOLTIP % HWND_X "," HWND_ACTIVE "," SET_GO
 			IF XR<4
 			{
-				SETTIMER CHECK_NEW_WINDOW_TIMER_TOP_LEFT_MOUSE_CLOSE_MPC_SOUNDPLAY,50
+					SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				GOSUB KILL_ALL_MPC_EXE_NAME
 				XR=0
 				STATE_XYPOS_COUNTER=0
@@ -2835,7 +3023,7 @@ TIMER_TOP_LEFT_MOUSE_CLOSE_MPC:
 				; BOTH METHOD WORK BUT HARD TO USE WITH PASS VARIABLE
 				; UNLESS DEBUG A BIT
 				; ---------------------------------------------------
-				SETTIMER CHECK_NEW_WINDOW_TIMER_TOP_LEFT_MOUSE_CLOSE_MPC_SOUNDPLAY,50
+				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				PostMessage, 0x112, 0xF060,,, IrfanView ; 0x112 = WM_SYSCOMMAND, 0xF060 = SC_CLOSE
 				WinClose, IrfanView
 				STATE_XYPOS_COUNTER=0
