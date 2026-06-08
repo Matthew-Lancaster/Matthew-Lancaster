@@ -167,7 +167,7 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; -------------------------------------------------------------------
 ; CODE INITIALIZE
 ; -------------------------------------------------------------------
-SoundBeep , 1500 , 400
+Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 SetStoreCapslockMode, off
 
 SETTIMER TIMER_PREVIOUS_INSTANCE,1
@@ -265,7 +265,7 @@ SET_GOODSYNC_CONNECT_BOX_HWND=0
 ; SETTIMER TIMER_SET_GOODSYNC_CONNECT_BOX,1000
 
 SETTIMER TIMER_SUB_GOODSYNC_OPTIONS,1
-
+SETTIMER TIMER_GOODSYNC_MSGBOX_HITTER,1000
 ; SETTIMER TOOLTIP_REMOVER_TIMER,1000
 
 ; SETTIMER MEDIA_PLAYER_NOT_RESIZE_AFTER_EACH_VIDEO_SUB,1000
@@ -323,7 +323,7 @@ F5:: ; CTRL+F5
 			RUN,C:\PROGRAM FILES (X86)\NOTEPAD++\NOTEPAD++.EXE "%OutputVar_1%" ,, MAX
 		
 		; TOOLTIP "5555"
-		SOUNDBEEP 1500,100
+		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	}
 RETURN
 #ifwinactive
@@ -444,7 +444,7 @@ TIMER_SUB_GOODSYNC_CHANGE_NET_PATH_AS_SWEEPING_CHANGE_BASTARD:
 			ControlSetText, Edit1,, ahk_id %HWND_2%
 			SLEEP 500
 			Control, EditPaste, %VALUE_PASTE_IN%, Edit1, ahk_id %HWND_2%
-			SoundBeep , 1000 , 100
+			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			SLEEP 800
 			ControlGet, OutputVar_3, Line, 1, Edit1, ahk_id %HWND_2%
 			IF OutputVar_3<>%VALUE_PASTE_IN%
@@ -461,7 +461,7 @@ TIMER_SUB_GOODSYNC_CHANGE_NET_PATH_AS_SWEEPING_CHANGE_BASTARD:
 					ControlGet, OutputVar_3, Line, 1, Edit1, ahk_id %HWND_2%
 					IF OutputVar_3=%VALUE_PASTE_IN%
 					{
-						SoundBeep , 1000 , 100
+						Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 						SendInput, {enter}
 						RESULT_FINE=TRUE
 						BREAK
@@ -500,7 +500,7 @@ TIMER_SUB_GOODSYNC_CHANGE_NET_PATH_AS_SWEEPING_CHANGE_BASTARD:
 		{
 			ControlSetText, Edit2 , ahk_id %HWND_2%
 			Control, EditPaste, %VALUE_PASTE_IN%, Edit2, ahk_id %HWND_2%
-			SoundBeep , 3000 , 100
+			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			SLEEP 800
 			ControlGet, OutputVar_3, Line, 1, Edit2, ahk_id %HWND_2%
 			IF OutputVar_3<>%VALUE_PASTE_IN%
@@ -518,7 +518,7 @@ TIMER_SUB_GOODSYNC_CHANGE_NET_PATH_AS_SWEEPING_CHANGE_BASTARD:
 					ControlGet, OutputVar_3, Line, 1, Edit2, ahk_id %HWND_2%
 					IF OutputVar_3=%VALUE_PASTE_IN%
 					{
-						SoundBeep , 1000 , 100
+						Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 						SendInput, {enter}
 						RESULT_FINE=TRUE
 						BREAK
@@ -589,12 +589,13 @@ SUB__GoodSync_Dialog_220373_TIMER:
 	{
 		RETURN
 	}
-
+	
 	WinGet, HWND_5, ID, ahk_class #32770
 	IF HWND_5
 	{
 		; WinGetText  OutputVar_3, ahk_id %HWND_5%
 		WinGetTITLE OutputVar_4, ahk_id %HWND_5%
+
 		SET_GO_44=FALSE
 		IfInString, OutputVar_3, _GoodSync_Dialog_220373_
 			SET_GO_44=TRUE
@@ -629,7 +630,19 @@ SUB__GoodSync_Dialog_220373_TIMER:
 			SET_GO_44=FALSE	
 		IF INSTR(OutputVar_4,"GoodSync Account Setup")>0 
 			SET_GO_44=FALSE
-			
+		IF INSTR(OutputVar_4,"Add Unlisted Server")>0 
+			SET_GO_44=FALSE		
+		IF INSTR(OutputVar_4,"Server Properties")>0 
+			SET_GO_44=FALSE		
+		IF INSTR(OutputVar_4,"Folder Properties")>0 
+			SET_GO_44=FALSE	
+		IF INSTR(OutputVar_4,"Left Folder")>0 
+			SET_GO_44=FALSE		
+		IF INSTR(OutputVar_4,"Right Folder")>0 
+			SET_GO_44=FALSE		
+		IF INSTR(OutputVar_4,"GoodSync Account Setup")>0 
+			SET_GO_44=FALSE		
+		
 		ControlGet, isVisible1, Visible, , Button1, A
 		ControlGet, isVisible2, Visible, , Button2, A
 		if (!isVisible1) and (!isVisible2)
@@ -640,52 +653,203 @@ SUB__GoodSync_Dialog_220373_TIMER:
 		}
 
 
-GO_44=FALSE	
+; SET_GO_48=FALSE	
 
 ; MSGBOX % OutputVar_4
 			
 ; TOOLTIP % SET_GO_44
 		; ARE YOU SURE YOU WANT TO CHANGE THE SYNC FOLDER
 		IfInString, OutputVar_3, _GoodSync_Dialog_220373_
-		IF INSTR(OUTPUTVAR_3,"Yes")
-		IF INSTR(OUTPUTVAR_3,"No")
-		IF INSTR(OUTPUTVAR_3,"Cancel")
-			SET_GO_44=TRUE
-			
+		IF INSTR(OUTPUTVAR_3,"Yes")=0
+			SET_GO_44=FALSE
+		IF INSTR(OUTPUTVAR_3,"No")=0
+			SET_GO_44=FALSE
+
+		
+		; DOUBLE
+		SET_GO_48=FALSE
 		IF SET_GO_44=TRUE
 		{
-			; -----------------------------------------------------
-			; ARE YOU SURE YOU WANT TO CHANGE THE SYNC FOLDER
-			; CHANGING SYNC FOLDER WILL INVALIDATE JOB PATH FILTERS
-			; -----------------------------------------------------
+			WinGetPos, OutX, OutY, OutWidth, OutHeight, A
+			IF OutWidth=612
+			IF OutHeight=243
+				SET_GO_48=TRUE
+				; -----------------------------------------------------------------
+				; THIS IS THE SIZE OF MSGBOX FOR
+				; "Are you sure you want to change the sync folder"
+				; -----------------------------------------------------------------
+				; ANSWER -- YES -- 
+				; -----------------------------------------------------------------
+		}
+		
+		; TRIPLE
+		SET_GO_49=FALSE
+		IF SET_GO_44=TRUE
+		{
+			WinGetPos, OutX, OutY, OutWidth, OutHeight, A
+			; MsgBox, Width: %OutWidth%`nHeight: %OutHeight%
+			IF OutWidth=735
+			IF OutHeight=197
+				SET_GO_49=TRUE
+			; -----------------------------------------------------------------
+			; THIS IS THE SIZE OF MSGBOX FOR
+			; "Are you sure you want to keep _GSDATA_ folder in GoodSync profile folder?"
+			; -----------------------------------------------------------------
+			; ANSWER -- YES -- 
+			; -----------------------------------------------------------------
 
-			; IF INSTR(OutputVar_3,"Are you sure you want to change the sync folder")>0 
+		}	
+
+		; QUAD
+		SET_GO_50=FALSE
+		IF SET_GO_44=TRUE
+		{
+		
+			WinGetPos, OutX, OutY, OutWidth, OutHeight, A
+			; MsgBox, Width: %OutWidth%`nHeight: %OutHeight%
+			IF OutWidth=640
+			IF OutHeight=269
+			{
+				SET_GO_50=TRUE
+			}
+			; -----------------------------------------------------------------
+			; THIS IS THE SIZE OF MSGBOX FOR
+			; "We recommend not to sync to disk root folder"
+			; ANSWER -- NO --
+			; -----------------------------------------------------------------
+		}	
+
+
+		; FIFTH
+		SET_GO_52=FALSE
+		IF SET_GO_44=TRUE
+		{
+		
+			WinGetPos, OutX, OutY, OutWidth, OutHeight, A
+			; MsgBox, Width: %OutWidth%`nHeight: %OutHeight%
+			IF OutWidth=640
+			IF OutHeight=253
+			{
+				SET_GO_52=TRUE
+			}
+			; -----------------------------------------------------------------
+			; THIS IS THE SIZE OF MSGBOX FOR
+			; "We propose to use portable folder path"
+			; ANSWER "NO"
+			; -----------------------------------------------------------------
+		}	
+
+		; SIXTH-ER
+		SET_GO_54=FALSE
+		IF SET_GO_44=TRUE
+		{
+		
+			WinGetPos, OutX, OutY, OutWidth, OutHeight, A
+			; MsgBox, Width: %OutWidth%`nHeight: %OutHeight%
+			IF OutWidth=640
+			IF OutHeight=237
+			{
+				SET_GO_54=TRUE
+			}
+			; -----------------------------------------------------------------
+			; THIS IS THE SIZE OF MSGBOX FOR
+			; "We propose to use UNC path"
+			; ANSWER "NO"
+			; -----------------------------------------------------------------
+		}	
+		
+
+		IF SET_GO_44=TRUE
+		IF SET_GO_48=TRUE
+		{
+			; -----------------------------------------------------
+			; "Are you sure you want to change the sync folder"
+			; Changing sync folder will invalidate job path filters
+			; -----------------------------------------------------
+			; --------------------------------------------------------
 			ControlGet, isVisible1, Visible, , Button1, A
 			if isVisible1
 			{
 				A2B=-----------------------------------------------------`n
 				A2B=%A2B% ARE YOU SURE YOU WANT TO CHANGE THE SYNC FOLDER`n
 				A2B=%A2B% CHANGING SYNC FOLDER WILL INVALIDATE JOB PATH FILTERS`n
+				A2B=%A2B% ANSWER -- YES -- `n
 				A2B=%A2B% -----------------------------------------------------`n
 				TOOLTIP %A2B%,500,10
+
 				ControlClick, Button1, ahk_id %HWND_2%
-				SoundBeep , 3000 , 100
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				SETTIMER TOOLTIP_TO_CLEAR,3000
 			}
-			ControlGet, isVisible2, Visible, , Button2, A
-			if isVisible2
-			IF INSTR(OutputVar_3,"Are you sure you want to keep _GSDATA_ folder in GoodSync profile folder?")>0 
+		}	
+
+		IF SET_GO_44=TRUE
+		IF SET_GO_49=TRUE
+		{
+			; -----------------------------------------------------
+			; "Are you sure you want to keep _GSDATA_ folder in GoodSync profile folder?"
+			; -----------------------------------------------------
+			ControlGet, isVisible1, Visible, , Button1, A
+			if isVisible1
 			{
 				A2B=-----------------------------------------------------`n
-				A2B=%A2B% ARE YOU SURE YOU WANT TO CHANGE THE SYNC FOLDER`n
-				A2B=%A2B% CHANGING SYNC FOLDER WILL INVALIDATE JOB PATH FILTERS`n
+				A2B=%A2B% Are you sure you want to keep _GSDATA_ folder in GoodSync profile folder?`n
+				A2B=%A2B% ANSWER -- YES -- `n
 				A2B=%A2B% -----------------------------------------------------`n
 				TOOLTIP %A2B%,500,10
+
+				ControlClick, Button1, ahk_id %HWND_2%
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+				SETTIMER TOOLTIP_TO_CLEAR,3000
+			}
+		}	
+
+
+		IF SET_GO_44=TRUE
+		IF SET_GO_50=TRUE
+		{
+			; -----------------------------------------------------
+			; "We recommend not to sync to disk root folder"
+			; "SO WE WILL SYNC TO FOLDER"
+			; IS THIS OKAY  -- ANSWER -- NO
+			-----------------------------------------------------
+			ControlGet, isVisible1, Visible, , Button1, A
+			if isVisible1
+			{
+				A2B=-----------------------------------------------------`n
+				A2B=%A2B% We recommend not to sync to disk root folder`n
+				A2B=%A2B% ANSWER -- NO --`n
+				A2B=%A2B% -----------------------------------------------------`n
+				TOOLTIP %A2B%,500,10
+
 				ControlClick, Button2, ahk_id %HWND_2%
-				SoundBeep , 3000 , 100
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				SETTIMER TOOLTIP_TO_CLEAR,3000
 			}
 		}
+
+		IF SET_GO_44=TRUE
+		IF SET_GO_52=TRUE
+		{
+			; -----------------------------------------------------
+			; "We propose to use portable folder path"
+			; ANSWER -- NO
+			-----------------------------------------------------
+			ControlGet, isVisible1, Visible, , Button1, A
+			if isVisible1
+			{
+				A2B=-----------------------------------------------------`n
+				A2B=%A2B% We propose to use portable folder path`n
+				A2B=%A2B% ANSWER -- NO --`n
+				A2B=%A2B% -----------------------------------------------------`n
+				TOOLTIP %A2B%,500,10
+
+				ControlClick, Button2, ahk_id %HWND_2%
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+				SETTIMER TOOLTIP_TO_CLEAR,3000
+			}
+		}
+
 	}
 	
 	
@@ -787,6 +951,44 @@ SUB_GOODSYNC_CHANGE_NET_PATH_AS_SWEEPING_CHANGE_STRINGREPLACE:
 
 RETURN
 
+
+
+TIMER_GOODSYNC_MSGBOX_HITTER:
+
+	; IF INSTR(OutputVar_3,"Are you sure you want to keep _GSDATA_ folder in GoodSync profile folder?")>0 
+	; IF INSTR(OutputVar_3,"Are you sure you want to move _GSDATA_ folder back to the sync folder?")>0 
+	WinGet, HWND_2, ID, A
+	WinGetText  OutputVar_3, ahk_id %HWND_2%
+
+	ControlGet, isVisible2, Visible, , Button2, A
+	if isVisible2
+	IF INSTR(OutputVar_3,"Are you sure you want to keep _GSDATA_")>0 
+	{
+		A2B=-----------------------------------------------------`n
+		A2B=%A2B% Are you sure you want to keep _GSDATA_ folder in GoodSync profile folder?`n
+		A2B=%A2B% ANSWER -- YES --`n
+		A2B=%A2B% -----------------------------------------------------`n
+		TOOLTIP %A2B%,500,10
+		ControlClick, Button2, ahk_id %HWND_2%
+		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		SETTIMER TOOLTIP_TO_CLEAR,3000
+	}
+	ControlGet, isVisible2, Visible, , Button2, A
+	if isVisible2
+	IF INSTR(OutputVar_3,"Are you sure you want to move _GSDATA_")>0 
+	{
+		A2B=-----------------------------------------------------`n
+		A2B=%A2B% Are you sure you want to move _GSDATA_ folder back to the sync folder?`n
+		A2B=%A2B% ANSWER -- YES --`n
+		A2B=%A2B% -----------------------------------------------------`n
+		TOOLTIP %A2B%,500,10
+		ControlClick, Button2, ahk_id %HWND_2%
+		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		SETTIMER TOOLTIP_TO_CLEAR,3000
+	}
+
+
+RETURN
 
 ; -------------------------------------------------------------------
 TIMER_SUB_GOODSYNC_OPTIONS:
@@ -917,7 +1119,7 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 			If Status=1 ; ---- CHECK
 			{
 				Control, UNCheck,, Button2, ahk_id %HWND_2%
-				SoundBeep , 4000 , 100
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				VALUE_CHANGE=TRUE
 				ControlGet, Status, Checked,, Button2, ahk_id %HWND_2%
 				IF Status=1 ; ---- CHECK
@@ -944,7 +1146,7 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 					Control, CHECK,, Button16, ahk_id %HWND_2%
 				IF VALUE_CHECKBOX_PERIODIC=0
 					Control, UNCHECK,, Button16, ahk_id %HWND_2%
-				SoundBeep , 2000 , 100
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				VALUE_CHANGE=TRUE
 				ControlGet, Status, Checked,, Button16, ahk_id %HWND_2%
 				If Status<>%VALUE_CHECKBOX_PERIODIC%
@@ -966,7 +1168,7 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 
 				ControlSetText, Edit3,, ahk_id %HWND_2%
 				Control, EditPaste, %VALUE_PASTE_IN%, Edit3, ahk_id %HWND_2%
-				SoundBeep , 3000 , 100
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				VALUE_CHANGE=TRUE
 				ControlGet, OutputVar_3, Line, 1, Edit3, ahk_id %HWND_2%
 				IF INSTR(OutputVar_3,%VALUE_PASTE_IN%)=0
@@ -989,7 +1191,7 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 			If Status=0 ; ---- UNCHECK
 			{
 				Control, Check,, Button41, ahk_id %HWND_2%
-				SoundBeep , 5000 , 100
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				VALUE_CHANGE=TRUE
 
 				ControlGet, Status, Checked,, Button41, ahk_id %HWND_2%
@@ -1011,7 +1213,7 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 			{
 				ControlSetText, Edit10,, ahk_id %HWND_2%
 				Control, EditPaste, %VALUE_PASTE_IN%, Edit10, ahk_id %HWND_2%
-				SoundBeep , 5000 , 100
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				VALUE_CHANGE=TRUE
 
 				ControlGet, OutputVar_3, Line, 1, Edit10, ahk_id %HWND_2%
@@ -1078,6 +1280,10 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 
 
 
+
+
+
+
 		
 	O_HWND_2=%HWND_2%
 	
@@ -1111,7 +1317,7 @@ TEMP:
 				If Status=1
 				{
 					Control, UNCheck,, Button13, ahk_id %HWND_1%
-					SoundBeep , 4000 , 100
+					Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 					TOOLTIP FILTERS - TEMPORARY_FILE
 					TOOLTIP_SET_REMOVE_TIMER_1=TRUE
 					TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
@@ -1138,7 +1344,7 @@ TEMP:
 						TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
 						TT_1:=% TT_1 "_CHECK_ESTIMATE_DISK_`n"
 						Control, Check,, Button35, ahk_id %HWND_1%
-						SoundBeep , 4000 , 100
+						Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 					}
 					ControlGet, Status, Checked,, Button35, ahk_id %HWND_1%
 					If Status=1
@@ -1165,13 +1371,13 @@ TEMP:
 					TT_1:=% TT_1 "_WAIT_FOR_LOCKS_TO_`n"
 					ControlSetText, Edit12,, ahk_id %HWND_1%
 					Control, EditPaste, 20, Edit12, ahk_id %HWND_1%
-					SoundBeep , 4000 , 100
+					Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				}
 				ControlGet, Status, Checked,, Button23, ahk_id %HWND_1%
 				If Status=0
 				{
 					Control, Check,, Button23, ahk_id %HWND_1%
-					SoundBeep , 4000 , 100
+					Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				}
 				ControlGet, Status, Checked,, Button23, ahk_id %HWND_1%
 				If Status=1
@@ -1197,7 +1403,7 @@ TEMP:
 					ControlSetText, Edit11,, ahk_id %HWND_1%
 					VALUE_PASTE_IN:=80
 					Control, EditPaste, %VALUE_PASTE_IN%, Edit11, ahk_id %HWND_1%
-					SoundBeep , 4000 , 100
+					Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				}
 				
 				ControlGet, OutputVar_3, Line, 1, Edit11, ahk_id %HWND_1%
@@ -1331,14 +1537,13 @@ TEMP:
 						If Status=0
 						{
 							Control, Check,, Button57, ahk_id %HWND_4%
-							SoundBeep , 4000 , 100
+							Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 							TOOLTIP RIGHT_SIDE _ NOT _GSDATA_ FOLDER HERE
 							TOOLTIP_SET_REMOVE_TIMER_1=TRUE
 							TOOLTIP_SET_REMOVE_TIMER_2=%HWND_4%
 							TT_1:=% TT_1 "RIGHT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
 
 							Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-							SoundBeep , 4000 , 100
 						}
 						
 						ControlGet, Status, Checked,, Button57, ahk_id %HWND_4%
@@ -1349,34 +1554,34 @@ TEMP:
 					}
 				}
 				
-				; ---- %HWND_1% ---- APPLY TO GOODSYNC 2 GO
-				; 02 OF 04
-				IF GSDATA_FOLDER_CLOUD_HWND_57_1<>%HWND_1%
-				{
-					ControlGettext, OutputVar_1, Button57, ahk_id %HWND_1%
-					ControlGet, Status, Checked,, Button57, ahk_id %HWND_1%
-					IF OutputVar_1=No _gsdata_ folder here
-					{
-						If Status=0
-						{
-							Control, Check,, Button57, ahk_id %HWND_1%
-							SoundBeep , 4000 , 100
-							TOOLTIP RIGHT_SIDE _ NOT _GSDATA_ FOLDER HERE
-							TOOLTIP_SET_REMOVE_TIMER_1=TRUE
-							TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
-							TT_1:=% TT_1 "RIGHT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
+				; ; ---- %HWND_1% ---- APPLY TO GOODSYNC 2 GO
+				; ; 02 OF 04
+				; IF GSDATA_FOLDER_CLOUD_HWND_57_1<>%HWND_1%
+				; {
+					; ControlGettext, OutputVar_1, Button57, ahk_id %HWND_1%
+					; ControlGet, Status, Checked,, Button57, ahk_id %HWND_1%
+					; IF OutputVar_1=No _gsdata_ folder here
+					; {
+						; If Status=0
+						; {
+							; Control, Check,, Button57, ahk_id %HWND_1%
+							; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+							; TOOLTIP RIGHT_SIDE _ NOT _GSDATA_ FOLDER HERE
+							; TOOLTIP_SET_REMOVE_TIMER_1=TRUE
+							; TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
+							; TT_1:=% TT_1 "RIGHT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
 
-							Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-							SoundBeep , 4000 , 100
-						}
+							; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+							; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+						; }
 						
-						ControlGet, Status, Checked,, Button57, ahk_id %HWND_1%
-						If Status=1
-						{
-							GSDATA_FOLDER_CLOUD_HWND_57_1=%HWND_1%
-						}
-					}
-				}
+						; ControlGet, Status, Checked,, Button57, ahk_id %HWND_1%
+						; If Status=1
+						; {
+							; GSDATA_FOLDER_CLOUD_HWND_57_1=%HWND_1%
+						; }
+					; }
+				; }
 
 				; ---- %HWND_4% ---- APPLY TO GOODSYNC DESKTOP C-HDD
 				; 03 OF 06
@@ -1390,14 +1595,14 @@ TEMP:
 						If Status=0
 						{
 							Control, Check,, Button55, ahk_id %HWND_4%
-							SoundBeep , 4000 , 100
+							Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 							TOOLTIP LEFT_SIDE _ NOT _GSDATA_ FOLDER HERE
 							TOOLTIP_SET_REMOVE_TIMER_1=TRUE
 							TOOLTIP_SET_REMOVE_TIMER_2=%HWND_4%
 							TT_1:=% TT_1 "LEFT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
 
 							Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-							SoundBeep , 4000 , 100
+							Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 						}
 						
 						ControlGet, Status, Checked,, Button55, ahk_id %HWND_4%
@@ -1410,33 +1615,33 @@ TEMP:
 				
 				; 04 OF 06
 				; ---- %HWND_1% ---- APPLY TO GOODSYNC 2 GO
-				IF GSDATA_FOLDER_SET_GO_1_L=TRUE
-				IF NOT_GSDATA_FOLDER_CLOUD_HWND_55_1<>%HWND_1%
-				{
-					ControlGettext, OutputVar_1, Button55, ahk_id %HWND_1%
-					ControlGet, Status, Checked,, Button55, ahk_id %HWND_1%
-					IF OutputVar_1=No _gsdata_ folder here
-					{
-						If Status=0
-						{
-							Control, Check,, Button55, ahk_id %HWND_1%
-							SoundBeep , 4000 , 100
-							TOOLTIP RIGHT_SIDE _ NOT _GSDATA_ FOLDER HERE
-							TOOLTIP_SET_REMOVE_TIMER_1=TRUE
-							TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
-							TT_1:=% TT_1 "RIGHT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
+				; IF GSDATA_FOLDER_SET_GO_1_L=TRUE
+				; IF NOT_GSDATA_FOLDER_CLOUD_HWND_55_1<>%HWND_1%
+				; {
+					; ControlGettext, OutputVar_1, Button55, ahk_id %HWND_1%
+					; ControlGet, Status, Checked,, Button55, ahk_id %HWND_1%
+					; IF OutputVar_1=No _gsdata_ folder here
+					; {
+						; If Status=0
+						; {
+							; Control, Check,, Button55, ahk_id %HWND_1%
+							; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+							; TOOLTIP RIGHT_SIDE _ NOT _GSDATA_ FOLDER HERE
+							; TOOLTIP_SET_REMOVE_TIMER_1=TRUE
+							; TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
+							; TT_1:=% TT_1 "RIGHT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
 
-							Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-							SoundBeep , 4000 , 100
-						}
+							; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+							; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+						; }
 						
-						ControlGet, Status, Checked,, Button55, ahk_id %HWND_1%
-						If Status=1
-						{
-							NOT_GSDATA_FOLDER_CLOUD_HWND_55_1=%HWND_1%
-						}
-					}
-				}
+						; ControlGet, Status, Checked,, Button55, ahk_id %HWND_1%
+						; If Status=1
+						; {
+							; NOT_GSDATA_FOLDER_CLOUD_HWND_55_1=%HWND_1%
+						; }
+					; }
+				; }
 
 				; ---- %HWND_4% ---- APPLY TO GOODSYNC DESKTOP C-HDD
 				; 05 OF 06
@@ -1450,14 +1655,14 @@ TEMP:
 						If Status=0
 						{
 							Control, Check,, Button44, ahk_id %HWND_4%
-							SoundBeep , 4000 , 100
+							Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 							TOOLTIP LEFT_SIDE _ NOT _GSDATA_ FOLDER HERE
 							TOOLTIP_SET_REMOVE_TIMER_1=TRUE
 							TOOLTIP_SET_REMOVE_TIMER_2=%HWND_4%
 							TT_1:=% TT_1 "LEFT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
 
 							Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-							SoundBeep , 4000 , 100
+							Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 						}
 						
 						ControlGet, Status, Checked,, Button44, ahk_id %HWND_4%
@@ -1480,14 +1685,14 @@ TEMP:
 						If Status=0
 						{
 							Control, Check,, Button44, ahk_id %HWND_1%
-							SoundBeep , 4000 , 100
+							Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 							TOOLTIP LEFT_SIDE _ NOT _GSDATA_ FOLDER HERE
 							TOOLTIP_SET_REMOVE_TIMER_1=TRUE
 							TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
 							TT_1:=% TT_1 "LEFT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
 
 							Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-							SoundBeep , 4000 , 100
+							Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 						}
 						
 						ControlGet, Status, Checked,, Button44, ahk_id %HWND_1%
@@ -1504,30 +1709,30 @@ TEMP:
 				; WinGet, HWND_HUBIC_1, ID, A   ; --- AS ABOVE
 				; -----------------------------------------------------------
 				; -----------------------------------------------------------
-				IF HDD_HUBIC_HWND<>%HWND_HUBIC_1%
-				{
-					WinGetTitle OutputVar_3, ahk_id %HWND_HUBIC_1%
-					If INSTR(OutputVar_3,"HDD HUBIC")>0 
-					{
-						TOOLTIP ---- - HUBIC UNCHECK BUTTON58
-						TOOLTIP_SET_REMOVE_TIMER_1=TRUE
-						TOOLTIP_SET_REMOVE_TIMER_2=%HWND_HUBIC_1%
-						TT_1:=% TT_1 "_HDD_HUBIC_HWND_`n"
+				; IF HDD_HUBIC_HWND<>%HWND_HUBIC_1%
+				; {
+					; WinGetTitle OutputVar_3, ahk_id %HWND_HUBIC_1%
+					; If INSTR(OutputVar_3,"HDD HUBIC")>0 
+					; {
+						; TOOLTIP ---- - HUBIC UNCHECK BUTTON58
+						; TOOLTIP_SET_REMOVE_TIMER_1=TRUE
+						; TOOLTIP_SET_REMOVE_TIMER_2=%HWND_HUBIC_1%
+						; TT_1:=% TT_1 "_HDD_HUBIC_HWND_`n"
 
-						ControlGet, Status, Checked,, Button58, ahk_id %HWND_HUBIC_1%
-						If Status=1
-						{
-							Control, UNCheck,, Button58, ahk_id %HWND_HUBIC_1%
-							SoundBeep , 4000 , 100
-						}
-					}
-					ControlGet, Status, Checked,, Button58, ahk_id %HWND_HUBIC_1%
-					If Status=0
-					{
-						HDD_HUBIC_HWND=%HWND_HUBIC_1%
-						; TOOLTIP
-					}
-				}
+						; ControlGet, Status, Checked,, Button58, ahk_id %HWND_HUBIC_1%
+						; If Status=1
+						; {
+							; Control, UNCheck,, Button58, ahk_id %HWND_HUBIC_1%
+							; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+						; }
+					; }
+					; ControlGet, Status, Checked,, Button58, ahk_id %HWND_HUBIC_1%
+					; If Status=0
+					; {
+						; HDD_HUBIC_HWND=%HWND_HUBIC_1%
+						; ; TOOLTIP
+					; }
+				; }
 
 				
 				
@@ -1561,7 +1766,7 @@ TEMP:
 				If Status = 0
 				{
 					Control, Check,, Button6, ahk_id %HWND_1%
-					SoundBeep , 4000 , 100
+					Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				}
 			}
 			
@@ -1582,7 +1787,7 @@ TEMP:
 					{
 							ControlSetText, Edit2,, ahk_id %HWND_1%
 							Control, EditPaste, 30, Edit2, ahk_id %HWND_1%
-							SoundBeep , 4000 , 100
+							Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 					}
 				}
 			}
@@ -1606,7 +1811,7 @@ TEMP:
 					{
 						ControlSetText, Edit1,, ahk_id %HWND_1%
 						Control, EditPaste, 30, Edit1, ahk_id %HWND_1%
-						SoundBeep , 4000 , 100
+						Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 					}
 				}
 			}
@@ -1627,7 +1832,7 @@ TEMP:
 			; If Status = 0
 			; {
 			; 	Control, Check,, Button3, ahk_id %HWND_1%
-			; 	SoundBeep , 4000 , 100
+			; 	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			; }
 			
 			; -----------------------------------------------------------
@@ -1644,13 +1849,13 @@ TEMP:
 				If Status = 0
 				{
 					Control, Check,, Button4, ahk_id %HWND_1%
-					SoundBeep , 4000 , 100
+					Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				}
 				ControlGet, Status, Checked,, Button6, ahk_id %HWND_1%
 				If Status = 0
 				{
 					Control, Check,, Button6, ahk_id %HWND_1%
-					SoundBeep , 4000 , 100
+					Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				}
 			}
 			
@@ -1669,7 +1874,7 @@ TEMP:
 				; IF O_Status_GSDATA<>%Status%
 				; {
 					; Control, unCheck,, Button41, ahk_id %HWND_1%
-					; SoundBeep , 4000 , 100
+					; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 					; ControlGet, Status, Checked,, Button41, ahk_id %HWND_1%
 					; If Status=0
 						; O_Status_GSDATA=1
@@ -1689,19 +1894,19 @@ TEMP:
 				If Status = 0
 				{
 					Control, Check,, Button10, ahk_id %HWND_1%
-					SoundBeep , 4000 , 100
+					Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				}
 				ControlGet, Status, Checked,, Button11, ahk_id %HWND_1%
 				If Status = 0
 				{
 					Control, Check,, Button11, ahk_id %HWND_1%
-					SoundBeep , 4000 , 100
+					Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				}
 				ControlGet, Status, Checked,, Button12, ahk_id %HWND_1%
 				If Status = 0
 				{
 					Control, Check,, Button12, ahk_id %HWND_1%
-					SoundBeep , 4000 , 100
+					Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				}
 			}
 		
@@ -1728,13 +1933,13 @@ TEMP:
 			IfInString, OutputVar_3, Are you sure you want to move _GSDATA_
 			{
 				ControlClick, Button2,ahk_id %HWND_5%
-				SoundBeep , 4000 , 100
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			}
 
 			IfInString, OutputVar_3, Are you sure you want to keep _GSDATA_
 			{
 				ControlClick, Button2,ahk_id %HWND_5%
-				SoundBeep , 4000 , 100
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			}
 
 			WinGet, HWND_5, ID, GoodSync ahk_class #32770
@@ -1755,13 +1960,13 @@ TEMP:
 			IfInString, OutputVar_3, We recommend not to sync to disk root folder
 			{
 				ControlClick, Button3,ahk_id %HWND_5%
-				SoundBeep , 4000 , 100
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			}
 
 			IfInString, OutputVar_14, We recommend not to sync to disk root folder
 			{
 				ControlClick, Button3,ahk_id %HWND_14%
-				SoundBeep , 4000 , 100
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			}
 		}
 	} 
@@ -1777,7 +1982,7 @@ TEMP:
 			; ControlGetPos, x, y, , , Button65, ahk_id %HWND_1%
 			; MouseMove, X+10, Y+10		
 			; ControlClick, Button65,ahk_id %HWND_1% ; SAVE 
-			; SoundBeep , 4000 , 100
+			; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		; }	
 
 		; ; PRESS SAVE WHEN SETTING OPTIONS DONE
@@ -1788,7 +1993,7 @@ TEMP:
 			; ControlGetPos, x, y, , , Button65, ahk_id %HWND_1%
 			; MouseMove, X+10, Y+10		
 			; ControlClick, Button65,ahk_id %HWND_1% ; SAVE 
-			; SoundBeep , 4000 , 100
+			; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		; }
 	; }
 	
@@ -1870,7 +2075,7 @@ TIMER_SET_GOODSYNC_CONNECT_BOX:
 		{
 			ControlSetText, Edit1,, ahk_id %HWND_GOODSYNC_CONNECT_BOX%
 			Control, EditPaste, %Element_1%, Edit1, ahk_id %HWND_GOODSYNC_CONNECT_BOX%
-			SoundBeep , 4000 , 100
+			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
 		ControlGettext, OutputVar_2, Edit2, ahk_id %HWND_GOODSYNC_CONNECT_BOX%
@@ -1878,7 +2083,7 @@ TIMER_SET_GOODSYNC_CONNECT_BOX:
 		{
 			ControlSetText, Edit2,, ahk_id %HWND_GOODSYNC_CONNECT_BOX%
 			Control, EditPaste, %Element_2%, Edit2, ahk_id %HWND_GOODSYNC_CONNECT_BOX%
-			SoundBeep , 4000 , 100
+			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
 		ControlGettext, OutputVar_2, Edit3, ahk_id %HWND_GOODSYNC_CONNECT_BOX%
@@ -1886,7 +2091,7 @@ TIMER_SET_GOODSYNC_CONNECT_BOX:
 		{
 			ControlSetText, Edit3,, ahk_id %HWND_GOODSYNC_CONNECT_BOX%
 			Control, EditPaste, %Element_3%, Edit3, ahk_id %HWND_GOODSYNC_CONNECT_BOX%
-			SoundBeep , 4000 , 100
+			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
 	}
@@ -2035,7 +2240,7 @@ TIMER_SET_GOODSYNC_ACCOUNT_SET_UP_ACTIVATION_BOX:
 					Control, EditPaste, MATTHEW LANCASTER, Edit1, ahk_id %HWND_ACTIVATION%
 					ControlSetText, Edit2,, ahk_id %HWND_ACTIVATION%
 					Control, EditPaste, %Element_3%, Edit2, ahk_id %HWND_ACTIVATION%
-					SoundBeep , 4000 , 100
+					Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				}
 					
 				; THERE TO TYPE OF ACTIVATION FORM
@@ -2052,7 +2257,7 @@ TIMER_SET_GOODSYNC_ACCOUNT_SET_UP_ACTIVATION_BOX:
 					Control, EditPaste, MATTHEW LANCASTER, Edit4, ahk_id %HWND_ACTIVATION%
 					ControlSetText, Edit5,, ahk_id %HWND_ACTIVATION%
 					Control, EditPaste, %Element_3%, Edit5, ahk_id %HWND_ACTIVATION%
-					SoundBeep , 4000 , 100
+					Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				}
 			}
 		}
@@ -2159,7 +2364,7 @@ TIMER_SET_ACTIVATION_BOX:
 					Control, EditPaste, MATTHEW LANCASTER, Edit1, ahk_id %HWND_ACTIVATION%
 					ControlSetText, Edit2,, ahk_id %HWND_ACTIVATION%
 					Control, EditPaste, %Element_3%, Edit2, ahk_id %HWND_ACTIVATION%
-					SoundBeep , 4000 , 100
+					Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				}
 					
 				; THERE TO TYPE OF ACTIVATION FORM
@@ -2176,7 +2381,7 @@ TIMER_SET_ACTIVATION_BOX:
 					Control, EditPaste, MATTHEW LANCASTER, Edit4, ahk_id %HWND_ACTIVATION%
 					ControlSetText, Edit5,, ahk_id %HWND_ACTIVATION%
 					Control, EditPaste, %Element_3%, Edit5, ahk_id %HWND_ACTIVATION%
-					SoundBeep , 4000 , 100
+					Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				}
 			}
 		}
@@ -2238,7 +2443,7 @@ SET_OK_BOX:
 		; ControlGetPos, x, y, , , OK, Left Folder ahk_class #32770
 		; MouseMove, X+10, Y+10
 		ControlClick, OK, Left Folder ahk_class #32770,,,, NA x20 y20
-		SoundBeep , 2000 , 400
+		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	}	
 	
 	IfWinExist Right Folder ahk_class #32770
@@ -2248,7 +2453,7 @@ SET_OK_BOX:
 		; ControlGetPos, x, y, , , OK, Right Folder ahk_class #32770
 		; MouseMove, X+10, Y+10
 		ControlClick, OK, Right Folder ahk_class #32770,,,, NA x20 y20
-		SoundBeep , 3000 , 400
+		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	}	
 
 
@@ -2270,7 +2475,7 @@ SET_OK_BOX:
 		{
 			ControlSetText, Edit9,, ] Options ahk_class #32770
 			Control, EditPaste, %Periodic_TIMER_VALUE%, Edit9, ] Options ahk_class #32770
-			SoundBeep , 4000 , 100
+			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
 		
 		; ClassNN:	Button17
@@ -2281,7 +2486,7 @@ SET_OK_BOX:
 			If Status=0
 			{
 				Control, Check,, Button17, ] Options ahk_class #32770
-				SoundBeep , 4000 , 100
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			}
 		}
 
@@ -2311,7 +2516,7 @@ SET_OK_BOX:
 			IF (OutputVar_2="Save")
 				ControlClick, Button63, Options ahk_class #32770,,,, NA x10 y10
 			
-			SoundBeep , 5000 , 400
+			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}	
 	}
 		
@@ -2551,7 +2756,7 @@ TIMER_SUB_GOODSYNC_TEXT_MANIPULATE:
 RETURN
 
 
-
+; ---- DON'T GET RUN
 GOODYSNC_REMOVABLE_DRIVE_WITH_VOLUME_NAME:
 
 
@@ -2671,7 +2876,7 @@ MEDIA_PLAYER_NOT_RESIZE_AFTER_EACH_VIDEO_SUB:
 				TT_1:=% TT_1 "MEDIA_PLAYER__ZOOM_UNCHECKER`n"
 
 				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-				SoundBeep , 4000 , 100
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			}
 			
 			ControlGet, Status, Checked,, Button7, ahk_id %MEDIA_PLAYER_NOT_RESIZE_AFTER_EACH_VIDEO_HWND%
@@ -2690,6 +2895,8 @@ CHECK_GOODSYNC_NOT_RESPOND:
 
 	; IF !(A_ComputerName = "7-ASUS-GL522VW") 
 		; RETURN
+		
+RETURN
 
 	DetectHiddenWindows, OFF
 
@@ -2713,8 +2920,8 @@ CHECK_GOODSYNC_NOT_RESPOND:
 			IF TIMER_NOT_RESPONDING>0
 				IF TIMER_NOT_RESPONDING<%A_Now%
 				{
-					SoundBeep , 1000 , 100
-					SoundBeep , 1500 , 100
+					Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+					Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 					Process, Close, GoodSync.exe
 				}	
 	}
@@ -2785,7 +2992,7 @@ MINIMIZE_AND_RUN_GOODSYNC_V10:
 			; [ Thursday 14:05:20 Pm_14 March 2019 ]
 			; -------------------------------------------------------------
 			WinMinimize  ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-			SOUNDBEEP 2000,100
+			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			SLEEP 2000
 
 			HAS_MIMIMIZE_DO=0
@@ -2871,7 +3078,7 @@ MINIMIZE_AND_RUN_GOODSYNC_2GO:
 			; [ Thursday 14:05:20 Pm_14 March 2019 ]
 			; -------------------------------------------------------------
 			WinMinimize  ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-			SOUNDBEEP 2000,100
+			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			SLEEP 200
 
 			HAS_MIMIMIZE_DO=0
@@ -2913,10 +3120,10 @@ ROUTINE_SPARE_CODIN:
 		FN_VAR:="C:\GoodSync\x64\GoodSync2Go.exe"
 		IfExist, %FN_VAR%
 		{
-			SoundBeep , 4000 , 100
-			SoundBeep , 3000 , 100
-			SoundBeep , 4000 , 100
-			SoundBeep , 3000 , 100
+			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			; MSGBOX HERE
 			Run, "%FN_VAR%" , , MIN
 		}
@@ -2948,10 +3155,10 @@ ROUTINE_SPARE_CODIN:
 			FN_VAR:="C:\Program Files\Siber Systems\GoodSync\GoodSync.exe"
 			IfExist, %FN_VAR%
 			{
-				SoundBeep , 4000 , 100
-				SoundBeep , 3000 , 100
-				SoundBeep , 4000 , 100
-				SoundBeep , 3000 , 100
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				; MSGBOX HERE
 				Run, "%FN_VAR%" , , MIN
 			}
@@ -3009,13 +3216,13 @@ TIMER_SUB_GOODSYNC_SCRIPT_COMMAND_TO_STOP:
 		
 			; CLICK THE MESSENGER BOX
 			ControlClick, &Yes  0, %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
-			SOUNDBEEP 1500,50
+			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			
 			; CLOSE GOODSYNC
 			ControlGetText, OutputVar, %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
 			IF Instr(OutputVar,"GoodSync Script Command to Stop")=0
 			{
-				SOUNDBEEP 1500,50
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				WinClose, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 			}
 		}
@@ -3028,8 +3235,8 @@ TIMER_SUB_GOODSYNC_SCRIPT_COMMAND_TO_STOP:
 			ControlGetText, OutputVar, Edit1, GoodSync ahk_class #32770
 			IF Instr(OutputVar,"One or more jobs are running now")
 			{
-				SoundBeep , 2000 , 100
-				SoundBeep , 1500 , 100
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				ControlClick, Button2 , ahk_class #32770 ; OK
 					
 			}
@@ -3037,19 +3244,19 @@ TIMER_SUB_GOODSYNC_SCRIPT_COMMAND_TO_STOP:
 		
 	IfWinExist GoodSync - Preparing Crash Report
 	{
-		SoundBeep , 4000 , 100
-		SoundBeep , 3000 , 100
-		SoundBeep , 4000 , 100
-		SoundBeep , 3000 , 100
+		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		Run, "TASKKILL.exe" /F /IM GoodSync.exe /T , , HIDE
 	}
 
 	IfWinExist Reporting a Crash
 	{
-		SoundBeep , 4000 , 100
-		SoundBeep , 3000 , 100
-		SoundBeep , 4000 , 100
-		SoundBeep , 3000 , 100
+		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		Run, "TASKKILL.exe" /F /IM GoodSync.exe /T , , HIDE
 	}
 
@@ -3067,10 +3274,10 @@ TIMER_SUB_GOODSYNC_SCRIPT_COMMAND_TO_STOP:
 			ControlGetText, OutputVar, GoodSync has crashed just now , GoodSync
 			IF OutputVar 
 			{
-				SoundBeep , 4000 , 100
-				SoundBeep , 3000 , 100
-				SoundBeep , 4000 , 100
-				SoundBeep , 3000 , 100
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				ControlClick, OK, GoodSync
 				;WINHIDE
 				

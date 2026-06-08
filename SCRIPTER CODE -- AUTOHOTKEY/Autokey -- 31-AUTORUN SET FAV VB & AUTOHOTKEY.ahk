@@ -74,6 +74,7 @@ if FileExist(Element_1)
 {
 	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 ; ;	Run, %Element_1%
+;	SLEEP 3000
 }
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -87,7 +88,11 @@ if FileExist(Element_1)
 {
 	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	Run, %Element_1%
+	SLEEP 3000
 }
+
+
+\\4-ASUS-GL522VW\4_ASUS_GL522VW_E_DRIVE:
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 Element_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN SECURE.ahk"
@@ -99,11 +104,13 @@ if FileExist(Element_1)
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
+
 Element_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 79-BROWSER LOAD URL BOOT CHROME.ahk"
 if FileExist(Element_1)
 {
 	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	Run, %Element_1%
+	SLEEP 3000
 }
 
 SET_GO_1=
@@ -124,6 +131,7 @@ IF SET_GO_1=1
 }
 
 
+SLEEP 3000
 
 SET_GO_1=
 IF (A_ComputerName="4-ASUS-GL522VW")
@@ -133,6 +141,7 @@ IF (A_ComputerName="8-MSI-GP62M-7RD")
 IF (A_ComputerName="9-ASUS-G815LM") 
 	SET_GO_1=1
 	
+SET_GO_1=1
 	
 IF SET_GO_1=1
 {
@@ -151,28 +160,33 @@ IF SET_GO_1=1
 	{
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		Run, %Element_1%
+		SLEEP 3000
 	}
 }
+SLEEP 3000
 
 
-SET_GO_1=TRUE
+SET_GO_1=
 IF (A_ComputerName = "4-ASUS-GL522VW") 
-	SET_GO_1=TRUE
+	SET_GO_1=1
 IF (A_ComputerName = "8-MSI-GP62M-7RD") 
-	SET_GO_1=TRUE
+	SET_GO_1=1
 IF (A_ComputerName = "9-ASUS-G815LM") 
-	SET_GO_1=TRUE
+	SET_GO_1=1
+
+SET_GO_1=1
 	
-IF SET_GO_1
+IF SET_GO_1=1
 {
 	Element_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON STATE AND BEEPER WHEN NOT BUSY HOUR GLASS OVER.ahk"
 	if FileExist(Element_1)
 	{
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		; MSGBOX "HERE"
 		Run, %Element_1%
+		SLEEP 3000
 	}
 }
-
 
 
 
@@ -191,6 +205,7 @@ IF SET_GO_1
 	{
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		Run, %Element_1%
+		SLEEP 3000
 	}
 }
 
@@ -203,6 +218,7 @@ IF SET_GO_1
 	{
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		Run, %Element_1%
+		SLEEP 3000
 	}
 }
 
@@ -235,6 +251,7 @@ if FileExist(FN_VAR)
 	{
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		Run, "%FN_VAR%"
+		SLEEP 3000
 	}
 
 ; -------------------------------------------------------------------
@@ -345,64 +362,78 @@ IfExist, %FN_VAR%
 	WinMinimize
 }
 
-SetTitleMatchMode 2 
 
-FN_VAR:="C:\Program Files\Google\Chrome\Application\chrome.exe"
-IfNOTExist, %FN_VAR%
-FN_VAR:="C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
 
-SplitPath, FN_VAR, name
-Process, Exist, %name%
-If Not ErrorLevel
-IfExist, %FN_VAR%
-{
-	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-	Run, "%FN_VAR%"
-	SLEEP 4000
-	WinWait, ahk_class Chrome_WidgetWin_1, , 10
-	WinMinimize
-	COUNTER_LOOP=0
-	LOOP 
+SET_GO_1=TRUE
+IF (A_ComputerName = "2-ASUS-EEE") 
+	SET_GO_1=
+	
+IF SET_GO_1
+{	
+	SetTitleMatchMode 2 
+	FN_VAR:="C:\Program Files\Google\Chrome\Application\chrome.exe"
+	IfNOTExist, %FN_VAR%
+	FN_VAR:="C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+	SplitPath, FN_VAR, name
+	Process, Exist, %name%
+	If Not ErrorLevel
+	IfExist, %FN_VAR%
 	{
-	WinGet, HWND_10, ID, ahk_class Chrome_WidgetWin_1
-	WinMinimize ahk_id %HWND_10%
-	WinGet, state, MinMax, ahk_id %HWND_10%
-	if (state = -1)
-		BREAK
-	COUNTER_LOOP+=1
-	IF COUNTER_LOOP>100
-		BREAK 
-	SLEEP 1000
-	}
-}
-
-
-FN_VAR:="C:\Program Files\Mozilla Firefox\firefox.exe"
-SplitPath, FN_VAR, name
-Process, Exist, %name%
-If Not ErrorLevel
-IfExist, %FN_VAR%
-{
-	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-	Run "%FN_VAR%"
-	SLEEP 2000
-	WinWait, ahk_class MozillaWindowClass, , 10
-	COUNTER_LOOP_1=0
-	COUNTER_LOOP_2=0
-	LOOP 
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		Run, "%FN_VAR%"
+		SLEEP 4000
+		WinWait, ahk_class Chrome_WidgetWin_1, , 10
+		WinMinimize
+		COUNTER_LOOP=0
+		LOOP 
 		{
-		WinGet, HWND_10, ID, ahk_class MozillaWindowClass
+		WinGet, HWND_10, ID, ahk_class Chrome_WidgetWin_1
 		WinMinimize ahk_id %HWND_10%
 		WinGet, state, MinMax, ahk_id %HWND_10%
 		if (state = -1)
 			BREAK
-		COUNTER_LOOP_1+=1
-		IF COUNTER_LOOP_1>100
+		COUNTER_LOOP+=1
+		IF COUNTER_LOOP>100
 			BREAK 
 		SLEEP 1000
 		}
+	}
 }
 
+
+SET_GO_1=TRUE
+IF (A_ComputerName = "2-ASUS-EEE") 
+	SET_GO_1=
+	
+IF SET_GO_1
+{	
+	FN_VAR:="C:\Program Files\Mozilla Firefox\firefox.exe"
+	SplitPath, FN_VAR, name
+	Process, Exist, %name%
+	If Not ErrorLevel
+	IfExist, %FN_VAR%
+	{
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		Run "%FN_VAR%"
+		SLEEP 2000
+		WinWait, ahk_class MozillaWindowClass, , 10
+		COUNTER_LOOP_1=0
+		COUNTER_LOOP_2=0
+		LOOP 
+			{
+			WinGet, HWND_10, ID, ahk_class MozillaWindowClass
+			WinMinimize ahk_id %HWND_10%
+			WinGet, state, MinMax, ahk_id %HWND_10%
+			if (state = -1)
+				BREAK
+			COUNTER_LOOP_1+=1
+			IF COUNTER_LOOP_1>100
+				BREAK 
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+			SLEEP 1000
+			}
+	}
+}
 ; PAUSE
 
 
@@ -428,6 +459,7 @@ IfExist, %FN_VAR%
 	COUNTER_LOOP+=1
 	IF COUNTER_LOOP>100
 		BREAK 
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	SLEEP 1000
 	}
 }
@@ -452,6 +484,7 @@ IfExist, %FN_VAR%
 	COUNTER_LOOP+=1
 	IF COUNTER_LOOP>100
 		BREAK 
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	SLEEP 1000
 	}
 }
@@ -463,9 +496,9 @@ If Not ErrorLevel
 IfExist, %FN_VAR%
 {
 	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-	Run "%FN_VAR%" ,, MIN
-	WinWait, ahk_class TfrmOptions, , 5
-	WinMinimize
+	Run "%FN_VAR%"  /startup
+	; WinWait, ahk_class TfrmOptions, , 5
+	; WinMinimize
 }
 
 ; ---- THIS ONE TAKER LONGER SAVE TILL LAST
@@ -493,6 +526,7 @@ IfExist, %FN_VAR%
 	COUNTER_LOOP+=1
 	IF COUNTER_LOOP>500
 		BREAK
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	SLEEP 1000
 	}
 }

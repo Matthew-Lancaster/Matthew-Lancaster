@@ -876,6 +876,26 @@ Begin VB.Form Form1
       Appearance      =   1
       NumItems        =   0
    End
+   Begin VB.Label Label_CLOSE_XNVIEW_MP 
+      Alignment       =   1  'Right Justify
+      AutoSize        =   -1  'True
+      BackColor       =   &H00DBFFDE&
+      Caption         =   "CLOSE XNVIEW MP"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   7.8
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   192
+      Left            =   7944
+      TabIndex        =   167
+      Top             =   3312
+      Width           =   1488
+   End
    Begin VB.Label Label10 
       Alignment       =   2  'Center
       AutoSize        =   -1  'True
@@ -3468,6 +3488,9 @@ Option Explicit
 ' Sub TIMER_IF_AUTO_HOT_KEY_RUNNER_AND_STOP_THEN_QUIT_HERE_TIMER()
 ' --------------------------------------------------------------
 
+Dim FindWindow_Get_All_VAR_STRING
+Dim FindWindow_Get_All_HWND_COUNT
+
 Dim DID_FORM_LOAD
 
 Dim FIRST_TIME_WINDOWSTATEUP_FROM_VBMINIMIZED
@@ -5127,6 +5150,49 @@ REBOOT_DAY = 0
     
     TIMER_FORM_LOAD_INIT.Enabled = True
     
+End Sub
+
+Private Sub Label_CLOSE_XNVIEW_MP_Click()
+        Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+        Label_CLOSE_XNVIEW_MP.BackColor = RGB(255, 255, 255)
+        
+        Dim r, A1, A2
+        Dim ALL_DONE
+        Dim NAME_EXE As String
+        Dim PID_INPUT As Long
+        Dim i
+        Dim PID As Long
+        Dim hWnd_LINE As Long
+        Dim HWND_STR As String
+        Dim strarray As Variant
+        
+        'PASTE THE CURRENT SESSION TO CLIPBOARD __ QUITELY WITHOUT MSGBOX REPSONCE REQUIRING
+        '----------------------------------------------------
+        'Call FindWindow_Get_All_Explorer("QUITE MSGBOX=TRUE")
+        Call FindWindow_Get_All_XNVIEW_MP("QUITE MSGBOX=TRUE")
+        '----------------------------------------------------
+        
+        ' FindWindow_Get_All_HWND_COUNT =
+        
+        HWND_STR = FindWindow_Get_All_VAR_STRING
+        
+        ' MsgBox HWND_STR
+        
+        If HWND_STR <> "" Then
+            strarray = Split(HWND_STR, vbCrLf)
+            For r = 0 To UBound(strarray)
+                hWnd_LINE = Val(strarray(r))
+                If hWnd_LINE > 0 Then
+                    RESULT = PostMessage(hWnd_LINE, WM_CLOSE, 0&, 0&)
+                End If
+            Next
+        End If
+        
+        Beep
+        If MNU_NOT_MINIMIZE_VALUE = False Then
+            Me.WindowState = vbMinimized
+        End If
+
 End Sub
 
 Private Sub Label10_Click()
@@ -8476,6 +8542,45 @@ End If
 End Sub
 
 
+Function FindWindow_Get_All_XNVIEW_MP(QUITE_MSGBOX) As String
+    
+    FindWindow_Get_All_VAR_STRING = ""
+    FindWindow_Get_All_HWND_COUNT = 0
+    
+    Dim HUGE, VAR_STRING
+    Dim WINDOW_TITLE
+    Dim test_hWnd As Long, _
+        test_pid As Long, _
+        test_thread_id As Long
+    
+    Dim cText As String
+    HUGE = 0
+    
+    test_hWnd = FindWindow2(ByVal 0&, ByVal 0&)
+    VAR_STRING = ""
+    Do While test_hWnd <> 0
+        WINDOW_TITLE = GetWindowTitle(test_hWnd)
+        '--------------------------------------------------
+        '--------------------------------------------------
+        If GetWindowClass(test_hWnd) = "Qt51519QWindowIcon" Then
+            If WINDOW_TITLE <> "" Then
+                HUGE = HUGE + 1
+            End If
+            ' -----------------------------------------------------------------------------
+            ' ---- XNVIEW_MP NOT GOOD AT CLOSE/KILL BY TITLE AND IF NOT BY HWND ALSO WORKER
+            ' -----------------------------------------------------------------------------
+            VAR_STRING = VAR_STRING + WINDOW_TITLE + vbCrLf + vbCrLf + Trim(Str(test_hWnd)) + vbCrLf + vbCrLf
+        End If
+        'retrieve the next window
+        test_hWnd = GetWindow(test_hWnd, GW_hWndNEXT)
+    Loop
+    
+    FindWindow_Get_All_VAR_STRING = VAR_STRING
+    FindWindow_Get_All_HWND_COUNT = HUGE
+    
+End Function
+
+
 Function FindWindow_Get_All_Explorer(QUITE_MSGBOX) As String
     
     FindWindow_Get_All_Explorer_VAR_STRING = ""
@@ -8501,7 +8606,8 @@ Function FindWindow_Get_All_Explorer(QUITE_MSGBOX) As String
             If WINDOW_TITLE <> "" Then
                 HUGE = HUGE + 1
             End If
-            VAR_STRING = VAR_STRING + WINDOW_TITLE + vbCrLf + vbCrLf
+            ' ---- EXPLORER GOOD AT CLOSE/KILL BY TITLE BUT IF NOT BY HWND ALSO
+            VAR_STRING = VAR_STRING + WINDOW_TITLE + vbCrLf + vbCrLf + Trim(Str(test_hWnd)) + vbCrLf + vbCrLf
         End If
         'retrieve the next window
         test_hWnd = GetWindow(test_hWnd, GW_hWndNEXT)
@@ -13917,7 +14023,7 @@ If InStr(UCase(GetWindowTitle(Me.hWnd)), "NOT RESPONDING") > 0 Then
             DELAY_TIME_NOT_RESPOND = 120 * 100
         End If
         If GetWindowsVersion_VAR > 5.1 Then
-            DELAY_TIME_NOT_RESPOND = 120 * 2
+            DELAY_TIME_NOT_RESPOND = 120 * 100
         End If
     
     If X_ONE_SECOND_NOT_RESPOND > DELAY_TIME_NOT_RESPOND Then
@@ -13950,6 +14056,9 @@ If InStr(UCase(GetWindowTitle(Me.hWnd)), "NOT RESPONDING") > 0 Then
         ISHELL_PARAM = " 001"
         ISHELL = ISHELL + ISHELL_PARAM
         Shell ISHELL, vbNormalFocus
+        
+        MsgBox "KILL NOT RESPOND -- DELAY_TIME_NOT_RESPOND = 120 * 100"
+        
     End If
 End If
 
@@ -13969,10 +14078,12 @@ End If
 If STRESS_LEVEL > 4 Then
     X_STRESS_LEVEL = X_STRESS_LEVEL + 1
     
-    If X_STRESS_LEVEL > 8 Then
+    If X_STRESS_LEVEL > 20 Then
         ' Call Label53_Click                       ' Call EnumProcess
         Call KILL_WSCRIPT_GLOBAL
         Call Label_KILL_CMD_Click
+        MsgBox "KILL NOT RESPOND 20"
+
     End If
     
     If X_STRESS_LEVEL > 15 Then
@@ -13994,15 +14105,21 @@ If STRESS_LEVEL > 4 Then
                 If PID <> -1 Then
                     VAR = cProcesses.Process_Kill(PID)
                     Beep
+                    MsgBox "KILL NOT RESPOND 15"
+
                 End If
             End If
         Next
     End If
     If X_STRESS_LEVEL > 28 Then
         Call Label_CLOSE_GOODSYNC_Click
+        MsgBox "KILL NOT RESPOND 28"
+
     End If
     If X_STRESS_LEVEL > 30 Then
         Call Label_CLOSE_GOODSYNC2GO_Click
+        MsgBox "KILL NOT RESPOND 30"
+
     End If
     If X_STRESS_LEVEL = 40 Then
         ' -----------------------------------------------
@@ -14012,12 +14129,16 @@ If STRESS_LEVEL > 4 Then
         COMMAND_LINE_02 = "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER FORCE WAIT.BAT"
         Shell "CMD /C START """" /REALTIME /MAX """ + COMMAND_LINE_01 + """", vbNormalFocus
         Shell "CMD /C START """" /REALTIME /MAX """ + COMMAND_LINE_02 + """", vbNormalFocus
+        MsgBox "KILL NOT RESPOND 40"
+
     End If
     If X_STRESS_LEVEL > 50 Then
         ISHELL = "D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER_OPERATION_KILL_EVENT.exe"
         ISHELL_PARAM = " 001"
         ISHELL = ISHELL + ISHELL_PARAM
         Shell ISHELL, vbNormalFocus
+        MsgBox "KILL NOT RESPOND 50"
+    
     End If
     If X_STRESS_LEVEL = 54 Then
         ' -----------------------------------------------
@@ -14028,6 +14149,8 @@ If STRESS_LEVEL > 4 Then
         Shell "CMD /C START """" /REALTIME /MAX """ + COMMAND_LINE_01 + """", vbNormalFocus
         Shell "CMD /C START """" /REALTIME /MAX """ + COMMAND_LINE_02 + """", vbNormalFocus
         X_STRESS_LEVEL = 0
+        MsgBox "KILL NOT RESPOND 54"
+        
     End If
 End If
 

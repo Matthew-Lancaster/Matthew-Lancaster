@@ -182,10 +182,13 @@ SoundBeep , 1500 , 400
 
 
 DetectHiddenWindows, On
-
-Saved_MOUSE_CURSOR_Title = %A_Cursor%
+Saved_MOUSE_CURSOR_Title_02 = %A_Cursor%
+Saved_MOUSE_CURSOR_Title_01 = %A_Cursor%
 RELEASE_SOUNDPLAY=%A_Now%
 ALLOW_SOUND=1
+
+
+SETTIMER MOUSE_CURSOR_SUB_02,500
 
 
 ; NOT REQUIRE HERE IS NOT AUTO RUN FOR THE COMPUTER THAT ARE OTHER ONE
@@ -215,10 +218,10 @@ IF !(A_ComputerName = "4-ASUS-GL522VW")
 
 
 ; ---------------------------------------------------------------
-; CALL SUB-ROUTINE __ MOUSE_CURSOR_SUB __ EVERY 1000 MILLISECOND 1 SECOND
+; CALL SUB-ROUTINE __ MOUSE_CURSOR_SUB_01 __ EVERY 1000 MILLISECOND 1 SECOND
 ; ---------------------------------------------------------------
 ; ---------------------------------------------------------------
-setTimer MOUSE_CURSOR_SUB,1
+setTimer MOUSE_CURSOR_SUB_01,1
 setTimer TIMER_PREVIOUS_INSTANCE,1
 setTimer RELEASE_SOUNDPLAY_TIMER,10
 
@@ -238,8 +241,29 @@ RELEASE_SOUNDPLAY_TIMER:
 	}
 RETURN
 
+
+MOUSE_CURSOR_SUB_02:
+
+if A_Cursor<>%Saved_MOUSE_CURSOR_Title_02%
+{
+	if A_Cursor=Wait
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS,500
+	if A_Cursor=AppStarting
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS,500
+	if A_Cursor=IBeam
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS,OFF
+	if A_Cursor=Arrow
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS,OFF
+	
+	Saved_MOUSE_CURSOR_Title_02=%A_Cursor%
+	; TOOLTIP %A_Cursor%
+}	
+
+RETURN
+
+
 ;--------------------------------------------------------------------
-MOUSE_CURSOR_SUB:
+MOUSE_CURSOR_SUB_01:
 
 Current_MOUSE_CURSOR_Title = %A_Cursor%
 
@@ -250,16 +274,20 @@ SOUND_PLAYED=0
 ; OR WHEN THE SOUND PLAY HAS A SLIGHT WAIT TIMER FOR EVENT SOUND DONE
 ; ---------------------------------------------------------------
 
-;if %Current_MOUSE_CURSOR_Title%=%Saved_MOUSE_CURSOR_Title%
+;if %Current_MOUSE_CURSOR_Title%=%Saved_MOUSE_CURSOR_Title_01%
 ;{
 	;TIMER_DURATION_VAR=20
-	;setTimer MOUSE_CURSOR_SUB,10
+	;setTimer MOUSE_CURSOR_SUB_01,10
 ;}
 
-
  
+ 
+
+
+	
+	
 SET_GO=0
-if Current_MOUSE_CURSOR_Title<>%Saved_MOUSE_CURSOR_Title%
+if Current_MOUSE_CURSOR_Title<>%Saved_MOUSE_CURSOR_Title_01%
 	SET_GO=1
 
 ALLOW_SOUND=1
@@ -285,9 +313,9 @@ IF WinExist(FN_NAME)
 ; THIS DOES IT WITH ECHO SOUNDING
 ; MUCH MORE HELPFUL AND GOOD IN OTHER PROGRAM WHEN WANT IT ON
 ; -------------------------------------------------------------------
-IF (A_ComputerName = "4-ASUS-GL522VW") 
-	IfWinNotActive, GoodSync -
-		ALLOW_SOUND=0
+; IF (A_ComputerName = "4-ASUS-GL522VW") 
+	; IfWinNotActive, GoodSync -
+		; ALLOW_SOUND=0
 ; -------------------------------------------------------------------
 
 ALLOW_SOUND=0
@@ -301,7 +329,7 @@ IF ALLOW_SOUND=0
 	
 if SET_GO=1
 {
-	Saved_MOUSE_CURSOR_Title = %Current_MOUSE_CURSOR_Title%
+	Saved_MOUSE_CURSOR_Title_01 = %Current_MOUSE_CURSOR_Title%
 	SOUND_PLAY_TRUE=0
 	
 	RELEASE_SOUNDPLAY=%A_Now%
@@ -310,7 +338,7 @@ if SET_GO=1
 
 	
 	; ---------------------------------------------------------------
-	; IF Saved_MOUSE_CURSOR_Title=  ____ HAS _NOTHING_ FIRST TIME RUN IN __ GIVE IT THE FIRST VALUE OF CURRENT
+	; IF Saved_MOUSE_CURSOR_Title_01=  ____ HAS _NOTHING_ FIRST TIME RUN IN __ GIVE IT THE FIRST VALUE OF CURRENT
 	; ---------------------------------------------------------------
 	; IF ONE COMMAND AFTER IF CONDITION  AND THEN NOT REQUIRE 
 	; A BRACKET PAIR AROUND _LIKE LIKE LIKE_ {... _NEW LINE_VBCRLF_...} A SET 
@@ -318,8 +346,8 @@ if SET_GO=1
 	; ---------------------------------------------------------------
 	; LATER SAME COMMAND BE USER ANOTHER FOR MAIN LOOP ALWAYS HAPPEN LATER ALTERNATIVE AFTER ONCE
 	; ---------------------------------------------------------------
-	; if Saved_MOUSE_CURSOR_Title=
-	; Saved_MOUSE_CURSOR_Title = %Current_MOUSE_CURSOR_Title%
+	; if Saved_MOUSE_CURSOR_Title_01=
+	; Saved_MOUSE_CURSOR_Title_01 = %Current_MOUSE_CURSOR_Title%
 
 	; ---------------------------------------------------------------
 	; ***********************
@@ -339,12 +367,12 @@ if SET_GO=1
 	; IF MOUSE CURSOR WAS WAIT HOUR GLASS AND RETURN TO RESULT WANTED THEN HERE
 	; ---------------------------------------------------------------
 	;---------------------------------------------------
-	; if Saved_MOUSE_CURSOR_Title=IBeam __ TEST DEBUGGER REMMER OUT
+	; if Saved_MOUSE_CURSOR_Title_01=IBeam __ TEST DEBUGGER REMMER OUT
 	; QUICKER RESULT TO TEST THAN MAKE THE HOUR GLASS APPEAR
 	; --------------------------------------------------
 	
 	
-	if Saved_MOUSE_CURSOR_Title=Wait
+	if Saved_MOUSE_CURSOR_Title_01=Wait
 	; ---------------------------------------------------------------
 	; TONE TONE SOUND AUDIO HERALD THE SOUND FOR CHANGE WANTER HAPPENING
 	; ---------------------------------------------------------------
@@ -384,6 +412,7 @@ if SET_GO=1
 		;-----------------------------------
 
 		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\AutoHotKeys Mouse Changer _ Wait _ Hour Glass.wav
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS,500
 		;-----------------------------------
 		
 		SOUND_PLAY_TRUE=1
@@ -394,7 +423,7 @@ if SET_GO=1
 	
 	
 	SET_GO=0
-	if Saved_MOUSE_CURSOR_Title=AppStarting
+	if Saved_MOUSE_CURSOR_Title_01=AppStarting
 		SET_GO=1
 	if SOUND_PLAY_TRUE=1
 		SET_GO=0
@@ -425,9 +454,10 @@ if SET_GO=1
 
 		SOUND_PLAY_TRUE=1
 		SOUND_PLAYED=1
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS,500
 	}
 
-	;Saved_MOUSE_CURSOR_Title:=Current_MOUSE_CURSOR_Title
+	;Saved_MOUSE_CURSOR_Title_01:=Current_MOUSE_CURSOR_Title
 
 	; ---------------------------------------------------------------
 	; CARE ABOUT THE SOUND NOT TOO LONG, 200 MILLISECOND IS ENOUGH
@@ -446,16 +476,16 @@ if SET_GO=1
 	;DEBUG_SOUND_PLAY_TRUE=1
 	
 
-	;if Saved_MOUSE_CURSOR_Title=IBeam -----------------
+	;if Saved_MOUSE_CURSOR_Title_01=IBeam -----------------
 	;DEBUG_SOUND_PLAY_TRUE=0 
 	;---------------------------------------------------
 	; IBEAM HAS A PROBLEM OF REPEAT
 	;---------------------------------------------------
 	
-	;if Saved_MOUSE_CURSOR_Title=AppStarting 
+	;if Saved_MOUSE_CURSOR_Title_01=AppStarting 
 	;DEBUG_SOUND_PLAY_TRUE=0 
 	
-	;if Saved_MOUSE_CURSOR_Title=Wait 
+	;if Saved_MOUSE_CURSOR_Title_01=Wait 
 	;DEBUG_SOUND_PLAY_TRUE=0 
 	
 	;if DEBUG_SOUND_PLAY_TRUE=1
@@ -480,15 +510,19 @@ if SET_GO=1
 		;SoundBeep , 5000 , TIMER_DURATION_VAR
 		
 		
+		; ---------------------------------------------------------------
 		; HERE IS WHEN MOUSE CHANGER FROM HOUR GLASS BACK TO NORMAL MOUSY
 		; AND WHEN ANY MOUSE ICON CHANGE BACK TO NORMAL MOUSE
 		; SoundBeep , 2000 , 400
-		
+		; ---------------------------------------------------------------
 		;### Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start_VOID.wav
 
 		;-----------------------------------
 		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\AutoHotKeys Mouse Changer Normal.wav
 		SOUND_PLAYED=1
+		
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS,OFF
+		
 		
 		;SoundBeep , 3000 , 40
 
@@ -518,8 +552,8 @@ if SET_GO=1
 	; ABOVE LESS SKILL METHOD FOR THE PROJECT __ MORE OVER KILL OTHER WAY AROUND WITH COMPLEX
 	; ---------------------------------------------------------------
 
-	;if Current_MOUSE_CURSOR_Title<>%Saved_MOUSE_CURSOR_Title%
-	;Saved_MOUSE_CURSOR_Title:=Current_MOUSE_CURSOR_Title
+	;if Current_MOUSE_CURSOR_Title<>%Saved_MOUSE_CURSOR_Title_01%
+	;Saved_MOUSE_CURSOR_Title_01:=Current_MOUSE_CURSOR_Title
 	
 	;--------------------------------
 	; DEBUG TEST RESULT
@@ -536,15 +570,20 @@ if SET_GO=1
 	; GET CLICKS ON SOUND AUDIO WHEN QUICKER AND NOT SLIGHT PAUSE BETWEEN SOUND PLAYED
 	;----------------------------------------------------------------
 	if SOUND_PLAYED=1
-		setTimer MOUSE_CURSOR_SUB,10
+		setTimer MOUSE_CURSOR_SUB_01,10
 	if SOUND_PLAYED=0
-	setTimer MOUSE_CURSOR_SUB,1
+	setTimer MOUSE_CURSOR_SUB_01,1
 	
 }
 
 return
 ;--------------------------------------------------------------------
 		
+		
+TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS:
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+RETURN
+
 
 
 isWindowFullScreen( winTitle ) {

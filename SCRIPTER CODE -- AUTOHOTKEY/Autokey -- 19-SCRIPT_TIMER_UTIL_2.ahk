@@ -5956,6 +5956,7 @@ RETURN
 
 
 ; THIS TIMER IS NOT SET TO RUN 
+; DON'T GET RUN
 ; -------------------------------------------------------------------
 TIMER_SUB_GOODSYNC_OPTIONS:
 

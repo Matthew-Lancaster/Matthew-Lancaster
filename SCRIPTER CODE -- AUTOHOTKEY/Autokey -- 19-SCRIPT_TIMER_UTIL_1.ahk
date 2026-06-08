@@ -831,60 +831,71 @@ RETURN
 	
 	
 
-; ----
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 ; display PID list - Ask for Help - AutoHotkey Community
 ; https://autohotkey.com/board/topic/36888-display-pid-list/
 ; ----
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; ---- REMMER BECAUSE IN -- Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
+; RAM_EMPTY_MAIN:
 
-RAM_EMPTY_MAIN:
+	; VarSetCapacity(memorystatus, 4+4+4+4+4+4+4+4)
+	; success := DllCall("kernel32.dll\GlobalMemoryStatus", "uint", &memorystatus)
+	; stats1 := ReadInteger(&memorystatus,4,4, false)                          
+	; stats2 := Round(ReadInteger(&memorystatus,12,4, false)/1024) 
 
-	VarSetCapacity(memorystatus, 4+4+4+4+4+4+4+4)
-	success := DllCall("kernel32.dll\GlobalMemoryStatus", "uint", &memorystatus)
-	stats1 := ReadInteger(&memorystatus,4,4, false)                          
-	stats2 := Round(ReadInteger(&memorystatus,12,4, false)/1024) 
+	; GOSUB, RAM_EMPTY
 
-	GOSUB, RAM_EMPTY
+	; VarSetCapacity(memorystatus, 4+4+4+4+4+4+4+4)
+	; success := DllCall("kernel32.dll\GlobalMemoryStatus", "uint", &memorystatus)
+	; stats1A := ReadInteger(&memorystatus,4,4, false) 
+	; stats2A := Round(ReadInteger(&memorystatus,12,4, false)/1024)  
 
-	VarSetCapacity(memorystatus, 4+4+4+4+4+4+4+4)
-	success := DllCall("kernel32.dll\GlobalMemoryStatus", "uint", &memorystatus)
-	stats1A := ReadInteger(&memorystatus,4,4, false) 
-	stats2A := Round(ReadInteger(&memorystatus,12,4, false)/1024)  
+	; dif1 := stats1 - stats1A
+	; dif2 := stats2 - stats2A
 
-	dif1 := stats1 - stats1A
-	dif2 := stats2 - stats2A
+	; MSGBOX,,,% "EMPTY " dif1 "% OF RAM " dif2 "K", 50
 
-	MSGBOX,,,% "EMPTY " dif1 "% OF RAM " dif2 "K", 50
-
-RETURN
-RAM_EMPTY:
-DetectHiddenWindows, On
-WinGet,processes_,List
-Loop %processes_%
-{
-	WinGet, PID, PID,% "ahk_id " processes_%A_Index%
-	Process, Exist, %PID%
-	procid :=ErrorLevel
-	IfNotEqual, procid
-	{
-		hash:=DllCall("OpenProcess","UInt",0x001F0FFF,"Int",0,"Int",procid)
-		DllCall("SetProcessWorkingSetSize", "UInt", hash, "Int", -1, "Int", -1)
-		DllCall("CloseHandle", "Int", hash)
-	}
-}
-RETURN	
-ReadInteger( p_address, p_offset, p_size, p_hex=true )
-{
-  value = 0
-  old_FormatInteger := a_FormatInteger
-  if ( p_hex )
-    SetFormat, integer, hex
-  else
-    SetFormat, integer, dec
-  loop, %p_size%
-    value := value+( *( ( p_address+p_offset )+( a_Index-1 ) ) << ( 8* ( a_Index-1 ) ) )
-  SetFormat, integer, %old_FormatInteger%
-  return, value
-}
+; RETURN
+; RAM_EMPTY:
+; DetectHiddenWindows, On
+; WinGet,processes_,List
+; Loop %processes_%
+; {
+	; WinGet, PID, PID,% "ahk_id " processes_%A_Index%
+	; Process, Exist, %PID%
+	; procid :=ErrorLevel
+	; IfNotEqual, procid
+	; {
+		; hash:=DllCall("OpenProcess","UInt",0x001F0FFF,"Int",0,"Int",procid)
+		; DllCall("SetProcessWorkingSetSize", "UInt", hash, "Int", -1, "Int", -1)
+		; DllCall("CloseHandle", "Int", hash)
+	; }
+; }
+; RETURN	
+; ReadInteger( p_address, p_offset, p_size, p_hex=true )
+; {
+  ; value = 0
+  ; old_FormatInteger := a_FormatInteger
+  ; if ( p_hex )
+    ; SetFormat, integer, hex
+  ; else
+    ; SetFormat, integer, dec
+  ; loop, %p_size%
+    ; value := value+( *( ( p_address+p_offset )+( a_Index-1 ) ) << ( 8* ( a_Index-1 ) ) )
+  ; SetFormat, integer, %old_FormatInteger%
+  ; return, value
+; }
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 
 	
 RUN_HUBIC_MIDNIGHT_IF_GONE_PROCESS_LASSO_PLUS_5_PERCENT_FOR_60_SECOND:
@@ -972,7 +983,7 @@ MIDNIGHT_AND_HOUR_TIMER:
 			; GOSUB VBS_35_RENAMER_VB6_VBP_LCASE_VBS
 			; GOSUB VB_NT_00_Best_VB_01_SYNCRONIZER
 			GOSUB SET_OWNER_RUN_BATCH_FILER
-			GOSUB RAM_EMPTY_MAIN
+			; GOSUB RAM_EMPTY_MAIN
 			; GOSUB KILL_ALL_PROCESS_BY_REMOTE_INSTRUCTION ; - NOT SUPPOSED TO BE HERE GOT OWN TIMER
 			; GOSUB CLOSE_ALL_VB__AHK_CLASS_WNDCLASS_DESKED_GSK_MIDNIGHT
 			GOSUB PULL_RECYCLE_BIN_ON  ; CHECK IF EMPTY BEFORE BEGIN

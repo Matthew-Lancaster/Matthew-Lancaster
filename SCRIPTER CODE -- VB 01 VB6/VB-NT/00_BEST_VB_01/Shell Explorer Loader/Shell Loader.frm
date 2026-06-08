@@ -3,14 +3,14 @@ Begin VB.Form Form1
    AutoRedraw      =   -1  'True
    BackColor       =   &H00404040&
    Caption         =   "EXPLORER LOADER"
-   ClientHeight    =   5925
-   ClientLeft      =   225
-   ClientTop       =   2595
-   ClientWidth     =   12315
+   ClientHeight    =   5928
+   ClientLeft      =   192
+   ClientTop       =   2340
+   ClientWidth     =   12312
    Icon            =   "Shell Loader.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   5925
-   ScaleWidth      =   12315
+   ScaleHeight     =   5928
+   ScaleWidth      =   12312
    StartUpPosition =   3  'Windows Default
    Visible         =   0   'False
    Begin VB.Timer TIMER_FORMSTART 
@@ -37,7 +37,7 @@ Begin VB.Form Form1
       Top             =   3660
    End
    Begin VB.FileListBox File1 
-      Height          =   285
+      Height          =   264
       Left            =   8472
       TabIndex        =   265
       Top             =   1584
@@ -78,7 +78,7 @@ Begin VB.Form Form1
       Width           =   2652
    End
    Begin VB.ListBox List1 
-      Height          =   255
+      Height          =   240
       Left            =   8472
       TabIndex        =   19
       Top             =   2544
@@ -90,7 +90,7 @@ Begin VB.Form Form1
       Caption         =   "Load Log"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -110,7 +110,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -130,7 +130,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -150,7 +150,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -170,7 +170,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -190,7 +190,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -210,7 +210,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -230,7 +230,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -250,7 +250,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -270,7 +270,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -290,7 +290,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -310,7 +310,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -330,7 +330,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -350,7 +350,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -370,7 +370,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -390,7 +390,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -410,7 +410,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -430,7 +430,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -450,7 +450,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -470,7 +470,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -490,7 +490,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -510,7 +510,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -530,7 +530,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -550,7 +550,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -570,7 +570,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -590,7 +590,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -610,7 +610,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -630,7 +630,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -650,7 +650,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -670,7 +670,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -690,7 +690,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -710,7 +710,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -730,7 +730,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -750,7 +750,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -770,7 +770,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -790,7 +790,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -810,7 +810,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -830,7 +830,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -850,7 +850,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -870,7 +870,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -890,7 +890,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -910,7 +910,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -930,7 +930,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -950,7 +950,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -970,7 +970,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -990,7 +990,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1010,7 +1010,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1030,7 +1030,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1050,7 +1050,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1070,7 +1070,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1090,7 +1090,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1110,7 +1110,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1130,7 +1130,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1150,7 +1150,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1170,7 +1170,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1190,7 +1190,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1210,7 +1210,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1230,7 +1230,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1250,7 +1250,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1270,7 +1270,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1290,7 +1290,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1310,7 +1310,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1330,7 +1330,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1350,7 +1350,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1370,7 +1370,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1390,7 +1390,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1410,7 +1410,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1430,7 +1430,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1450,7 +1450,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1470,7 +1470,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1490,7 +1490,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1510,7 +1510,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1530,7 +1530,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1550,7 +1550,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1570,7 +1570,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1590,7 +1590,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1610,7 +1610,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1630,7 +1630,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1650,7 +1650,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1670,7 +1670,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1690,7 +1690,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1710,7 +1710,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1730,7 +1730,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1750,7 +1750,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1770,7 +1770,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1790,7 +1790,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1810,7 +1810,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1830,7 +1830,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1850,7 +1850,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1870,7 +1870,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1890,7 +1890,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1910,7 +1910,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1930,7 +1930,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1950,7 +1950,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1970,7 +1970,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1990,7 +1990,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2010,7 +2010,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2030,7 +2030,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2050,7 +2050,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2070,7 +2070,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2090,7 +2090,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2110,7 +2110,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2130,7 +2130,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2150,7 +2150,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2170,7 +2170,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2190,7 +2190,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2210,7 +2210,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2230,7 +2230,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2250,7 +2250,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2270,7 +2270,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2290,7 +2290,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2310,7 +2310,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2330,7 +2330,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2350,7 +2350,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2370,7 +2370,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2390,7 +2390,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2410,7 +2410,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2430,7 +2430,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2450,7 +2450,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2470,7 +2470,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2490,7 +2490,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2510,7 +2510,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2530,7 +2530,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2550,7 +2550,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2570,7 +2570,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2590,7 +2590,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2610,7 +2610,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2630,7 +2630,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2650,7 +2650,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2670,7 +2670,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2690,7 +2690,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2710,7 +2710,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2730,7 +2730,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2750,7 +2750,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2770,7 +2770,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2790,7 +2790,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2810,7 +2810,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2830,7 +2830,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2850,7 +2850,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2870,7 +2870,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2890,7 +2890,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2910,7 +2910,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2930,7 +2930,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2950,7 +2950,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2970,7 +2970,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2990,7 +2990,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3010,7 +3010,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3030,7 +3030,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3050,7 +3050,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3070,7 +3070,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3090,7 +3090,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3110,7 +3110,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3130,7 +3130,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3150,7 +3150,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3170,7 +3170,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3190,7 +3190,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3210,7 +3210,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3230,7 +3230,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3250,7 +3250,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3270,7 +3270,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3290,7 +3290,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3310,7 +3310,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3330,7 +3330,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3350,7 +3350,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3370,7 +3370,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3390,7 +3390,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3410,7 +3410,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3430,7 +3430,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3450,7 +3450,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3470,7 +3470,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3490,7 +3490,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3510,7 +3510,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3530,7 +3530,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3550,7 +3550,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3570,7 +3570,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3590,7 +3590,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3610,7 +3610,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3630,7 +3630,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3650,7 +3650,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3670,7 +3670,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3690,7 +3690,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3710,7 +3710,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3730,7 +3730,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3750,7 +3750,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3770,7 +3770,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3790,7 +3790,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3810,7 +3810,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3830,7 +3830,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3850,7 +3850,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3870,7 +3870,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3890,7 +3890,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3910,7 +3910,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3930,7 +3930,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3950,7 +3950,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3970,7 +3970,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -3990,7 +3990,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4010,7 +4010,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4030,7 +4030,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4050,7 +4050,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4070,7 +4070,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4090,7 +4090,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4110,7 +4110,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4130,7 +4130,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4150,7 +4150,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4170,7 +4170,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4190,7 +4190,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4210,7 +4210,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4230,7 +4230,7 @@ Begin VB.Form Form1
       Caption         =   "COMBO #"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4249,7 +4249,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4269,7 +4269,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4289,7 +4289,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4309,7 +4309,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4329,7 +4329,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4349,7 +4349,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4369,7 +4369,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4389,7 +4389,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4409,7 +4409,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4429,7 +4429,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4449,7 +4449,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4469,7 +4469,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4489,7 +4489,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4509,7 +4509,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4529,7 +4529,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4549,7 +4549,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4569,7 +4569,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4589,7 +4589,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4609,7 +4609,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4629,7 +4629,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4649,7 +4649,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4669,7 +4669,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4689,7 +4689,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4709,7 +4709,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4729,7 +4729,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4749,7 +4749,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4796,7 +4796,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4816,7 +4816,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4836,7 +4836,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4856,7 +4856,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4876,7 +4876,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4896,7 +4896,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4916,7 +4916,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4936,7 +4936,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4956,7 +4956,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4976,7 +4976,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4996,7 +4996,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5016,7 +5016,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5036,7 +5036,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5056,7 +5056,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5076,7 +5076,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5096,7 +5096,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5116,7 +5116,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5136,7 +5136,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5156,7 +5156,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5176,7 +5176,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5196,7 +5196,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5216,7 +5216,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5236,7 +5236,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5256,7 +5256,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5276,7 +5276,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5296,7 +5296,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5316,7 +5316,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5336,7 +5336,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5356,7 +5356,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5376,7 +5376,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5396,7 +5396,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5416,7 +5416,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5436,7 +5436,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5456,7 +5456,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5476,7 +5476,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5496,7 +5496,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5516,7 +5516,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5536,7 +5536,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5556,7 +5556,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5576,7 +5576,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5596,7 +5596,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5616,7 +5616,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5636,7 +5636,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5656,7 +5656,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5676,7 +5676,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5696,7 +5696,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5716,7 +5716,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5736,7 +5736,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5756,7 +5756,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5776,7 +5776,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5796,7 +5796,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5816,7 +5816,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5836,7 +5836,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5856,7 +5856,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5876,7 +5876,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5896,7 +5896,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5916,7 +5916,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5936,7 +5936,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5956,7 +5956,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5976,7 +5976,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -5996,7 +5996,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6016,7 +6016,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6036,7 +6036,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6056,7 +6056,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6076,7 +6076,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6096,7 +6096,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6116,7 +6116,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6136,7 +6136,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6156,7 +6156,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6176,7 +6176,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6196,7 +6196,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6216,7 +6216,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6236,7 +6236,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6256,7 +6256,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6276,7 +6276,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6296,7 +6296,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6316,7 +6316,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6336,7 +6336,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6356,7 +6356,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6376,7 +6376,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6396,7 +6396,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6416,7 +6416,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6436,7 +6436,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6456,7 +6456,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6476,7 +6476,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6496,7 +6496,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6516,7 +6516,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6536,7 +6536,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6556,7 +6556,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6576,7 +6576,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6596,7 +6596,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6616,7 +6616,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6636,7 +6636,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6656,7 +6656,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6676,7 +6676,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6696,7 +6696,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6716,7 +6716,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6736,7 +6736,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6756,7 +6756,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6776,7 +6776,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6796,7 +6796,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6816,7 +6816,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6836,7 +6836,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6856,7 +6856,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6876,7 +6876,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6896,7 +6896,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6916,7 +6916,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6936,7 +6936,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6956,7 +6956,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6976,7 +6976,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -6996,7 +6996,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7016,7 +7016,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7036,7 +7036,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7056,7 +7056,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7076,7 +7076,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7096,7 +7096,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7116,7 +7116,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7136,7 +7136,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7156,7 +7156,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7176,7 +7176,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7196,7 +7196,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7216,7 +7216,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7236,7 +7236,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7256,7 +7256,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7276,7 +7276,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7296,7 +7296,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7316,7 +7316,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7336,7 +7336,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7356,7 +7356,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7376,7 +7376,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7396,7 +7396,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7416,7 +7416,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7436,7 +7436,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7456,7 +7456,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7476,7 +7476,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7496,7 +7496,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7516,7 +7516,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7536,7 +7536,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7556,7 +7556,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7576,7 +7576,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7596,7 +7596,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7616,7 +7616,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7636,7 +7636,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7656,7 +7656,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7676,7 +7676,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7696,7 +7696,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7716,7 +7716,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7736,7 +7736,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7756,7 +7756,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7776,7 +7776,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7796,7 +7796,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7816,7 +7816,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7836,7 +7836,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7856,7 +7856,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7876,7 +7876,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7896,7 +7896,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7916,7 +7916,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7936,7 +7936,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7956,7 +7956,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7976,7 +7976,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -7996,7 +7996,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8016,7 +8016,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8036,7 +8036,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8056,7 +8056,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8076,7 +8076,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8096,7 +8096,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8116,7 +8116,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8136,7 +8136,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8156,7 +8156,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8176,7 +8176,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8196,7 +8196,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8216,7 +8216,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8236,7 +8236,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8256,7 +8256,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8276,7 +8276,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8296,7 +8296,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8316,7 +8316,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8336,7 +8336,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8356,7 +8356,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8376,7 +8376,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8396,7 +8396,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8416,7 +8416,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8436,7 +8436,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8456,7 +8456,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8476,7 +8476,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8496,7 +8496,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8516,7 +8516,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8536,7 +8536,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8556,7 +8556,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8576,7 +8576,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8596,7 +8596,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8616,7 +8616,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8636,7 +8636,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8656,7 +8656,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8676,7 +8676,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8696,7 +8696,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8716,7 +8716,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8736,7 +8736,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8756,7 +8756,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8776,7 +8776,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8796,7 +8796,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8816,7 +8816,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8836,7 +8836,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8856,7 +8856,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8876,7 +8876,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8896,7 +8896,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8916,7 +8916,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8936,7 +8936,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8956,7 +8956,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8976,7 +8976,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -8996,7 +8996,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9016,7 +9016,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9036,7 +9036,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9056,7 +9056,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9076,7 +9076,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9096,7 +9096,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9116,7 +9116,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9136,7 +9136,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9156,7 +9156,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9176,7 +9176,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9196,7 +9196,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9216,7 +9216,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9236,7 +9236,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9256,7 +9256,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9276,7 +9276,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9296,7 +9296,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9316,7 +9316,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9336,7 +9336,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9356,7 +9356,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9376,7 +9376,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9396,7 +9396,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9416,7 +9416,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9436,7 +9436,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9456,7 +9456,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9476,7 +9476,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9496,7 +9496,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9516,7 +9516,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9536,7 +9536,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9556,7 +9556,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9576,7 +9576,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9596,7 +9596,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9626,7 +9626,7 @@ Begin VB.Form Form1
       Caption         =   "Shell NotePad Loader"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9647,7 +9647,7 @@ Begin VB.Form Form1
       Caption         =   "---- Load Last File Click Here ---- "
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9666,7 +9666,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9686,7 +9686,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9706,7 +9706,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9726,7 +9726,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9746,7 +9746,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9766,7 +9766,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9786,7 +9786,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9806,7 +9806,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9826,7 +9826,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9846,7 +9846,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9866,7 +9866,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9886,7 +9886,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9906,7 +9906,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9926,7 +9926,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9946,7 +9946,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -9966,7 +9966,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -10949,6 +10949,309 @@ End Function
 
 
 
+Private Sub MNU_LOAD_ALL_SCRIPTOR_AHK_BAT_VBS_Click()
+
+
+
+
+    ' ----------------------------------------------------------
+    ' ----------------------------------------------------------
+    ' IF GOT PROBLM SOME WON'T LOAD IN
+    ' AND THEN SHUT DOWN NOTEPAD++ AND RLOAD IT
+    ' AS PROFILE INFO OF WHAT FILES LOADD ARE NOT SAVED UNTIL IT CLOSING
+    ' ----------------------------------------------------------
+    ' ----------------------------------------------------------
+    
+    
+    
+    ' ----------------------------------------------------------
+    ' ----------------------------------------------------------
+
+    Me.WindowState = vbMinimized
+    NP = ""
+    If NP = "" Then
+        NP2 = "C:\Program Files\Notepad++\notepad++.exe"
+        NP = Dir(NP2)
+    End If
+    If NP = "" Then
+        NP2 = "C:\Program Files (X86)\Notepad++\notepad++.exe"
+        NP = Dir(NP2)
+    End If
+    If NP = "" Then
+        MsgBox "NOTEPAD++ NOT FOUND -- HERE " + vbCrLf + vbCrLf + NP1 + vbCrLf + vbCrLf + NP2
+    End If
+    
+    'Simple Find Date
+    Dim Filespec, Adate1
+    Set FS = CreateObject("Scripting.FileSystemObject")
+    
+    ' ------------------------------------------------
+    ' READ FILE -- NOTEPADD++ -- FIND WHAT NOT HAVE DO
+    ' ------------------------------------------------
+    ' GetComputerName
+    ' GetComputerName + "-" + GetUserName
+    ' C:\Users\MATT 04\AppData\Roaming\Notepad++\session.xml
+    ' C:\Users\"+ GetUserName+"\AppData\Roaming\Notepad++\session.xml
+    
+    NOTEPAD_FILE = "C:\Users\" + GetUserName + "\AppData\Roaming\Notepad++\session.xml"
+    Dim NOTEPAD_STRING As String
+    If FSO.FileExists(NOTEPAD_FILE) = True Then
+        FR1 = FreeFile
+        Open NOTEPAD_FILE For Binary As #FR1
+            NOTEPAD_STRING = Space$(LOF(FR1))
+            Get #FR1, 1, NOTEPAD_STRING
+        Close #F1
+        ' NOTEPAD_STRING = UCase(NOTEPAD_STRING)
+    End If
+    
+'    Dim PATH_F()
+'    ReDim PATH_F(20)
+'    i = 0
+'    i = i + 1: PATH_F(i) = "C:\SCRIPTER"
+'    i = i + 1: PATH_F(i) = "C:\PStart\Progs\0_Nirsoft_Package\NirSoft"
+'    ReDim Preserve PATH_F(i)
+    AA1$ = "C:\Users\" + GetUserName + "\AppData\Roaming\Notepad++\session.xml"
+    If Dir(AA1$) <> "" Then
+        FR4 = FreeFile
+        Open AA1$ For Binary As #FR4
+            STRING_SESSION_XML = Input(LOF(FR4), FR4)
+        Close #FR4
+    End If
+    
+    
+    Dim PATH_FILE()
+    ReDim PATH_FILE(20)
+    i = 0
+    i = i + 1: PATH_FILE(i) = "D:\BT CLOUD SYNC OLD\CALLERID\2Double Trouble.txt"
+    i = i + 1: PATH_FILE(i) = "C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\Multiple_Thread Port Scanner 02 CON\NETWORK_COMPUTER_NAME.txt"
+    i = i + 1: PATH_FILE(i) = "C:\NETWORK_COMPUTER_NAME.txt"
+    i = i + 1: PATH_FILE(i) = "C:\Menu.lst"
+    i = i + 1: PATH_FILE(i) = "C:\Menu_oppo_system.lst"
+    i = i + 1: PATH_FILE(i) = "C:\Menu_win_oppo_system_installs.lst"
+    i = i + 1: PATH_FILE(i) = "C:\Menu_z_Demo.lst"
+    i = i + 1: PATH_FILE(i) = "C:\NETWORK_COMPUTER_NAME.txt"
+    i = i + 1: PATH_FILE(i) = "C:\BAT 01-BCDEDIT_.BAT"
+    i = i + 1: PATH_FILE(i) = "C:\BAT 01-BCDEDIT SET {BOOTMGR} DISPLAYBOOTMENU YES.BAT"
+'    i = i + 1: PATH_FILE(i) = "C:\28 SendSMTP_REBOOT_BATCH.BAT.lnk"
+    'i = i + 1: PATH_FILE(i) = ""
+    'i = i + 1: PATH_FILE(i) = ""
+    
+    ReDim Preserve PATH_FILE(i)
+    For R_4 = 1 To UBound(PATH_FILE)
+        If InStr(STRING_SESSION_XML, PATH_FILE(R_4)) = 0 Then
+            DoEvents
+            Shell NP2 + " """ + PATH_FILE(R_4) + """"
+        End If
+    Next
+    
+
+
+
+    ' FILTER -- THING NOT HAVE
+    Dim FILTER_01()
+    ReDim FILTER_01(80)
+    i = 0
+    i = i + 1: FILTER_01(i) = "1-ASUS-X5DIJ"
+    i = i + 1: FILTER_01(i) = "2-ASUS-EEE"
+    i = i + 1: FILTER_01(i) = "3-LINDA-PC"
+    i = i + 1: FILTER_01(i) = "4-ASUS-GL522VW"
+    i = i + 1: FILTER_01(i) = "5-ASUS-P2520LA"
+    i = i + 1: FILTER_01(i) = "7-ASUS-GL522VW"
+    i = i + 1: FILTER_01(i) = "8-MSI-GP62M-7RD"
+    i = i + 1: FILTER_01(i) = "9-ASUS-G815LM"
+    i = i + 1: FILTER_01(i) = "#NFS"
+    i = i + 1: FILTER_01(i) = "\_GSDATA_"
+    i = i + 1: FILTER_01(i) = "\SCRIPTER CODE -- VB 01 VB6"
+    i = i + 1: FILTER_01(i) = "\SCRIPTER CODE -- VB 03 VB2008"
+    i = i + 1: FILTER_01(i) = "\SCRIPTER CODE -- VB 04 VB2017"
+    i = i + 1: FILTER_01(i) = "\SCRIPTER CODE -- VB 05 VB2026"
+    i = i + 1: FILTER_01(i) = "VBSCRIPT 68"
+    i = i + 1: FILTER_01(i) = "COPY_CAMERA_PHOTO_IMAGE_POINTER"
+    i = i + 1: FILTER_01(i) = "MATT.LAN.COM"
+    i = i + 1: FILTER_01(i) = "LAPTOP BATTERY HEALTH INFO"
+    i = i + 1: FILTER_01(i) = "MP3 AUDIO"
+    i = i + 1: FILTER_01(i) = "SCRIPT 01"
+    i = i + 1: FILTER_01(i) = "SCRIPT 02"
+    i = i + 1: FILTER_01(i) = "SCRIPT 08"
+    i = i + 1: FILTER_01(i) = "SCRIPTER -- "
+    i = i + 1: FILTER_01(i) = " (2)."
+    i = i + 1: FILTER_01(i) = "SCRIPTER CODE -- REG KEY SETTER"
+    i = i + 1: FILTER_01(i) = "SCRIPTER CODE -- USERSTYLES.ORG STYLISH"
+    i = i + 1: FILTER_01(i) = "SYNC_FOLDER_"
+    i = i + 1: FILTER_01(i) = "USB_PEN_DRIVE_DISKMOD"
+    i = i + 1: FILTER_01(i) = "UTILS"
+    i = i + 1: FILTER_01(i) = "Z_ROOT_COMPARE"
+    i = i + 1: FILTER_01(i) = "AHK - 7 PLUS"
+    i = i + 1: FILTER_01(i) = "AHK SPARE PART CODE"
+    i = i + 1: FILTER_01(i) = "JOYPAD_WORK"
+    i = i + 1: FILTER_01(i) = "NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN"
+    i = i + 1: FILTER_01(i) = "SCRIPTER CODE -- AHK_ NIFTY_WINDOWS"
+    i = i + 1: FILTER_01(i) = "SCRIPTER CODE -- VB6"
+    i = i + 1: FILTER_01(i) = "SCRIPTER CODE -- VBNET 2008"
+    i = i + 1: FILTER_01(i) = "SCRIPTER CODE -- GRUB4DOS"
+    i = i + 1: FILTER_01(i) = "\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 18-FFMPEG"
+    i = i + 1: FILTER_01(i) = "\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 12-PINTO10"
+    i = i + 1: FILTER_01(i) = "\SCRIPTER CODE -- VB 02 VBSCRIPT\VBSEDIT"
+    i = i + 1: FILTER_01(i) = "\REG"
+    i = i + 1: FILTER_01(i) = "\CONFIG"
+    i = i + 1: FILTER_01(i) = "\MP3 AUDIO"
+    i = i + 1: FILTER_01(i) = "\UTILS"
+    
+    i = i + 1: FILTER_01(i) = "TEXT.TEXT.TXT"
+    
+    i = i + 1: FILTER_01(i) = "\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET"
+    
+    ' i = i + 1: FILTER_01(i) = "\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 10-VICEVERSA _ SHELL FOLDERING__\"
+    i = i + 1: FILTER_01(i) = "\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 12-PINTO10"
+    i = i + 1: FILTER_01(i) = "\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 18-FFMPEG"
+    i = i + 1: FILTER_01(i) = "\SCRIPTER CODE -- VB 02 VBSCRIPT\VBSEDIT"
+    i = i + 1: FILTER_01(i) = "RETEKESS_V115"
+    i = i + 1: FILTER_01(i) = "RETEKESSMTB"
+    i = i + 1: FILTER_01(i) = ".BAK"
+    
+    'i = i + 1: FILTER_01(i) = ""
+    'i = i + 1: FILTER_01(i) = ""
+    
+    i = i + 1: FILTER_01(i) = "TEXT_ADBLOCK_ARC_"
+    i = i + 1: FILTER_01(i) = "FBP-SETT" ' FBP-Settings-14-Jan-2020.txt
+    ReDim Preserve FILTER_01(i)
+
+    Dim FILTER_PATH_01()
+    ReDim FILTER_PATH_01(40)
+    i = 0
+    i = i + 1: FILTER_PATH_01(i) = "C:\SCRIPTER\SCRIPTER CODE -- BAT\"
+    i = i + 1: FILTER_PATH_01(i) = "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\"
+    i = i + 1: FILTER_PATH_01(i) = "C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\"
+    i = i + 1: FILTER_PATH_01(i) = "C:\SCRIPTER\SCRIPTER CODE -- POWERSHELL\"
+    i = i + 1: FILTER_PATH_01(i) = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\"
+    
+    ReDim Preserve FILTER_PATH_01(i)
+
+
+'---------------------------------------------------------
+
+    ScanPath.ListView1.ListItems.Clear
+    ScanPath.cboMask.Text = "*.AHK;*.BAT;*.VBS"
+    ScanPath.txtPath.Text = "C:\SCRIPTER"
+    Call ScanPath.cmdScan_Click
+    For r = ScanPath.ListView1.ListItems.Count To 1 Step -1
+        A1$ = ScanPath.ListView1.ListItems.Item(r).SubItems(1)
+        B1$ = ScanPath.ListView1.ListItems.Item(r)
+        FLAG_DONE = False
+        '----------------------------------
+        If InStr(B1$, "_gsdata_") > 0 Then
+            ScanPath.ListView1.ListItems.Remove (r)
+            FLAG_DONE = True
+        End If
+        '----------------------------------
+        '----------------------------------
+        
+        If FLAG_DONE = False Then
+            FILE1_EX = UCase(A1$ + B1$)
+            If InStr(B1$, ".") > 0 Then
+                FILE1_EX = UCase(Mid(B1$, InStrRev(B1$, ".")))
+            End If
+            If InStr(B1$, ".") = 0 Then
+                ScanPath.ListView1.ListItems.Remove (r)
+                FLAG_DONE = True
+            End If
+            ' PRIORITY CHECK 01
+            If InStr(".VBS .AHK .BAT", FILE1_EX) > 0 Then
+                If InStr(" .TXT", FILE1_EX) > 0 Then
+                    If InStr(UCase(B1$), "TREESIZE") = 1 And FLAG_DONE = False Then
+                        ScanPath.ListView1.ListItems.Remove (r)
+                        FLAG_DONE = True
+                    End If
+                End If
+            End If
+            ' .LST .DIZ .REG .PS1 .CMD .LOG
+            ' .LST FOR MENU GRUB4DOS
+            If InStr(".VBS .AHK .TXT .BAS .BAT .LST .PS1 .MD", FILE1_EX) = 0 Then
+                If FLAG_DONE = False Then
+                    ScanPath.ListView1.ListItems.Remove (r)
+                    FLAG_DONE = True
+                End If
+            End If
+            
+            
+            ' PRIORITY CHECK 02 NOT ALLOW
+            For R_5 = 1 To UBound(FILTER_01)
+                If InStr(UCase(A1$ + B1$), UCase(FILTER_01(R_5))) > 0 And FLAG_DONE = False Then
+                    ScanPath.ListView1.ListItems.Remove (r)
+                    FLAG_DONE = True
+                End If
+            Next
+        
+
+            ' PRIORITY CHECK 02 NOT ALLOW
+            For R_5 = 1 To UBound(FILTER_PATH_01)
+                If FLAG_DONE = False Then
+                    If InStr(UCase(A1$ + B1$), UCase(FILTER_PATH_01(R_5))) > 0 Then
+                        If Len(A1$) > Len(FILTER_PATH_01(R_5)) Then
+                            ScanPath.ListView1.ListItems.Remove (r)
+                            FLAG_DONE = True
+                        End If
+                    End If
+                End If
+            Next
+        
+        
+        End If
+        
+        
+        
+        If FLAG_DONE = False Then
+            Filespec = A1$ + B1$
+            'SHORT
+            SHORT_FILESPEC = GetShortName(Filespec)
+            On Error Resume Next
+            Set F = FS.GetFile(Filespec)
+            SHORT_FILESPEC = ""
+            If Err.Number > 0 Then
+                SHORT_FILESPEC = GetShortName(Filespec)
+                Err.Clear
+                Set F = FS.GetFile(SHORT_FILESPEC)
+                If Err.Number > 0 Then SHORT_FILESPEC = "ERROR"
+            End If
+            On Error GoTo 0
+            
+        End If
+        If FLAG_DONE = False Then
+            If FSO.FileExists(A1$ + B1$) = False Or SHORT_FILESPEC = "ERROR" Then
+                ScanPath.ListView1.ListItems.Remove (r)
+            End If
+        End If
+
+    Next
+    For r = 1 To ScanPath.ListView1.ListItems.Count
+        A1$ = ScanPath.ListView1.ListItems.Item(r).SubItems(1)
+        B1$ = ScanPath.ListView1.ListItems.Item(r)
+        If InStr(STRING_SESSION_XML, B1$) = 0 Then
+            DoEvents
+            Shell NP2 + " """ + A1$ + B1$ + """"
+        End If
+    Next
+
+'----------------------------------------------
+
+
+
+
+End
+
+
+
+
+
+
+
+
+
+
+
+
+End Sub
+
 ' SCRIPTOR ------------------------------
 Private Sub MNU_LOAD_ALL_SCRIPTOR_Click()
 
@@ -11022,6 +11325,7 @@ Private Sub MNU_LOAD_ALL_SCRIPTOR_Click()
     i = 0
     i = i + 1: PATH_FILE(i) = "D:\BT CLOUD SYNC OLD\CALLERID\2Double Trouble.txt"
     i = i + 1: PATH_FILE(i) = "C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\Multiple_Thread Port Scanner 02 CON\NETWORK_COMPUTER_NAME.txt"
+    i = i + 1: PATH_FILE(i) = "C:\NETWORK_COMPUTER_NAME.txt"
     i = i + 1: PATH_FILE(i) = "C:\Menu.lst"
     i = i + 1: PATH_FILE(i) = "C:\Menu_oppo_system.lst"
     i = i + 1: PATH_FILE(i) = "C:\Menu_win_oppo_system_installs.lst"
@@ -11080,7 +11384,7 @@ Private Sub MNU_LOAD_ALL_SCRIPTOR_Click()
             End If
             On Error GoTo 0
             
-            Adate1 = F.DateLastModified
+            Adate1 = F.datelastmodified
             If FSO.FileExists(A1$ + B1$) = True And SHORT_FILESPEC <> "ERROR" Then
                 If Adate1 < Now - 40 Then
                     ScanPath.ListView1.ListItems.Remove (r)
@@ -11836,7 +12140,7 @@ Form1.Caption = Lbl2.Caption
     On Error Resume Next
     Set F1 = FSO.GetFile(App.Path + "\" + App.EXEName + ".EXE")
     VAR_DATE_1 = 0
-    VAR_DATE_1 = F1.DateLastModified
+    VAR_DATE_1 = F1.datelastmodified
     VAR_DATE_2 = Format(VAR_DATE_1, "DDD DD-MMM-YYYY  HH:MM AM/PM")
     On Error GoTo 0
     

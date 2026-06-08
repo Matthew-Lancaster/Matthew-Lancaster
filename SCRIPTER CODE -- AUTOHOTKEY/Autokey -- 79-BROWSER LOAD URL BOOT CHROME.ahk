@@ -47,6 +47,16 @@ SoundBeep , 1500 , 400
 ; SetStoreCapslockMode, off
 
 
+SET_GO_1=TRUE
+IF (A_ComputerName = "2-ASUS-EEE") 
+	SET_GO_1=
+	
+IF !SET_GO_1
+{	
+	EXITAPP
+	RETURN
+}
+
 GOSUB CHROME_RUN_AND_MIN
 
 ; -------------------------------------------------------------------

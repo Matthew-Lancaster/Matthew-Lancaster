@@ -657,6 +657,49 @@ MAIN_ROUTINE_1:
 ; -------------------------------------------------------------------
 
 
+
+IF (A_ComputerName = "1-ASUS-X5DIJ") 
+	COUNT_TICK_TIME=% 1000*60*4
+IF (A_ComputerName = "2-ASUS-EEE") 
+	COUNT_TICK_TIME=% 1000*60*4
+IF (A_ComputerName = "3-LINDA-PC") 
+	COUNT_TICK_TIME=% 1000*60*4
+IF (A_ComputerName = "4-ASUS-GL522VW") 
+	COUNT_TICK_TIME=% 1000*60*3
+IF (A_ComputerName = "5-ASUS-P2520LA") 
+	COUNT_TICK_TIME=% 1000*60*4
+IF (A_ComputerName = "8-MSI-GP62M-7RD") 
+	COUNT_TICK_TIME=% 1000*60*3
+IF (A_ComputerName = "9-ASUS-G815LM") 
+	COUNT_TICK_TIME=% 1000*60*3
+	
+;-------------------------------------------------
+; IF OUR SET TIME IS 3 MINUTE  LESS THEN TICK TIME LET IT GO
+; ONLY IF BOOT IN EARLY
+;-------------------------------------------------
+
+IF A_TICKCOUNT<%COUNT_TICK_TIME%
+	LOOP 
+	{
+		IF A_TICKCOUNT>%COUNT_TICK_TIME%
+			BREAK 
+
+		SLEEP 1000
+		
+		; -----------------------------------------------------------------------------------------------------------------------
+		; ONE OF THE MENU OPTION IS TO OVERRIDE THIS WAIT AND AUTORUN NOW IN THE INCLUDE PROGRAM
+		; Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
+		; -----------------------------------------------------------------------------------------------------------------------
+		IF VAR_RUN_ME_NOW_AUTOBOOT=TRUE
+			BREAK
+		
+	}
+
+
+
+
+
+
 ; -------------------------------------------------------------------
 ; GIRLGAMER 
 ; https://autohotkey.com/board/topic/74519-solved-move-cursor-to-center-of-screen/
@@ -1438,17 +1481,17 @@ IF (A_ComputerName = "2-ASUS-EEE")
 ; -------------------------------------------------------------------
 
 	
-If ProcessExist("picpick.exe", A_UserName)=0
-{
-	; FN_VAR:="C:\PStart\Progs\#_PortableApps\PortableApps\PicPickPortable\App\picpick\picpick.exe"
+; If ProcessExist("picpick.exe", A_UserName)=0
+; {
+	; ; FN_VAR:="C:\PStart\Progs\#_PortableApps\PortableApps\PicPickPortable\App\picpick\picpick.exe"
 	
-	FN_VAR:="C:\Program Files (x86)\PicPick\picpick.exe"
-	if FileExist(FN_VAR)
-	{
-		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		Run, "%FN_VAR%" /startup , , HIDE
-	}
-}
+	; FN_VAR:="C:\Program Files (x86)\PicPick\picpick.exe"
+	; if FileExist(FN_VAR)
+	; {
+		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		; Run, "%FN_VAR%" /startup
+	; }
+; }
 
 IF TRUE=FALSE
 If ProcessExist("RoboTaskBarIcon.exe", A_UserName)=0

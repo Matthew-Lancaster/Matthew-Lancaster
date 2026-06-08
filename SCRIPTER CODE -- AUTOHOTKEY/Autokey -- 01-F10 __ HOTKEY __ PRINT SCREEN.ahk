@@ -309,6 +309,8 @@ WSCRIPT_FOCUS_SET_FLAG_02=
 ROBOFOM_FOCUS_SET_FLAG_01=FALSE
 ; -------------------------------------------------------------------
 ; SETTIMER TIMER_WSCRIPT_FOCUS_LEFT_KILL,1000
+SETTIMER TIMER_FAST_APPLYING_SECURITY_01,500
+SETTIMER TIMER_FAST_APPLYING_SECURITY_02,500
 SETTIMER TIMER_FAST_ERROR_APPLYING_SECURITY,10
 
 ESCAPE_KEY_COUNT=0
@@ -796,7 +798,7 @@ RETURN
 ; https://superuser.com/questions/390805/in-notepad-how-can-i-execute-a-script-like-using-f5-but-with-every-save-ctr
 ; ----------------------------------------
 
-#IfWinActive,  .PS1 - Notepad++ ahk_class Notepad++
+#IfWinActive, .PS1 - Notepad++ ahk_class Notepad++
 F5:: 
 {
 	
@@ -809,6 +811,26 @@ F5::
     return
 }
 #IfWinActive
+
+#IfWinActive, .ahk - Notepad++ ahk_class Notepad++
+F5:: 
+{
+	IF A_ComputerName<>2-ASUS-EEE
+	{
+		Send, {F5}
+		RETURN
+	}
+	Send, ^S   ; ---- SAVE DOCUMENT SCRIPT BEFORE RUN 
+    Send, {F6}
+	Send, {ENTER}  ; -- PRESS RUN BUTTON   
+    ; WinWaitActive, Run...,, 4
+    ; Send, {Enter}
+	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+    return
+}
+#IfWinActive
+
+	
 
 
 
@@ -1874,6 +1896,28 @@ STRING_INVERT_MESSENGER:
 RETURN
 
 
+TIMER_FAST_APPLYING_SECURITY_02:
+
+	ifwinactive Windows Security ahk_class #32770
+	{
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	}
+
+SetTitleMatchMode 2  ; PARTIAL PATH
+
+RETURN
+
+
+TIMER_FAST_APPLYING_SECURITY_01:
+
+	ifwinactive Windows Security ahk_class #32770
+	{
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	}
+
+SetTitleMatchMode 2  ; PARTIAL PATH
+
+RETURN
 
 
 TIMER_FAST_ERROR_APPLYING_SECURITY:
@@ -1890,6 +1934,7 @@ TIMER_FAST_ERROR_APPLYING_SECURITY:
 			{
 				; NA [v1.0.45+]: May improve reliability. See reliability below.
 				ControlClick, Button1,%VAR_IN_NAME%,,,, NA x10 y10
+				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			}
 	}
 
@@ -3161,6 +3206,7 @@ RETURN
 
 ; -------------------------------------------------------------------
 ; SET OKAY BOX AFTER MADE SELECTION
+; DON'T GET RUN
 SET_OK_BOX:
 {
 

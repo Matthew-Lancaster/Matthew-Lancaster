@@ -1,12 +1,12 @@
 VERSION 5.00
 Begin VB.Form FormStart 
    Caption         =   "Form2"
-   ClientHeight    =   3195
+   ClientHeight    =   3192
    ClientLeft      =   60
-   ClientTop       =   345
+   ClientTop       =   348
    ClientWidth     =   4680
    LinkTopic       =   "Form2"
-   ScaleHeight     =   3195
+   ScaleHeight     =   3192
    ScaleWidth      =   4680
    StartUpPosition =   3  'Windows Default
 End
@@ -141,6 +141,8 @@ Dim Filename_VAR(40)
 
 FR_1 = FreeFile
 NET_FILENAME = "C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\Multiple_Thread Port Scanner 02 CON\NETWORK_COMPUTER_NAME.txt"
+NET_FILENAME = "C:\NETWORK_COMPUTER_NAME.txt"
+
 Open NET_FILENAME For Input As #FR_1
 R_L = 0
 Do
@@ -195,6 +197,7 @@ End With
 R_L_X = 0
 FR_1 = FreeFile
 NET_FILENAME = "C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\Multiple_Thread Port Scanner 02 CON\NETWORK_COMPUTER_NAME.txt"
+NET_FILENAME = "C:\NETWORK_COMPUTER_NAME.txt"
 Open NET_FILENAME For Input As #FR_1
 Path = "--DriveRemote"
 COMPUTER_NAME_SET = ""
