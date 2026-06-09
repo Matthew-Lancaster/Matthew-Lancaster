@@ -74,7 +74,7 @@ if FileExist(Element_1)
 {
 	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 ; ;	Run, %Element_1%
-;	SLEEP 3000
+;	SLEEP 500
 }
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -88,7 +88,7 @@ if FileExist(Element_1)
 {
 	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	Run, %Element_1%
-	SLEEP 3000
+	SLEEP 500
 }
 
 
@@ -110,7 +110,7 @@ if FileExist(Element_1)
 {
 	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	Run, %Element_1%
-	SLEEP 3000
+	SLEEP 500
 }
 
 SET_GO_1=
@@ -131,7 +131,7 @@ IF SET_GO_1=1
 }
 
 
-SLEEP 3000
+SLEEP 500
 
 SET_GO_1=
 IF (A_ComputerName="4-ASUS-GL522VW")
@@ -160,10 +160,10 @@ IF SET_GO_1=1
 	{
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		Run, %Element_1%
-		SLEEP 3000
+		SLEEP 500
 	}
 }
-SLEEP 3000
+SLEEP 500
 
 
 SET_GO_1=
@@ -184,7 +184,7 @@ IF SET_GO_1=1
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		; MSGBOX "HERE"
 		Run, %Element_1%
-		SLEEP 3000
+		SLEEP 500
 	}
 }
 
@@ -205,7 +205,7 @@ IF SET_GO_1
 	{
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		Run, %Element_1%
-		SLEEP 3000
+		SLEEP 500
 	}
 }
 
@@ -218,7 +218,7 @@ IF SET_GO_1
 	{
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		Run, %Element_1%
-		SLEEP 3000
+		SLEEP 500
 	}
 }
 
@@ -251,7 +251,7 @@ if FileExist(FN_VAR)
 	{
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		Run, "%FN_VAR%"
-		SLEEP 3000
+		SLEEP 500
 	}
 
 ; -------------------------------------------------------------------

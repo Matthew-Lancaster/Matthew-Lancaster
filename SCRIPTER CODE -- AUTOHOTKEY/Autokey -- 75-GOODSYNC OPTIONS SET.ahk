@@ -757,6 +757,7 @@ SUB__GoodSync_Dialog_220373_TIMER:
 			; ANSWER "NO"
 			; -----------------------------------------------------------------
 		}	
+	
 		
 
 		IF SET_GO_44=TRUE
@@ -849,6 +850,31 @@ SUB__GoodSync_Dialog_220373_TIMER:
 				SETTIMER TOOLTIP_TO_CLEAR,3000
 			}
 		}
+
+		IF SET_GO_44=TRUE
+		IF SET_GO_54=TRUE
+		{
+			; -----------------------------------------------------
+			; THIS IS THE SIZE OF MSGBOX FOR
+			; "We propose to use UNC path"
+			; ANSWER "NO"
+			-----------------------------------------------------
+			ControlGet, isVisible1, Visible, , Button1, A
+			if isVisible1
+			{
+				A2B=-----------------------------------------------------`n
+				A2B=%A2B% We propose to use UNC path`n
+				A2B=%A2B% ANSWER -- NO --`n
+				A2B=%A2B% -----------------------------------------------------`n
+				TOOLTIP %A2B%,500,10
+
+				ControlClick, Button2, ahk_id %HWND_2%
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+				SETTIMER TOOLTIP_TO_CLEAR,3000
+			}
+		}
+
+
 
 	}
 	

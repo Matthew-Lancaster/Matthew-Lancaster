@@ -247,6 +247,28 @@ Reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Ribbon" /v 
 
 
 
+REM -----------------------------------------------------------------
+REM -- How to get Explorer to open more files in the context menu
+REM -----------------------------------------------------------------
+REM AI Overview
+REM -----------------------------------------------------------------
+REM Windows naturally shortens the context menu and hides options like "Open" or "Print" when you select more than 15 files to prevent system crashes. You can bypass this restriction by modifying a simple Registry key, which safely allows you to increase the maximum file limit.
+REM -----------------------------------------------------------------
+REM Steps to Increase the File Limit
+REM Press the Win + R keys to open the Run dialogue box.
+REM Type regedit and press Enter to open the Microsoft Registry Editor.
+REM Navigate to the following path in the left pane:
+REM HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer 
+REM -----------------------------------------------------------------
+REM Look for the MultipleInvokePromptMinimum DWORD in the right pane.
+REM If it does not exist: Right-click in the empty space, select New > DWORD (32-bit) Value, and name it exactly MultipleInvokePromptMinimum.
+REM -----------------------------------------------------------------
+REM Double-click the MultipleInvokePromptMinimum key, select Decimal, and enter your preferred maximum file limit (e.g., 30 or 100).
+REM -----------------------------------------------------------------
+Reg.exe add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer" /v "MultipleInvokePromptMinimum " /t REG_DWORD /d "100" /f
+REM -----------------------------------------------------------------
+REM -----------------------------------------------------------------
+
 REM 02-DEC-2025 18:28:02 TUE
 REM ---------------------------------------------------------------------
 REM How to become full time Administrator without any restrictions : r/Windows10

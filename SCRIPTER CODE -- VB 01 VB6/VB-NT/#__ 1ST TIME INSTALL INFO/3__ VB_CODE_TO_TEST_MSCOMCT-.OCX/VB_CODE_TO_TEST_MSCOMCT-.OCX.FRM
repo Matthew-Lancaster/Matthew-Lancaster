@@ -4,7 +4,7 @@ Begin VB.Form TEST_MSCOMCT_OCX
    ClientHeight    =   8988
    ClientLeft      =   2652
    ClientTop       =   1860
-   ClientWidth     =   19344
+   ClientWidth     =   12384
    ClipControls    =   0   'False
    BeginProperty Font 
       Name            =   "System"
@@ -19,14 +19,19 @@ Begin VB.Form TEST_MSCOMCT_OCX
    LinkTopic       =   "Form1"
    PaletteMode     =   1  'UseZOrder
    ScaleHeight     =   8988
-   ScaleWidth      =   19344
+   ScaleWidth      =   12384
    StartUpPosition =   2  'CenterScreen
    WhatsThisHelp   =   -1  'True
    WindowState     =   2  'Maximized
+   Begin VB.Timer Timer1 
+      Interval        =   5000
+      Left            =   11484
+      Top             =   1260
+   End
    Begin VB.TextBox Text2 
       BeginProperty Font 
          Name            =   "Courier"
-         Size            =   12
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -34,26 +39,26 @@ Begin VB.Form TEST_MSCOMCT_OCX
          Strikethrough   =   0   'False
       EndProperty
       Height          =   4440
-      Left            =   1440
+      Left            =   516
       MultiLine       =   -1  'True
       ScrollBars      =   2  'Vertical
       TabIndex        =   1
       Text            =   "VB_CODE_TO_TEST_MSCOMCT-.OCX.frx":0000
-      Top             =   2280
+      Top             =   1872
       Visible         =   0   'False
       Width           =   11610
    End
    Begin VB.Timer Timer_FORM_RUNNING 
       Enabled         =   0   'False
       Interval        =   1
-      Left            =   12000
-      Top             =   840
+      Left            =   11472
+      Top             =   828
    End
    Begin VB.TextBox Text1 
       DragMode        =   1  'Automatic
       BeginProperty Font 
          Name            =   "Courier"
-         Size            =   12
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -209,7 +214,7 @@ Private Sub Form_Load()
 'Text2.Width = Me.Width
 'Text2.Height = Me.Height
 
-Text1.FontSize = 10
+Text1.FontSize = 7
 Text1.FontBold = True
 
 Me.Show
@@ -231,6 +236,8 @@ Text2.Top = 0
 Text2.Left = 0
 Text2.Width = Me.Width
 Text2.Height = Me.Height
+Me.WindowState = vbMaximized
+Me.SetFocus
 
 End Sub
 
@@ -862,7 +869,7 @@ Private Sub MNU_HELP_ABOUT_Click()
     Text2.Visible = True
     Text2.FontName = "ARIAL"
     Text2.FontBold = True
-    Text2.FontSize = 9
+    Text2.FontSize = 8
     Text1.Visible = False
 
 End Sub
@@ -887,8 +894,6 @@ End Sub
 Sub SHELL_THE_MODIFIER_BATCH()
 
 i = ""
-'I = I + "@ECHO -- THE BATCH FILE HAS BEGAN THE EXE WILL EXIT AND PAUSE WAIT TO HAPPEN" + vbCrLf
-'I = I + "PAUSE" + vbCrLf
 i = i + "CD\" + vbCrLf
 i = i + "Regsvr32.exe /u """ + FILE_NAME_PATH + """" + vbCrLf
 i = i + "COPY """ + FILE_NAME_PATH2 + """ """ + FILE_NAME_PATH + """" + vbCrLf
@@ -897,7 +902,7 @@ i = i + "Regsvr32.exe /u """ + FILE_NAME_PATH + """" + vbCrLf
 i = i + "DEL """ + FILE_NAME_PATH + """" + vbCrLf
 i = i + "COPY """ + FILE_NAME_PATH2 + """ """ + FILE_NAME_PATH + """" + vbCrLf
 i = i + "Regsvr32.exe """ + FILE_NAME_PATH + """" + vbCrLf
-'I = I + "@ECHO THE BATCH FILE HAS COMPLETED IT BIT TO DO AND NOW RELOAD THE APP CODE EXE" + vbCrLf
+i = i + "@ECHO ------------------------------------------------" + vbCrLf
 i = i + "@ECHO." + vbCrLf
 i = i + "@ECHO THE BATCH FILE HAS COMPLETED ---- WAIT TO HAPPEN" + vbCrLf
 i = i + "@ECHO ------------------------------------------------" + vbCrLf
@@ -906,17 +911,32 @@ i = i + "@ECHO AS LONG AS NOT ANOTHER PROGRAM IS HOGG THE FILE ACCESS FOR" + vbC
 i = i + "@ECHO THESE TWO .OCX FILE" + vbCrLf
 i = i + "@ECHO A FAULT ABOUT FILE ACCESS WOULD REPORT IN THE COMMAND WINDOW" + vbCrLf
 i = i + "@ECHO ------------------------------------------------" + vbCrLf
+i = i + "@ECHO IF FAULT LIKE FILE COPY NONE THEN RUN IN SAFE MODE" + vbCrLf
+i = i + "@ECHO ------------------------------------------------" + vbCrLf
 i = i + "@ECHO." + vbCrLf
 i = i + "PAUSE" + vbCrLf
-
-'I = I + """" + App.Path + "\" + App.EXEName + """" + vbCrLf
 
 FR1 = FreeFile
 Open App.Path + "\RUN_BATCH_CUSTOM_CREATOR.BAT" For Output As #FR1
     Print #FR1, i
 Close #FR1
 
-Shell App.Path + "\RUN_BATCH_CUSTOM_CREATOR.BAT", vbMaximizedFocus
+' ----------------------------------------
+Debug.Print "CMD.EXE /K START /D """ + App.Path + """ /B " + "RUN_BATCH_CUSTOM_CREATOR.BAT"
+' ----------------------------------------
+' RESULT FROM DEBUG.PRINT
+' ----------------------------------------
+' CMD.EXE /K START /D "D:\VB6\VB-NT\#__ 1ST TIME INSTALL INFO\3__ VB_CODE_TO_TEST_MSCOMCT-.OCX" /B RUN_BATCH_CUSTOM_CREATOR.BAT
+' ----------------------------------------
+
+' ----------------------------------------
+' THE PATH HAS QUOTES AROUND HER
+' BUTTER THE PROGRAM TO RUN MUST NOT
+' SO MOT SURE IF ALLOW PROGRAM WITH SPACER
+' ----------------------------------------
+Dim CMD_STR
+CMD_STR = "CMD.EXE /K START """" /D """ + App.Path + """ /B " + "RUN_BATCH_CUSTOM_CREATOR.BAT"
+Shell CMD_STR, vbMaximizedFocus
 
 'Unload Me
 
@@ -951,3 +971,11 @@ Unload Me
 
 End Sub
 
+Private Sub Timer1_Timer()
+
+Timer1.Enabled = False
+
+Text2.Visible = False
+Text1.Visible = True
+
+End Sub
