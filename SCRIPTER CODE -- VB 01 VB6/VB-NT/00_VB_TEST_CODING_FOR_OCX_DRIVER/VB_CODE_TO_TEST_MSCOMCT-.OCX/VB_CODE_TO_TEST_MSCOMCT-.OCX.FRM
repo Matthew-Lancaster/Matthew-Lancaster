@@ -4,7 +4,7 @@ Begin VB.Form TEST_MSCOMCT_OCX
    ClientHeight    =   8988
    ClientLeft      =   2652
    ClientTop       =   1860
-   ClientWidth     =   19344
+   ClientWidth     =   12384
    ClipControls    =   0   'False
    BeginProperty Font 
       Name            =   "System"
@@ -19,14 +19,19 @@ Begin VB.Form TEST_MSCOMCT_OCX
    LinkTopic       =   "Form1"
    PaletteMode     =   1  'UseZOrder
    ScaleHeight     =   8988
-   ScaleWidth      =   19344
+   ScaleWidth      =   12384
    StartUpPosition =   2  'CenterScreen
    WhatsThisHelp   =   -1  'True
    WindowState     =   2  'Maximized
+   Begin VB.Timer Timer1 
+      Interval        =   5000
+      Left            =   11484
+      Top             =   1260
+   End
    Begin VB.TextBox Text2 
       BeginProperty Font 
          Name            =   "Courier"
-         Size            =   12
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -34,26 +39,26 @@ Begin VB.Form TEST_MSCOMCT_OCX
          Strikethrough   =   0   'False
       EndProperty
       Height          =   4440
-      Left            =   1440
+      Left            =   516
       MultiLine       =   -1  'True
       ScrollBars      =   2  'Vertical
       TabIndex        =   1
       Text            =   "VB_CODE_TO_TEST_MSCOMCT-.OCX.frx":0000
-      Top             =   2280
+      Top             =   1872
       Visible         =   0   'False
       Width           =   11610
    End
    Begin VB.Timer Timer_FORM_RUNNING 
       Enabled         =   0   'False
       Interval        =   1
-      Left            =   12000
-      Top             =   840
+      Left            =   11472
+      Top             =   828
    End
    Begin VB.TextBox Text1 
       DragMode        =   1  'Automatic
       BeginProperty Font 
          Name            =   "Courier"
-         Size            =   12
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -81,14 +86,11 @@ Begin VB.Form TEST_MSCOMCT_OCX
    Begin VB.Menu MNU_RUN_ME_AGAIN 
       Caption         =   "RUN_RESTART"
    End
-   Begin VB.Menu MNU_ADMINISTRATOR 
-      Caption         =   "ADMINISTRATOR"
-   End
-   Begin VB.Menu MNU_GAP1 
+   Begin VB.Menu MNU_SPACER_12 
       Caption         =   "|"
    End
-   Begin VB.Menu MNU_PROCESS 
-      Caption         =   "PROCESSER HAPPENING"
+   Begin VB.Menu MNU_COMCTL32 
+      Caption         =   "CORRECT LEGACY COMCTL32.OCX"
    End
    Begin VB.Menu MNU_SPACER 
       Caption         =   "|"
@@ -120,6 +122,9 @@ Begin VB.Form TEST_MSCOMCT_OCX
    Begin VB.Menu MNU_HELP_ABOUT 
       Caption         =   "HELP IS AT HARP"
    End
+   Begin VB.Menu MNU_URL 
+      Caption         =   "URL OF SOURCE MESSENGER BOX"
+   End
    Begin VB.Menu MNU_CMD_LINE 
       Caption         =   "CMD_LINE"
    End
@@ -144,21 +149,28 @@ Dim UNLOAD_REQUEST_TO_FULFILLER
 Dim WINDOWS_PATH
 Dim i
 Dim FS, F, FR1
-Dim ADATE1, ADATE2, ADATE3, ADATE4
+Dim ADATE1, ADATE2, ADATE3, ADATE4, ADATE5, ADATE7
 Dim ASIZE1 As Long
 Dim ASIZE2 As Long
 Dim ASIZE3 As Long
 Dim ASIZE4 As Long
+Dim ASIZE5 As Long
+Dim ASIZE7 As Long
 
 Dim FILE_NAME_PATH
+Dim FILE_NAME_PATH2
 Dim F1_MSCOMCT2_LEGACY
 Dim F2_MSCOMCTL_LEGACY
+Dim F3_COMCTL32_LEGACY
+
 Dim FILE_MSCOMCT2_OCX
 Dim FILE_MSCOMCTL_OCX
+Dim FILE_COMCTL32_OCX
 
 Dim MATCH_MADE_IN_HEAVEN_00
 Dim MATCH_MADE_IN_HEAVEN_1
 Dim MATCH_MADE_IN_HEAVEN_2
+Dim MATCH_MADE_IN_HEAVEN_3
 Dim STORE_1
 Dim STORE_2
 Dim SEPERATER_STRING
@@ -169,9 +181,11 @@ Dim FILE_2
 '-------------------
 Dim FILE_1_DATE
 Dim FILE_2_DATE
+Dim FILE_3_DATE
 '-------------------
 Dim FILE_1_SIZE As Long
 Dim FILE_2_SIZE As Long
+Dim FILE_3_SIZE As Long
 '-------------------
 Dim MATCH_TRUE
 '-------------------
@@ -200,15 +214,12 @@ Private Sub Form_Load()
 'Text2.Width = Me.Width
 'Text2.Height = Me.Height
 
-Text1.FontSize = 12
+Text1.FontSize = 7
 Text1.FontBold = True
 
 Me.Show
 
 Timer_FORM_RUNNING.Enabled = True
-
-MNU_PROCESS.Enabled = True
-MNU_PROCESS.Caption = "PROCESSER HAPPENING"
    
 Call MNU_HELP_ABOUT_Click
    
@@ -225,6 +236,8 @@ Text2.Top = 0
 Text2.Left = 0
 Text2.Width = Me.Width
 Text2.Height = Me.Height
+Me.WindowState = vbMaximized
+Me.SetFocus
 
 End Sub
 
@@ -250,11 +263,34 @@ Private Sub MNU_CMD_LINE_Click()
 
 End Sub
 
+Private Sub MNU_COMCTL32_Click()
+
+    FILE_NAME_PATH = FILE_COMCTL32_OCX
+    FILE_NAME_PATH2 = F3_COMCTL32_LEGACY
+    Call SHELL_THE_MODIFIER_BATCH
+    
+End Sub
+
 Private Sub MNU_COPY_CLIPBOARD_Click()
 Clipboard.Clear
 Clipboard.SetText Text1.Text
 Beep
 End Sub
+
+Private Sub MNU_URL_Click()
+    
+    'Microsoft ActiveX Common Control MSCOMCTL.OCX Security Update Problem with Registration Affects Treeview and ListBox in Microsoft Access, Office, VB6
+    'http://www.fmsinc.com/microsoftaccess/controls/mscomctl/
+    
+    Dim AA
+
+    AA = "Microsoft ActiveX Common Control MSCOMCTL.OCX Security Update Problem with Registration Affects Treeview and ListBox in Microsoft Access, Office, VB6" + vbCrLf
+    AA = AA + "http://www.fmsinc.com/microsoftaccess/controls/mscomctl/" + vbCrLf + vbCrLf
+    AA = AA + "CTRL C KEY TO CLIPBOARD MESGBOX LEARN"
+
+    MsgBox AA, vbMsgBoxSetForeground
+End Sub
+
 
 Private Sub Text1_KeyDown(KeyCode As Integer, Shift As Integer)
 
@@ -321,7 +357,11 @@ ASIZE1 = F.Size
 Set F = FS.GETFILE(WINDOWS_PATH + "MSCOMCTL.OCX")
 ADATE2 = F.datelastmodified
 ASIZE2 = F.Size
-     
+
+Set F = FS.GETFILE(WINDOWS_PATH + "COMCTL32.OCX")
+ADATE5 = F.datelastmodified
+ASIZE5 = F.Size
+
 F1_MSCOMCT2_LEGACY = App.Path + "\MSCOMCT2.OCX.LEGACY"
 Set F = FS.GETFILE(F1_MSCOMCT2_LEGACY)
 ADATE3 = F.datelastmodified
@@ -332,21 +372,30 @@ Set F = FS.GETFILE(F2_MSCOMCTL_LEGACY)
 ADATE4 = F.datelastmodified
 ASIZE4 = F.Size
 
+F3_COMCTL32_LEGACY = App.Path + "\COMCTL32.OCX.LEGACY"
+Set F = FS.GETFILE(F3_COMCTL32_LEGACY)
+ADATE7 = F.datelastmodified
+ASIZE7 = F.Size
+
 FILE_MSCOMCT2_OCX = WINDOWS_PATH + "MSCOMCT2.OCX"
-FILE_MSCOMCTL_OCX = WINDOWS_PATH + "MSCOMCT2.OCX"
+FILE_MSCOMCTL_OCX = WINDOWS_PATH + "MSCOMCTL.OCX"
+FILE_COMCTL32_OCX = WINDOWS_PATH + "COMCTL32.OCX"
+
 
 Dim SEPERATER_STRING_2
 Dim SEPERATER_STRING_3
 Dim SEPERATER_STRING_4_CENTER
+Dim SEPERATER_STRING_5_CENTER
 
 SEPERATER_STRING = String(110, "-") + vbCrLf
 SEPERATER_STRING_2 = String(110, "-") + vbCrLf
 SEPERATER_STRING_3 = String(110, "=") + vbCrLf
-SEPERATER_STRING_4_CENTER = String(22, "_")
+SEPERATER_STRING_4_CENTER = String(28, "_")
+SEPERATER_STRING_5_CENTER = String(15, "_")
 
 i = ""
 i = i + SEPERATER_STRING_2
-i = i + SEPERATER_STRING_4_CENTER + " WORKER APP PROGRAM PATH AND WITHER THE 2 LEGACY .OCX FILE LOCATER" + SEPERATER_STRING_4_CENTER + vbCrLf
+i = i + SEPERATER_STRING_4_CENTER + " WORKER APP PROGRAM PATH AND WITHER THE 3 LEGACY .OCX FILE LOCATER " + SEPERATER_STRING_5_CENTER + vbCrLf
 i = i + SEPERATER_STRING_2
 i = i + "CODE VBP __ APP.PATH _____ = " + App.Path + "\" + vbCrLf
 i = i + "CODE VBP __ APP.EXENAME __ = " + App.EXEName + ".EXE" + vbCrLf
@@ -369,11 +418,13 @@ FILE_STRIPPER_2_ = Mid(FILE_2, InStrRev(FILE_2, "\")) + " __"
 If ASIZE1 = ASIZE3 Then
     '----------------------------------------------------
     'i = i + SEPERATER_STRING
-    i = i + "## 01 OF 02 -- TEST COMPARE REQUIRED OF -- " + FILE_1 + " --  WITHER -- LEGACY .OCX" + vbCrLf
-    'i = i + "LOADING" + vbCrLf
-    i = i + SEPERATER_STRING
-    Text1.Text = i
-    Text1.Refresh: DoEvents
+    
+    'REMOVE HERE 2026
+    'i = i + "## 01 OF 02 -- TEST COMPARE REQUIRED OF -- " + FILE_1 + " --  WITHER -- LEGACY .OCX" + vbCrLf
+    ''i = i + "LOADING" + vbCrLf
+    'i = i + SEPERATER_STRING
+    'Text1.Text = i
+    'Text1.Refresh: DoEvents
     '----------------------------------------------------
     If UNLOAD_REQUEST_TO_FULFILLER Then Unload Me: Exit Sub
     Call COMPARE_ROUTINE
@@ -397,12 +448,13 @@ FILE_STRIPPER_2_ = Mid(FILE_2, InStrRev(FILE_2, "\")) + " __"
 
 If ASIZE2 = ASIZE4 Then
     '----------------------------------------------------
-    i = i + SEPERATER_STRING
-    i = i + "## 02 OF 02 -- TEST COMPARE REQUIRED OF -- " + FILE_1 + " --  WITHER -- LEGACY .OCX" + vbCrLf
-    'i = i + "LOADING" + vbCrLf
-    i = i + SEPERATER_STRING
-    Text1.Text = i
-    Text1.Refresh: DoEvents
+    'REMOVE 2026
+    'i = i + SEPERATER_STRING
+    'i = i + "## 02 OF 02 -- TEST COMPARE REQUIRED OF -- " + FILE_1 + " --  WITHER -- LEGACY .OCX" + vbCrLf
+    ''i = i + "LOADING" + vbCrLf
+    'i = i + SEPERATER_STRING
+    'Text1.Text = i
+    'Text1.Refresh: DoEvents
     '----------------------------------------------------
     Call COMPARE_ROUTINE
     If UNLOAD_REQUEST_TO_FULFILLER Then Unload Me: Exit Sub
@@ -416,20 +468,59 @@ Else
     End If
 End If
 
+'#03 ------------------------------------------------
+'----------------------------------------------------
+'----------------------------------------------------
+STORE_1 = "": STORE_2 = ""
+'----------------------------------------------------
+FILE_SIZE_VAR = ASIZE5
+'----------------------------------------------------
+FILE_1 = WINDOWS_PATH + "COMCTL32.OCX"
+FILE_2 = F3_COMCTL32_LEGACY
+
+FILE_STRIPPER_1_ = Mid(FILE_1, InStrRev(FILE_1, "\")) + " ______"
+FILE_STRIPPER_2_ = Mid(FILE_2, InStrRev(FILE_2, "\")) + " __"
+
+If ASIZE5 = ASIZE7 Then
+    '----------------------------------------------------
+    ' REMOVE 2026
+    'i = i + SEPERATER_STRING
+    'i = i + "## 02 OF 02 -- TEST COMPARE REQUIRED OF -- " + FILE_1 + " --  WITHER -- LEGACY .OCX" + vbCrLf
+    ''i = i + "LOADING" + vbCrLf
+    'i = i + SEPERATER_STRING
+    'Text1.Text = i
+    'Text1.Refresh: DoEvents
+    '----------------------------------------------------
+    Call COMPARE_ROUTINE
+    If UNLOAD_REQUEST_TO_FULFILLER Then Unload Me: Exit Sub
+    MATCH_MADE_IN_HEAVEN_3 = MATCH_MADE_IN_HEAVEN_00
+    '----------------------------------------------------
+Else
+    If FILE_SIZE_VAR <> 0 Then
+        i = "02 OF 02 -- TEST COMPARE **NOT** REQUIRED OF -- " + FILE_1 + "--  WITHER -- LEGACY .OCX" + vbCrLf
+        i = "02 OF 02 -- SIZE'S =" + SIZE_VAR(ASIZE5, True) + " -- " + SIZE_VAR(ASIZE7, True) + vbCrLf
+        i = "LOADING" + vbCrLf
+    End If
+End If
+
+
 '--------------------------------------------------------------------------------------
 '--------------------------------------------------------------------------------------
 '--------------------------------------------------------------------------------------
 '--------------------------------------------------------------------------------------
 
+'#01
 '------------------------------------------
 FILE_1 = WINDOWS_PATH + "MSCOMCT2.OCX"
 FILE_2 = F1_MSCOMCT2_LEGACY
 
 FILE_1_DATE = ADATE1
 FILE_2_DATE = ADATE3
+FILE_3_DATE = ADATE5
 
 FILE_1_SIZE = ASIZE1
 FILE_2_SIZE = ASIZE3
+FILE_3_SIZE = ASIZE7
 
 MATCH_TRUE = MATCH_MADE_IN_HEAVEN_1
 
@@ -441,6 +532,7 @@ i = i + I_ARRAY + " 01 OF 02 __ " + FILE_1 + vbCrLf
 Call OUTPUT_TEXTING
 '------------------------------------------
 
+'#02
 '------------------------------------------
 FILE_1 = WINDOWS_PATH + "MSCOMCTL.OCX"
 FILE_2 = F2_MSCOMCTL_LEGACY
@@ -456,12 +548,31 @@ MATCH_TRUE = MATCH_MADE_IN_HEAVEN_2
 i = i + SEPERATER_STRING
 i = i + SEPERATER_STRING
 I_ARRAY = "## ARRAY 02 ##"
-i = i + I_ARRAY + " 02 OF 02 __ " + FILE_1 + vbCrLf
+i = i + I_ARRAY + " 01 OF 02 __ " + FILE_1 + vbCrLf
 
 Call OUTPUT_TEXTING
 '------------------------------------------
 
+'#03
+'------------------------------------------
+FILE_1 = WINDOWS_PATH + "COMCTL32.OCX"
+FILE_2 = F3_COMCTL32_LEGACY
 
+FILE_1_DATE = ADATE5
+FILE_2_DATE = ADATE7
+
+FILE_1_SIZE = ASIZE5
+FILE_2_SIZE = ASIZE7
+
+MATCH_TRUE = MATCH_MADE_IN_HEAVEN_3
+
+i = i + SEPERATER_STRING
+i = i + SEPERATER_STRING
+I_ARRAY = "## ARRAY 03 ##"
+i = i + I_ARRAY + " 01 OF 02 __ " + FILE_1 + vbCrLf
+
+Call OUTPUT_TEXTING
+'------------------------------------------
 
 If ADATE1 <> ADATE3 Then
     MNU_MSCOMCTL.Enabled = True
@@ -474,14 +585,16 @@ If ADATE2 <> ADATE4 Then
 Else
     MNU_MSCOMCT2.Enabled = False
 End If
-    
-MNU_PROCESS.Enabled = False
-MNU_PROCESS.Caption = "PROCESSER HAPPENING DONE"
 
-    
+If ADATE5 <> ADATE7 Then
+    MNU_COMCTL32.Enabled = True
+Else
+    MNU_COMCTL32.Enabled = False
+End If
 If MATCH_MADE_IN_HEAVEN_1 = True Then MNU_MSCOMCT2.Enabled = False
 If MATCH_MADE_IN_HEAVEN_2 = True Then MNU_MSCOMCTL.Enabled = False
-    
+If MATCH_MADE_IN_HEAVEN_3 = True Then MNU_COMCTL32.Enabled = False
+
 i = i + SEPERATER_STRING
 
 Text1.Text = Replace(i, "-", "_")
@@ -558,18 +671,20 @@ Sub COMPARE_ROUTINE()
     FILE_STRIPPER_2_ = Mid(FILE_2, InStrRev(FILE_2, "\")) + " __"
 
     '----------------------------------------------------
-    i = i + "01 OF 02 -- FILE PAIR COMPARE LOAD SIZE -- " + SIZE_VAR(FILE_SIZE_VAR, True) + " -- " + FILE_1 + vbCrLf
-    Text1.Text = i
-    Text1.Refresh: DoEvents
+    ' REMOVE 2026
+    'i = i + "01 OF 02 -- FILE PAIR COMPARE LOAD SIZE -- " + SIZE_VAR(FILE_SIZE_VAR, True) + " -- " + FILE_1 + vbCrLf
+    'Text1.Text = i
+    'Text1.Refresh: DoEvents
     '----------------------------------------------------
     FR1 = FreeFile
     Open FILE_1 For Binary As #FR1
         STORE_1 = Input(FILE_SIZE_VAR, FR1)
     Close #FR1
     '----------------------------------------------------
-    i = i + "02 OF 02 -- FILE PAIR COMPARE LOAD SIZE -- " + SIZE_VAR(FILE_SIZE_VAR, True) + " -- " + FILE_STRIPPER_2_ + vbCrLf
-    Text1.Text = i
-    Text1.Refresh: DoEvents
+    ' REMOVE 2026
+    'i = i + "02 OF 02 -- FILE PAIR COMPARE LOAD SIZE -- " + SIZE_VAR(FILE_SIZE_VAR, True) + " -- " + FILE_STRIPPER_2_ + vbCrLf
+    'Text1.Text = i
+    'Text1.Refresh: DoEvents
     '----------------------------------------------------
     If UNLOAD_REQUEST_TO_FULFILLER = True Then Unload Me: Exit Sub
     FR1 = FreeFile
@@ -581,10 +696,12 @@ Sub COMPARE_ROUTINE()
     PADD_LINE = String(42, "_") + " "
     If STORE_1 = STORE_2 Then
         MATCH_MADE_IN_HEAVEN_00 = True
-        i = i + PADD_LINE + FILE_STRIPPER_1_ + "____ RESULT MATCH PERFECT _____________________" + vbCrLf
+        ' REMOVE 2026
+        ' i = i + PADD_LINE + FILE_STRIPPER_1_ + "____ RESULT MATCH PERFECT _____________________" + vbCrLf
     Else
         MATCH_MADE_IN_HEAVEN_00 = False
-        i = i + PADD_LINE + FILE_STRIPPER_1_ + "____ RESULT **NOT** MATCH PERFECT **NOT**" + vbCrLf
+        ' REMOVE 2026
+        ' i = i + PADD_LINE + FILE_STRIPPER_1_ + "____ RESULT **NOT** MATCH PERFECT **NOT**" + vbCrLf
     End If
 
 End Sub
@@ -593,10 +710,6 @@ End Sub
 Private Sub MNU_ENABLE_ALL_MENU_Click()
     MNU_MSCOMCTL.Enabled = True
     MNU_MSCOMCT2.Enabled = True
-    
-'    MNU_PROCESS.Enabled = True
-'    MNU_PROCESS.Caption = "PROCESSER HAPPENING DONE"
-
 End Sub
 
 Private Sub MNU_EXIT_Click()
@@ -604,6 +717,13 @@ Private Sub MNU_EXIT_Click()
 End Sub
 
 Private Sub MNU_HELP_ABOUT_Click()
+
+
+    '----
+    'Microsoft ActiveX Common Control MSCOMCTL.OCX Security Update Problem with Registration Affects Treeview and ListBox in Microsoft Access, Office, VB6
+    'http://www.fmsinc.com/microsoftaccess/controls/mscomctl/
+    '----
+
 
     Dim I2
 
@@ -623,7 +743,7 @@ Private Sub MNU_HELP_ABOUT_Click()
     
     Dim I_NAME, INPUT_DATE
     
-    I_NAME = App.Path + "\" + App.EXEName + "__APP_LAST_VERSIN_REVISION_CHANGER"
+    I_NAME = App.Path + "\" + App.EXEName + "__APP_LAST_VERSIN_REVISION_CHANGER.TXT"
     If Dir(I_NAME) <> "" Then
         FR1 = FreeFile
         Open I_NAME For Input As #FR1
@@ -749,7 +869,7 @@ Private Sub MNU_HELP_ABOUT_Click()
     Text2.Visible = True
     Text2.FontName = "ARIAL"
     Text2.FontBold = True
-    Text2.FontSize = 9
+    Text2.FontSize = 8
     Text1.Visible = False
 
 End Sub
@@ -757,7 +877,7 @@ End Sub
 Private Sub MNU_MSCOMCT2_Click()
 
     FILE_NAME_PATH = FILE_MSCOMCT2_OCX
-
+    FILE_NAME_PATH2 = F1_MSCOMCT2_LEGACY
     Call SHELL_THE_MODIFIER_BATCH
 
 End Sub
@@ -765,7 +885,7 @@ End Sub
 Private Sub MNU_MSCOMCTL_Click()
     
     FILE_NAME_PATH = FILE_MSCOMCTL_OCX
-    
+    FILE_NAME_PATH2 = F2_MSCOMCTL_LEGACY
     Call SHELL_THE_MODIFIER_BATCH
 
 End Sub
@@ -774,17 +894,15 @@ End Sub
 Sub SHELL_THE_MODIFIER_BATCH()
 
 i = ""
-'I = I + "@ECHO -- THE BATCH FILE HAS BEGAN THE EXE WILL EXIT AND PAUSE WAIT TO HAPPEN" + vbCrLf
-'I = I + "PAUSE" + vbCrLf
 i = i + "CD\" + vbCrLf
-i = i + "Regsvr32.exe /u """ + FILE_NAME_PATH + """ /S" + vbCrLf
-i = i + "COPY """ + F1_MSCOMCT2_LEGACY + """ """ + FILE_NAME_PATH + """" + vbCrLf
-i = i + "Regsvr32.exe """ + FILE_NAME_PATH + """ /S" + vbCrLf
-i = i + "Regsvr32.exe /u """ + FILE_NAME_PATH + """ /S" + vbCrLf
+i = i + "Regsvr32.exe /u """ + FILE_NAME_PATH + """" + vbCrLf
+i = i + "COPY """ + FILE_NAME_PATH2 + """ """ + FILE_NAME_PATH + """" + vbCrLf
+i = i + "Regsvr32.exe """ + FILE_NAME_PATH + """" + vbCrLf
+i = i + "Regsvr32.exe /u """ + FILE_NAME_PATH + """" + vbCrLf
 i = i + "DEL """ + FILE_NAME_PATH + """" + vbCrLf
-i = i + "COPY """ + F1_MSCOMCT2_LEGACY + """ """ + FILE_NAME_PATH + """" + vbCrLf
-i = i + "Regsvr32.exe """ + FILE_NAME_PATH + """ /S" + vbCrLf
-'I = I + "@ECHO THE BATCH FILE HAS COMPLETED IT BIT TO DO AND NOW RELOAD THE APP CODE EXE" + vbCrLf
+i = i + "COPY """ + FILE_NAME_PATH2 + """ """ + FILE_NAME_PATH + """" + vbCrLf
+i = i + "Regsvr32.exe """ + FILE_NAME_PATH + """" + vbCrLf
+i = i + "@ECHO ------------------------------------------------" + vbCrLf
 i = i + "@ECHO." + vbCrLf
 i = i + "@ECHO THE BATCH FILE HAS COMPLETED ---- WAIT TO HAPPEN" + vbCrLf
 i = i + "@ECHO ------------------------------------------------" + vbCrLf
@@ -793,17 +911,32 @@ i = i + "@ECHO AS LONG AS NOT ANOTHER PROGRAM IS HOGG THE FILE ACCESS FOR" + vbC
 i = i + "@ECHO THESE TWO .OCX FILE" + vbCrLf
 i = i + "@ECHO A FAULT ABOUT FILE ACCESS WOULD REPORT IN THE COMMAND WINDOW" + vbCrLf
 i = i + "@ECHO ------------------------------------------------" + vbCrLf
+i = i + "@ECHO IF FAULT LIKE FILE COPY NONE THEN RUN IN SAFE MODE" + vbCrLf
+i = i + "@ECHO ------------------------------------------------" + vbCrLf
 i = i + "@ECHO." + vbCrLf
 i = i + "PAUSE" + vbCrLf
-
-'I = I + """" + App.Path + "\" + App.EXEName + """" + vbCrLf
 
 FR1 = FreeFile
 Open App.Path + "\RUN_BATCH_CUSTOM_CREATOR.BAT" For Output As #FR1
     Print #FR1, i
 Close #FR1
 
-Shell App.Path + "\RUN_BATCH_CUSTOM_CREATOR.BAT", vbMaximizedFocus
+' ----------------------------------------
+Debug.Print "CMD.EXE /K START /D """ + App.Path + """ /B " + "RUN_BATCH_CUSTOM_CREATOR.BAT"
+' ----------------------------------------
+' RESULT FROM DEBUG.PRINT
+' ----------------------------------------
+' CMD.EXE /K START /D "D:\VB6\VB-NT\#__ 1ST TIME INSTALL INFO\3__ VB_CODE_TO_TEST_MSCOMCT-.OCX" /B RUN_BATCH_CUSTOM_CREATOR.BAT
+' ----------------------------------------
+
+' ----------------------------------------
+' THE PATH HAS QUOTES AROUND HER
+' BUTTER THE PROGRAM TO RUN MUST NOT
+' SO MOT SURE IF ALLOW PROGRAM WITH SPACER
+' ----------------------------------------
+Dim CMD_STR
+CMD_STR = "CMD.EXE /K START """" /D """ + App.Path + """ /B " + "RUN_BATCH_CUSTOM_CREATOR.BAT"
+Shell CMD_STR, vbMaximizedFocus
 
 'Unload Me
 
@@ -817,109 +950,32 @@ Private Sub MNU_RUN_ME_AGAIN_Click()
     Me.Show
 End Sub
 
-'-------------------------------------------
-'-------------------------------------------
-Sub GET_VB_PROJECT_NAME_TO_EXE(CODER_EXE_FILE_NAME_1, CODER_VBP_FILE_NAME_2)
-    Dim FileSpec, FILE_SPEC_GO
-    CODER_VBP_FILE_NAME_2 = App.Path + "\" + App.EXEName + ".vbp"
-    i = CODER_VBP_FILE_NAME_2
-    If InStr(i, " - 64 BIT.vbp") Then CODER_EXE_FILE_NAME_1 = Replace(i, " - 64 BIT.vbp", ".vbp")
-    If InStr(i, " - 32 BIT.vbp") Then CODER_EXE_FILE_NAME_1 = Replace(i, " - 32 BIT.vbp", ".vbp")
-    
-    CODER_EXE_FILE_NAME_1 = Replace(CODER_EXE_FILE_NAME_1, ".vbp", ".exe")
-    
-    FileSpec = CODER_VBP_FILE_NAME_2
-    If Dir(FileSpec) <> "" Then
-        FILE_SPEC_GO = FileSpec
-    Else
-        If LCase(GetSpecialfolder(&H29)) = LCase("C:\Windows\SysWOW64") Then
-            FileSpec = Replace(FileSpec, ".vbp", " - 64 BIT.vbp")
-        Else
-            FileSpec = Replace(FileSpec, ".vbp", " - 32 BIT.vbp")
-        End If
-    End If
-    
-    If Dir(FileSpec) <> "" Then FILE_SPEC_GO = FileSpec
-    
-    CODER_VBP_FILE_NAME_2 = FILE_SPEC_GO
-End Sub
-Private Sub Mnu_VB_ME_Click()
-    Dim MSGQ, iR
-    Dim CODER_EXE_FILE_NAME_1
-    Dim CODER_VBP_FILE_NAME_2
-    Dim EXIT_TRUE
-    Beep
-    If GetSpecialfolder(38) = "" Then
-        MsgBox "YOU HAVE TO SWITCH ADMIN MODE ON" + vbCrLf + vbCrLf + "THE COMMAND GetSpecialfolder(38) REQUIRE ADMINISTRATOR" + vbCrLf + vbCrLf + "RESULT RETURN NOTHING HERE GetSpecialfolder(38)__<" + GetSpecialfolder(38) + ">__ RESULT RETURNED NOTHING", vbMsgBoxSetForeground
-        Exit Sub
-    End If
-    
-    If IsIDE = True Then
-        If IsIDE = True Then
-            MSGQ = vbYesNoCancel
-        Else
-            MSGQ = vbOKOnly
-        End If
-        iR = MsgBox("NOT IN IDE ARE YOU SURE", MSGQ, vbMsgBoxSetForeground)
-        If iR <> vbYes Then Exit Sub
-    End If
-    
-    Call GET_VB_PROJECT_NAME_TO_EXE(CODER_EXE_FILE_NAME_1, CODER_VBP_FILE_NAME_2)
-    
-    Shell """" + GetSpecialfolder(38) + "\Microsoft Visual Studio\VB98\VB6.EXE"" """ + CODER_VBP_FILE_NAME_2 + """", vbNormalFocus
-    EXIT_TRUE = True
-    Unload Me
-    'End
-End Sub
 Private Sub MNU_VB_FOLDER_Click()
-    Beep
-    Dim CODER_EXE_FILE_NAME_1
-    Dim CODER_VBP_FILE_NAME_2
-    Dim EXIT_TRUE
-    
-    Call GET_VB_PROJECT_NAME_TO_EXE(CODER_EXE_FILE_NAME_1, CODER_VBP_FILE_NAME_2)
-    Shell "EXPLORER /SELECT, """ + App.Path + "\" + CODER_EXE_FILE_NAME_1 + """", vbNormalFocus
-    EXIT_TRUE = True
+    Shell "EXPLORER /SELECT, """ + App.Path + "\" + App.EXEName + ".vbp""", vbNormalFocus
     Unload Me
-    'End
 End Sub
-Private Sub MNU_ADMINISTRATOR_Click()
-    'Call MNU_ADMINISTRATOR_Click
-    Beep
-    MNU_ADMINISTRATOR.Caption = "ADMINISTRATOR MODE ON"
-    If GetSpecialfolder(38) = "" Then
-        MNU_ADMINISTRATOR.Caption = Replace(MNU_ADMINISTRATOR.Caption, "MODE ON", "MODE OFF")
-    End If
+
+Private Sub MNU_VB_ME_Click()
+'GetSpecialfolder(38) OR
+'GetSpecialfolder(42)
+'38 -- PROGRAM FILES (X86)
+
+On Error Resume Next
+
+Shell """" + GetSpecialfolder(38) + "\Microsoft Visual Studio\VB98\VB6.EXE"" """ + App.Path + "\" + App.EXEName + ".vbp""", vbNormalFocus
+Beep
+
+If Err.Number > 0 Then MsgBox "ERROR HERE ::" + vbCrLf + """" + GetSpecialfolder(38) + "\Microsoft Visual Studio\VB98\VB6.EXE"" """ + App.Path + "\" + App.EXEName + ".vbp""", vbMsgBoxSetForeground
+
+Unload Me
+
 End Sub
-'-------------------------------------------
-'-------------------------------------------
-'---------------------------------------------------
-'Private Type ITEMIDLIST
-'    mkid As SHITEMID
-'End Type
-'Private Declare Function SHGetSpecialFolderLocation Lib "shell32.dll" (ByVal hwndOwner As Long, ByVal nFolder As Long, pidl As ITEMIDLIST) As Long
-'Function GetSpecialfolder(ByVal CSIDL As Long) As String
-'    Dim R As Long
-'    Dim IDL As ITEMIDLIST
-'    R = SHGetSpecialFolderLocation(100, CSIDL, IDL)
-'    If R = NOERROR Then
-'        Path$ = Space$(512)
-'        R = SHGetPathFromIDList(ByVal IDL.mkid.cb, ByVal Path$)
-'        GetSpecialfolder = Left$(Path, InStr(Path, Chr$(0)) - 1)
-'        Exit Function
-'    End If
-'    GetSpecialfolder = ""
-'End Function
-'---------------------------------------------------
 
+Private Sub Timer1_Timer()
 
-'***********************************************
-'# Check, whether we are in the IDE
-Function IsIDE() As Boolean
-  Debug.Assert Not TestIDE(IsIDE)
-End Function
-Private Function TestIDE(Test As Boolean) As Boolean
-  Test = True
-End Function
-'***********************************************
+Timer1.Enabled = False
 
+Text2.Visible = False
+Text1.Visible = True
+
+End Sub
