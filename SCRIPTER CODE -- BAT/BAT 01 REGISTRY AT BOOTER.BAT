@@ -185,6 +185,39 @@ REM @IF %COMPUTERNAME%==9-ASUS-G815LM    SET COMPUTER_64BIT__=YES
 @REM --- E:\01 Start Menu\#_7-ASUS-GL522VW\Programs\Startup-01-Delayed\7-ASUS-GL522VW--MATT 01\BAT 03 REGISTRY AT BOOTER.BAT
 @REM ----------------------------------------------------------------
 
+
+ECHO OFF
+REM --------------------------------------------------------------------------------------------------------------------
+REM -- 12-JUN-2026 02:54:04 FRI
+REM --------------------------------------------------------------------------------------------------------------------
+REM HERE IS SOMETHING TO SET MANUALLY FOR WINDOWS 10 PRO -- ONLY ABLE SET FOR WINDOWS 10 PRO -- NOT HOME
+REM HOME DON'T USER -- GPEDIT.MSC -- GROUP POLICY EDITOR
+REM --------------------------------------------------------------------------------------------------------------------
+REM --------------------------------------------------------------------------------------------------------------------
+REM ANSWER AI
+REM --------------------------------------------------------------------------------------------------------------------
+REM Q> STOP WINDOWS 10 PRO FROM REBOOT AFTER UPDATE AREO TOOLS
+REM --------------------------------------------------------------------------------------------------------------------
+REM AI Overview
+REM You can permanently stop Windows 10 Pro from automatically rebooting after an update using the Group Policy Editor. This will force Windows to wait for your permission to restart. 
+REM For step-by-step instructions:
+REM Press the Windows Key + R to open the Run dialog.
+REM Type gpedit.msc and press Enter to open the Local Group Policy Editor.
+REM In the left-hand pane, navigate to: Computer Configuration > Administrative Templates > Windows Components > Windows Update.
+REM (If you are on newer versions of Windows 10, look for Legacy Policies under Windows Update).
+REM On the right-hand side, locate the policy named No auto-restart with logged on users for scheduled automatic updates installations.
+REM Double-click the policy, change its status to Enabled, click Apply, and then OK. 
+REM --------------------------------------------------------------------------------------------------------------------
+REM Microsoft Learn
+REM --------------------------------------------------------------------------------------------------------------------
+ECHO ON
+
+
+
+
+
+
+
 @REM ----------------------------------------------------------------
 @REM NERO WANTS THIS @REMOVED FROM STARTUP
 REM Reg.exe DELETE "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "FlickrUploadr" /f

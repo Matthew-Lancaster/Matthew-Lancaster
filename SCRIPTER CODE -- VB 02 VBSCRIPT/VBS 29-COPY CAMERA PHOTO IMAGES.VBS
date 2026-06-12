@@ -1339,24 +1339,34 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 		' -----------------------------------------------------------
 		' -----------------------------------------------------------
 		' -----------------------------------------------------------
-		' -----------------------------------------------------------
-		' -----------------------------------------------------------
+		' FINALLY LITTLE JOB TO DO -- FOR ANY DELETED PHOTO WHILE WORK AT THE CAMERA CONTROL-ER
+		' DON'T WANT THUMBS SHOWER FOR ANY DELETED PHOTO
+		' ALL TAKEN CARE OF -- EVERY DETAIL TAKEN CARE OF -- MILITARY PRECISION
+		' AND DELETE EMPTY FOLDER ON CAMERA * 2 LOCATION
 		X_FIND=MID(FOLDER_PATH(R_COUNT),1,10)
 		IF X_FIND="MC - HX60V" THEN 
-			MSGBOX "01 01 -- X_FIND=MID(FOLDER_PATH(R_COUNT),1,10)"
+			' --------------------------------------------------------
+			' CHECK IF THE .MP4 EXIST -- IF NOT DELETE THE THUMBNAIL THAT IS THE ADJACENT MATCH PAIR .MP4 
+			' --------------------------------------------------------
 			DeleteFolder__=FOLDER_PATH_VAR_TEMP
 			Set objFolder = FSO.GetFolder(DeleteFolder__)
 			Set oDict = CreateObject("Scripting.Dictionary")
 			CALL FindWantedFiles_THUMB_OFF_CAMERA_HX60(objFolder)
 			CALL DisplayFinder_THUMB_OFF_CAMERA_HX60
-
+			' --------------------------------------------------------
+			' DELETE EMPTY FOLDER ON CAMERA 
+			' LOCATION 01 OF 02
+			' --------------------------------------------------------
 			DeleteFolder__=FOLDER_PATH_VAR_TEMP+"DCIM"
 			IF FSO.FolderEXISTS(DeleteFolder__)=TRUE THEN 
 				Set objFolder = FSO.GetFolder(DeleteFolder__)
 				ORIGINAL_PATH=UCASE(objFolder.PATH)
 				DELETE_EMPTY_FOLDER objFolder
 			END IF
-			
+			' --------------------------------------------------------
+			' DELETE EMPTY FOLDER ON CAMERA 
+			' LOCATION 02 OF 02
+			' --------------------------------------------------------
 			DeleteFolder__=FOLDER_PATH_VAR_TEMP+"MP_ROOT"
 			IF FSO.FolderEXISTS(DeleteFolder__)=TRUE  THEN 
 				Set objFolder = FSO.GetFolder(DeleteFolder__)
@@ -1364,8 +1374,21 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 				DELETE_EMPTY_FOLDER objFolder
 			END IF 
 		END IF
-		
-		' --------------------------------------------------
+		' -----------------------------------------------------------
+		' -----------------------------------------------------------
+
+		' -----------------------------------------------------------
+		' -----------------------------------------------------------
+		' -----------------------------------------------------------
+		' -----------------------------------------------------------
+		' WRITE THE TIME INFO INDEX OF LAST PHOTO UPLOADED FROM THE CAMERA REEL
+		' -----------------------------------------------------------
+		' SO KEEP A MEASURE OF WHERE UP-TO AND ALSO TO KEEP PHOTO'S ON THE CAMERA ALSO
+		' -----------------------------------------------------------
+		' LIKE A PROFESSIONAL SYNC SHOULD DO
+		' -----------------------------------------------------------
+		' NEXT RUN -- ONLY UPLOAD WHAT IS NEWER AND A FEW DAY(S) BACK SET HOWEVER MANY
+		' -----------------------------------------------------------
 		If Not FSO.FolderExists(IMAGE_POINTER_FOLDER_DATA) Then
 			BuildFullPath IMAGE_POINTER_FOLDER_DATA
 		End If
@@ -1373,11 +1396,14 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 		If FSO.FileExists(IMAGE_POINTER_NAME) Then 
 			FSO.DeleteFile IMAGE_POINTER_NAME
 		END IF
-
+		' -----------------------------------------------------------
 		Set objFile = FSO.CreateTextFile(IMAGE_POINTER_NAME)
 			objFile.Write FileModDate_3
 		SET objFile=NOTHING
-		' --------------------------------------------------
+		' -----------------------------------------------------------
+		' -----------------------------------------------------------
+		' -----------------------------------------------------------
+		' -----------------------------------------------------------
 
 		IF I_COUNT_1>0 THEN 
 			WORK_GO_ER=TRUE
@@ -2349,7 +2375,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 		PATH_FILE_VAR_TMP=MID(PATH_FILE_VAR_1,1,INSTRREV(PATH_FILE_VAR_1,"\")-1)
 		IF PATH_FILE_VAR_TMP<>"" THEN 
 			If Not FSO.FolderExists(PATH_FILE_VAR_TMP) Then
-				MSGBOX "01 BuildFullPath" &VBCRLF& PATH_FILE_VAR_TMP
+				' MSGBOX "01 BuildFullPath" &VBCRLF& PATH_FILE_VAR_TMP
 				BuildFullPath PATH_FILE_VAR_TMP
 			End If
 		End If
@@ -2360,7 +2386,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 		PATH_FILE_VAR_TMP=MID(PATH_FILE_VAR_4,1,INSTRREV(PATH_FILE_VAR_4,"\")-1)
 		IF PATH_FILE_VAR_TMP<>"" THEN 
 			If Not FSO.FolderExists(PATH_FILE_VAR_TMP) Then
-				MSGBOX "02 BuildFullPath" &VBCRLF& PATH_FILE_VAR_TMP
+				' MSGBOX "02 BuildFullPath" &VBCRLF& PATH_FILE_VAR_TMP
 				BuildFullPath PATH_FILE_VAR_TMP
 			END IF
 		END IF
@@ -2371,7 +2397,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 		PATH_FILE_VAR_TMP=MID(PATH_FILE_VAR_5,1,INSTRREV(PATH_FILE_VAR_5,"\")-1)
 		IF PATH_FILE_VAR_TMP<>"" THEN 
 			If Not FSO.FolderExists(PATH_FILE_VAR_TMP) Then
-				MSGBOX "05 BuildFullPath" &VBCRLF& PATH_FILE_VAR_TMP
+				' MSGBOX "05 BuildFullPath" &VBCRLF& PATH_FILE_VAR_TMP
 				BuildFullPath PATH_FILE_VAR_TMP
 			END IF
 		END IF
@@ -2382,7 +2408,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 		PATH_FILE_VAR_TMP=MID(PATH_FILE_VAR_6,1,INSTRREV(PATH_FILE_VAR_6,"\")-1)
 		IF PATH_FILE_VAR_TMP<>"" THEN 
 			If Not FSO.FolderExists(PATH_FILE_VAR_TMP) Then
-				MSGBOX "06 BuildFullPath" &VBCRLF&VBCRLF& PATH_FILE_VAR_TMP
+				' MSGBOX "06 BuildFullPath" &VBCRLF&VBCRLF& PATH_FILE_VAR_TMP
 				BuildFullPath PATH_FILE_VAR_TMP
 			END IF
 		END IF
@@ -2393,7 +2419,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 		PATH_FILE_VAR_TMP=MID(PATH_FILE_VAR_7,1,INSTRREV(PATH_FILE_VAR_7,"\")-1)
 		IF PATH_FILE_VAR_TMP<>"" THEN 
 			If Not FSO.FolderExists(PATH_FILE_VAR_TMP) Then
-				MSGBOX "07 BuildFullPath" &VBCRLF&VBCRLF& PATH_FILE_VAR_TMP
+				' MSGBOX "07 BuildFullPath" &VBCRLF&VBCRLF& PATH_FILE_VAR_TMP
 				BuildFullPath PATH_FILE_VAR_TMP
 			END IF
 		END IF
@@ -2521,7 +2547,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 						IF VBS_82_RECURSE_PATH_FIND_RESULT=FALSE THEN 
 						
 						I_COUNT_1=I_COUNT_1+1
-						IF I_COUNT_1<4 THEN 
+						IF I_COUNT_1<3 THEN 
 						RESULT = WSHShell.Popup("01 COPY" &VBCRLF&VBCRLF& VAR_PATH_SCANNER &VBCRLF&VBCRLF&  PATH_FILE_VAR_1, ,Wscript.ScriptName, 16 + 4096) ' (3 +) = vbYESNOCANCLE
 						END IF
 						Fso.CopyFile VAR_PATH_SCANNER, PATH_FILE_VAR_1
@@ -2541,7 +2567,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 						VBS_82_RECURSE_SUBFOLDER___FILE_SEARCH_DUPLICATE PATH_FILE_VAR_4,FOLDER_TO_SCAN
 						IF VBS_82_RECURSE_PATH_FIND_RESULT=FALSE THEN 
 
-						IF I_COUNT_1<4 THEN 
+						IF I_COUNT_1<3 THEN 
 						RESULT = WSHShell.Popup("04 COPY" &VBCRLF&VBCRLF& VAR_PATH_SCANNER &VBCRLF&VBCRLF& PATH_FILE_VAR_4, ,Wscript.ScriptName, 16 + 4096) ' (3 +) = vbYESNOCANCLE
 						END IF
 						Fso.CopyFile VAR_PATH_SCANNER, PATH_FILE_VAR_4
@@ -2560,7 +2586,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 						VBS_82_RECURSE_SUBFOLDER___FILE_SEARCH_DUPLICATE PATH_FILE_VAR_5,FOLDER_TO_SCAN
 						IF VBS_82_RECURSE_PATH_FIND_RESULT=FALSE THEN 
 
-						IF I_COUNT_1<4 THEN 
+						IF I_COUNT_1<3 THEN 
 						RESULT = WSHShell.Popup("05 COPY" &VBCRLF&VBCRLF& VAR_PATH_SCANNER &VBCRLF&VBCRLF&  PATH_FILE_VAR_5, ,Wscript.ScriptName, 16 + 4096) ' (3 +) = vbYESNOCANCLE
 						END IF
 						Fso.CopyFile VAR_PATH_SCANNER, PATH_FILE_VAR_5
@@ -2579,7 +2605,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 						VBS_82_RECURSE_SUBFOLDER___FILE_SEARCH_DUPLICATE PATH_FILE_VAR_7,FOLDER_TO_SCAN
 						IF VBS_82_RECURSE_PATH_FIND_RESULT=FALSE THEN 
 						
-						IF I_COUNT_1<4 THEN 
+						IF I_COUNT_1<3 THEN 
 						RESULT = WSHShell.Popup("06 COPY" &VBCRLF&VBCRLF& VAR_PATH_SCANNER &VBCRLF&VBCRLF&  PATH_FILE_VAR_6, ,Wscript.ScriptName, 16 + 4096) ' (3 +) = vbYESNOCANCLE
 						END IF
 						Fso.CopyFile VAR_PATH_SCANNER, PATH_FILE_VAR_6
@@ -2598,7 +2624,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 						VBS_82_RECURSE_SUBFOLDER___FILE_SEARCH_DUPLICATE PATH_FILE_VAR_7,FOLDER_TO_SCAN
 						IF VBS_82_RECURSE_PATH_FIND_RESULT=FALSE THEN 
 
-						IF I_COUNT_1<4 THEN 
+						IF I_COUNT_1<3 THEN 
 						RESULT = WSHShell.Popup("07 COPY" &VBCRLF&VBCRLF& VAR_PATH_SCANNER &VBCRLF&VBCRLF&  PATH_FILE_VAR_7, ,Wscript.ScriptName, 16 + 4096) ' (3 +) = vbYESNOCANCLE
 						END IF
 						Fso.CopyFile VAR_PATH_SCANNER, PATH_FILE_VAR_7
@@ -2622,7 +2648,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 					VBS_82_RECURSE_SUBFOLDER___FILE_SEARCH_DUPLICATE PATH_FILE_VAR_1,FOLDER_TO_SCAN
 					IF VBS_82_RECURSE_PATH_FIND_RESULT=FALSE THEN 
 					
-					IF I_COUNT_1<4 THEN 
+					IF I_COUNT_1<3 THEN 
 					RESULT = WSHShell.Popup("01 COPY & MOVE" &VBCRLF&VBCRLF& VAR_PATH_SCANNER &VBCRLF&VBCRLF&  PATH_FILE_VAR_4, ,Wscript.ScriptName, 16 + 4096) ' (3 +) = vbYESNOCANCLE
 					END IF
 					Fso.CopyFile VAR_PATH_SCANNER, PATH_FILE_VAR_1
@@ -2639,7 +2665,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 					VBS_82_RECURSE_SUBFOLDER___FILE_SEARCH_DUPLICATE PATH_FILE_VAR_4,FOLDER_TO_SCAN
 					IF VBS_82_RECURSE_PATH_FIND_RESULT=FALSE THEN 
 					
-					IF I_COUNT_1<4 THEN 
+					IF I_COUNT_1<3 THEN 
 					RESULT = WSHShell.Popup("04 COPY & MOVE" &VBCRLF&VBCRLF& VAR_PATH_SCANNER &VBCRLF&VBCRLF&  PATH_FILE_VAR_4, ,Wscript.ScriptName, 16 + 4096) ' (3 +) = vbYESNOCANCLE
 					END IF
 					Fso.CopyFile VAR_PATH_SCANNER, PATH_FILE_VAR_4
@@ -2656,7 +2682,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 					VBS_82_RECURSE_SUBFOLDER___FILE_SEARCH_DUPLICATE PATH_FILE_VAR_5,FOLDER_TO_SCAN
 					IF VBS_82_RECURSE_PATH_FIND_RESULT=FALSE THEN 
 					
-					IF I_COUNT_1<4 THEN 
+					IF I_COUNT_1<3 THEN 
 					RESULT = WSHShell.Popup("05 COPY & MOVE" &VBCRLF&VBCRLF& VAR_PATH_SCANNER &VBCRLF&VBCRLF&  PATH_FILE_VAR_5, ,Wscript.ScriptName, 16 + 4096) ' (3 +) = vbYESNOCANCLE
 					END IF
 					Fso.CopyFile VAR_PATH_SCANNER, PATH_FILE_VAR_5
@@ -2673,7 +2699,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 					VBS_82_RECURSE_SUBFOLDER___FILE_SEARCH_DUPLICATE PATH_FILE_VAR_6,FOLDER_TO_SCAN
 					IF VBS_82_RECURSE_PATH_FIND_RESULT=FALSE THEN 
 					
-					IF I_COUNT_1<4 THEN 
+					IF I_COUNT_1<3 THEN 
 					RESULT = WSHShell.Popup("66 COPY & MOVE" &VBCRLF&VBCRLF& VAR_PATH_SCANNER &VBCRLF&VBCRLF&  PATH_FILE_VAR_6, ,Wscript.ScriptName, 16 + 4096) ' (3 +) = vbYESNOCANCLE
 					END IF
 					Fso.CopyFile VAR_PATH_SCANNER, PATH_FILE_VAR_6
@@ -2690,7 +2716,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 					VBS_82_RECURSE_SUBFOLDER___FILE_SEARCH_DUPLICATE PATH_FILE_VAR_7,FOLDER_TO_SCAN
 					IF VBS_82_RECURSE_PATH_FIND_RESULT=FALSE THEN 
 					
-					IF I_COUNT_1<4 THEN 
+					IF I_COUNT_1<3 THEN 
 					RESULT = WSHShell.Popup("07 COPY & MOVE" &VBCRLF&VBCRLF& VAR_PATH_SCANNER &VBCRLF&VBCRLF&  PATH_FILE_VAR_7, ,Wscript.ScriptName, 16 + 4096) ' (3 +) = vbYESNOCANCLE
 					END IF
 					Fso.CopyFile VAR_PATH_SCANNER, PATH_FILE_VAR_7
@@ -3751,6 +3777,9 @@ Sub DisplayFinder_THUMB_OFF_CAMERA_HX60()
     oKeys = oDict.Keys
     For Each oKey In oKeys
 		GOGO=0
+		' -----------------------------------------------
+		' CHECK IF THE .MP4 EXIST IF NOT DELETE THE THUMB
+		' -----------------------------------------------
 		XX=MID(oKey,1,INSTRREV(oKey,"."))+"MP4"
 		ON ERROR RESUME NEXT
 		ERR.CLEAR
@@ -3762,7 +3791,9 @@ Sub DisplayFinder_THUMB_OFF_CAMERA_HX60()
 			FSO.DeleteFile(oKey) 
 		END IF
 		' -----------------------------------------------------------
-		IF INSTR(UCASE(oKey),"THUMBS.DB") THEN XX=oKey
+		IF INSTR(UCASE(oKey),"THUMBS.DB") THEN 
+			XX=oKey ' WHY 
+		END IF
 		IF FSO.FILEEXISTS(oKey)=TRUE THEN
 			' THE -- THUMBS.DB -- Thumbs.db -- BEEN DELETE
 			FSO.DeleteFile(oKey) 

@@ -358,6 +358,54 @@ RETURN
 
 
 
+; -------------------------------------------------------------------
+; THIS CODE SNIPPER 
+; -- 
+; IF SET MPC-HC.EXE TO DELETE HOT-KEY IN OPTIONS  TO BE F9 WORK WITHT HIS CODE
+; F9 IS A BETTER HOT KEY THAN DEL KEY -- DEL DON'T ALWAYS DELETE
+; WHEN SORTING DUPES OUT VIDEO PLAYER FROM CCTV OF MINE HIKVISION UNIT
+; --
+; WAS A CLASH OF OPTION TO RBUTTON RIGHT CLICK MOUSE -- BETWEEN SET OPTIONS FOR 
+; THE CONTEXT MENU FOR SORT PLAY-LIST ALPHABETICAL / NUMERIC
+; AND OTHER OPTIONS OF CONTEXTING MENU 
+; --
+; TO DELETER WITH F9 HOTKEY -- GOT TO BE A NEWLY PLAY VIDEO -- AND BEFORE END OF PLAY
+; ACCIDENTAL LAZY CLICKER WILL DELETE WRONG FILE -- BE CAREFUL LONG TIME
+; ABLE CLICK ON VIDEO PLAYING IN SCREEN FOR BETTER ACCURACY -- WIDER PICTURE
+; -------------------------------------------------------------------
+; 12-JUN-2026 02:50:04 FRI
+; -------------------------------------------------------------------
+#IfWinActive ahk_class MediaPlayerClassicW
+{
+RButton::
+	{
+		MouseGetPos, xpos
+		IF XPOS<1285  ; ---- HALF LEFT SIDE SCREEN -- IF R-CLICK IN LEFT AREA SET THE DEL F9 HOTKEY
+			SEND {F9}
+		IF XPOS>1285  ; ---- HALF RIGHT SIDE SCREEN - IF R-CLICK IN RIGHT AREA CONTEXT-MENU TO SORT ITEM
+			SEND {RButton}
+		
+		SOUNDBEEP 1000,50
+	}
+RETURN
+}
+#ifwinactive
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+; #IfWinActive ahk_class MediaPlayerClassicW
+; {
+; MButton::
+	; IfWinActive ahk_class SysListView321
+	; {
+		; SEND {RButton}
+		; SOUNDBEEP 1000,50
+	; }
+; RETURN
+; }
+; #ifwinactive
+
+
 ; $LButton::
 ; MouseClick, left,,, 1, 0, D  ; Hold down the left mouse button.
 ; TOOGLE_MOUSE_CLICKER=TRUE

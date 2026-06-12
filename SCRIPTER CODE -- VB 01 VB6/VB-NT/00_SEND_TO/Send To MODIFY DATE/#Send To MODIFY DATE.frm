@@ -2,16 +2,16 @@ VERSION 5.00
 Begin VB.Form Form1 
    BackColor       =   &H00808080&
    Caption         =   "FormMODIFY DATE AS CREATED DATE1"
-   ClientHeight    =   7290
+   ClientHeight    =   7284
    ClientLeft      =   60
-   ClientTop       =   945
+   ClientTop       =   948
    ClientWidth     =   15720
    LinkTopic       =   "Form1"
-   ScaleHeight     =   7290
+   ScaleHeight     =   7284
    ScaleWidth      =   15720
    StartUpPosition =   2  'CenterScreen
    Begin VB.FileListBox File2 
-      Height          =   675
+      Height          =   648
       Left            =   12048
       TabIndex        =   42
       Top             =   744
@@ -27,7 +27,7 @@ Begin VB.Form Form1
       Width           =   252
    End
    Begin VB.FileListBox File1 
-      Height          =   870
+      Height          =   840
       Left            =   13512
       TabIndex        =   39
       Top             =   1728
@@ -960,7 +960,7 @@ Begin VB.Form Form1
       Caption         =   "FILE LABEL"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -978,7 +978,7 @@ Begin VB.Form Form1
       Caption         =   "FOLDER LABEL"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1345,10 +1345,10 @@ i = i + 0: M_3(i) = "SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA"
 i = i + 1: M_1(i) = "SET_DATE_OF_FILENAME -- YYYY MM DD HH-MM-SS - DDD NOKIA__.MP4 -- BATCH"
 i = i + 0: M_3(i) = "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH"
 
-i = i + 1: M_1(i) = "SET_DATE_OF_FILENAME -- YYYY MM DD HH-MM-SS_.JPG -- CAMERA -- SINGLE"
-i = i + 0: M_3(i) = "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__JPG_SINGLE"
-i = i + 1: M_1(i) = "SET_DATE_OF_FILENAME -- YYYY MM DD HH-MM-SS_.JPG -- BATCH"
-i = i + 0: M_3(i) = "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__JPG_BATCH"
+i = i + 1: M_1(i) = "SET_DATE_OF_FILENAME -- YYYY MM DD HH-MM-SS_.ANY -- CAMERA -- SINGLE"
+i = i + 0: M_3(i) = "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__ANY_SINGLE"
+i = i + 1: M_1(i) = "SET_DATE_OF_FILENAME -- YYYY MM DD HH-MM-SS_.ANY -- BATCH"
+i = i + 0: M_3(i) = "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__ANY_BATCH"
 
 i = i + 1: M_1(i) = "----"
 i = i + 1: M_1(i) = "SET_ONE_DATE_HARDCODER"
@@ -1453,6 +1453,10 @@ On Error GoTo 0
 
 End Sub
 
+
+Private Sub Form_Unload(Cancel As Integer)
+End
+End Sub
 
 Private Sub LABEL_SET_Click(index As Integer)
 
@@ -1571,11 +1575,11 @@ LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA_SINGLE"
 LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
-Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__JPG_SINGLE"
+Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__ANY_SINGLE"
 LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 
-Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__JPG_BATCH"
+Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__ANY_BATCH"
 LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH"
@@ -1696,12 +1700,12 @@ If WORK = "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH" Then
     Exit Sub
 End If
 
-If WORK = "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__JPG_SINGLE" Then
+If WORK = "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__ANY_SINGLE" Then
     CallByName FORM_ME, WORK, VbMethod
     Exit Sub
 End If
 
-If WORK = "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__JPG_BATCH" Then
+If WORK = "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__ANY_BATCH" Then
     CallByName FORM_ME, WORK, VbMethod
     Exit Sub
 End If
@@ -4145,7 +4149,7 @@ Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA()
 End Sub
 
 
-Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__JPG_BATCH()
+Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__ANY_BATCH()
 
     ' ---------------------------------------------------------------------
     ' ANOTHER SUB ROUTINE
@@ -4155,7 +4159,7 @@ Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__JPG_BATCH()
 
 
     ScanPath.chkSubFolders = vbChecked
-    ScanPath.cboMask.Text = "*.MP4;*.MP3;*.WAV;*.AVI;*.JPG"
+    ScanPath.cboMask.Text = "*.MP4;*.MP3;*.WAV;*.AVI;*.JPG;*.3GP;*.MOV"
     
     ' SCAN DO ON TEXTPATH CHANGE
     If LABEL_SET(2).Caption <> "NOT FOLDER GIVEN" Then
@@ -4227,7 +4231,7 @@ Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__JPG_BATCH()
         
         If InStr(A11, "_gsdata_") = 0 Then
         EXT_STR = UCase(Mid(B11, Len(B11) - 2))
-            If InStr("JPG TXT", EXT_STR) Then
+            If InStr(" JPG TXT MP4 MP3 WAV AVI 3GP MOV ", EXT_STR) Then
                 DATE_FILENAME_D_1 = Mid(B11, 1, 10)
                 DATE_FILENAME_T_2 = Mid(B11, 12, 8)
                 i2 = DATE_FILENAME_D_1
@@ -4281,7 +4285,7 @@ Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__JPG_BATCH()
 End Sub
 
 
-Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__JPG_SINGLE()
+Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__ANY_SINGLE()
     ' ---------------------------------------------------------------------
     ' ANOTHER SUB ROUTINE
     ' LEECH AND MODIFY FROM BATCH CODE SET
@@ -4309,7 +4313,7 @@ Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__JPG_SINGLE()
     Dim RR
     
     EXT_STR = UCase(Mid(B11, Len(B11) - 2))
-    If InStr("JPG TXT", EXT_STR) Then
+    If InStr(" JPG TXT MP4 MP3 WAV AVI 3GP MOV ", EXT_STR) Then
         DATE_FILENAME_D_1 = Mid(B11, 1, 10)
         DATE_FILENAME_T_2 = Mid(B11, 12, 8)
         i2 = DATE_FILENAME_D_1
