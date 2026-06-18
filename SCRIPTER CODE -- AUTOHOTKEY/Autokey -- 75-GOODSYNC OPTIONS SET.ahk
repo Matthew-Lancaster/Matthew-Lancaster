@@ -362,7 +362,8 @@ TIMER_SUB_GOODSYNC_CHANGE_NET_PATH_AS_SWEEPING_CHANGE_BASTARD:
 	Loop, Parse, controlList, `n
 	{
 		ControlGet, isVisible, Visible, , %A_LoopField%, A
-		if (isVisible) {
+		if (isVisible) 
+		{
 			; visibleList .= A_LoopField "`n"
 			IF INSTR(A_LoopField,"ATL:0000000140E507004")>0
 				TRUE_TO_GO=TRUE
@@ -379,10 +380,10 @@ TIMER_SUB_GOODSYNC_CHANGE_NET_PATH_AS_SWEEPING_CHANGE_BASTARD:
 			IF INSTR(A_LoopField,"ATL:0000000140E507003")>0 
 				BREAK
 			
-			IF INSTR(A_LoopField,"ATL:0000000140E627103")>0
-				BREAK
-			IF INSTR(A_LoopField,"ATL:0000000140E627104")>0
-				BREAK
+			IF INSTR(A_LoopField,"ATL:0000000140E647103")>0
+				TRUE_TO_GO=TRUE
+			IF INSTR(A_LoopField,"ATL:0000000140E647104")>0
+				TRUE_TO_GO=TRUE
 			
 		}
 	}

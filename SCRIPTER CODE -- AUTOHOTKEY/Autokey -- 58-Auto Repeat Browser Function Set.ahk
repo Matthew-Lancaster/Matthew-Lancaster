@@ -496,17 +496,11 @@ OLD_STATE_XYPOS_TOP_LINE_MOUSE_REFRESH=
 ; SETTIMER TIMER_TOP_LINE_MOUSE_REFRESH_BROWSER,10
 
 
-
-
-
-
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 SET_NEXT_ESCAPE_TO_GO=
 LEAVE_FACEBOOK_NOTIFY_RETURN_OLD=
 ; SETTIMER TIMER_LEAVE_FACEBOOK_NOTIFY_AND_RETURN_PRESS_ESCPAPE,100
-
-
 
 
 RAIN_ALARM_DO_ONCE=TRUE
@@ -516,6 +510,10 @@ TIMER_AUTO_RELOAD_RAIN_ALARM_1=
 TIMER_AUTO_RELOAD_RAIN_ALARM_2=
 	
 SETTIMER AUTO_RELOAD_RAIN_ALARM,1000
+
+OL_Day_Get__01=
+OL_Hour_Get_01=
+SETTIMER AUTO_RELOAD_MIDNIGHT_HERE_SCRIPT,1000
 
 	
 AUTO_HITTER_COUNTER_FACEBOOK_COUNTER=0	
@@ -596,6 +594,126 @@ RETURN
 ; NOW ROUTINE AND FUNCTION
 ; -------------------------------------------------------------------
 RETURN
+
+
+
+AUTO_RELOAD_MIDNIGHT_HERE_SCRIPT:
+
+
+	; ---------------------------------------------------------------
+	; DAY TIMER 
+	; ---------------------------------------------------------------
+	Midnight_Get_01 := SubStr( A_Now, 1, 8 ) . "000000"
+	Midnight_Get_01 += 1, days
+	IF OL_Day_Get__01<>%Midnight_Get_01%
+	{
+		IF OL_Day_Get__01    ; ---- NOT TO RUN AT BOOT OF CODER APP
+		{	
+			; -------------------------------------------------------
+			; ---- RELOAD MY OWN AHK SCRIPT
+			; -------------------------------------------------------
+			; TRY ONCE AN HOUR AT FIRST AND THEN ONCE A DAY
+			; -------------------------------------------------------
+			; FN_VAR_04=%A_ScriptFullPath%
+			; IfExist, %FN_VAR_04%
+				; Run, %FN_VAR_04%
+		}
+		OL_Day_Get__01=%Midnight_Get_01%
+	}
+	
+	; ---------------------------------------------------------------
+	; HOUR TIMER
+	; ---------------------------------------------------------------
+	Hour_Get_01 := SubStr( A_Now, 1, 10 ) . "000000"
+	Hour_Get_01 += 1, hours
+	IF OL_Hour_Get_01<>%Hour_Get_01%
+	{
+		IF OL_Hour_Get_01    ; ---- NOT TO RUN AT BOOT OF CODER APP
+		{	
+		
+		; -------------------------------------------------------
+		; ---- RELOAD MY OWN AHK SCRIPT
+		; -------------------------------------------------------
+		FN_VAR_04=%A_ScriptFullPath%
+		IfExist, %FN_VAR_04%
+			Run, %FN_VAR_04%
+		}
+		OL_Hour_Get_01=%Hour_Get_01%
+		
+	}
+
+	; ---------------------------------------------------------------
+	; 1 = DAY TIMER 
+	; 2 = HOUR TIMER
+	; 3 = MINUTE TIMER
+	; ---------------------------------------------------------------
+	VALUE_TIMER_DY_HR_MI=2
+	
+	IF VALUE_TIMER_DY_HR_MI=1
+	{
+		Midnight := SubStr( A_Now, 1, 8 ) . "000000"
+		Midnight += 1, days
+	}
+	IF VALUE_TIMER_DY_HR_MI=2
+	{
+		Midnight := SubStr( A_Now, 1, 10 ) . "000000"
+		Midnight += 1, hours
+	}
+	IF VALUE_TIMER_DY_HR_MI=3
+	{
+		Midnight := SubStr( A_Now, 1, 12 ) . "000000"
+		Midnight += 1, MINUTES
+	}
+
+	Midnight -= A_Now, seconds
+
+	EnvMult, Midnight, 1000
+
+	SET_GO=FALSE
+	IF A_Hour<>%DAY_AND_HOUR_NOW_2%
+	{
+		; IF A_Hour=12
+		; 	SET_GO=TRUE
+		;IF A_Hour=0
+		;	SET_GO=TRUE
+
+		; ----------------
+		; EVERY FOUR HOURS
+		; ----------------
+		IF Mod(A_Hour, 4)=0
+		{
+			SET_GO=TRUE
+		}
+	}	
+
+	IF !DAY_AND_HOUR_NOW_2
+	{
+		DAY_AND_HOUR_NOW_2=%A_Hour%
+		RETURN
+	}
+	
+	DAY_AND_HOUR_NOW_2=%A_Hour%
+
+	IF SET_GO=FALSE 
+		RETURN
+	
+
+	; ---------------------------------------------------------------
+	; THIS IS A GOOD IDEA BUT FOR 12 HOUR TIME IT IS ABOUT 16 MINUTE 
+	; LATE BY TIME GET THERE
+	; BETTER FOR SHORT TIMING
+	; ---------------------------------------------------------------
+	; SETTIMER MIDNIGHT_AND_HOUR_TIMER_2, OFF
+	; SETTIMER MIDNIGHT_AND_HOUR_TIMER_2, %Midnight%
+	; SETTIMER MIDNIGHT_AND_HOUR_TIMER_2, ON
+	; ----
+	; Test Timer Status - Ask for Help - AutoHotkey Community
+	; https://autohotkey.com/board/topic/55321-test-timer-status/
+	; ----
+
+
+RETURN
+
 
 SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME:
 	

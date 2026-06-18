@@ -393,6 +393,30 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
+
+; -------------------------------------------------------------------
+; 14-JUN-2026 14:40:05 SUN
+; -------------------------------------------------------------------
+#IfWinActive ahk_class IrfanView
+{
+RButton::
+	{
+		MouseGetPos, xpos
+		IF XPOS<1285  ; ---- HALF LEFT SIDE SCREEN -- IF R-CLICK IN LEFT AREA SET THE DEL F9 HOTKEY
+			SEND +2
+
+		; IF XPOS>1285  ; ---- HALF RIGHT SIDE SCREEN - IF R-CLICK IN RIGHT AREA CONTEXT-MENU TO SORT ITEM
+			; SEND {RButton}
+		
+		SOUNDBEEP 1000,50
+	}
+RETURN
+}
+#ifwinactive
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+
 ; #IfWinActive ahk_class MediaPlayerClassicW
 ; {
 ; MButton::

@@ -188,7 +188,7 @@ RELEASE_SOUNDPLAY=%A_Now%
 ALLOW_SOUND=1
 
 
-SETTIMER MOUSE_CURSOR_SUB_02,500
+SETTIMER MOUSE_CURSOR_SUB_02,1
 
 
 ; NOT REQUIRE HERE IS NOT AUTO RUN FOR THE COMPUTER THAT ARE OTHER ONE
@@ -216,20 +216,159 @@ IF !(A_ComputerName = "4-ASUS-GL522VW")
 	Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\AutoHotKeys Mouse Changer _ Wait _ Hour Glass.wav
 
 
-
 ; ---------------------------------------------------------------
 ; CALL SUB-ROUTINE __ MOUSE_CURSOR_SUB_01 __ EVERY 1000 MILLISECOND 1 SECOND
 ; ---------------------------------------------------------------
 ; ---------------------------------------------------------------
-setTimer MOUSE_CURSOR_SUB_01,1
-setTimer TIMER_PREVIOUS_INSTANCE,1
-setTimer RELEASE_SOUNDPLAY_TIMER,10
+SETTIMER MOUSE_CURSOR_SUB_01,1
+SETTIMER TIMER_PREVIOUS_INSTANCE,1
+SETTIMER RELEASE_SOUNDPLAY_TIMER,10
+
+OL_Day_Get__01=
+OL_Hour_Get_01=
+DAY_AND_HOUR_NOW_2=
+SETTIMER AUTO_RELOAD_MIDNIGHT_HERE_SCRIPT,1000
 
 
-return
+RETURN
 
 ; ---------------------------------------------------------------
 ; ---------------------------------------------------------------
+; START CODE SUB
+; ---------------------------------------------------------------
+; ---------------------------------------------------------------
+
+
+; -------------------
+; ---- DECLARES
+; OL_Day_Get__01=
+; OL_Hour_Get_01=
+; DAY_AND_HOUR_NOW_2=
+; -------------------
+AUTO_RELOAD_MIDNIGHT_HERE_SCRIPT:
+
+
+	; ---------------------------------------------------------------
+	; DAY TIMER 
+	; ---------------------------------------------------------------
+	Midnight_Get_01 := SubStr( A_Now, 1, 8 ) . "000000"
+	Midnight_Get_01 += 1, days
+	IF OL_Day_Get__01<>%Midnight_Get_01%
+	{
+		IF OL_Day_Get__01    ; ---- NOT TO RUN AT BOOT OF CODER APP
+		{	
+			; -------------------------------------------------------
+			; ---- RELOAD MY OWN AHK SCRIPT
+			; -------------------------------------------------------
+			; TRY ONCE AN HOUR AT FIRST AND THEN ONCE A DAY
+			; -------------------------------------------------------
+			; FN_VAR_04=%A_ScriptFullPath%
+			; IfExist, %FN_VAR_04%
+				; Run, %FN_VAR_04%
+		}
+		OL_Day_Get__01=%Midnight_Get_01%
+	}
+	
+	; ---------------------------------------------------------------
+	; HOUR TIMER
+	; ---------------------------------------------------------------
+	Hour_Get_01 := SubStr( A_Now, 1, 10 ) . "000000"
+	Hour_Get_01 += 1, hours
+	IF OL_Hour_Get_01<>%Hour_Get_01%
+	{
+		IF OL_Hour_Get_01    ; ---- NOT TO RUN AT BOOT OF CODER APP
+		{	
+		
+		; -------------------------------------------------------
+		; ---- RELOAD MY OWN AHK SCRIPT
+		; -------------------------------------------------------
+		FN_VAR_04=%A_ScriptFullPath%
+		IfExist, %FN_VAR_04%
+			Run, %FN_VAR_04%
+		}
+		OL_Hour_Get_01=%Hour_Get_01%
+		
+	}
+
+	; ---------------------------------------------------------------
+	; 1 = DAY TIMER 
+	; 2 = HOUR TIMER
+	; 3 = MINUTE TIMER
+	; ---------------------------------------------------------------
+	VALUE_TIMER_DY_HR_MI=2
+	
+	IF VALUE_TIMER_DY_HR_MI=1
+	{
+		Midnight := SubStr( A_Now, 1, 8 ) . "000000"
+		Midnight += 1, days
+	}
+	IF VALUE_TIMER_DY_HR_MI=2
+	{
+		Midnight := SubStr( A_Now, 1, 10 ) . "000000"
+		Midnight += 1, hours
+	}
+	IF VALUE_TIMER_DY_HR_MI=3
+	{
+		Midnight := SubStr( A_Now, 1, 12 ) . "000000"
+		Midnight += 1, MINUTES
+	}
+
+	Midnight -= A_Now, seconds
+
+	EnvMult, Midnight, 1000
+
+	SET_GO=FALSE
+	IF A_Hour<>%DAY_AND_HOUR_NOW_2%
+	{
+		; IF A_Hour=12
+		; 	SET_GO=TRUE
+		;IF A_Hour=0
+		;	SET_GO=TRUE
+
+		; ----------------
+		; EVERY FOUR HOURS
+		; ----------------
+		IF Mod(A_Hour, 4)=0
+		{
+			SET_GO=TRUE
+		}
+	}	
+
+	IF !DAY_AND_HOUR_NOW_2
+	{
+		DAY_AND_HOUR_NOW_2=%A_Hour%
+		RETURN
+	}
+	
+	DAY_AND_HOUR_NOW_2=%A_Hour%
+
+	IF SET_GO=FALSE 
+		RETURN
+	
+
+	; ---------------------------------------------------------------
+	; THIS IS A GOOD IDEA BUT FOR 12 HOUR TIME IT IS ABOUT 16 MINUTE 
+	; LATE BY TIME GET THERE
+	; BETTER FOR SHORT TIMING
+	; ---------------------------------------------------------------
+	; SETTIMER MIDNIGHT_AND_HOUR_TIMER_2, OFF
+	; SETTIMER MIDNIGHT_AND_HOUR_TIMER_2, %Midnight%
+	; SETTIMER MIDNIGHT_AND_HOUR_TIMER_2, ON
+	; ----
+	; Test Timer Status - Ask for Help - AutoHotkey Community
+	; https://autohotkey.com/board/topic/55321-test-timer-status/
+	; ----
+
+
+RETURN
+
+
+
+
+
+
+
+
 
 
 RELEASE_SOUNDPLAY_TIMER:
@@ -246,14 +385,42 @@ MOUSE_CURSOR_SUB_02:
 
 if A_Cursor<>%Saved_MOUSE_CURSOR_Title_02%
 {
+
+	GOSUB TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS_02
+	
 	if A_Cursor=Wait
-		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS,500
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS_02,100
 	if A_Cursor=AppStarting
-		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS,500
-	if A_Cursor=IBeam
-		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS,OFF
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS_02,100
+	if A_Cursor=Cross
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS_02,100
+	if A_Cursor=Size
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS_02,100
+	if A_Cursor=SizeAll
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS_02,100
+	if A_Cursor=SizeNESW
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS_02,100
+	if A_Cursor=SizeNS
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS_02,100
+	if A_Cursor=SizeNWSE
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS_02,100
+	if A_Cursor=SizeWE
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS_02,100
+	if A_Cursor=UpArrow
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS_02,100
+	
+	if A_Cursor=Unknown     ; ---- IS THE "HAND" -- RIGHT MOUSE DOWN -- DRAG AND MOVER IN XNVIEW_XP
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS_02,100
+
 	if A_Cursor=Arrow
-		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS,OFF
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS_02,OFF
+	if A_Cursor=IBeam
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS_02,OFF
+	if A_Cursor=No
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS_02,OFF
+	if A_Cursor=Help
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS_02,OFF
+	
 	
 	Saved_MOUSE_CURSOR_Title_02=%A_Cursor%
 	; TOOLTIP %A_Cursor%
@@ -412,7 +579,7 @@ if SET_GO=1
 		;-----------------------------------
 
 		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\AutoHotKeys Mouse Changer _ Wait _ Hour Glass.wav
-		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS,500
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS_01,100
 		;-----------------------------------
 		
 		SOUND_PLAY_TRUE=1
@@ -454,7 +621,7 @@ if SET_GO=1
 
 		SOUND_PLAY_TRUE=1
 		SOUND_PLAYED=1
-		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS,500
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS_01,100
 	}
 
 	;Saved_MOUSE_CURSOR_Title_01:=Current_MOUSE_CURSOR_Title
@@ -521,7 +688,7 @@ if SET_GO=1
 		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\AutoHotKeys Mouse Changer Normal.wav
 		SOUND_PLAYED=1
 		
-		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS,OFF
+		SETTIMER TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS_01,OFF
 		
 		
 		;SoundBeep , 3000 , 40
@@ -580,8 +747,14 @@ return
 ;--------------------------------------------------------------------
 		
 		
-TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS:
-	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS_01:
+	SOUNDPLAY, %a_scriptDir%\DUMMER.WAV  ; ---- played (even a nonexistent file) TO STOP A PREVIOUS PLAY
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav,WAIT 
+RETURN
+
+TIMER_SOUNDPLAY_REPEAT_TICKER_BUSY_HOUR_GLASS_02:
+	SOUNDPLAY, %a_scriptDir%\DUMMER.WAV  ; ---- played (even a nonexistent file) TO STOP A PREVIOUS PLAY
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav,WAIT 
 RETURN
 
 

@@ -192,11 +192,12 @@ REM -- 12-JUN-2026 02:54:04 FRI
 REM --------------------------------------------------------------------------------------------------------------------
 REM HERE IS SOMETHING TO SET MANUALLY FOR WINDOWS 10 PRO -- ONLY ABLE SET FOR WINDOWS 10 PRO -- NOT HOME
 REM HOME DON'T USER -- GPEDIT.MSC -- GROUP POLICY EDITOR
+REM HOME DON'T GET UPDATES AND REBOOT ANYMORE ONLY PROFESSIONAL ANSWER
 REM --------------------------------------------------------------------------------------------------------------------
 REM --------------------------------------------------------------------------------------------------------------------
 REM ANSWER AI
 REM --------------------------------------------------------------------------------------------------------------------
-REM Q> STOP WINDOWS 10 PRO FROM REBOOT AFTER UPDATE AREO TOOLS
+REM Q> STOP WINDOWS 10 PRO FROM REBOOT AFTER UPDATE AERO TOOLS
 REM --------------------------------------------------------------------------------------------------------------------
 REM AI Overview
 REM You can permanently stop Windows 10 Pro from automatically rebooting after an update using the Group Policy Editor. This will force Windows to wait for your permission to restart. 

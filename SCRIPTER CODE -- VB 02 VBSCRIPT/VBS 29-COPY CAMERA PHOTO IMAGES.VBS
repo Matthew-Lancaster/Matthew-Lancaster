@@ -1305,19 +1305,24 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 		FileModDate_3=FileModDate_2
 
 		' SOMETHING NOT PROPER -- DATE NOT BEEN WRITTEN MAYBE
+		
+		' -----------------------------------------------------------
+		' DATE +20 PUT ON -- HAS TO COVER LAST DATE OF PHOTO CAMERA COMPARE TO NOW WITH MINUS
+		' OR REPORT DATE OUT OF RANGE
+		' -----------------------------------------------------------
 
-		IF FileModDate_3 < NOW - (NUMBER_OF_DAY_BACK+2)THEN 
+		IF FileModDate_3 < NOW - (NUMBER_OF_DAY_BACK+20)THEN 
 			
 			IF FSO.FileExists(IMAGE_POINTER_NAME)=FALSE THEN 
 				SET WSHShell = CreateObject("WScript.Shell")
-				RESULT = WSHShell.Popup("DATE STAMP -- FileModDate_3 -- WAS SET WRONG ADJUST TO  " & NUMBER_OF_DAY_BACK & " DAYS BACK"  &VBCRLF&VBCRLF& "FILE WITH THE DATE STAMP TIME DID NOT EXIST",, Wscript.ScriptName, 16 + 4096) ' (3 +) = vbYESNOCANCLE
+				RESULT = WSHShell.Popup("01-02 DATE STAMP -- FileModDate_3 -- WAS SET WRONG ADJUST TO  " & NUMBER_OF_DAY_BACK & " DAYS BACK"  &VBCRLF&VBCRLF& "FILE WITH THE DATE STAMP TIME DID NOT EXIST",, Wscript.ScriptName, 16 + 4096) ' (3 +) = vbYESNOCANCLE
 				FileModDate_2=NOW-NUMBER_OF_DAY_BACK
 				FileModDate_3=FileModDate_2
 			END IF 
 			
 			IF FSO.FileExists(IMAGE_POINTER_NAME)=TRUE THEN 
 				SET WSHShell = CreateObject("WScript.Shell")
-				RESULT = WSHShell.Popup("DATE STAMP -- FileModDate_3 -- WAS SET NOT PROPER -- ADJUST TO  " & NUMBER_OF_DAY_BACK & " DAYS BACK"  &VBCRLF&VBCRLF& "FILE WITH THE DATE STAMP TIME DID EXIST BUT NOT PROPER INFO TOO FAR AWAY", , Wscript.ScriptName, 16 + 4096) ' (3 +) = vbYESNOCANCLE
+				RESULT = WSHShell.Popup("02-02 DATE STAMP -- FileModDate_3 -- IS OUT OF RANGE -- ADJUST TO  " & NUMBER_OF_DAY_BACK & " DAYS BACK"  &VBCRLF&VBCRLF& "FILE WITH THE DATE STAMP TIME DID EXIST BUT NOT PROPER INFO TOO FAR AWAY", , Wscript.ScriptName, 16 + 4096) ' (3 +) = vbYESNOCANCLE
 				
 			END IF
 		END IF
@@ -2766,12 +2771,11 @@ SUB PATH_SCANNER_COPY_CAMERA
 				IF INSTR(XEXPLORER,PATH_ONLY_VAR_TMP & VBCRLF)=0  AND PATH_ONLY_VAR_TMP<> "" THEN
 					FOLDER_PATH_DEST_VAR_PARAM=REPLACE(PATH_FILE_VAR_1," ","*")
 
-					WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29 VBS 29-COPY CAMERA LOAD EXPLORER.VBS.AHK"""+ " """+FOLDER_PATH_DEST_VAR_PARAM+"""" , ShowWindow, DontWaitUntilFinished
-					WScript.Sleep 3000
+					' WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29 VBS 29-COPY CAMERA LOAD EXPLORER.VBS.AHK"""+ " """+FOLDER_PATH_DEST_VAR_PARAM+"""" , ShowWindow, DontWaitUntilFinished
+					' WScript.Sleep 3000
 
 					WSHShell.Run """C:\Program Files\XnViewMP\xnviewmp.exe"""+ " """+PATH_ONLY_VAR_TMP+"""" , ShowWindow, DontWaitUntilFinished
 
-					' WScript.Sleep 5000
 					XEXPLORER=XEXPLORER & PATH_ONLY_VAR_TMP & VBCRLF
 				END IF
 			END IF
@@ -2782,8 +2786,8 @@ SUB PATH_SCANNER_COPY_CAMERA
 				IF INSTR(XEXPLORER,PATH_ONLY_VAR_TMP & VBCRLF)=0  AND PATH_ONLY_VAR_TMP<> "" THEN
 					FOLDER_PATH_DEST_VAR_PARAM=REPLACE(PATH_FILE_VAR_4," ","*")
 
-					WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29 VBS 29-COPY CAMERA LOAD EXPLORER.VBS.AHK"""+ " """+FOLDER_PATH_DEST_VAR_PARAM+"""" , ShowWindow, DontWaitUntilFinished
-					WScript.Sleep 3000
+					' WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29 VBS 29-COPY CAMERA LOAD EXPLORER.VBS.AHK"""+ " """+FOLDER_PATH_DEST_VAR_PARAM+"""" , ShowWindow, DontWaitUntilFinished
+					' WScript.Sleep 3000
 
 					WSHShell.Run """C:\Program Files\XnViewMP\xnviewmp.exe"""+ " """+PATH_ONLY_VAR_TMP+"""" , ShowWindow, DontWaitUntilFinished
 
@@ -2798,12 +2802,11 @@ SUB PATH_SCANNER_COPY_CAMERA
 				IF INSTR(XEXPLORER,PATH_ONLY_VAR_TMP & VBCRLF)=0  AND PATH_ONLY_VAR_TMP<> "" THEN
 					FOLDER_PATH_DEST_VAR_PARAM=REPLACE(PATH_FILE_VAR_5," ","*")
 
-					WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29 VBS 29-COPY CAMERA LOAD EXPLORER.VBS.AHK"""+ " """+FOLDER_PATH_DEST_VAR_PARAM+"""" , ShowWindow, DontWaitUntilFinished
-					WScript.Sleep 3000
+					' WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29 VBS 29-COPY CAMERA LOAD EXPLORER.VBS.AHK"""+ " """+FOLDER_PATH_DEST_VAR_PARAM+"""" , ShowWindow, DontWaitUntilFinished
+					' WScript.Sleep 3000
 
 					WSHShell.Run """C:\Program Files\XnViewMP\xnviewmp.exe"""+ " """+PATH_ONLY_VAR_TMP+"""" , ShowWindow, DontWaitUntilFinished
 
-					' WScript.Sleep 5000
 					XEXPLORER=XEXPLORER & PATH_ONLY_VAR_TMP & VBCRLF
 				END IF
 			END IF
@@ -2814,12 +2817,10 @@ SUB PATH_SCANNER_COPY_CAMERA
 				IF INSTR(XEXPLORER,PATH_ONLY_VAR_TMP & VBCRLF)=0  AND PATH_ONLY_VAR_TMP<> "" THEN
 					FOLDER_PATH_DEST_VAR_PARAM=REPLACE(PATH_FILE_VAR_6," ","*")
 
-					WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29 VBS 29-COPY CAMERA LOAD EXPLORER.VBS.AHK"""+ " """+FOLDER_PATH_DEST_VAR_PARAM+"""" , ShowWindow, DontWaitUntilFinished
+					' WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29 VBS 29-COPY CAMERA LOAD EXPLORER.VBS.AHK"""+ " """+FOLDER_PATH_DEST_VAR_PARAM+"""" , ShowWindow, DontWaitUntilFinished
 
 					WSHShell.Run """C:\Program Files\XnViewMP\xnviewmp.exe"""+ " """+PATH_ONLY_VAR_TMP+"""" , ShowWindow, DontWaitUntilFinished
-					WScript.Sleep 3000
 
-					' WScript.Sleep 5000
 					XEXPLORER=XEXPLORER & PATH_ONLY_VAR_TMP & VBCRLF
 				END IF
 			END IF
@@ -2830,12 +2831,11 @@ SUB PATH_SCANNER_COPY_CAMERA
 				IF INSTR(XEXPLORER,PATH_ONLY_VAR_TMP & VBCRLF)=0  AND PATH_ONLY_VAR_TMP<> "" THEN
 					FOLDER_PATH_DEST_VAR_PARAM=REPLACE(PATH_FILE_VAR_7," ","*")
 
-					WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29 VBS 29-COPY CAMERA LOAD EXPLORER.VBS.AHK"""+ " """+FOLDER_PATH_DEST_VAR_PARAM+"""" , ShowWindow, DontWaitUntilFinished
-					WScript.Sleep 3000
+					' WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29 VBS 29-COPY CAMERA LOAD EXPLORER.VBS.AHK"""+ " """+FOLDER_PATH_DEST_VAR_PARAM+"""" , ShowWindow, DontWaitUntilFinished
+					' WScript.Sleep 3000
 
 					WSHShell.Run """C:\Program Files\XnViewMP\xnviewmp.exe"""+ " """+PATH_ONLY_VAR_TMP+"""" , ShowWindow, DontWaitUntilFinished
 
-					' WScript.Sleep 5000
 					XEXPLORER=XEXPLORER & PATH_ONLY_VAR_TMP & VBCRLF
 				END IF
 			END IF

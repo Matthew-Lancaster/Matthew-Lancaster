@@ -822,7 +822,12 @@ SET_OWNER_RUN_BATCH_FILER:
 	; ERROR FOR ADD COMMAND LINE ADMIN 
 	; QUIETLY
 	; ---------------------------------------------------------------
+
+	SetTitleMatchMode 2
 	Element_1:="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 48-OWNER-ALL-DRIVE-AND-FOLDER.BAT"
+	SplitPath, Element_1, name
+	if FileExist(Element_1)
+	IF !WinExist(name)
 	IfExist, %Element_1%
 		Run, "%Element_1%"  /QUITE , , MIN ; HIDE
 	; ---------------------------------------------------------------
@@ -942,10 +947,17 @@ RETURN
 RETURN
 
 PULL_RECYCLE_BIN_ON:
+	
 	; CHECK IF EMPTY BEFORE BEGIN
-	; Run, shell:RecycleBinFolder ;Recycle Bin
+	
+	SetTitleMatchMode 3
+	NAME:="# Recycle Bin ahk_class CabinetWClass"
+	IF !WinExist(NAME)
+		Run, shell:RecycleBinFolder  , , MIN       ; ---- Recycle Bin
+
 	; THE CODE HERE ---- D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe
 	; AND BEFORE HERE -- C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk
+
 RETURN
 
 
@@ -978,15 +990,23 @@ MIDNIGHT_AND_HOUR_TIMER:
 		IF OL_Day_Get__01    ; ---- NOT TO RUN AT BOOT OF CODER APP
 		{	
 			; GOSUB NOTEPAD_PP_SESSION_BACKUP_DAILY
+			
 			GOSUB VBS_58_VB6_CORRECT_MSCOMCTL_OCX_2_2_VBS
+			
 			GOSUB VBS_35_RENAMER_VB6_VBP_LCASE_VBS
+			
 			; GOSUB VBS_35_RENAMER_VB6_VBP_LCASE_VBS
+			
 			; GOSUB VB_NT_00_Best_VB_01_SYNCRONIZER
+			
 			GOSUB SET_OWNER_RUN_BATCH_FILER
+			
 			; GOSUB RAM_EMPTY_MAIN
 			; GOSUB KILL_ALL_PROCESS_BY_REMOTE_INSTRUCTION ; - NOT SUPPOSED TO BE HERE GOT OWN TIMER
 			; GOSUB CLOSE_ALL_VB__AHK_CLASS_WNDCLASS_DESKED_GSK_MIDNIGHT
+			
 			GOSUB PULL_RECYCLE_BIN_ON  ; CHECK IF EMPTY BEFORE BEGIN
+			
 			; GOSUB KILL_RS232_LOGGER_DO_RESTARTER
 			; FN_VAR_04=C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 85-CHECK DISK CHKDSK AR MEDIA CARD_DAY EVENT.ahk
 			; IfExist, %FN_VAR_04%
@@ -996,10 +1016,11 @@ MIDNIGHT_AND_HOUR_TIMER:
 			
 			; GOSUB RUN_HUBIC_MIDNIGHT_IF_GONE_PROCESS_LASSO_PLUS_5_PERCENT_FOR_60_SECOND
 		}
-		
 
 		GOSUB HANDBRAKE_COPY_THE_DLL_FILE
+		
 		OL_Day_Get__01=%Midnight_Get_01%
+		
 	}
 	
 	; ---------------------------------------------------------------

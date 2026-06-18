@@ -392,6 +392,9 @@ Begin VB.Form Form1
    Begin VB.Menu MNU_FILL_FREE_SPACE 
       Caption         =   "FILL_FREE_SPACE"
    End
+   Begin VB.Menu MNU_ADVANCED_RENAMER 
+      Caption         =   "ADVANCED RENAMER"
+   End
 End
 Attribute VB_Name = "Form1"
 Attribute VB_GlobalNameSpace = False
@@ -687,6 +690,30 @@ End If
 
 End Sub
 
+
+Private Sub MNU_ADVANCED_RENAMER_Click()
+    Me.Hide
+
+    XF0 = Label_1_FOLDER_FILE.Caption
+    XF0 = Label_2_FOLDER.Caption
+    
+    Dim WSHShell
+    Set WSHShell = CreateObject("WScript.Shell")
+    
+    OSI = GetOsBitness
+    
+    If OSI = 64 Then
+        HASH_EXE = "C:\Program Files\Advanced Renamer\ARen.exe"
+    Else
+        HASH_EXE = "C:\Program Files X(86)\Advanced Renamer\ARen.exe"
+    End If
+    
+    WSHShell.Run """" + HASH_EXE + """ /folder """ + XF0 + """"
+    
+    Set WSHShell = Nothing
+
+    End
+End Sub
 
 Private Sub MNU_DEL_EMPTY_Click()
 

@@ -13078,6 +13078,10 @@ End Sub
 ' ---------------------------------------------------------------------
 Sub TIMER_O_DAY_NOW_MIDNIGHT__()
     
+    Exit Sub
+    ' DO IT IN AUTOHOTKEY
+    ' 2026 --------------
+    
     If O_DAY_NOW_MIDNIGHT__ = 0 Then
         O_DAY_NOW_MIDNIGHT__ = Day(Now)
     End If
@@ -13085,7 +13089,8 @@ Sub TIMER_O_DAY_NOW_MIDNIGHT__()
     O_DAY_NOW_MIDNIGHT__ = Day(Now)
     
     If GET_RECYCLEBIN_SIZE > 0 Then
-        Shell "EXPLORER shell:RecycleBinFolder", vbNormalFocus
+        Shell "EXPLORER shell:RecycleBinFolder"
+        ' IT DON'T RUN MINIMIZED
     End If
 
 End Sub
