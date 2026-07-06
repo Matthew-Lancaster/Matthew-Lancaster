@@ -123,20 +123,14 @@ REM @FOR %%G IN (D,O) DO (
 				IF "%%F"=="System Volume Information" SET VAR_FLAG=NOT
 				IF "%%F"=="$Recycle.Bin" SET VAR_FLAG=NOT
 				IF "%%F"=="$RECYCLE.BIN" SET VAR_FLAG=NOT
+				IF "%%F"=="$AV_NLL" SET VAR_FLAG=NOT
+				IF "%%F"=="$Windows.~WS" SET VAR_FLAG=NOT
+				IF "%%F"=="$WinREAgent" SET VAR_FLAG=NOT
+				IF "%%F"=="$WINDOWS.~BT" SET VAR_FLAG=NOT
+				IF "%%F"=="Windows.old" SET VAR_FLAG=NOT
 				IF "%%F"=="Recovery" SET VAR_FLAG=NOT
 				IF "%%F"=="Windows" SET VAR_FLAG=NOT
 				IF "%%F"=="ProgramData" SET VAR_FLAG=NOT
-				IF "%%F"=="Boot" SET VAR_FLAG=NOT
-				IF "%%F"=="$WINDOWS.~BT" SET VAR_FLAG=NOT
-				IF "%%F"=="$Windows.~WS" SET VAR_FLAG=NOT
-				IF "%%F"=="Windows.old" SET VAR_FLAG=NOT
-				IF "%%F"=="_gsdata_" SET VAR_FLAG=NOT
-				IF "%%F"=="aws" SET VAR_FLAG=NOT
-				IF "%%F"=="eSupport" SET VAR_FLAG=NOT
-				IF "%%F"=="SC" SET VAR_FLAG=NOT
-				IF "%%F"=="Documents and Settings" SET VAR_FLAG=NOT
-				IF "%%F"=="LocalStorage" SET VAR_FLAG=NOT
-				IF "%%F"=="GoodSync" SET VAR_FLAG=NOT
 				IF "%%F"=="Program Files (x86)" SET VAR_FLAG=NOT
 				IF "%%F"=="Program Files" SET VAR_FLAG=NOT
 				IF "%%F"=="MSOCache" SET VAR_FLAG=NOT
@@ -145,9 +139,16 @@ REM @FOR %%G IN (D,O) DO (
 				IF "%%F"=="Documents and Settings" SET VAR_FLAG=NOT
 				IF "%%F"=="EFI" SET VAR_FLAG=NOT
 				IF "%%F"=="ESD" SET VAR_FLAG=NOT
-				IF "%%F"=="$AV_NLL" SET VAR_FLAG=NOT
-				IF "%%F"=="$Windows.~WS" SET VAR_FLAG=NOT
+				IF "%%F"=="LocalStorage" SET VAR_FLAG=NOT
+				IF "%%F"=="Boot" SET VAR_FLAG=NOT
+				IF "%%F"=="eSupport" SET VAR_FLAG=NOT
+
 				IF "%%F"=="_gsdata_" SET VAR_FLAG=NOT
+
+				IF "%%F"=="aws" SET VAR_FLAG=NOT
+				IF "%%F"=="SC" SET VAR_FLAG=NOT
+				IF "%%F"=="GoodSync" SET VAR_FLAG=NOT
+				
 				IF "%%F"=="Intel" SET VAR_FLAG=NOT
 				IF "%%F"=="inetpub" SET VAR_FLAG=NOT
 				REM IF "%%F"=="" SET VAR_FLAG=NOT

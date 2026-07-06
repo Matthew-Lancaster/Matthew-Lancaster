@@ -4,7 +4,8 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;
 
-;Autokey -- 13-LOGITECH_SPEAKER_AUDIO 1Hz.ahk
+;# __ Autokey -- 13-LOGITECH_SPEAKER_AUDIO 1Hz.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
 
 ;---------------------------------------------------------
 ;WANT 

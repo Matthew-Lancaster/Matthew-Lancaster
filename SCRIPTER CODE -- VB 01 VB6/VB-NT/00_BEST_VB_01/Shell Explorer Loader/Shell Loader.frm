@@ -11056,7 +11056,6 @@ Private Sub MNU_LOAD_ALL_SCRIPTOR_AHK_BAT_VBS_Click()
     i = i + 1: FILTER_01(i) = "3-LINDA-PC"
     i = i + 1: FILTER_01(i) = "4-ASUS-GL522VW"
     i = i + 1: FILTER_01(i) = "5-ASUS-P2520LA"
-    i = i + 1: FILTER_01(i) = "7-ASUS-GL522VW"
     i = i + 1: FILTER_01(i) = "8-MSI-GP62M-7RD"
     i = i + 1: FILTER_01(i) = "9-ASUS-G815LM"
     i = i + 1: FILTER_01(i) = "#NFS"
@@ -11419,7 +11418,6 @@ Private Sub MNU_LOAD_ALL_SCRIPTOR_Click()
     i = i + 1: FILTER_01(i) = "3-LINDA-PC"
     i = i + 1: FILTER_01(i) = "4-ASUS-GL522VW"
     i = i + 1: FILTER_01(i) = "5-ASUS-P2520LA"
-    i = i + 1: FILTER_01(i) = "7-ASUS-GL522VW"
     i = i + 1: FILTER_01(i) = "8-MSI-GP62M-7RD"
     i = i + 1: FILTER_01(i) = "9-ASUS-G815LM"
     i = i + 1: FILTER_01(i) = "#NFS"
@@ -11864,7 +11862,6 @@ If II = "2-ASUS-EEE" Then II = "2E"
 If II = "3-LINDA-PC" Then II = "2L"
 If II = "4-ASUS-GL522VW" Then II = "4G"
 If II = "5-ASUS-P2520LA" Then II = "5P"
-If II = "7-ASUS-GL522VW" Then II = "7G"
 If II = "8-MSI-GP62M-7RD" Then II = "8M"
 If II = "9-ASUS-G815LM" Then II = "9G"
 
@@ -11963,15 +11960,11 @@ If GetComputerName = "5-ASUS-P2520LA" Then
     FontSizez_2 = FontSizez '     -- THE SPECIAL FOLDERIN GET HERE
 End If
 
-If GetComputerName = "7-ASUS-GL522VW" Then
-    FontSizez = 6.8
-    FontSizez_2 = FontSizez '     -- THE SPECIAL FOLDERIN GET HERE
-End If
-
 If GetComputerName = "8-MSI-GP62M-7RD" Then
     FontSizez = 6.8
     FontSizez_2 = FontSizez '     -- THE SPECIAL FOLDERIN GET HERE
 End If
+
 If GetComputerName = "9-ASUS-G815LM" Then
     FontSizez = 8
     FontSizez_2 = FontSizez '     -- THE SPECIAL FOLDERIN GET HERE
@@ -13515,7 +13508,7 @@ Private Sub MNU_FOLDER_DIGITAL_STILL_CAMERA_Click()
 End Sub
 Private Sub MNU_CAMERA_VIDEO_FOLDER_4G_Click()
     Me.WindowState = vbMinimized
-    Shell "EXPLORER \\4-asus-gl522vw\4_asus_gl522vw_10_1_samsung_1tb\DSC\2015+SONY_MP4\2020 CyberShot HX60V __ MP4", vbMaximizedFocus
+    Shell "EXPLORER \\4-ASUS-GL522VW\4_Asus_Gl522Vw_U_Samsung_5TB\DSC_4G_1TB\2015+SONY_MP4\2020 CyberShot HX60V __ MP4", vbMaximizedFocus
 End Sub
 Private Sub MNU_ADMINISTRATOR_Click()
     'Call MNU_ADMINISTRATOR_Click

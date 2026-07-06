@@ -1152,6 +1152,9 @@ Attribute VB_Exposed = False
 ' Option Explicit
 ' 17-MAY-2026 05:01:38 SUN
 
+Dim Minute_Timer_CLIPBOARD_API_01
+Dim Minute_Timer_CLIPBOARD_API_02
+
 Dim HWND_2_LATCH
 
 Dim ADBLOCK_INFO_MAIN_CHUNK
@@ -1889,7 +1892,7 @@ Sub GO_VIRTUAL_GIRL()
     
     Me.WindowState = vbMaximized
 
-    With ListView1
+    With LISTVIEW1
         .ColumnHeaders.Add , "PID", "PID", 700 - 50, lvwColumnLeft
         .ColumnHeaders.Add , "EXE", "EXE", 9000, lvwColumnLeft
         .View = lvwReport
@@ -1906,16 +1909,16 @@ Sub GO_VIRTUAL_GIRL()
     Dim TD()
     ReDim TD(200)
    
-    Dir1.Path = "D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\X VIRTUAL FEMALE\Extra Girl 0"
+    Dir1.Path = "D:\VIDEO\NOT\X 00 NOT\00 Vid XXX\X VIRTUAL FEMALE\Extra Girl 0"
     i = 0
     For r = 0 To Dir1.ListCount - 1
         i = i + 1: TD(i) = Dir1.List(r)
     Next
-    Dir1.Path = "D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\X VIRTUAL FEMALE\Extra Girl 1"
+    Dir1.Path = "D:\VIDEO\NOT\X 00 NOT\00 Vid XXX\X VIRTUAL FEMALE\Extra Girl 1"
     For r = 0 To Dir1.ListCount - 1
         i = i + 1: TD(i) = Dir1.List(r)
     Next
-    Dir1.Path = "D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\X VIRTUAL FEMALE\Extra Girl 2"
+    Dir1.Path = "D:\VIDEO\NOT\X 00 NOT\00 Vid XXX\X VIRTUAL FEMALE\Extra Girl 2"
     For r = 0 To Dir1.ListCount - 1
         i = i + 1: TD(i) = Dir1.List(r)
     Next
@@ -2123,7 +2126,7 @@ Sub GO_VIRTUAL_GIRL()
                 INX = Mid(File1.List(RL), 1, 4)
                 FF2 = Mid(File1.List(RL), 7)
             End If
-            With ListView1
+            With LISTVIEW1
                 Set LV1 = .ListItems.Add(, , INX)
                 LV1.SubItems(1) = FF2
                 '------------------------
@@ -2149,9 +2152,9 @@ Sub GO_VIRTUAL_GIRL()
             
         Next
 
-        ListView1.SortOrder = lvwAscending
-        ListView1.SortKey = 1
-        ListView1.Sorted = True
+        LISTVIEW1.SortOrder = lvwAscending
+        LISTVIEW1.SortKey = 1
+        LISTVIEW1.Sorted = True
     Next
 End
     
@@ -2545,8 +2548,8 @@ Private Sub Form_Load()
     ' END IF -- AMEN
     ' END IF -- AMEN
     ' TEST DEBUG LOAD LAST COMMAND LINE
-    ' COMV1 = """C:\TEMP\-7-ASUS-GL522VW\gst_58292_666.tmp"" ""M:\0 00 ART LOGGERS\# APP AND SCREEN AUTO\5-ASUS-P2520LA_AUTO\AUTO_Form_Shot\FormCapture_2016-07-14-Thu_FORM_SWAP\FormCapture- 2016-07-14 23-45-18 Thu.jpg"""
-    ' COMV1 = """C:\SCRIPTER\NOTEPAD TALK\TEXT 2018-08-15 __ EMMA D & B _ AOT.txt"" ""C:\TEMP\-7-ASUS-GL522VW\gst_22968_362.tmp"""
+    ' COMV1 = """C:\TEMP\-4-ASUS-GL522VW\gst_58292_666.tmp"" ""M:\0 00 ART LOGGERS\# APP AND SCREEN AUTO\5-ASUS-P2520LA_AUTO\AUTO_Form_Shot\FormCapture_2016-07-14-Thu_FORM_SWAP\FormCapture- 2016-07-14 23-45-18 Thu.jpg"""
+    ' COMV1 = """C:\SCRIPTER\NOTEPAD TALK\TEXT 2018-08-15 __ EMMA D & B _ AOT.txt"" ""C:\TEMP\-4-ASUS-GL522VW\gst_22968_362.tmp"""
     
     
     Set m_CRC = New clsCRC
@@ -4070,8 +4073,8 @@ Dim HDD
 On Error Resume Next
 TTD = Clipboard.GetText
 
-'SS = "\\7-asus-gl522vw\7_ASUS_GL522VW_02_D_DRIVE\VI_ DSC ME 02\2001 MEDIA HARDCORE 01"
-'TTD = "gstps://7-asus-gl522vw.matt-lan-btinternet-com.goodsync/D:/VI_ DSC ME 02/2001 MEDIA HARDCORE 01"
+'SS = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_D_Drive\VI_ DSC ME 02\2001 MEDIA HARDCORE 01"
+'TTD = "gstps://4-ASUS-GL522VW.matt-lan-btinternet-com.goodsync/D:/VI_ DSC ME 02/2001 MEDIA HARDCORE 01"
 
 TTD = Replace(TTD, LCase("2-ASUS-X"), LCase("1-ASUS-X"))
 TTD = Replace(TTD, LCase("1-ASUS-E"), LCase("2-ASUS-E"))
@@ -4127,7 +4130,7 @@ End If
 '    i = ""
 '    i = i + "SHARE WITH FOLDER NAME -- NOT EXIST ANY -- VAR" + vbCrLf + vbCrLf
 '    i = i + "BOTH THE SAME __ REQUIRE MORE PROGRAMMER" + vbCrLf + vbCrLf
-'    i = i + "ONLY WORK FROM DRIVE ABOVE E: WITH 7-ASUS-GL522VW" + vbCrLf + vbCrLf
+'    i = i + "ONLY WORK FROM DRIVE ABOVE E: WITH 4-ASUS-GL522VW" + vbCrLf + vbCrLf
 '    i = i + "VAR -- TTD" + vbCrLf + vbCrLf
 '    i = i + "----------" + vbCrLf
 '    i = i + TTD
@@ -4267,7 +4270,7 @@ End Sub
 Public Sub MNU_GOODSYNC_VOLUME_LABLE_DRIVE_Click()
 
 '=3_SAMSUNG_4TB_D:\VI_ DSC 01 V0 01 MM
-'\\7-ASUS-GL522VW\7_ASUS_GL522VW_02_D_DRIVE\VIDEO\NOT\X 00 NOT ME\00 Vid XXX
+'\\4-ASUS-GL522VW\4_Asus_Gl522Vw_D_Drive\VIDEO\NOT\X 00 NOT\00 Vid XXX
 
 
 
@@ -4281,11 +4284,11 @@ On Error Resume Next
 TTD = Clipboard.GetText
 
 
-'SS = "\\7-asus-gl522vw\7_ASUS_GL522VW_02_D_DRIVE\V"
-'TTD = "gstps://7-asus-gl522vw.matt-lan-btinternet-com.goodsync/D:/V"
+'SS = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_D_Drive\V"
+'TTD = "gstps://4-ASUS-GL522VW.matt-lan-btinternet-com.goodsync/D:/V"
 
-If InStr(TTD, "\\7-ASUS-GL522VW\7_ASUS_GL522VW_02_D_DRIVE") > 0 Then
-    TTD = Replace(TTD, "\\7-ASUS-GL522VW\7_ASUS_GL522VW_02_D_DRIVE\", "=D DRIVE:\")
+If InStr(TTD, "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_D_Drive") > 0 Then
+    TTD = Replace(TTD, "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_D_Drive\", "=D DRIVE:\")
 End If
 
 Dim FS, d, S, DRVPATH
@@ -6995,11 +6998,27 @@ End Sub
 
 Private Sub Timer_CLIPBOARD_API_Timer()
 
+    ' ---- * 60 MINUTE
+    Timer_CLIPBOARD_API.Interval = 60000
+    
+    Minute_Timer_CLIPBOARD_API_01 = Minute_Timer_CLIPBOARD_API_01 + 1
+    If Minute_Timer_CLIPBOARD_API_01 < 60 Then Exit Sub
+    Minute_Timer_CLIPBOARD_API_01 = 0
+    
+    
+
     If FRM_CLIPTEST_02_ENABLE = False Then Exit Sub
 
     ' Call MNU_API_RESET_Click
     
 '    FRM_ClipTest_02.ctlClipboard1.EndClipboardViewer
+    
+    ' ------------------------------------------
+    ' ---- HERE IS CAUSE-ER DELAY WHEN HAPPEN
+    ' ---- ONLY SOMETIMES HARD TO CATCH IN ISIDE
+    ' ---- JULY 2026
+    ' ---- SET TIMER LESS FREQ
+    ' ------------------------------------------
     Unload FRM_ClipTest_02
     DoEvents
     Load FRM_ClipTest_02
@@ -7013,7 +7032,7 @@ Private Sub Timer_EXIT_Timer()
     If Date = "28/01/2020" Then Exit Sub
     
     If IsIDE = False Then Timer_EXIT.Enabled = False
-    
+    Timer_EXIT.Enabled = False
     If GetForegroundWindow = Me.hWnd Then
         If GetAsyncKeyState(27) Then End 'ESCAPE KEY
     End If
@@ -7022,10 +7041,34 @@ End Sub
 
 
 Public Sub Timer_RESET_API_CLIPPER_Timer()
-
+    
+    Timer_RESET_API_CLIPPER.Interval = 60000 ' MINUTE
+    ' ------------------------------------------------------
+    ' HERE ROUTINE TIMER GET CALL WHEN A CHANGE TO CLIPBOARD
+    ' ------------------------------------------------------
+    
     If FRM_CLIPTEST_02_ENABLE = False Then Exit Sub
+    
+    ' ---------
+    ' 60 MINUTE
+    ' ---------
+    Minute_Timer_CLIPBOARD_API_02 = Minute_Timer_CLIPBOARD_API_02 + 1
+    If Minute_Timer_CLIPBOARD_API_02 < 60 Then Exit Sub
+    Minute_Timer_CLIPBOARD_API_02 = 0
+    
+    
+    
 
     ' FRM_ClipTest_02.ctlClipboard1.EndClipboardViewer
+    
+    ' ------------------------------------------------------------------
+    ' HERE IS CAUSE-ER DELAY TO UNLOAD -- SOMETIMES
+    ' BUT ONLY RUN ONCE AT BEGIN SAFE TO LEAVE CODE THERE
+    ' 2026 JULY
+    ' IT STARTED ON WINDOWS 11
+    ' AND THEN EVERY COMPUTER WINDOWS 10 PROFESSIONAL AND HOME
+    ' MUST SOMETHING TO DO WITH AN UPDATE BY VISUAL BASIC COMMUNITY 2026
+    ' ------------------------------------------------------------------
     Unload FRM_ClipTest_02
     DoEvents
     Load FRM_ClipTest_02

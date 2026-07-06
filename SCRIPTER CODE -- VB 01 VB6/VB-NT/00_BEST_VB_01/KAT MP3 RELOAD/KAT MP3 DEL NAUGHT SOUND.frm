@@ -855,7 +855,7 @@ If GetComputerName = "1-ASUS-EEE" Then PATHSET = WW + GetComputerName
 If GetComputerName = "3-LINDA-PC" Then PATHSET = WW + GetComputerName
 If GetComputerName = "5-ASUS-P2520LA" Then PATHSET = WW + GetComputerName
 If GetComputerName = "4-ASUS-GL522VW" Then PATHSET = WW + GetComputerName
-If GetComputerName = "7-ASUS-GL522VW" Then PATHSET = WW + GetComputerName
+If GetComputerName = "4-ASUS-GL522VW" Then PATHSET = WW + GetComputerName
 
 If GetComputerName = "1-ASUS-X5DIJ" Then
     PATHSET = WW + GetComputerName
@@ -5069,7 +5069,7 @@ If GetComputerName = "1-ASUS-X5DIJ" Then MINICOMPARE = 315
 If GetComputerName = "3-LINDA-PC" Then MINICOMPARE = 315 + 500 'ADD ANOTHER MULTI MINUTE MUM COMPUTER DO RUN SLOW LESS QUICK
 If GetComputerName = "4-ASUS-GL522VW" Then MINICOMPARE = 315
 If GetComputerName = "5-ASUS-P2520LA" Then MINICOMPARE = 315
-If GetComputerName = "7-ASUS-GL522VW" Then MINICOMPARE = 315
+If GetComputerName = "4-ASUS-GL522VW" Then MINICOMPARE = 315
 '-----------------------------------
 
 
@@ -6019,7 +6019,7 @@ Sub DEL_WAVS()
                 MIN_SIZE______ = 1024
                 GetComputerVAR = True
             End If
-            If GetComputerName = "7-ASUS-GL522VW" Then
+            If GetComputerName = "4-ASUS-GL522VW" Then
                 DEL_DATE_DAYS1 = 3
                 DEL_DATE_DAYS2 = 180
                 MIN_SIZE______ = 1024 '40890 '40,856

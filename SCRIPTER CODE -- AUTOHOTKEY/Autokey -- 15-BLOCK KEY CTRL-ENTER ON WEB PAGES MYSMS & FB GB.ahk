@@ -2,8 +2,10 @@
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES MYSMS & FB GB.ahk
 ;# __ 
 ;# __ Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES MYSMS & FB GB.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
 ;# __ 
-;# __ BY Matthew Lancaster __ Matt.Lan@Btinternet.com __ 
+;# __ BY Matthew Lancaster __ 
+;# __ Matt.Lan@Btinternet.com __ 
 ;# 
 ;# Wed 18 October 2017 02:05:00 Work Time Beginner
 ;# Sat 21 April   2018 04:00:00 2nd Wave of Work Better Coder Emerged

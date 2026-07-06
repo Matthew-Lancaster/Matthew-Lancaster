@@ -76,8 +76,8 @@ Private Sub Form_Load()
 'Unload Me
 Exit Sub
 Dim LET_PASS
-'If GetComputerName <> "7-ASUS-GL522VW" Then Unload Me: Exit Sub
-If GetComputerName = "7-ASUS-GL522VW" And GetUserName <> "MATT 01" Then
+'If GetComputerName <> "4-ASUS-GL522VW" Then Unload Me: Exit Sub
+If GetComputerName = "4-ASUS-GL522VW" And GetUserName <> "MATT 01" Then
     LET_PASS = False
     If InStr(UCase(APP_NAME_RELOAD_IT_ER_EXE), UCase("Explorer.exe")) > 0 Then LET_PASS = True
     If InStr(UCase(APP_NAME_RELOAD_IT_ER_EXE), UCase("ProcessLasso.exe")) > 0 Then LET_PASS = True

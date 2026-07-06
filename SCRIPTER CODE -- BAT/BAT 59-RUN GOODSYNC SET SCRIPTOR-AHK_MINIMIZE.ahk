@@ -2,6 +2,7 @@
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk
 ;# __ 
 ;# __ BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
 ;# __ 
 ;# __ BY Matthew Lancaster 
 ;# __ Matt.Lan@Btinternet.com

@@ -6,6 +6,7 @@
 ;# __ Autokey -- 79-LOAD URL AT BOOT CHROME.ahk                -- BEFORE
 ;# __ Autokey -- 79-BROWSER LOAD URL AT AUTO BOOT CHROME.ahk   -- BEFORE
 ;# __ Autokey -- 79-BROWSER LOAD URL BOOT CHROME.ahk           -- HERE
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
 ;# __ 
 ;# __ BY Matthew Lancaster 
 ;# __ Matt.Lan@Btinternet.com

@@ -268,7 +268,9 @@ On Error GoTo 0
 
 ' FOR
 ' FRM_ClipTest.Timer_RESET_API_CLIPPER.Enabled = True
-Timer2.Enabled = True
+
+FRM_ClipTest.Timer_RESET_API_CLIPPER.Enabled = True
+'Timer2.Enabled = True
 
 GoTo ENDER_SUB
 
@@ -320,7 +322,6 @@ EXIT_SUB_ENDER:
 
 End Sub
 
-Private Sub Timer2_Timer()
-    FRM_ClipTest.Timer_RESET_API_CLIPPER.Enabled = True
-    Timer2.Enabled = False
-End Sub
+'Private Sub Timer2_Timer()
+'    Timer2.Enabled = False
+'End Sub

@@ -2,6 +2,7 @@
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AutoKey -- 14-Class_Monitor-master\src\AutoKey -- 14-Brightness.ahk
 ;# __ 
 ;# __ AutoKey -- 14-Brightness.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
 ;# __ 
 ;# BY Matthew __ Matt.Lan@Btinternet.com __ 
 ;# __ 

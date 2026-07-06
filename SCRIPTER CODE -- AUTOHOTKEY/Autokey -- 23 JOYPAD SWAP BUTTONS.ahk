@@ -2,6 +2,7 @@
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 23 JOYPAD SWAP BUTTONS.ahk
 ;# __ 
 ;# __ Autokey -- 23 JOYPAD SWAP BUTTONS.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
 ;# __ 
 ;# BY Matthew __ Matt.Lan@Btinternet.com __ 
 ;# Thu 19-Apr-2018 01:19:10 BEGIN

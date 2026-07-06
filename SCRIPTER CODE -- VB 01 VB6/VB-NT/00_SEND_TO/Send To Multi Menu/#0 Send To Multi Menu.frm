@@ -1,19 +1,19 @@
 VERSION 5.00
-Object = "{3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0"; "RICHTX32.OCX"
+Object = "{3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0"; "richtx32.ocx"
 Begin VB.Form Form1 
    BackColor       =   &H00800000&
    Caption         =   "Form1"
-   ClientHeight    =   5145
-   ClientLeft      =   195
-   ClientTop       =   3270
-   ClientWidth     =   12855
+   ClientHeight    =   5136
+   ClientLeft      =   192
+   ClientTop       =   3276
+   ClientWidth     =   12864
    Icon            =   "#0 Send To Multi Menu.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   5145
-   ScaleWidth      =   12855
+   ScaleHeight     =   5136
+   ScaleWidth      =   12864
    StartUpPosition =   2  'CenterScreen
    Begin VB.FileListBox File2 
-      Height          =   285
+      Height          =   264
       Left            =   6564
       TabIndex        =   14
       Top             =   360
@@ -28,8 +28,9 @@ Begin VB.Form Form1
       Visible         =   0   'False
       Width           =   1500
       _ExtentX        =   2646
-      _ExtentY        =   767
+      _ExtentY        =   762
       _Version        =   393217
+      Enabled         =   -1  'True
       MultiLine       =   0   'False
       TextRTF         =   $"#0 Send To Multi Menu.frx":0ECA
    End
@@ -41,8 +42,9 @@ Begin VB.Form Form1
       Visible         =   0   'False
       Width           =   1500
       _ExtentX        =   2646
-      _ExtentY        =   767
+      _ExtentY        =   762
       _Version        =   393217
+      Enabled         =   -1  'True
       MultiLine       =   0   'False
       TextRTF         =   $"#0 Send To Multi Menu.frx":0F55
    End
@@ -54,8 +56,9 @@ Begin VB.Form Form1
       Visible         =   0   'False
       Width           =   1500
       _ExtentX        =   2646
-      _ExtentY        =   767
+      _ExtentY        =   762
       _Version        =   393217
+      Enabled         =   -1  'True
       MultiLine       =   0   'False
       TextRTF         =   $"#0 Send To Multi Menu.frx":0FE0
    End
@@ -67,8 +70,9 @@ Begin VB.Form Form1
       Visible         =   0   'False
       Width           =   1500
       _ExtentX        =   2646
-      _ExtentY        =   767
+      _ExtentY        =   762
       _Version        =   393217
+      Enabled         =   -1  'True
       MultiLine       =   0   'False
       TextRTF         =   $"#0 Send To Multi Menu.frx":106B
    End
@@ -80,8 +84,9 @@ Begin VB.Form Form1
       Visible         =   0   'False
       Width           =   1500
       _ExtentX        =   2646
-      _ExtentY        =   714
+      _ExtentY        =   720
       _Version        =   393217
+      Enabled         =   -1  'True
       MultiLine       =   0   'False
       TextRTF         =   $"#0 Send To Multi Menu.frx":10F6
    End
@@ -101,7 +106,7 @@ Begin VB.Form Form1
       Top             =   480
    End
    Begin VB.FileListBox File1 
-      Height          =   285
+      Height          =   264
       Left            =   5220
       TabIndex        =   5
       Top             =   1476
@@ -125,7 +130,7 @@ Begin VB.Form Form1
       Caption         =   "PATH_FILE __ SOURCE __ "
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -143,7 +148,7 @@ Begin VB.Form Form1
       Caption         =   "AVAILABLE CLIPBOARD __ PATH_FILE __ EXIST  __ REQUEST IF YOU WANT"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -161,7 +166,7 @@ Begin VB.Form Form1
       Caption         =   "AVAILABLE CLIPBOARD"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -179,7 +184,7 @@ Begin VB.Form Form1
       Caption         =   "Text List of JPG Files With Number Bullet Point -- Camera"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -197,7 +202,7 @@ Begin VB.Form Form1
       Caption         =   "Label_2_FOLDER"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -215,7 +220,7 @@ Begin VB.Form Form1
       Caption         =   "Create a DOC Folder Here -- LABEL SET IN CODE"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -233,7 +238,7 @@ Begin VB.Form Form1
       Caption         =   "Label_1_FOLDER_FILE"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -394,6 +399,9 @@ Begin VB.Form Form1
    End
    Begin VB.Menu MNU_ADVANCED_RENAMER 
       Caption         =   "ADVANCED RENAMER"
+   End
+   Begin VB.Menu MNU_XnView_MP 
+      Caption         =   "XnView_MP"
    End
 End
 Attribute VB_Name = "Form1"
@@ -714,6 +722,31 @@ Private Sub MNU_ADVANCED_RENAMER_Click()
 
     End
 End Sub
+
+Private Sub MNU_XnView_MP_Click()
+    Me.Hide
+
+    XF0 = Label_1_FOLDER_FILE.Caption
+    ' XF0 = Label_2_FOLDER.Caption
+    
+    Dim WSHShell
+    Set WSHShell = CreateObject("WScript.Shell")
+    
+    OSI = GetOsBitness
+    
+    If OSI = 64 Then
+        HASH_EXE = "C:\Program Files\XnViewMP\xnviewmp.exe"
+    Else
+        HASH_EXE = "C:\Program Files X(86)\XnViewMP\xnviewmp.exe"
+    End If
+    
+    WSHShell.Run """" + HASH_EXE + """ """ + XF0 + """"
+    
+    Set WSHShell = Nothing
+
+    End
+End Sub
+
 
 Private Sub MNU_DEL_EMPTY_Click()
 
@@ -2006,8 +2039,8 @@ End Sub
 Private Sub MNU_MEDIA_PLAYER_CLASSIC_LINE_Click()
 
 
-If GetComputerName = "7-ASUS-GL522VW" Then
-    Label_2_FOLDER.Caption = "D:\VIDEO\NOT\X 00 NOT ME"
+If GetComputerName = "4-ASUS-GL522VW" Then
+    Label_2_FOLDER.Caption = "D:\VIDEO\NOT\X 00 NOT"
 End If
 
 Shell "D:\VB6\VB-NT\00_Send_To\Send To Text List of Files & Sub Folders IRFAN\#0 Send To Text List of Files and Sub Folders IRFAN.exe """ + Label_2_FOLDER.Caption + """", vbMaximizedFocus
@@ -3269,7 +3302,7 @@ If GetComputerName = "1-ASUS-X5DIJ" Then HEIGHT_ADJUST = 70
 If GetComputerName = "3-LINDA-PC" Then HEIGHT_ADJUST = 70
 If GetComputerName = "4-ASUS-GL522VW" Then HEIGHT_ADJUST = 700
 If GetComputerName = "5-ASUS-P2520LA" Then HEIGHT_ADJUST = 700 - 50
-If GetComputerName = "7-ASUS-GL522VW" Then HEIGHT_ADJUST = 700
+If GetComputerName = "4-ASUS-GL522VW" Then HEIGHT_ADJUST = 700
 If GetComputerName = "9-ASUS-G815LM" Then HEIGHT_ADJUST = 1000
 
 'HIGHER NUMBER SMALLER INNER BOX

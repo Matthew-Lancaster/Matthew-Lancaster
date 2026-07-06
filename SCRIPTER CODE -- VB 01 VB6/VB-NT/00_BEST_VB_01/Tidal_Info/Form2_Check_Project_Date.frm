@@ -119,6 +119,8 @@ Attribute VB_Exposed = False
 '-----------------------------------------------------------
 Dim COUNT_TIMER_OVER_RIDE
 
+Dim CHECK_NETWORK_PATHS_CHECKDATE
+
 Dim VB_APP_PATH_NAME_2 As String
 Dim PATH_FILE_NAME1 As String
 Dim PATH_FILE_NAME2 As String
@@ -431,8 +433,9 @@ Me.Hide
 End Sub
 
 Public Sub Timer_VB_PROJECT_CHECKDATE_Timer()
-
-
+    
+    Timer_VB_PROJECT_CHECKDATE.Interval = 1000
+    
     COUNT_TIMER_OVER_RIDE = COUNT_TIMER_OVER_RIDE + 1
 
     If Me.EXIT_TRUE = True Then
@@ -498,35 +501,49 @@ Public Sub Timer_VB_PROJECT_CHECKDATE_Timer()
         FSO.CopyFile PATH_FILE_NAME1, PATH_FILE_NAME2
         ABLE_TO_EXIT = True
     End If
+            
+    ' ----------------------------------------------
+    ' ----------------------------------------------
+    ' RUN NETWORK CHECK DATE EVERY NOW AND THEN
+    ' AS THEY TAKE TIME -- GUESS WHEN TURN VPN ON
+    ' SOMETHING NETOWKR IS CAUSE DELAY-ER
+    ' 2026
+    ' ----------------------------------------------
+    CHECK_NETWORK_PATHS_CHECKDATE = CHECK_NETWORK_PATHS_CHECKDATE + 1
+    ' EVERY 2 MINUTE
+    If CHECK_NETWORK_PATHS_CHECKDATE > 120 Then
+        CHECK_NETWORK_PATHS_CHECKDATE = 0
         
-    PATH_FILE_NAME4 = "\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_02_d_drive\" + Right(App.Path, Len(App.Path) - 3) + "\" + App.EXEName + ".EXE"
-    PATH_FILE_NAME5 = Replace(PATH_FILE_NAME4, "\VB6\", "\VB6-EXE\")
-    PATH_FILE_NAME4 = PATH_FILE_NAME1
-    On Error Resume Next
-    If Dir(PATH_FILE_NAME4) = "" And Dir(Mid(PATH_FILE_NAME4, 1, InStrRev(PATH_FILE_NAME4, "\")), vbDirectory) = "" Then
-         CreateFolderTree Mid(PATH_FILE_NAME4, 1, InStrRev(PATH_FILE_NAME4, "\"))
+        PATH_FILE_NAME4 = "\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_02_d_drive\" + Right(App.Path, Len(App.Path) - 3) + "\" + App.EXEName + ".EXE"
+        PATH_FILE_NAME5 = Replace(PATH_FILE_NAME4, "\VB6\", "\VB6-EXE\")
+        PATH_FILE_NAME4 = PATH_FILE_NAME1
+        On Error Resume Next
+        If Dir(PATH_FILE_NAME4) = "" And Dir(Mid(PATH_FILE_NAME4, 1, InStrRev(PATH_FILE_NAME4, "\")), vbDirectory) = "" Then
+             CreateFolderTree Mid(PATH_FILE_NAME4, 1, InStrRev(PATH_FILE_NAME4, "\"))
+        End If
+        Set F1 = FSO.GetFile(PATH_FILE_NAME4)
+        Set F2 = FSO.GetFile(PATH_FILE_NAME5)
+        VB_EXE_DATE = F1.DateLastModified
+        APP_EXENAME_DATE = F2.DateLastModified
+        If APP_EXENAME_DATE < VB_EXE_DATE Then FSO.CopyFile PATH_FILE_NAME4, PATH_FILE_NAME5
+        
+        PATH_FILE_NAME4 = "\\9-asus-g815lm\9_asus_g815lm_02_d_drive\" + Right(App.Path, Len(App.Path) - 3) + "\" + App.EXEName + ".EXE"
+        PATH_FILE_NAME5 = Replace(PATH_FILE_NAME4, "\VB6\", "\VB6-EXE\")
+        PATH_FILE_NAME4 = PATH_FILE_NAME1
+        On Error Resume Next
+        If Dir(PATH_FILE_NAME4) = "" And Dir(Mid(PATH_FILE_NAME4, 1, InStrRev(PATH_FILE_NAME4, "\")), vbDirectory) = "" Then
+             CreateFolderTree Mid(PATH_FILE_NAME4, 1, InStrRev(PATH_FILE_NAME4, "\"))
+        End If
+        Set F1 = FSO.GetFile(PATH_FILE_NAME4)
+        Set F2 = FSO.GetFile(PATH_FILE_NAME5)
+        VB_EXE_DATE = F1.DateLastModified
+        APP_EXENAME_DATE = F2.DateLastModified
+        If APP_EXENAME_DATE < VB_EXE_DATE Then FSO.CopyFile PATH_FILE_NAME4, PATH_FILE_NAME5
+        
+        ' \\8-msi-gp62m-7rd\8_msi_gp62m_7rd_02_d_drive\ ' VB6\VB-NT\00_BEST_VB_01
+        ' \\9-asus-g815lm\9_asus_g815lm_02_d_drive\VB6\ ' VB-NT\00_BEST_VB_01
+   
     End If
-    Set F1 = FSO.GetFile(PATH_FILE_NAME4)
-    Set F2 = FSO.GetFile(PATH_FILE_NAME5)
-    VB_EXE_DATE = F1.DateLastModified
-    APP_EXENAME_DATE = F2.DateLastModified
-    If APP_EXENAME_DATE < VB_EXE_DATE Then FSO.CopyFile PATH_FILE_NAME4, PATH_FILE_NAME5
-    
-    PATH_FILE_NAME4 = "\\9-asus-g815lm\9_asus_g815lm_02_d_drive\" + Right(App.Path, Len(App.Path) - 3) + "\" + App.EXEName + ".EXE"
-    PATH_FILE_NAME5 = Replace(PATH_FILE_NAME4, "\VB6\", "\VB6-EXE\")
-    PATH_FILE_NAME4 = PATH_FILE_NAME1
-    On Error Resume Next
-    If Dir(PATH_FILE_NAME4) = "" And Dir(Mid(PATH_FILE_NAME4, 1, InStrRev(PATH_FILE_NAME4, "\")), vbDirectory) = "" Then
-         CreateFolderTree Mid(PATH_FILE_NAME4, 1, InStrRev(PATH_FILE_NAME4, "\"))
-    End If
-    Set F1 = FSO.GetFile(PATH_FILE_NAME4)
-    Set F2 = FSO.GetFile(PATH_FILE_NAME5)
-    VB_EXE_DATE = F1.DateLastModified
-    APP_EXENAME_DATE = F2.DateLastModified
-    If APP_EXENAME_DATE < VB_EXE_DATE Then FSO.CopyFile PATH_FILE_NAME4, PATH_FILE_NAME5
-    
-    ' \\8-msi-gp62m-7rd\8_msi_gp62m_7rd_02_d_drive\ ' VB6\VB-NT\00_BEST_VB_01
-    ' \\9-asus-g815lm\9_asus_g815lm_02_d_drive\VB6\ ' VB-NT\00_BEST_VB_01
    
     ' COPIER DONE
     ' DON'T RELAUNCH PROGRAM UNLESS COPY WAS FROM VB_EXE FOLDER

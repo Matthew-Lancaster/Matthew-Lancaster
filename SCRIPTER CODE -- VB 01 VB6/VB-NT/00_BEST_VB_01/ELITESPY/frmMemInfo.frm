@@ -251,7 +251,7 @@ Public Sub GetMemoryStatus()
     frmMain.txtAVirtualMemory.Text = Format$(tMS.dwAvailVirtual / 1024, "###,###,###") & " Kb"
     frmMain.txtPageFile.Text = Format$(tMS.dwTotalPageFile / 1024, "###,###,###") & " Kb"
     frmMain.txtAPageFile.Text = Format$(tMS.dwAvailPageFile / 1024, "###,###,###") & " Kb"
-    If GetComputerName = "7-ASUS-GL522VW" Then
+    If GetComputerName = "4-ASUS-GL522VW" Then
         frmMain.Label4.Caption = "Total Physical Memory My Computer MAXIMUM 32G"
         frmMain.txtMemoryUsage.Caption = "32Gb of " & tMS.dwMemoryLoad & "%"
         frmMain.txtMemoryUsage.FontSize = 10

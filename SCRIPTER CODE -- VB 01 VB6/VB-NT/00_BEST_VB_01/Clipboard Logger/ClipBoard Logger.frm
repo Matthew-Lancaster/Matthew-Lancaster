@@ -2973,6 +2973,20 @@ Debug.Print "FORM_LOADED ON"
 
 STARTUP_RUN = False
 
+' ----------------------------------------------------
+' WHEN RUN BY TIMER AND NOT API
+' PLAYING UP ON WINDOWS 11
+' ----------------------------------------------------
+' FOUND THE PROBLEM AND SORTED HER
+' 2026 JULY
+' THERE A DELAY IN UNLOADING FRMCLIPTEST01 OR UNLOADING
+' OR STOPPER THE CONTORL FOR CLIPBOARD LOGGER
+' ----------------------------------------------------
+'If GetComputerName = "9-ASUS-G815LM" Then
+'    Form1.Timer1.Enabled = True
+'    Form1.Timer1.Interval = 1000
+'End If
+
 
 End Sub
 
@@ -4180,7 +4194,7 @@ End Sub
 Private Sub MNU_FILE_LOCATOR_IMAGE_Click()
 
 
-'SHELL" D:\0 00 Art Loggers\# APP AND SCREEN\7-ASUS-GL522VW\FILE LOCATOR __ SavedCriteria.srf
+'SHELL" D:\0 00 Art Loggers\# APP AND SCREEN\4-ASUS-GL522VW\FILE LOCATOR __ SavedCriteria.srf
 
 Dim WSHShell
 Set WSHShell = CreateObject("WScript.Shell")
@@ -5004,8 +5018,14 @@ If DateDiff("s", O_VAL_MINUTE_API, Now) > 60 Then
         O_VAL_MINUTE_API = Now
         Call zzCheckTimer_Timer
         Call RESET_SETUP_SOUND_FILE("NOTSOUND")
+        If 1 = 2 Then
+        ' ------------------------------------------
+        ' ---- THIS LINE IS CAUSE DELAY -- 2026 JULY
+        ' ------------------------------------------
         Call Mnu_API_Unload_Click
+        ' ------------------------------------------
         Call Mnu_API_Reload_Click
+        End If
     End If
 End If
 
@@ -5065,15 +5085,19 @@ End If
 End Sub
 
 Private Sub Mnu_API_Unload_Click()
-    Exit Sub
-    
-    API_LOAD = False
-    Unload FRMCLIPTEST01
+'    Exit Sub
+    ' ------------------------------------------------------------
+    ' ITS CAUSE-ER A DELAY TO UNLOAD -- FRMCLIPTEST01 -- 2026 JULY
+    ' ------------------------------------------------------------
+    If 1 = 2 Then
+        API_LOAD = False
+        Unload FRMCLIPTEST01
+    End If
 End Sub
 
 
 Private Sub Mnu_API_Unload_Reload_Click()
-    Exit Sub
+'    Exit Sub
     
     API_LOAD = False
     Unload FRMCLIPTEST01
@@ -8728,7 +8752,7 @@ Private Sub Timer_RESET_API_CLIPPER_Timer()
 
     If FRMCLIPTEST01_ENABLE = False Then Exit Sub
 
-    Exit Sub
+'    Exit Sub
     If API_LOAD = True Then
         API_LOAD = False
         Unload FRMCLIPTEST01
@@ -9345,7 +9369,7 @@ Private Sub Form_Unload(Cancel As Integer)
 'Next Form
 'On Error GoTo 0
 
-
+'Me.EXIT_TRUE = False
 
 If IsIDE = False Then
     If Me.WindowState <> vbMinimized And Me.EXIT_TRUE = False Then
@@ -9393,8 +9417,9 @@ Call zzCheckTimer_Timer
 
 End
 
-If Me.EXIT_TRUE = True Then Cancel = False
-
+If Me.EXIT_TRUE = True Then
+    Cancel = False
+End If
 'For Each Form In Forms
 '    Unload Form
 '    Set Form = Nothing
@@ -12664,7 +12689,7 @@ OLD_CLIP_INFO_04 = CLIP_INFO_04
 End Sub
 
 Sub VBSCRIPT_CLOSE_AND_RELOAD()
-    
+    Exit Sub
     If IsIDE = True Then Exit Sub
     
     EXIT_TRUE = True
@@ -12681,7 +12706,23 @@ End Sub
 
 Public Sub Timer1_Timer()
 
-Form1.Timer1.Enabled = False
+' ----------------------------------------------------
+' WHEN RUN BY TIMER AND NOT API
+' PLAYING UP ON WINDOWS 11
+' ----------------------------------------------------
+' FOUND THE PROBLEM AND SORTED HER
+' 2026 JULY
+' THERE A DELAY IN UNLOADING FRMCLIPTEST01 OR UNLOADING
+' OR STOPPER THE CONTORL FOR CLIPBOARD LOGGER
+' ----------------------------------------------------
+'If GetComputerName <> "9-ASUS-G815LM" Then
+    Form1.Timer1.Enabled = False
+' End If
+
+'If (RRR > Now And GetForegroundWindow = Me.hWnd) = True Then
+'    Exit Sub
+'End If
+
 
 XX_FAULT_ = DateDiff("s", TIMER_MISSING_PULSE_CLIPBOARD_01, TIMER_MISSING_PULSE_CLIPBOARD_02)
 ' NOT USE ANYWHERE
@@ -12798,6 +12839,8 @@ End If
 
 SET_GO = False
 If OO_1 = True Or OO_2 = True Then SET_GO = True
+
+
 If (RRR > Now And GetForegroundWindow = Me.hWnd) = True Then SET_GO = False
 If ENTER_TEXT_IN_LOGGER_FOREGROUND_OVERRIDE = True Then SET_GO = True
 ENTER_TEXT_IN_LOGGER_FOREGROUND_OVERRIDE = False
@@ -12849,10 +12892,22 @@ If SET_GO = False Then
 '        O_MMControl2_GFW_Var = MMControl2_GFW_Var
         
 
-        'DUPE SOUND
-        MMControl2.Command = "prev"
-        MMControl2.Command = "Play"
-                
+        ' ----------------------------------------------------
+        ' SOUND FOR A DUPE
+        ' WHEN RUN BY TIMER AND NOT API
+        ' THEN DON'T WANT THIS SOUND AS NOT WAY CHECK FOR DUPE
+        ' PLAYING UP ON WINDOWS 11
+        ' ----------------------------------------------------
+        If Mnu_SoundOn.Checked = True And DONT_PLAY_SOUND_TEAM_VIEWER = False Then
+            'If A_TimeIdle + TimeSerial(0, 0, 10) > Now Then
+            ' If GetComputerName <> "9-ASUS-G815LM" Then
+                MMControl2.Command = "prev"
+                MMControl2.Command = "Play"
+            ' End If
+            ' If GetComputerName = "9-ASUS-G815LM" Then
+            '    Exit Sub
+            ' End If
+        End If
         On Error GoTo 0
     End If
     
@@ -12989,13 +13044,27 @@ If OO_1 = True Then
                     'DONT_PLAY_SOUND_TEAM_VIEWER = False
                 End If
                 
-                'SOUND FOR A DUPE
+                ' ----------------------------------------------------
+                ' SOUND FOR A DUPE
+                ' WHEN RUN BY TIMER AND NOT API
+                ' THEN DON'T WANT THIS SOUND AS NOT WAY CHECK FOR DUPE
+                ' PLAYING UP ON WINDOWS 11
+                ' ----------------------------------------------------
                 If Mnu_SoundOn.Checked = True And DONT_PLAY_SOUND_TEAM_VIEWER = False Then
-                'If A_TimeIdle + TimeSerial(0, 0, 10) > Now Then
-                    MMControl2.Command = "prev"
-                    MMControl2.Command = "Play"
+                    ' --------------------------------------------------------------
+                    ' FOUND THE PROBLEM -- DON'T NEED 9-ASUS-G815LM EXLUSION ANYMORE
+                    ' 2026 JULY
+                    ' --------------------------------------------------------------
+                    'If A_TimeIdle + TimeSerial(0, 0, 10) > Now Then
+                    ' If GetComputerName <> "9-ASUS-G815LM" Then
+                        MMControl2.Command = "prev"
+                        MMControl2.Command = "Play"
+                    ' End If
+                    ' If GetComputerName = "9-ASUS-G815LM" Then
+                    '     Exit Sub
+                    ' End If
                 End If
-            
+
                 '-------------------------------------------------------------------------------------------
                 'THIS WINDOW IS SHOWN ON BOTH REMOTE AND BASE MACHINE
                 '-------------------------------------------------------------------------------------------
@@ -16067,7 +16136,7 @@ YES_VAR = False
 If GetComputerName = "1-ASUS-X5DIJ" Then YES_VAR = True
 If GetComputerName = "4-ASUS-GL522VW" Then YES_VAR = True
 If GetComputerName = "5-ASUS-P2520LA" Then YES_VAR = True
-If GetComputerName = "7-ASUS-GL522VW" Then YES_VAR = True
+If GetComputerName = "4-ASUS-GL522VW" Then YES_VAR = True
 If GetComputerName = "8-MSI-GP62M-7RD" Then YES_VAR = True
 
 
@@ -16354,7 +16423,7 @@ Sub CHECK_PATH_FOLDER_FILE_URL_REGISTRY_KEY(RUN_CALL)
 '3..MNU_URL_Browser_Click
 '4..MNU_CPC_Click
 
-    Sleep 500
+'    Sleep 500
 
 '   Exit Sub
     On Error Resume Next

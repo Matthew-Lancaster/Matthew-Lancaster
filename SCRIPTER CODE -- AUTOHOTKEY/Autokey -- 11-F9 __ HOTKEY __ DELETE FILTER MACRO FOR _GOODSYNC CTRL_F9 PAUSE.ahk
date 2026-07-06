@@ -4,6 +4,9 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;
 
+;# __ Autokey -- 11-F9 __ HOTKEY __ DELETE FILTER MACRO FOR _GOODSYNC CTRL_F9 PAUSE.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
+
 ;---------------------------------------------------------
 ;WANT SELECT ALL LINE AND PASTE ONTO IT
 ;WANT COPY ON IT OWN

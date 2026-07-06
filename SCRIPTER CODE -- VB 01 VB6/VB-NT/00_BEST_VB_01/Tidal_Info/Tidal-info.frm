@@ -2059,7 +2059,7 @@ Dim GMTBST
 'Microsoft ActiveX Common Control MSCOMCTL.OCX Security Update Problem with Registration Affects Treeview and ListBox in Microsoft Access, Office, VB6
 'http://www.fmsinc.com/microsoftaccess/controls/mscomctl/
 '----
-'E:\01 Start Menu\#_7-ASUS-GL522VW\Programs\Startup-01-Delayed\7-ASUS-GL522VW--MATT 01\BAT 03 REGISTRY AT BOOTER.BAT
+'E:\01 Start Menu\#_4-ASUS-GL522VW\Programs\Startup-01-Delayed\4-ASUS-GL522VW--MATT 01\BAT 03 REGISTRY AT BOOTER.BAT
 '
 'MICROSOFT COMM CONTROL 6.0
 'REMOVER SAVE SPACE
@@ -4813,7 +4813,7 @@ Debug.Print Wdmod$
 Clipboard.SetText Wd$
 
 
-If GetComputerName = "7-ASUS-GL522VW" = True Then Mnu_Solar_System = True
+If GetComputerName = "4-ASUS-GL522VW" = True Then Mnu_Solar_System = True
 
 If Mnu_Solar_System = False Then
     

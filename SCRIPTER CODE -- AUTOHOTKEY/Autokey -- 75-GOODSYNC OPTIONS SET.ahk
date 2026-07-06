@@ -2,6 +2,7 @@
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 75-GOODSYNC OPTIONS SET.ahk
 ;# __ 
 ;# __ Autokey -- 75-GOODSYNC OPTIONS SET.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
 ;# __ 
 ;# __ BY Matthew Lancaster 
 ;# __ Matt.Lan@Btinternet.com
@@ -318,12 +319,14 @@ F5:: ; CTRL+F5
 		StringUpper OutExtension,OutExtension
 
 		Run, %FN_VAR_EXE% %OutputVar_1% ,, MIN
-		
+	
+		IF FileExist(OutputVar_1)
+		IF OutExtension
 		IF INSTR(" VBS AHK BAT BAS VBP CLS FRM TXT ",OutExtension)
 			RUN,C:\PROGRAM FILES (X86)\NOTEPAD++\NOTEPAD++.EXE "%OutputVar_1%" ,, MAX
 		
-		; TOOLTIP "5555"
 		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		SOUNDBEEP 1000,100
 	}
 RETURN
 #ifwinactive
@@ -384,7 +387,17 @@ TIMER_SUB_GOODSYNC_CHANGE_NET_PATH_AS_SWEEPING_CHANGE_BASTARD:
 				TRUE_TO_GO=TRUE
 			IF INSTR(A_LoopField,"ATL:0000000140E647104")>0
 				TRUE_TO_GO=TRUE
-			
+				
+			IF INSTR(A_LoopField,"ATL:0000000140E657103")>0
+				TRUE_TO_GO=TRUE
+			IF INSTR(A_LoopField,"ATL:0000000140E657104")>0
+				TRUE_TO_GO=TRUE
+			; ---------------------------------------------
+			; ---- GOODSYNC FREQUENTLY UPDATE HERE
+			; ---- WITH EACH-AR UPDATE
+			; ---- USE AHK SPY TO GET DETAIL INFO
+			; ---------------------------------------------
+
 		}
 	}
 	; TOOLTIP % visibleList

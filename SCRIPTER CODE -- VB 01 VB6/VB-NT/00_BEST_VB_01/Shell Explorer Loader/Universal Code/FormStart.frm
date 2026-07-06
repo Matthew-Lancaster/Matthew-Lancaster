@@ -1493,9 +1493,9 @@ If SetTrueToLoadLast = True Then
     If I45 <> "" Then
     If InStr(I45, "D:\VIDEO") > 0 Then
         POSITION_MOUSE_OR_SELECT = ""
-        MsgBox "COMPUTER 7G", vbOK + vbExclamation + vbMsgBoxSetForeground
+        MsgBox "COMPUTER 4G", vbOK + vbExclamation + vbMsgBoxSetForeground
         If GetComputerName = "4-ASUS-GL522VW" Then
-            MI = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_02_D_DRIVE"
+            MI = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_D_Drive"
             COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_01 = MI
         End If
     End If
@@ -1558,7 +1558,7 @@ If D1$ <> "" Then
         POSITION_MOUSE_OR_SELECT = ""
         If GetComputerName = "4-ASUS-GL522VW" Then
             I45 = "D:\VIDEO"
-            MI = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_02_D_DRIVE"
+            MI = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_D_Drive"
         End If
     End If
 
@@ -1568,7 +1568,7 @@ If D1$ <> "" Then
         If Form1.MNU_NET_2_GO.Caption = "[__ NET 2 GO = GO __]" Then
             RESULTI = MsgBox("COMPUTER 7G", vbOK + vbExclamation + vbMsgBoxSetForeground)
             If RESULTI = 1 Then
-                MI = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_02_D_DRIVE"
+                MI = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_D_Drive"
                 COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_01 = MI
                 SET_GO = True
                 OVERIDE_IF_SET_GO_FALSE = True

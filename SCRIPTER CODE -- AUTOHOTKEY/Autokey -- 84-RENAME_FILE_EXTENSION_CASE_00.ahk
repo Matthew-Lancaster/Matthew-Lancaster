@@ -2,6 +2,7 @@
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\
 ;# __ 
 ;# __ Autokey -- 84-RENAME_FILE_EXTENSION_CASE_02.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
 ;# __ 
 ;# __ BY Matthew Lancaster 
 ;# __ Matt.Lan@Btinternet.com

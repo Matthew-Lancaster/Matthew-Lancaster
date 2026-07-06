@@ -78,7 +78,7 @@ PID = -1
 APP_NAME_EXE_PASS_FOR_CALL_BACK = APP_NAME_RELOAD_IT_ER_EXE
 i = cProcesses.GetEXEID(PID, APP_NAME_EXE_PASS_FOR_CALL_BACK)
 
-If GetComputerName <> "7-ASUS-GL522VW" Then Unload Me: Exit Sub
+If GetComputerName <> "4-ASUS-GL522VW" Then Unload Me: Exit Sub
 
 If PID > 0 Then
     '-------------------------------------

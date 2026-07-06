@@ -1310,7 +1310,7 @@ Private Sub Main_Routine()
 '        If GetComputerName = "8-MSI-GP62M-7RD" Then
 '            N = Replace(N, "C", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
 '        End If
-'        If GetComputerName = "7-ASUS-GL522VW" Then
+'        If GetComputerName = "4-ASUS-GL522VW" Then
 '            N = Replace(N, "C", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
 '            N = Replace(N, "D", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
 '            N = Replace(N, "E", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
@@ -1993,7 +1993,7 @@ If AT$ = "" Then
 End If
 
 ' DEBUG -- ' AT$ = Command$
-'AT$ = "D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT"
+'AT$ = "D:\VIDEO\NOT\X 00 NOT\00 Vid XXX\00 ROOT"
 'OBJECTIVE_BRIEF = "SEND TO CONTEXT MENU MODE FOLDER"
 
 

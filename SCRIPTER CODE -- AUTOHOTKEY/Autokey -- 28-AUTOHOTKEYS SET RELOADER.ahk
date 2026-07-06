@@ -2,6 +2,7 @@
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk
 ;# __ 
 ;# __ Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
 ;# __ 
 ;# BY Matthew __ Matt.Lan@Btinternet.com __ 
 ;# __ 
@@ -186,6 +187,13 @@ SetTitleMatchMode 3  ; EXACTLY
 SoundBeep , 2000 , 20
 
 
+; DON'T RUN HERE CAUSING REBOOT
+; ----------------------------------------
+SLEEP 40000
+EXITAPP
+RETURN
+
+
 
 ;--------------------------------------------------------------------
 ;AUTOHOTKEYS
@@ -237,8 +245,11 @@ FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19
 ; -------------------------------------------------------------------
 ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 75-GOODSYNC OPTIONS SET.ahk"
-ArrayCount += 1
-FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk"
+
+
+
+; ArrayCount += 1
+; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk"
 ; -------------------------------------------------------------------
 
 ArrayCount += 1

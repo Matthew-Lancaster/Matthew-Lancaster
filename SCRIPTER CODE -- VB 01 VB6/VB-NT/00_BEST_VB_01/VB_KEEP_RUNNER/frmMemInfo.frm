@@ -267,7 +267,7 @@ Public Sub GetMemoryStatus()
     Form2_WORK_SWAPPER.txtAVirtualMemory.Text = Format$(tMS.dwAvailVirtual / 1024, "###,###,###") & " Kb"
     Form2_WORK_SWAPPER.txtPageFile.Text = Format$(tMS.dwTotalPageFile / 1024, "###,###,###") & " Kb"
     Form2_WORK_SWAPPER.txtAPageFile.Text = Format$(tMS.dwAvailPageFile / 1024, "###,###,###") & " Kb"
-    If GetComputerName = "7-ASUS-GL522VW" Then
+    If GetComputerName = "4-ASUS-GL522VW" Then
         Form2_WORK_SWAPPER.Label4.Caption = "Total Physical Memory My Computer MAXIMUM 32G"
         Form2_WORK_SWAPPER.txtMemoryUsage.Caption = "32Gb of " & tMS.dwMemoryLoad & "%"
         Form2_WORK_SWAPPER.txtMemoryUsage.FontSize = 10

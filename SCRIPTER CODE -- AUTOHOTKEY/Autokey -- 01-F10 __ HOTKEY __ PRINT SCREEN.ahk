@@ -19,6 +19,10 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
+;# __ Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
+
+
 
 ; 000005 LINE 0639 -- CODE GOT ERROR WORK CANT OPEN CLIPBOARD --- REQUIRE ERROR TRAP
 
@@ -317,6 +321,15 @@ ESCAPE_KEY_COUNT=0
 
 SETTIMER TIMER_USB_SAFELY_REMOVE,1000
 
+
+OL_Day_Get__01=
+OL_Hour_Get_01=
+DAY_AND_HOUR_NOW_2=
+O_DATE_OF_SCRIPT_MODIFY=
+; -------------------
+
+SETTIMER AUTO_RELOAD_MIDNIGHT_HERE_SCRIPT , 1000
+
 RETURN
 
 
@@ -332,6 +345,162 @@ RETURN
 ; Tue 17-Sep-2019 18:15:00
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+
+
+
+TIMER_TO_RUN_SCRIPT_MODIFY:
+
+	SETTIMER TIMER_TO_RUN_SCRIPT_MODIFY , OFF
+	FN_VAR_04=%A_ScriptFullPath%
+	SOUNDBEEP 1000,100
+	Run, %FN_VAR_04%
+	EXITAPP
+
+RETURN
+
+; -------------------
+; ---- DECLARES
+; OL_Day_Get__01=
+; OL_Hour_Get_01=
+; DAY_AND_HOUR_NOW_2=
+; O_DATE_OF_SCRIPT_MODIFY=
+; -------------------
+AUTO_RELOAD_MIDNIGHT_HERE_SCRIPT:
+
+		; -------------------------------------------------------
+		; ---- RELOAD MY OWN AHK SCRIPT IF BEEN MODIFY
+		; -------------------------------------------------------
+		FN_VAR_04=%A_ScriptFullPath%
+		IfExist, %FN_VAR_04%
+		{
+			FileGetTime, OutputVar, %FN_VAR_04%, M
+			IF O_DATE_OF_SCRIPT_MODIFY
+				IF O_DATE_OF_SCRIPT_MODIFY<>%OutputVar%
+					SETTIMER TIMER_TO_RUN_SCRIPT_MODIFY , 20000
+		}
+		O_DATE_OF_SCRIPT_MODIFY=%OutputVar%
+
+	; ---------------------------------------------------------------
+	; DAY TIMER 
+	; ---------------------------------------------------------------
+	Midnight_Get_01 := SubStr( A_Now, 1, 8 ) . "000000"
+	Midnight_Get_01 += 1, days
+	IF OL_Day_Get__01<>%Midnight_Get_01%
+	{
+		IF OL_Day_Get__01    ; ---- NOT TO RUN AT BOOT OF CODER APP
+		{	
+			; -------------------------------------------------------
+			; ---- RELOAD MY OWN AHK SCRIPT
+			; -------------------------------------------------------
+			; TRY ONCE AN HOUR AT FIRST AND THEN ONCE A DAY
+			; -------------------------------------------------------
+			; FN_VAR_04=%A_ScriptFullPath%
+			; IfExist, %FN_VAR_04%
+				; Run, %FN_VAR_04%
+		}
+		OL_Day_Get__01=%Midnight_Get_01%
+	}
+
+
+	; ---------------------------------------------------------------
+	; HOUR TIMER
+	; ---------------------------------------------------------------
+	Hour_Get_01 := SubStr( A_Now, 1, 10 ) . "000000"
+	Hour_Get_01 += 1, hours
+	IF OL_Hour_Get_01<>%Hour_Get_01%
+	{
+		IF OL_Hour_Get_01    ; ---- NOT TO RUN AT BOOT OF CODER APP
+		{	
+		
+		; -------------------------------------------------------
+		; ---- RELOAD MY OWN AHK SCRIPT
+		; -------------------------------------------------------
+		FN_VAR_04=%A_ScriptFullPath%
+		IfExist, %FN_VAR_04%
+		{
+			Run, %FN_VAR_04%
+			EXITAPP
+		}
+		}
+		OL_Hour_Get_01=%Hour_Get_01%
+		
+	}
+
+	; ---------------------------------------------------------------
+	; 1 = DAY TIMER 
+	; 2 = HOUR TIMER
+	; 3 = MINUTE TIMER
+	; ---------------------------------------------------------------
+	VALUE_TIMER_DY_HR_MI=2
+	
+	IF VALUE_TIMER_DY_HR_MI=1
+	{
+		Midnight := SubStr( A_Now, 1, 8 ) . "000000"
+		Midnight += 1, days
+	}
+	IF VALUE_TIMER_DY_HR_MI=2
+	{
+		Midnight := SubStr( A_Now, 1, 10 ) . "000000"
+		Midnight += 1, hours
+	}
+	IF VALUE_TIMER_DY_HR_MI=3
+	{
+		Midnight := SubStr( A_Now, 1, 12 ) . "000000"
+		Midnight += 1, MINUTES
+	}
+
+	Midnight -= A_Now, seconds
+
+	EnvMult, Midnight, 1000
+
+	SET_GO=FALSE
+	IF A_Hour<>%DAY_AND_HOUR_NOW_2%
+	{
+		; IF A_Hour=12
+		; 	SET_GO=TRUE
+		;IF A_Hour=0
+		;	SET_GO=TRUE
+
+		; ----------------
+		; EVERY FOUR HOURS
+		; ----------------
+		IF Mod(A_Hour, 4)=0
+		{
+			SET_GO=TRUE
+		}
+	}	
+
+	IF !DAY_AND_HOUR_NOW_2
+	{
+		DAY_AND_HOUR_NOW_2=%A_Hour%
+		RETURN
+	}
+	
+	DAY_AND_HOUR_NOW_2=%A_Hour%
+
+	IF SET_GO=FALSE 
+		RETURN
+	
+
+	; ---------------------------------------------------------------
+	; THIS IS A GOOD IDEA BUT FOR 12 HOUR TIME IT IS ABOUT 16 MINUTE 
+	; LATE BY TIME GET THERE
+	; BETTER FOR SHORT TIMING
+	; ---------------------------------------------------------------
+	; SETTIMER MIDNIGHT_AND_HOUR_TIMER_2, OFF
+	; SETTIMER MIDNIGHT_AND_HOUR_TIMER_2, %Midnight%
+	; SETTIMER MIDNIGHT_AND_HOUR_TIMER_2, ON
+	; ----
+	; Test Timer Status - Ask for Help - AutoHotkey Community
+	; https://autohotkey.com/board/topic/55321-test-timer-status/
+	; ----
+
+
+RETURN
+
+
+
+
 
 #IfWinActive, Microsoft Visual Basic [design]
 F5::SEND ^{f5}
@@ -374,14 +543,15 @@ RETURN
 ; ABLE CLICK ON VIDEO PLAYING IN SCREEN FOR BETTER ACCURACY -- WIDER PICTURE
 ; -------------------------------------------------------------------
 ; 12-JUN-2026 02:50:04 FRI
+; MPC-HC -- TOO RISKY TO USER HERE ALL THE TIME -- LEFT SIDE CLICK DELETE TO RECYCLE BIN
 ; -------------------------------------------------------------------
 #IfWinActive ahk_class MediaPlayerClassicW
 {
 RButton::
 	{
 		MouseGetPos, xpos
-		IF XPOS<1285  ; ---- HALF LEFT SIDE SCREEN -- IF R-CLICK IN LEFT AREA SET THE DEL F9 HOTKEY
-			SEND {F9}
+		; IF XPOS<1285  ; ---- HALF LEFT SIDE SCREEN -- IF R-CLICK IN LEFT AREA SET THE DEL F9 HOTKEY
+			; SEND {F9}
 		IF XPOS>1285  ; ---- HALF RIGHT SIDE SCREEN - IF R-CLICK IN RIGHT AREA CONTEXT-MENU TO SORT ITEM
 			SEND {RButton}
 		
@@ -1031,8 +1201,8 @@ IfExist, %FN_VAR_1%
 
 }
 
-IfWinNOTExist VB_KEEP_RUNNER ahk_class ThunderRT6FormDC
-	Run, "D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe" , , MIN
+; IfWinNOTExist VB_KEEP_RUNNER ahk_class ThunderRT6FormDC
+	; Run, "D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe" , , MIN
 
 
 }
@@ -1320,11 +1490,11 @@ Return
 ; ahk_class #32770
 ; ahk_exe GoodSync.exe
 
-#IfWinActive ahk_exe GoodSync.exe ahk_class ahk_class #32770
+#IfWinActive ahk_exe GoodSync.exe ahk_class #32770
 ^F5:: ; CTRL+F5
 
 	SetTitleMatchMode 2  ; PARTIAL PATH
-	ifwinNOTactive Options ahk_class ahk_class #32770
+	ifwinNOTactive Options ahk_class #32770
 	{
 		VAR_REPEAT_LCLICK_TOOGLE=
 		SETTIMER REPEAT_LCLICK_BASHING,OFF
@@ -3585,7 +3755,17 @@ TIMER_CLIPBOARD_LOGGGER_KEEP_RUNNER:
 
 	IfWinNOTExist URL Logger ahk_class ThunderRT6FormDC
 		Run, "D:\VB6\VB-NT\00_BEST_VB_01\URL Logger\URL Logger.exe" , , MIN
+	
+	RUN_VB_KEEPER=1
 
+	IF A_ComputerName=9-ASUS-G815LM
+		RUN_VB_KEEPER=1
+	IF A_ComputerName=4-ASUS-GL522VW
+		RUN_VB_KEEPER=1
+	IF A_ComputerName=8-MSI-GP62M-7RD
+		RUN_VB_KEEPER=1
+	
+	IF RUN_VB_KEEPER
 	IfWinNOTExist VB_KEEP_RUNNER ahk_class ThunderRT6FormDC
 		Run, "D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe" , , MIN
 

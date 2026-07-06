@@ -8,6 +8,10 @@
 ; THE INCLUDE FILE ARE SAME FOLDER
 ; ---------------------------------------------------------------
 
+;# __ Autokey -- 00-03_INCLUDE MENU 04 of 04_SETTIMER.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
+
+
 ; -------------------------------------------------------------------
 ; CHECK ALL SCRIPT THAT HAS LINE IN FILENAME CONTENT OF THE INCLUDE
 ; -------------------------------------------------------------------

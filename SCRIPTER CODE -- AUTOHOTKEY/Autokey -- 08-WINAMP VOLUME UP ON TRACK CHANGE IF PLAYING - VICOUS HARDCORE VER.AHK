@@ -4,6 +4,10 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;
 
+;# __ Autokey -- 08-WINAMP VOLUME UP ON TRACK CHANGE IF PLAYING - VICOUS HARDCORE VER.AHK
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
+
+
 ;NEW CODE WINAMP CHANGER VOLUME UP ON TRACK CHANGE IF PLAYING ACTIVE
 ;17:27 PM TUE 01 NOV
 

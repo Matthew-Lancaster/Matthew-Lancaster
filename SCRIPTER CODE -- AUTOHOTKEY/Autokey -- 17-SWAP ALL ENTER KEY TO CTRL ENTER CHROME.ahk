@@ -2,6 +2,7 @@
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 17-SWAP ALL ENTER TO CTRL ENTER WEB PAGES.ahk
 ;# __ 
 ;# __ Autokey -- 17-SWAP ALL ENTER TO CTRL ENTER WEB PAGES.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
 ;# __ 
 ;# BY Matthew __ Matt.Lan@Btinternet.com __ Wed 18 October 2017 02:05:00-------
 ;# __ 

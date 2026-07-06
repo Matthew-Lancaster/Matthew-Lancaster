@@ -2,6 +2,7 @@
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 21-AutoRun.ahk
 ;# __ 
 ;# __ Autokey -- 21-AutoRun.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
 ;# __ 
 ;# BY Matthew __ Matt.Lan@Btinternet.com __ 
 ;# __ 
@@ -1867,7 +1868,19 @@ RegDelete, HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, CCleaner Smart Cl
 ; RegDelete, HHKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run, STARTUP_COMMON_04_ALL
 ; ALREADY GOT THIS ONE LATER ON
 
+; -------------------------------------------------------------------
+; 30-JUN-2026 12:23:51 TUE
+; -------------------------------------------------------------------
 ; "C:\Users\MATT 01\AppData\Roaming\Insync\App\Insync.exe"
+; -------------------------------------------------------------------
+; FIND IN
+; -------------------------------------------------------------------
+; C:\Users\MATT 02\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+; -------------------------------------------------------------------
+; PAID FOR PROGRAM APP NOT USER MUCH
+; DON'T WANT SYNC CLOUD
+; -------------------------------------------------------------------
+
 
 ; REGDELETE WON'T DELETE FROM THIS REG KEY
 ; HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run

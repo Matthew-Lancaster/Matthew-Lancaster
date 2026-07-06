@@ -2,6 +2,7 @@
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 37-Block_All_Keys.ahk
 ;# __ 
 ;# __ Autokey -- 37-Block_All_Keys.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
 ;# __ 
 ;# Copied BY Matthew __ Matt.Lan@Btinternet.com
 ;# __ 

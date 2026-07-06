@@ -2,6 +2,12 @@
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+
+
+;# __ Autokey -- 03-CTRL F4 -- PAGE DOWN UNTIL RIGHT MOUSE OR LONG COUNT.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
+
+
 ;
 ;---------------------------------------------------------------------------------------------
 ;---------------------------------------------------------------------------------------------

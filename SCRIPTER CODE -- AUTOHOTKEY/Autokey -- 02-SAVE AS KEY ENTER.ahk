@@ -2,6 +2,7 @@
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 02-SAVE AS KEY ENTER.ahk
 ;# __ 
 ;# __ Autokey -- 02-SAVE AS KEY ENTER.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
 ;# __ 
 ;# BY Matthew __ Matt.Lan@Btinternet.com
 ;# __ 

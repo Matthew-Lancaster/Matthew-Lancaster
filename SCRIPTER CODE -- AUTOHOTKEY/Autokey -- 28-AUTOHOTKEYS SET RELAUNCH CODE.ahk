@@ -2,6 +2,7 @@
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk
 ;# __ 
 ;# __ Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
 ;# __ 
 ;# BY Matthew __ Matt.Lan@Btinternet.com __ 
 ;# __ 
@@ -73,6 +74,13 @@ DetectHiddenWindows, ON
 SetTitleMatchMode 3  ; EXACTLY
 
 ; SETTIMER TIMER_PREVIOUS_INSTANCE,1
+
+
+; DON'T RUN HERE CAUSING REBOOT
+; ----------------------------------------
+SLEEP 40000
+ExitApp     
+RETURN
 
 SETTIMER TIMER_SUB_AUTOHOTKEY_RELOAD_02,1000
 ; TIMER_SUB_AUTOHOTKEY_RELOAD__ IS IN THE INCLUDER _ Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk

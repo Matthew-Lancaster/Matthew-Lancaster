@@ -2187,7 +2187,7 @@ Dim XVB_DATE
 'IMPROVEMENT
 'DETAILS OF WINDOW IN TIMER AS IT CHAGES
 'LACKING IN WINDOWSE ALSO
-'D:\0 00 Art Loggers\# APP AND SCREEN\7-ASUS-GL522VW\FILE LOCATOR __ SavedCriteria.srf
+'D:\0 00 Art Loggers\# APP AND SCREEN\4-ASUS-GL522VW\FILE LOCATOR __ SavedCriteria.srf
 
 Dim PROCESS_TO_KILLER_PID As String
 Dim PROCESS_TO_KILLER As String
@@ -2992,7 +2992,7 @@ Private Sub Form_Load()
        
     'Label42_Anchor
     Label42.Visible = False
-    If 1 = 2 And GetComputerName = "7-ASUS-GL522VW" Then
+    If 1 = 2 And GetComputerName = "4-ASUS-GL522VW" Then
         Label42.Visible = True
     End If
        
@@ -3075,7 +3075,7 @@ Private Sub Form_Load()
 Label42 = ""
 i = ""
 i = i + "REPORT BY SPECCY PAY FOR _________" + vbCrLf + vbCrLf
-i = i + "COMPUTER NAME_ 7-ASUS-GL522VW" + vbCrLf + vbCrLf
+i = i + "COMPUTER NAME_ 4-ASUS-GL522VW" + vbCrLf + vbCrLf
 i = i + "BIOS DATE __________________________ " + vbCrLf
 i = i + "SIXTEEN_MARCH_2K_SIXTEENTH" + vbCrLf + vbCrLf
 i = i + "Operating System ____________________" + vbCrLf
@@ -4215,7 +4215,7 @@ End Sub
 Private Sub MNU_FILELOCATOR_CLIPBOARD_IMAGER_Click()
 
 
-'SHELL" D:\0 00 Art Loggers\# APP AND SCREEN\7-ASUS-GL522VW\FILE LOCATOR __ SavedCriteria.srf
+'SHELL" D:\0 00 Art Loggers\# APP AND SCREEN\4-ASUS-GL522VW\FILE LOCATOR __ SavedCriteria.srf
 
 
 Dim WSHShell
@@ -4223,7 +4223,7 @@ Set WSHShell = CreateObject("WScript.Shell")
 Dim EXECUTE_FILE_NAME
 
 'EXECUTE_FILE_NAME = "C:WINDOWS\EXPLORER.EXE " + EXECUTE_PARAM
-EXECUTE_FILE_NAME = "D:\0 00 Art Loggers\# APP AND SCREEN\7-ASUS-GL522VW\FILE LOCATOR __ SavedCriteria.srf"
+EXECUTE_FILE_NAME = "D:\0 00 Art Loggers\# APP AND SCREEN\4-ASUS-GL522VW\FILE LOCATOR __ SavedCriteria.srf"
 
 WSHShell.Run """" + EXECUTE_FILE_NAME + """"
 
@@ -4418,18 +4418,18 @@ Beep
 Me.WindowState = vbMinimized
 Dim PARAM, FILE_EXE_HERE, EXECUTE_PARAM
 Dim EXECUTE_FILE_NAME
-'FILE_EXE_HERE = "D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\# DATA\7-ASUS-GL522VW\Data\INFO-RAPID----.BAT"
+'FILE_EXE_HERE = "D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\# DATA\4-ASUS-GL522VW\Data\INFO-RAPID----.BAT"
 'Shell "CMD /C START """" /REALTIME /MAX """ + FILE_EXE_HERE + """ " + PARAM, vbMinimizedNoFocus
 
 
 'D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\# DATA\INFO RAPID Search Result INFO.se
-'SHELL" D:\0 00 Art Loggers\# APP AND SCREEN\7-ASUS-GL522VW\FILE LOCATOR __ SavedCriteria.srf
+'SHELL" D:\0 00 Art Loggers\# APP AND SCREEN\4-ASUS-GL522VW\FILE LOCATOR __ SavedCriteria.srf
 
 Dim WSHShell
 Set WSHShell = CreateObject("WScript.Shell")
 
 EXECUTE_FILE_NAME = "C:WINDOWS\EXPLORER.EXE " + EXECUTE_PARAM
-EXECUTE_FILE_NAME = "D:\0 00 Art Loggers\# APP AND SCREEN\7-ASUS-GL522VW\FILE LOCATOR __ SavedCriteria.srf"
+EXECUTE_FILE_NAME = "D:\0 00 Art Loggers\# APP AND SCREEN\4-ASUS-GL522VW\FILE LOCATOR __ SavedCriteria.srf"
 
 EXECUTE_FILE_NAME = "D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\# DATA\INFO RAPID Search Result INFO.se"
 
@@ -4463,7 +4463,7 @@ Dim fso, File, recentDate, objStartFolder, rootFolder, fol, fil, recentFile
 Set fso = CreateObject("Scripting.FileSystemObject")
 Set recentFile = Nothing
 
-objStartFolder = INPUT_PATH '"D:\0 00 Art Loggers\# APP AND SCREEN\7-ASUS-GL522VW\HOT_KEY_SCREEN_SHOT"
+objStartFolder = INPUT_PATH '"D:\0 00 Art Loggers\# APP AND SCREEN\4-ASUS-GL522VW\HOT_KEY_SCREEN_SHOT"
 
 'Set fso = CreateObject("Scripting.FileSystemObject")
 'Set rootFolder = fso.GetFolder(objStartFolder)

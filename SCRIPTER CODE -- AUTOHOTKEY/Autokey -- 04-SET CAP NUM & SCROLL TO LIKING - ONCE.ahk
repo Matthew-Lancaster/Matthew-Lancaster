@@ -4,6 +4,10 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #SingleInstance force
+
+;# __ Autokey -- 04-SET CAP NUM & SCROLL TO LIKING - ONCE.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
+
 ;------------------------------------------------------------------------------------
 ; Code to Press Enter Key on Save As Window in Chrome.exe & Exit When Chrome.exe Gone
 ;------------------------------------------------------------------------------------

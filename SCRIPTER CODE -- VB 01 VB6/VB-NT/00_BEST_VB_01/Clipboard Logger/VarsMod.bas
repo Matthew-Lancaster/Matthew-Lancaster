@@ -440,7 +440,7 @@ Function IsIDE() As Boolean
 End Function
 Private Function TestIDE(Test As Boolean) As Boolean
   Test = True
-  ' Test = False
+'  Test = False
 End Function
 '***********************************************
 

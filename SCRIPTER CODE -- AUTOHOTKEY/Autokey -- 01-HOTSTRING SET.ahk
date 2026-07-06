@@ -6,6 +6,11 @@ SetWorkingDir %A_ScriptDir%
 #SingleInstance force
 #Persistent
 
+;# __ Autokey -- 01-HOTSTRING SET.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
+
+
+
 SetStoreCapslockMode, off
 
 SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav

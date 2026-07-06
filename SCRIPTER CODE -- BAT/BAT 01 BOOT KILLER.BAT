@@ -374,11 +374,11 @@ REM ahk_exe msedge.exe
 
 @REM -----------------------------------------------------------------
 @REM -----------------------------------------------------------------
-GOTO JUMP_OVER_UPDATE_STOPPER
+@REM GOTO JUMP_OVER_UPDATE_STOPPER
 @IF NOT "%WIN10__%"=="YES" GOTO JUMP_NOT_WINDOWS_10
-@IF %COMPUTERNAME%==7-ASUS-GL522VW      GOTO JUMP_NOT_MATTHEW_S_COMPUTER
 @IF NOT "%MATTHEW_S_COMPUTER__%"=="YES" GOTO JUMP_NOT_MATTHEW_S_COMPUTER
 
+@IF %COMPUTERNAME%==4-ASUS-GL522VW      GOTO JUMP_NOT_MATTHEW_S_COMPUTER
 @IF %COMPUTERNAME%==9-ASUS-G815LM    GOTO ENDER_DONT_RUN_NOTHING_COMPUTERNAME__9_ASUS_G815LM 
 
 
@@ -400,9 +400,28 @@ GOTO JUMP_OVER_UPDATE_STOPPER
 
 
 @REM -----------------------------------------------------------------
-@REM -- REMOVE 2026 MAY
-@REM NET STOP WUAUSERV
-@REM SC CONFIG WUAUSERV START= DISABLED
+@REM -- REMOVE           2026 MAY 
+@REM -----------------------------------------------------------------
+@REM -- REINTRODUCE 2026 JUN
+@REM -- MY WINDOWS 10 PRO KEEP REBOOT AFTER UPDATE BUT WIN 10 HOME DOESN'T
+@REM -----------------------------------------------------------------
+SC CONFIG WUAUSERV START= DISABLED
+NET STOP WUAUSERV
+REM PAUSE
+@REM -----------------------------------------------------------------
+@REM -----------------------------------------------------------------
+@REM -- ALSO AI ANSWER>
+@REM -----------------------------------------------------------------
+@REM 1. Disable Updates via Group Policy
+@REM This is the safest and most reliable way to prevent automatic updates on Pro editions. 
+@REM -----------------------------------------------------------------
+@REM Press Win + R on your keyboard to open the Run dialog box.
+@REM Type gpedit.msc and press Enter (or click OK) to open the Local Group Policy Editor.
+@REM In the left pane, navigate to this path:
+@REM Computer Configuration > Administrative Templates > Windows Components > Windows Update
+@REM In the right-hand panel, find and double-click on the policy named Configure Automatic Updates.
+@REM Select the Disabled radio button on the top left.
+@REM -----------------------------------------------------------------
 @REM -----------------------------------------------------------------
 
 @REM __ SC CONFIG WUAUSERV START= DEMAND

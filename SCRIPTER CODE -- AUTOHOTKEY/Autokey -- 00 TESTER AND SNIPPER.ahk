@@ -9,6 +9,11 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; -------------------------------------------------------------------
 
 
+;# __ Autokey -- 00 TESTER AND SNIPPER.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
+
+
+
 ; -------------------------------------------------------------------
 ; CODE INITIALIZE
 ; -------------------------------------------------------------------

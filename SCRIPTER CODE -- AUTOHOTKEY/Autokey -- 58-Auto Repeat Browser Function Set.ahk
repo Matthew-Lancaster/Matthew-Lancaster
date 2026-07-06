@@ -2,6 +2,7 @@
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 58-Auto Repeat Browser Function Set.ahk
 ;# __ 
 ;# __ Autokey -- 58-Auto Repeat Browser Function Set.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
 ;# __ 
 ;# __ BY Matthew Lancaster 
 ;# __ Matt.Lan@Btinternet.com
@@ -597,8 +598,38 @@ RETURN
 
 
 
+
+TIMER_TO_RUN_SCRIPT_MODIFY:
+
+	SETTIMER TIMER_TO_RUN_SCRIPT_MODIFY , OFF
+	FN_VAR_04=%A_ScriptFullPath%
+	SOUNDBEEP 1000,100
+	Run, %FN_VAR_04%
+	EXITAPP
+
+RETURN
+
+; -------------------
+; ---- DECLARES
+; OL_Day_Get__01=
+; OL_Hour_Get_01=
+; DAY_AND_HOUR_NOW_2=
+; O_DATE_OF_SCRIPT_MODIFY=
+; -------------------
 AUTO_RELOAD_MIDNIGHT_HERE_SCRIPT:
 
+		; -------------------------------------------------------
+		; ---- RELOAD MY OWN AHK SCRIPT IF BEEN MODIFY
+		; -------------------------------------------------------
+		FN_VAR_04=%A_ScriptFullPath%
+		IfExist, %FN_VAR_04%
+		{
+			FileGetTime, OutputVar, %FN_VAR_04%, M
+			IF O_DATE_OF_SCRIPT_MODIFY
+				IF O_DATE_OF_SCRIPT_MODIFY<>%OutputVar%
+					SETTIMER TIMER_TO_RUN_SCRIPT_MODIFY , 20000
+		}
+		O_DATE_OF_SCRIPT_MODIFY=%OutputVar%
 
 	; ---------------------------------------------------------------
 	; DAY TIMER 
@@ -620,7 +651,8 @@ AUTO_RELOAD_MIDNIGHT_HERE_SCRIPT:
 		}
 		OL_Day_Get__01=%Midnight_Get_01%
 	}
-	
+
+
 	; ---------------------------------------------------------------
 	; HOUR TIMER
 	; ---------------------------------------------------------------
@@ -636,7 +668,10 @@ AUTO_RELOAD_MIDNIGHT_HERE_SCRIPT:
 		; -------------------------------------------------------
 		FN_VAR_04=%A_ScriptFullPath%
 		IfExist, %FN_VAR_04%
+		{
 			Run, %FN_VAR_04%
+			EXITAPP
+		}
 		}
 		OL_Hour_Get_01=%Hour_Get_01%
 		
@@ -713,6 +748,8 @@ AUTO_RELOAD_MIDNIGHT_HERE_SCRIPT:
 
 
 RETURN
+
+
 
 
 SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME:

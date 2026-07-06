@@ -10,6 +10,12 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; #PERSISTENT
 ; -------------------------------------------------------------------
 
+;# __ Autokey -- 00 PROGRAMMER SNIPPER EXAMPLE ROUTINE.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
+
+
+
+
 GOSUB SUB_EVERY_SOUND_EFFECT_IN_THE_SCRIPT_FOLDER
 
 

@@ -39,6 +39,10 @@
 ; Tue 18-Feb-2020 20:34:07
 ; -------------------------------------------------------------------
 
+;# __ Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
+
+
 
 F1_KEY_PRESS=
 PID_78_TRAY_ICON_CLEANER=

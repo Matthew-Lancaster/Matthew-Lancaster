@@ -830,8 +830,8 @@ W$ = "D:\VI_ DSC ME\DCIM"
 
 W$ = "D:\DSC\2015 2017\2017 CyberShot HX60V\DCIM"
 
-W$ = "\\7-asus-gl522vw\7_asus_gl522vw_02_d_drive\DSC\2015 2018\2017 CyberShot HX60V\DCIM"
-W$ = "\\7-asus-gl522vw\7_asus_gl522vw_02_d_drive\DSC\2015-2018\2018 CyberShot HX60V"
+W$ = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_D_Drive\DSC\2015 2018\2017 CyberShot HX60V\DCIM"
+W$ = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_D_Drive\DSC\2015-2018\2018 CyberShot HX60V"
 
 W$ = "D:\DSC\2015-2018\2017 CyberShot HX60V\DCIM"
 W$ = "D:\VI_ DSC ME\2010-2018 CyberShot\2018 CyberShot HX60V\DCIM"
@@ -2771,7 +2771,7 @@ End Sub
 
 Private Sub MNU_NOKIA_PATH_IN_Click()
 
-PASTE_PATH_SET = "\\7-asus-gl522vw\7_asus_gl522vw_02_d_drive\DSC\2013-2018 NOKIA\IMAGE NOKIA"
+PASTE_PATH_SET = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_D_Drive\DSC\2013-2018 NOKIA\IMAGE NOKIA"
     Set FSO = CreateObject("Scripting.FileSystemObject")
     If FSO.FolderExists(PASTE_PATH_SET) = True Then
         Call AutoPix

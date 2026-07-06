@@ -67,6 +67,10 @@
 ; ---------------------------------------------------------------------------------
 
 
+;# __ Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
+
+
 
 
 
@@ -383,13 +387,13 @@ ARRAY_INCLUDE_SCRIPT_NAME() {
 	KEYWAIT, ESC
 }
 
-~>^F1::
-{
-	GOSUB SUB_RESTORE_VB_KEEP_RUNNER
-	GOSUB SUB_RESTORE_ELITESPY
-	KEYWAIT, F1
-}
-RETURN
+; ~>^F1::
+; {
+	; GOSUB SUB_RESTORE_VB_KEEP_RUNNER
+	; GOSUB SUB_RESTORE_ELITESPY
+	; KEYWAIT, F1
+; }
+; RETURN
 
 
 TIMEZONE_MINI_GUI_DISPLAY_EXE:
@@ -459,7 +463,7 @@ RETURN
 
 
 
-
+; ---- DON'T RUN ANYMORE
 SUB_RESTORE_VB_KEEP_RUNNER:
 	SetTitleMatchMode 2  ; Avoids Specify Full path.
 	; WinRestore, VB_KEEP_RUNNER ahk_class ThunderFormDC
@@ -556,7 +560,7 @@ RETURN
 
 
 
-
+; ---- DON'T RUN ANYMORE
 SUB_RESTORE_VB_KEEP_RUNNER_02:
 
 	; 
@@ -933,6 +937,11 @@ RETURN
 TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME_OLD_BY_LEAVE_SCRIPT_TO_LAST:
 
 TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME:
+	; NOT OKAY RUNNING SHUTDOWN
+	; 2026 
+	; --------------------------------------
+	RETURN
+
 	DetectHiddenWindows, ON
 	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 
@@ -1754,6 +1763,8 @@ Return
 ; Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk
 ; AS ROUTINE NAME
 ; TIMER_SUB_VB_KEEP_RUNNER_02:
+;
+; ---- DON'T RUN ON TIMER ONLY GOSUB MANUAL
 ; -------------------------------------------------------------------
 TIMER_SUB_VB_KEEP_RUNNER:
 ; -------------------------------------------------------------------

@@ -323,7 +323,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   124059649
+      Format          =   71827457
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -337,7 +337,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   124059649
+      Format          =   71827457
       CurrentDate     =   37296
    End
    Begin VB.Label Label15 
@@ -646,27 +646,28 @@ lblCount1.Caption = Str(ListView1.ListItems.Count)
 totalvideos = ListView1.ListItems.Count
 
 For we = ListView1.ListItems.Count To 1 Step -1
-    
+
     DoEvents
     a1$ = ListView1.ListItems.Item(we).SubItems(1)
-    b1$ = ListView1.ListItems.Item(we)
+    B1$ = ListView1.ListItems.Item(we)
     lblCount1.Caption = Str(ListView1.ListItems.Count - we)
-    
-    
-    
-        xf1 = a1$ + b1$ + ".txt"
-        xf2 = Replace(xf1, ".txt", ".FFMpeg-Verify.txt")
-        xf3 = Replace(xf1, ".txt", ".FFmpeg-Verify.txt")
-    
-    If FS.FileExists(xf1) = True Or FS.FileExists(xf2) Then
-        
-        
-        If FS.FileExists(xf1) = True Then Name xf1 As xf3
-        If a1$ + Dir(xf2) <> xf3 Then Name xf2 As xf3
-        
-        ListView1.ListItems.Remove (we)
 
-    
+        XF1 = a1$ + B1$ + ".TXT"
+        XF2 = Replace(XF1, ".TXT", ".FFMpeg-Verify.txt")
+
+        XF1 = "C:\TEMP\" + B1$ + ".TXT"
+        XF2 = Replace(XF1, ".TXT", ".FFmpeg-Verify.txt")
+
+        xf3 = Replace(XF1, ".TXT", ".FFmpeg-Verify.txt")
+
+    If FS.FileExists(XF1) = True Or FS.FileExists(XF2) Then
+
+'        If FS.FileExists(XF1) = True Then Name XF1 As xf3
+'        If a1$ + Dir(XF2) <> xf3 Then Name XF2 As xf3
+'
+'        ListView1.ListItems.Remove (we)
+'
+
     End If
 Next
 
@@ -676,14 +677,19 @@ d1$ = "": weCount = 0
 For we = 1 To ListView1.ListItems.Count
     
     a1$ = ListView1.ListItems.Item(we).SubItems(1)
-    b1$ = ListView1.ListItems.Item(we)
+    B1$ = ListView1.ListItems.Item(we)
     lblCount1.Caption = Str(ListView1.ListItems.Count - we)
 
-    xf1 = a1$ + b1$ + ".txt"
-    xf2 = Replace(xf1, ".txt", ".FFmpeg-Verify.txt")
+    XF1 = a1$ + B1$ + ".TXT"
+    XF2 = Replace(XF1, ".TXT", ".FFmpeg-Verify.txt")
+    
+    XF1 = "C:\TEMP\" + B1$ + ".TXT"
+    XF2 = Replace(XF1, ".TXT", ".FFmpeg-Verify.txt")
+    
+    If FS.FileExists(XF2) Then Kill XF2
     
     'If FS.FileExists(xf1) = True Or FS.FileExists(xf2) Then
-    If FS.FileExists(xf2) Then
+    If FS.FileExists(XF2) Then
         
         'If FS.FileExists(xf1) = True Then Name xf1 As xf2
         'Set f = FS.getfile(A1$ + B1$ + ".txt")
@@ -695,7 +701,7 @@ For we = 1 To ListView1.ListItems.Count
         d1$ = d1$ + "TIME /T" + vbCrLf
         d1$ = d1$ + "REM --------------" + vbCrLf
         ' d1$ = d1$ + """C:\Program Files\# NO INSTALL REQUIRED\ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"" -v error -i """ + a1$ + b1$ + """ -f null - >""" + xf2 + """ 2>&1" + vbCrLf
-        d1$ = d1$ + """C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 18-ffmpeg-20181007-0a41a8b-win64-static\bin\ffmpeg.exe"" -v error -i """ + a1$ + b1$ + """ -f null - >""" + xf2 + """ 2>&1" + vbCrLf
+        d1$ = d1$ + """C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 18-ffmpeg-20181007-0a41a8b-win64-static\bin\ffmpeg.exe"" -v error -i """ + a1$ + B1$ + """ -f null - >""" + XF2 + """ 2>&1" + vbCrLf
         
         
         weCount = weCount + 1
@@ -730,7 +736,7 @@ lblCount1.Caption = Str(ListView1.ListItems.Count)
 'fr1 = FreeFile
 'Open FileBatch For Append As #fr1
 
-FILEBATCH = "D:\temp\FFmpeg Video Test -- " + Format(Now, "YYYY-MM-DD HH-MM-SS") + ".bat"
+FILEBATCH = "C:\TEMP\FFmpeg Video Test -- " + Format(Now, "YYYY-MM-DD HH-MM-SS") + ".bat"
 fr1 = FreeFile
 Open FILEBATCH For Output As #fr1
 
@@ -745,6 +751,8 @@ Print #fr1, "Rem --- "
 
 Print #fr1, d1$
 
+'Print #fr1, "PAUSE"
+
 Close #fr1
 
 
@@ -752,12 +760,16 @@ Shell "cmd /k """ + FILEBATCH + """"
 
 Sleep 9000
 
+
 If Dir("C:\Program Files\Notepad++\notepad++.exe") <> "" Then
     NOTEPAD_VAR = "C:\Program Files\Notepad++\notepad++.exe"
 End If
+
 If Dir("C:\Program Files (X86)\Notepad++\notepad++.exe") <> "" Then
     NOTEPAD_VAR = "C:\Program Files (X86)\Notepad++\notepad++.exe"
 End If
+
+
 Shell NOTEPAD_VAR + " """ + FILEBATCH + """", vbMaximizedFocus
 
 'Wait for Active
@@ -779,6 +791,7 @@ Loop Until 1 = 2
 
 fr1 = FreeFile
 FILELOGNAME = DirVar + "FFmpeg Error Log Script -- " + Format(Now, "YYYY-MM-DD HH-MM-SS") + ".txt"
+FILELOGNAME = "C:\TEMP\" + "FFmpeg Error Log Script -- " + Format(Now, "YYYY-MM-DD HH-MM-SS") + ".txt"
 Open FILELOGNAME For Output As #fr1
     
 Print #fr1, "Error's in These Files"
@@ -801,19 +814,23 @@ tagcount = 0
 For we = 1 To ListView1.ListItems.Count
     
     a1$ = ListView1.ListItems.Item(we).SubItems(1)
-    b1$ = ListView1.ListItems.Item(we)
+    B1$ = ListView1.ListItems.Item(we)
     lblCount1.Caption = Str(ListView1.ListItems.Count - we)
-    xf1 = a1$ + b1$ + ".txt"
-    xf2 = Replace(xf1, ".txt", ".FFmpeg-Verify.txt")
     
-    If FS.FileExists(xf2) = True Then
-        Set F = FS.getfile(xf2)
+    XF1 = a1$ + B1$ + ".TXT"
+    XF2 = Replace(XF1, ".txt", ".FFmpeg-Verify.txt")
+    
+    XF1 = "C:\TEMP\" + B1$ + ".TXT"
+    XF2 = Replace(XF1, ".TXT", ".FFmpeg-Verify.txt")
+    
+    If FS.FileExists(XF2) = True Then
+        Set F = FS.getfile(XF2)
         If F.Size = 0 Then
             'Kill A1$ + B1$ + ".txt"
         Else
             tagcount = tagcount + 1
             lblCount2.Caption = Str(tagcount)
-            Print #fr1, a1$ + b1$
+            Print #fr1, a1$ + B1$
         End If
     End If
 Next
@@ -880,7 +897,7 @@ Call cmdScan_Click
 For we = ListView1.ListItems.Count To 1 Step -1
     
     a1$ = ListView1.ListItems.Item(we).SubItems(1)
-    b1$ = ListView1.ListItems.Item(we)
+    B1$ = ListView1.ListItems.Item(we)
 '    If InStr(a1$, "0-Plus 800K") > 0 Then
 '        ListView1.ListItems.Remove (we)
 '    End If
@@ -924,7 +941,7 @@ ttw = yy + 1
 For we = 1 To ListView1.ListItems.Count
     
     a1$ = ListView1.ListItems.Item(we).SubItems(1)
-    b1$ = ListView1.ListItems.Item(we)
+    B1$ = ListView1.ListItems.Item(we)
 
     If we = ttw Then
         yy = yy + bignum
@@ -951,16 +968,16 @@ For we = 1 To ListView1.ListItems.Count
     
     
     
-    g1$ = b1$
-    If Dir$(d2$ + b1$) <> "" Then
-    g1$ = Mid$(b1$, 1, (Len(b1$) - 4)) + "_" + Trim(Str(we)) + ".jpg"
+    g1$ = B1$
+    If Dir$(d2$ + B1$) <> "" Then
+    g1$ = Mid$(B1$, 1, (Len(B1$) - 4)) + "_" + Trim(Str(we)) + ".jpg"
     End If
     
 
        
     Err.Clear
                 
-    If a1$ <> d2$ Then Fs22.moveFile a1$ + b1$, d2$ + b1$
+    If a1$ <> d2$ Then Fs22.moveFile a1$ + B1$, d2$ + B1$
         
     b4$ = ""
     countt = 0
@@ -973,15 +990,15 @@ For we = 1 To ListView1.ListItems.Count
                 countt = countt + 1
                 b3$ = "--" + Format$(countt, "000")
                 Err.Clear
-                rg = InStrRev(b1$, ".")
-                rg = InStr(b1$, "--00")
-                rx = InStr(b1$, "-001-")
-                If rg = 0 Then rg = InStrRev(b1$, ".")
-                b4$ = Mid$(b1$, 1, rg - 1) + b3$ + ".jpg"
+                rg = InStrRev(B1$, ".")
+                rg = InStr(B1$, "--00")
+                rx = InStr(B1$, "-001-")
+                If rg = 0 Then rg = InStrRev(B1$, ".")
+                b4$ = Mid$(B1$, 1, rg - 1) + b3$ + ".jpg"
         
  '               Name a1$ + b1$ As a1$ + b4$
                 kk = 1
-                b1$ = b4$
+                B1$ = b4$
                 'If Err.Number > 0 Then MsgBox " error": Stop
                 'err.description
                 If Err.Number > 0 Then
@@ -990,7 +1007,7 @@ For we = 1 To ListView1.ListItems.Count
         
                 If Err.Number = 0 Then
  '                   Fs22.moveFile a1$ + b4$, d2$ + b4$
-                    Fs22.moveFile a1$ + b1$, d2$ + b1$
+                    Fs22.moveFile a1$ + B1$, d2$ + B1$
                 End If
         
                 If Err.Number = 53 Then Err.Clear
@@ -1003,13 +1020,13 @@ For we = 1 To ListView1.ListItems.Count
     If Err.Number <> 0 And Err.Number > 0 Then MsgBox Str$(Err.Number) + " #" + Err.Description: Stop
         
     On Local Error GoTo 0
-       If b4$ <> "" Then b1$ = b4$
+       If b4$ <> "" Then B1$ = b4$
     Label13 = we
     If a1$ <> d2$ Or kk = 1 Then
         If kk = 0 Then
-            List1.AddItem Format$(we, "000 ") + "Move > " + d2$ + b1$ + "--- " + a1$
+            List1.AddItem Format$(we, "000 ") + "Move > " + d2$ + B1$ + "--- " + a1$
         Else
-            List1.AddItem Format$(we, "000 ") + "Rename > " + d2$ + b1$ + "--- " + a1$
+            List1.AddItem Format$(we, "000 ") + "Rename > " + d2$ + B1$ + "--- " + a1$
         End If
         On Local Error Resume Next
         List1.ListIndex = List1.ListCount - 1

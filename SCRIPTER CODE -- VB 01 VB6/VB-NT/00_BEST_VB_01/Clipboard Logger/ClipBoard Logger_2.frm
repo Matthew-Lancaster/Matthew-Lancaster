@@ -2943,13 +2943,13 @@ End Sub
 Private Sub MNU_FILE_LOCATOR_IMAGE_Click()
 
 
-'SHELL" D:\0 00 Art Loggers\# APP AND SCREEN\7-ASUS-GL522VW\FILE LOCATOR __ SavedCriteria.srf
+'SHELL" D:\0 00 Art Loggers\# APP AND SCREEN\4-ASUS-GL522VW\FILE LOCATOR __ SavedCriteria.srf
 
 Dim WSHShell
 Set WSHShell = CreateObject("WScript.Shell")
 
 EXECUTE_FILE_NAME = "C:WINDOWS\EXPLORER.EXE " + EXECUTE_PARAM
-EXECUTE_FILE_NAME = "D:\0 00 Art Loggers\# APP AND SCREEN\7-ASUS-GL522VW\FILE LOCATOR __ SavedCriteria.srf"
+EXECUTE_FILE_NAME = "D:\0 00 Art Loggers\# APP AND SCREEN\4-ASUS-GL522VW\FILE LOCATOR __ SavedCriteria.srf"
 
 WSHShell.Run """" + EXECUTE_FILE_NAME + """"
 

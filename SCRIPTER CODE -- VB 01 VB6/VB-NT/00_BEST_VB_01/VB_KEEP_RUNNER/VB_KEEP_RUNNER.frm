@@ -1818,7 +1818,6 @@ Begin VB.Form Form1
       Width           =   1344
    End
    Begin VB.Label Label_KILL_AND_RUN_ANOTHER_AUTOHOTKEY 
-      Alignment       =   2  'Center
       AutoSize        =   -1  'True
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL && RUN ANOTHER AHK"
@@ -4025,7 +4024,7 @@ Dim XVB_DATE
 'IMPROVEMENT
 'DETAILS OF WINDOW IN TIMER AS IT CHAGES
 'LACKING IN WINDOWSE ALSO
-'D:\0 00 Art Loggers\# APP AND SCREEN\7-ASUS-GL522VW\FILE LOCATOR __ SavedCriteria.srf
+'D:\0 00 Art Loggers\# APP AND SCREEN\4-ASUS-GL522VW\FILE LOCATOR __ SavedCriteria.srf
 
 Dim PROCESS_TO_KILLER_PID As String
 Dim PROCESS_TO_KILLER As String
@@ -5592,7 +5591,7 @@ Sub FORM_LOAD_STEP_02()
 '        OFFSET_HY = 500 + 240
 '    End If
 '    If GetComputerName = "4-ASUS-GL522VW" Or _
-'       GetComputerName = "7-ASUS-GL522VW" Or _
+'       GetComputerName = "4-ASUS-GL522VW" Or _
 '       GetComputerName = "8-MSI-GP62M-7RD" Then
 '            OFFSET_WX = 800
 '            OFFSET_HY = 500 + 240
@@ -7131,7 +7130,7 @@ Dim ADJUST_LEFT_OFFSET
 ' 1024 X 600
 ' GetComputerName = "4-ASUS-GL522VW"
 ' 1920 X 1080
-' GetComputerName = "7-ASUS-GL522VW"
+' GetComputerName = "4-ASUS-GL522VW"
 ' 1920 X 1080
 ' ----------------------------------
 
@@ -8814,7 +8813,7 @@ i = 2: 'AR_1(i) = "2-ASUS-EEE"
 i = 3: 'AR_1(i) = "3-LINDA-PC"
 i = 4: AR_1(i) = "4-ASUS-GL522VW"
 i = 5: 'AR_1(i) = "5-ASUS-P2520LA"
-i = 7: 'AR_1(i) = "7-ASUS-GL522VW"
+i = 7: 'AR_1(i) = "4-ASUS-GL522VW"
 i = 8: AR_1(i) = "8-MSI-GP62M-7RD"
 i = 9: AR_1(i) = "9-ASUS-G815LM"
 Dim AR_2(9)
@@ -8824,7 +8823,7 @@ i = 2: AR_2(i) = "\\2-ASUS-EEE\2_ASUS_EEE"
 i = 3: AR_2(i) = "\\3-LINDA-PC\3_LINDA_PC"
 i = 4: AR_2(i) = "\\4-ASUS-GL522VW\4_ASUS_GL522VW"
 i = 5: AR_2(i) = "\\5-ASUS-P2520LA\5_ASUS_P2520LA"
-i = 7: AR_2(i) = "\\7-ASUS-GL522VW\7_ASUS_GL522VW"
+i = 7: AR_2(i) = "\\4-ASUS-GL522VW\7_ASUS_GL522VW"
 i = 8: AR_2(i) = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD"
 i = 9: AR_2(i) = "\\9-ASUS-G815LM\9_ASUS_G815LM"
 
@@ -9489,7 +9488,7 @@ Sub CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST()
     Dim R_COUNTER, FILE_NAME, Filename
     Dim FileName_O_SP_RQ
     
-    '\\7-ASUS-GL522VW\7_ASUS_GL522VW_02_d_drive\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER
+    '\\4-ASUS-GL522VW\4_Asus_Gl522Vw_D_Drive\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER
     SET_COMPUTER_TO_RUN_02 = Replace(SET_COMPUTER_TO_RUN, "-", "_")
     FILE_NAME = "# DATA\KILL_RELOAD_ALL_NET_SPECIAL_REQUEST_" + SET_COMPUTER_TO_RUN + "_.TXT"
     FileName_O_SP_RQ = "\\" + SET_COMPUTER_TO_RUN + "\" + SET_COMPUTER_TO_RUN_02 + "_02_d_drive\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\" + FILE_NAME
@@ -10400,7 +10399,7 @@ Dim FSO, File, recentDate, objStartFolder, rootFolder, fol, fil, recentFile
 Set FSO = CreateObject("Scripting.FileSystemObject")
 Set recentFile = Nothing
 
-objStartFolder = INPUT_PATH '"D:\0 00 Art Loggers\# APP AND SCREEN\7-ASUS-GL522VW\HOT_KEY_SCREEN_SHOT"
+objStartFolder = INPUT_PATH '"D:\0 00 Art Loggers\# APP AND SCREEN\4-ASUS-GL522VW\HOT_KEY_SCREEN_SHOT"
 
 'Set fso = CreateObject("Scripting.FileSystemObject")
 'Set rootFolder = fso.GetFolder(objStartFolder)
@@ -10654,7 +10653,7 @@ If GetComputerName = "2-ASUS-EEE" Then
     OFFSET_HY = 500 + 240
 End If
 If GetComputerName = "4-ASUS-GL522VW" Or _
-   GetComputerName = "7-ASUS-GL522VW" Or _
+   GetComputerName = "4-ASUS-GL522VW" Or _
    GetComputerName = "8-MSI-GP62M-7RD" Or _
    GetComputerName = "9-ASUS-G815LM" Then
         OFFSET_WX = 800
@@ -13177,7 +13176,7 @@ If O_DAY_NOW_MIDNIGHT_XXX_BUNKER_COM = Day(Now) Then Exit Sub
 
 O_DAY_NOW_MIDNIGHT_XXX_BUNKER_COM = Day(Now)
 
-DIR_PATH = "D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\BUNKER.COM"
+DIR_PATH = "D:\VIDEO\NOT\X 00 NOT\00 Vid XXX\BUNKER.COM"
 
 'If FindWindowPart(DIR_PATH) = 0 Then
 '    O_Dir1_COUNTER_W_VAR = ""
@@ -13606,8 +13605,8 @@ Sub TIMER_IS_TEAMVIEWER_RUNNER_Timer()
         FILE_1 = "TEAMVIEWER_RUNNER_" + GetComputerName + ".TXT"
         PATH_2 = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_C_Drive\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
         FILE_2 = "TEAMVIEWER_RUNNER_4-ASUS-GL522VW.TXT"
-        PATH_3 = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_01_C_DRIVE\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
-        FILE_3 = "TEAMVIEWER_RUNNER_7-ASUS-GL522VW.TXT"
+        PATH_3 = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_C_Drive\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
+        FILE_3 = "TEAMVIEWER_RUNNER_4-ASUS-GL522VW.TXT"
         PATH_4 = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_01_C_DRIVE\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
         FILE_4 = "TEAMVIEWER_RUNNER_8-MSI-GP62M-7RD.TXT"
         PATH_5 = "C:\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
@@ -13691,8 +13690,8 @@ Sub TIMER_IS_TEAMVIEWER_RUNNER_Timer()
         FILE_1 = "TEAMVIEWER_RUNNER_" + GetComputerName + ".TXT"
         PATH_2 = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_C_Drive\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
         FILE_2 = "TEAMVIEWER_RUNNER_4-ASUS-GL522VW.TXT"
-        PATH_3 = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_01_C_DRIVE\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
-        FILE_3 = "TEAMVIEWER_RUNNER_7-ASUS-GL522VW.TXT"
+        PATH_3 = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_C_Drive\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
+        FILE_3 = "TEAMVIEWER_RUNNER_4-ASUS-GL522VW.TXT"
         PATH_4 = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_01_C_DRIVE\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
         FILE_4 = "TEAMVIEWER_RUNNER_8-MSI-GP62M-7RD.TXT"
         PATH_5 = "C:\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
@@ -13960,7 +13959,7 @@ If REBOOT_DAY = 0 Then
     If GetComputerName = "3-LINDA-PC" Then REBOOT_DAY = 2
     If GetComputerName = "5-ASUS-P2520LA" Then REBOOT_DAY = 3
     ' If GetComputerName = "4-ASUS-GL522VW" Then REBOOT_DAY = 2
-    '    If GetComputerName = "7-ASUS-GL522VW" Then a = a
+    '    If GetComputerName = "4-ASUS-GL522VW" Then a = a
     If GetComputerName = "8-MSI-GP62M-7RD" Then REBOOT_DAY = 4
 End If
 ' -------------------------------------------------------------------------
@@ -14161,6 +14160,12 @@ End If
 
 End Sub
 Sub TIMER_REBOOT_ROUTINE_TIMER()
+    TIMER_REBOOT_ROUTINE.Enabled = False
+    Exit Sub
+    ' ------------------------------------------
+    ' ---- MODIFY DON'T WANT ANY RESTART ANYMORE
+    ' ------------------------------------------
+    
     Dim MSGBOX_STRING
     Dim I_RET
     ' -------------------------------------------------
@@ -18854,7 +18859,7 @@ If hWnd_PARENT = 0 Then
       ' OUGHT TO BE EASY FIND BOTH
       ' BUT CHROME ONLY GIVE FOR ONE IN FOCUS
       ' USE HERE AND YOUR SEE
-      ' Process Explorer - sysinternals: www.sysinternals.com [7-ASUS-GL522VW\MATT 04]
+      ' Process Explorer - sysinternals: www.sysinternals.com [4-ASUS-GL522VW\MATT 04]
       ' ahk_class PROCEXPL
       ' ahk_exe procexp64.EXE
       ' NEAR MESSED UP ALL MY CODE

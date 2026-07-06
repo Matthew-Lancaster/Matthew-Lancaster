@@ -4,9 +4,11 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;
 
-;--------------------
-; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 09-FLICKR KEY RIGHT ARROW __ TIMER __  UNTIL MOUSE RIGHT BUTTON _TOGGLE.ahk
-;--------------------
+;# --------------------
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\
+;# __ Autokey -- 09-FLICKR KEY RIGHT ARROW __ TIMER __  UNTIL MOUSE RIGHT BUTTON _TOGGLE.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
+;# --------------------
 
 ;SHARE URL LINKER GOOGLE DRIVE
 ;-------------------------------------------------------------

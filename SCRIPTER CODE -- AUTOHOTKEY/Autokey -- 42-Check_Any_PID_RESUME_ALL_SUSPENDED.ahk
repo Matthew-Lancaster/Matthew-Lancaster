@@ -2,6 +2,7 @@
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 42-Check_Any_PID_RESUME_ALL_SUSPENDED.ahk
 ;# __ 
 ;# __ Autokey -- 42-Check_Any_PID_RESUME_ALL_SUSPENDED.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
 ;# __ 
 ;# __ BY Matthew Lancaster 
 ;# __ Matt.Lan@Btinternet.com

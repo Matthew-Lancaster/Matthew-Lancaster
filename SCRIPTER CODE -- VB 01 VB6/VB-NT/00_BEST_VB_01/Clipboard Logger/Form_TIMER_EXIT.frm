@@ -1,13 +1,13 @@
 VERSION 5.00
 Begin VB.Form UNLOAD_FORM_SAFE 
    Caption         =   "Form2"
-   ClientHeight    =   3456
+   ClientHeight    =   3450
    ClientLeft      =   120
    ClientTop       =   480
-   ClientWidth     =   7596
+   ClientWidth     =   7590
    LinkTopic       =   "Form2"
-   ScaleHeight     =   3456
-   ScaleWidth      =   7596
+   ScaleHeight     =   3450
+   ScaleWidth      =   7590
    StartUpPosition =   3  'Windows Default
    Visible         =   0   'False
    Begin VB.Timer Timer2 
@@ -25,7 +25,7 @@ Begin VB.Form UNLOAD_FORM_SAFE
       Caption         =   "Clipboard Logger Still Loaded Not Propering Exit -- Force Terminate 1 Min"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   20.4
+         Size            =   20.25
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -79,9 +79,9 @@ End Sub
 Private Sub Form_Unload(Cancel As Integer)
     
     EXIT_TRUE = True
-    For Each Form In Forms
-        If Form.Name <> Me.Name Then Unload Form
-    Next Form
+'    For Each Form In Forms
+'        If Form.Name <> Me.Name Then Unload Form
+'    Next Form
 
 End Sub
 

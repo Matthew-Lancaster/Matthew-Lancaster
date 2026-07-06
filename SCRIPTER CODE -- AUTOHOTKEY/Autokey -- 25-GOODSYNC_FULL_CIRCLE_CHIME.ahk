@@ -2,6 +2,7 @@
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 25-GOODSYNC_FULL_CIRCLE_CHIME.ahk
 ;# __ 
 ;# __ Autokey -- 25-GOODSYNC_FULL_CIRCLE_CHIME.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
 ;# __ 
 ;# BY Matthew __ Matt.Lan@Btinternet.com __ 
 ;# __ 

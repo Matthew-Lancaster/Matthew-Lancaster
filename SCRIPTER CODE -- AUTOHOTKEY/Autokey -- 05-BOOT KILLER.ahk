@@ -1,18 +1,28 @@
-﻿;Autokey Project to Use Enter Key on (Save As) Window Dialogue of Chrome.exe & Exit On Chrome Gone
+﻿; Autokey Project to Use Enter Key on (Save As) Window Dialogue of 
+; Chrome.exe & Exit On Chrome Gone
 #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
-;
-;-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+;# __ Autokey -- 05-BOOT KILLER.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
+
+
+
+;--------------------------------------------------------------------
 ; Code to KILLER PROCESS SELECTED HARDCODED SCRIPTER AFTER TIMER AT BOOT OR WHEN
 
-;-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+;--------------------------------------------------------------------
 ; Thu 25 Aug 2016 01:47:51 -- Length Time 1 hr 45 Min -- Finish Code
 
-;-----------------------------------------------------------------------------------------------------------------------------------------
+;--------------------------------------------------------------------
 ; 5TH Project in a Line of AutoKey -- First On Blogger Here
-;-----------------------------------------------------------------------------------------------------------------------------------------
+;--------------------------------------------------------------------
 
 ;
 ;--------------------

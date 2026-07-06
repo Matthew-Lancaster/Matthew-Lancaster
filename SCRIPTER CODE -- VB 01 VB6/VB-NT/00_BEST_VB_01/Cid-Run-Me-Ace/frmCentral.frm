@@ -3909,9 +3909,9 @@ If TAIL_EXE_BLUETOOTH_LOGGER_CASE = 2 Then
     End If
 End If
 
-'7-ASUS-GL522VW
+'4-ASUS-GL522VW
 If TAIL_EXE_BLUETOOTH_LOGGER_CASE = 3 Then
-    Path_And_FileName = "C:\0 00 LOGGERS TEXT\BlueToothView Logger\BlueToothView_Logger -- 7-ASUS-GL522VW.txt"
+    Path_And_FileName = "C:\0 00 LOGGERS TEXT\BlueToothView Logger\BlueToothView_Logger -- 4-ASUS-GL522VW.txt"
     If FindWinPart_ANY_STRING("Tail for Win32 - [Non-Workspace Files - " + Path_And_FileName + "]") = 0 Then
             Shell I_N_TAIL + " """ + Path_And_FileName + """", vbMinimized
         Else
@@ -4521,14 +4521,14 @@ Private Sub MNU_MUSICDAY_TRIM_TAIL_IN_BROWSER_CHROME_Click()
 Path_And_FileName = "https://drive.google.com/file/d/0BwoB_cPOibCPV0RnUXNCZjJzT3M/view"
 Path_And_FileName = WinAmp_Music_Lenght_Logg_TRIM__7_ASUS_GL522VW
 '---------------
-'WinAmp Music Lenght Logg-TRIM__7-ASUS-GL522VW.txt - Google Drive
+'WinAmp Music Lenght Logg-TRIM__4-ASUS-GL522VW.txt - Google Drive
 'https://drive.google.com/file/d/0BwoB_cPOibCPV0RnUXNCZjJzT3M/view
 '---------------
 
 'If FindWinPart_ANY_STRING("Tail for Win32 - [Non-Workspace Files - " + Path_And_FileName + "]") = 0 Then
 
 '----
-'WinAmp Music Lenght Logg-TRIM__7-ASUS-GL522VW.txt - Google Drive
+'WinAmp Music Lenght Logg-TRIM__4-ASUS-GL522VW.txt - Google Drive
 'https://drive.google.com/file/d/0B2hfTi1eLYL5dUxXY2NicGx6R2c/view
 '----
         
@@ -4549,7 +4549,7 @@ Path_And_FileName = WinAmp_Music_Lenght_Logg_TRIM__7_ASUS_GL522VW
 
 
 i = "----" + vbCrLf
-i = i + "WinAmp Music Lenght Logg-TRIM__7-ASUS-GL522VW.txt - Google Drive" + vbCrLf
+i = i + "WinAmp Music Lenght Logg-TRIM__4-ASUS-GL522VW.txt - Google Drive" + vbCrLf
 i = i + WinAmp_Music_Lenght_Logg_TRIM__7_ASUS_GL522VW + vbCrLf
 i = i + "----" + vbCrLf
 i = i + "----" + vbCrLf
@@ -4558,7 +4558,7 @@ i = i + "https://drive.google.com/drive/folders/0BwoB_cPOibCPV0ZsSklwcE92X3c" + 
 i = i + "----" + vbCrLf
 
 '---------------
-'WinAmp Music Lenght Logg-TRIM__7-ASUS-GL522VW.txt - Google Drive
+'WinAmp Music Lenght Logg-TRIM__4-ASUS-GL522VW.txt - Google Drive
 'https://drive.google.com/file/d/0BwoB_cPOibCPV0RnUXNCZjJzT3M/view
 '---------------
 
@@ -6938,14 +6938,14 @@ If WINAMP_HAS_BEEN_FOUND > 0 And WINAMP_HAS_BEEN_FOUND <> O_WINAMP_HAS_BEEN_FOUN
     AGROSTORE = AGROSTORE + vbCrLf + AGRO
     TIMER_FORMAT_ = Format$(Now, "DD-MM-YYYY HH:MM:SS")
     AGRO = ""
-    AGRO = AGRO + TIMER_FORMAT_ + " __ WinAmp Music Lenght Logg-TRIM__7-ASUS-GL522VW.txt - Google Drive" + vbCrLf
+    AGRO = AGRO + TIMER_FORMAT_ + " __ WinAmp Music Lenght Logg-TRIM__4-ASUS-GL522VW.txt - Google Drive" + vbCrLf
     'AGRO = AGRO + TIMER_FORMAT_ + " __ " + Path_And_FileName = WinAmp_Music_Lenght_Logg_TRIM__7_ASUS_GL522VW + vbCrLf
     AGRO = AGRO + TIMER_FORMAT_ + " __ " + WinAmp_Music_Lenght_Logg_TRIM__7_ASUS_GL522VW + vbCrLf
     AGRO = AGRO + TIMER_FORMAT_ + " __ COMPUTER_CODING_VB - Google Drive" + vbCrLf
     AGRO = AGRO + TIMER_FORMAT_ + " __ https://drive.google.com/drive/folders/0BwoB_cPOibCPV0ZsSklwcE92X3c"
     
 'i = "----" + vbCrLf
-'i = i + "WinAmp Music Lenght Logg-TRIM__7-ASUS-GL522VW.txt - Google Drive" + vbCrLf
+'i = i + "WinAmp Music Lenght Logg-TRIM__4-ASUS-GL522VW.txt - Google Drive" + vbCrLf
 'i = i + "https://drive.google.com/file/d/0BwoB_cPOibCPV0RnUXNCZjJzT3M/view" + vbCrLf
 'i = i + "----" + vbCrLf
 'i = i + "----" + vbCrLf
@@ -6968,7 +6968,7 @@ If WINAMP_HANDLE <> O_WINAMP_HANDLE And O_WINAMP_HANDLE > 0 Then
 '    TIMER_FORMAT_ = Format$(Now, "DD-MM-YYYY HH:MM:SS")
 '    AGRO = ""
 '    AGRO = AGRO + TIMER_FORMAT_ + " ----" + vbCrLf
-'    AGRO = AGRO + TIMER_FORMAT_ + " WinAmp Music Lenght Logg-TRIM__7-ASUS-GL522VW.txt - Google Drive" + vbCrLf
+'    AGRO = AGRO + TIMER_FORMAT_ + " WinAmp Music Lenght Logg-TRIM__4-ASUS-GL522VW.txt - Google Drive" + vbCrLf
 '    AGRO = AGRO + TIMER_FORMAT_ + " https://drive.google.com/file/d/0B2hfTi1eLYL5dUxXY2NicGx6R2c/view" + vbCrLf
 '    AGRO = AGRO + TIMER_FORMAT_ + " ----" + vbCrLf
 End If

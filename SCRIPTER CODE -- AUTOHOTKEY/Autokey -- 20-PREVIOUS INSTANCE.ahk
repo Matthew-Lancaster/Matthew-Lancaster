@@ -2,6 +2,7 @@
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 18-NORTON CONTOL BOOTER.ahk
 ;# __ 
 ;# __ Autokey -- 20-PREVIOUS INSTANCE.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
 ;# __ 
 ;# BY Matthew __ Matt.Lan@Btinternet.com __ 
 ;# START     TIME [ Tuesday 07:24:00 Am_12 December 2017 ]

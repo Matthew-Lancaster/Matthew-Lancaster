@@ -4,6 +4,9 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;
 
+;# __ Autokey -- 01-F4 Copy All Paste -&- F10 HOTKEY PRINT SCREEN.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
+
 ;---------------------------------------------------------
 ;WANT SELECT ALL LINE AND PASTE ONTO IT
 ;WANT COPY ON IT OWN

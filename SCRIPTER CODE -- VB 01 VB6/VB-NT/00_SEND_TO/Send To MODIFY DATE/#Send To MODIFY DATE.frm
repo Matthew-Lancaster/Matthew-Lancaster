@@ -1868,7 +1868,7 @@ Sub RENAME_OPERATION_HARDCODE_WHEN_ERROR_MANY()
     
     If IsIDE Then
         File1.Path = "\\4-asus-gl522vw\4_asus_gl522vw_10_1_samsung_1tb\DSC\2015+SONY_MP4\2020 CyberShot HX60V __ MP4"
-        File1.Path = "\\7-asus-gl522vw\7_asus_gl522vw_80_3_samsung_4tb_d\VI_ DSC ME\2010+SONY\2020 CyberShot HX60V_#"
+        File1.Path = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_U_Samsung_5TB\VI_ DSC ME\2010+SONY\2020 CyberShot HX60V_#"
         File1.Path = "K:\M\07 MIDI MOD\MIDI\03 03671 FILM MIDI\02 1633 FILM TRACKS NAME POLY"
     End If
     
@@ -2319,7 +2319,7 @@ Sub SET_OLDER_DATE_TO_OTHER_IN_FOLDER()
     
     
 '    If IsIDE = True Then
-'        ScanPath.txtPath.Text = "D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\ABBYWINTERS.COM_DATE"
+'        ScanPath.txtPath.Text = "D:\VIDEO\NOT\X 00 NOT\00 Vid XXX\ABBYWINTERS.COM_DATE"
 '    End If
     If Len(ScanPath.txtPath.Text) < 5 Then
         MsgBox "PATH TO SHORT -- EXIT"
@@ -2417,7 +2417,7 @@ Sub SET_DATE_OF_FILENAME_YYYY_MM_DD__WITH_ONE_FOLDER()
     
     If IsIDE Then
         '2009-02-17-4896_S03_.WMV
-        ScanPath.txtPath.Text = "D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\BUNKER.COM\2009-06 JUN"
+        ScanPath.txtPath.Text = "D:\VIDEO\NOT\X 00 NOT\00 Vid XXX\BUNKER.COM\2009-06 JUN"
     End If
     
     If Len(ScanPath.txtPath.Text) < 5 Then
@@ -4434,7 +4434,7 @@ Sub SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH()
     ScanPath.cboMask.Text = "*.*"
     
     ScanPath.txtPath.Text = LABEL_SET(2).Caption
-'    ScanPath.txtPath.Text = "D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT_02_(DATE-ALPHABETICAL)\1984 a11 -- NURSE -- 1984"
+'    ScanPath.txtPath.Text = "D:\VIDEO\NOT\X 00 NOT\00 Vid XXX\00 ROOT_02_(DATE-ALPHABETICAL)\1984 a11 -- NURSE -- 1984"
     
     If Len(ScanPath.txtPath.Text) < 5 Then
         MsgBox "PATH TO SHORT -- EXIT"
@@ -4914,7 +4914,7 @@ Sub SET_BATCH_DATE_CAMERA_VIDEO_FILENAME_TO_DATE_FILE()
 
     ScanPath.chkSubFolders = vbChecked
     ScanPath.cboMask.Text = "*.*"
-    ScanPath.txtPath.Text = "\\7-asus-gl522vw\7_ASUS_GL522VW_02_D_DRIVE\VI_ DSC ME 01\2010+SONY\2017 CyberShot HX60V_#\New folder"
+    ScanPath.txtPath.Text = "\\4-ASUS-GL522VW\4_Asus_Gl522Vw_D_Drive\VI_ DSC ME 01\2010+SONY\2017 CyberShot HX60V_#\New folder"
     'ScanPath.txtPath.Text = LABEL_SET(2).Caption
     
     For RR = 1 To ScanPath.ListView1.ListItems.Count

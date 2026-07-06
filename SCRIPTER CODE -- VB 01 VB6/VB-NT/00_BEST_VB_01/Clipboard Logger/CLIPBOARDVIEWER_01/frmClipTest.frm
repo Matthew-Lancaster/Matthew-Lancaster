@@ -220,7 +220,7 @@ Sub TIMER_CLIPBOARD_CHANGED_TIMER()
     CLIPBOARD_ACTIVITY_MOMENT = Now + TimeSerial(0, 8, 0)
     
     Form1.Timer1.Enabled = True
-    Form1.Timer1.Interval = 1
+    ' Form1.Timer1.Interval = 1
     
     CALC_ADDER_ENTRY = True
     
@@ -277,7 +277,22 @@ Private Sub Form_Load()
     ChDir "D:\VB6\VB-NT\00_BEST_VB_01\Clipboard Logger\CLIPBOARDVIEWER_01"
     
     'Start to monitor the clipboard
-    ctlClipboard1.StartClipboardViewer
+    
+    
+    ' ----------------------------------------------------
+    ' TEMP DISABLE IN WINDOW 11
+    ' WHEN RUN BY TIMER AND NOT API
+    ' PLAYING UP ON WINDOWS 11
+    ' ----------------------------------------------------
+    ' FOUND THE PROBLEM -- DON'T NEED 9-ASUS-G815LM -- EXCLUSIONS ANYMORE
+    ' 2026 JULY
+    ' THERE A DELAY IN UNLOADING FRMCLIPTEST01 OR UNLOADING
+    ' OR STOPPER THE CONTORL FOR CLIPBOARD LOGGER
+    ' ----------------------------------------------------
+    ' If GetComputerName <> "9-ASUS-G815LM" Then
+        ctlClipboard1.StartClipboardViewer
+    ' End If
+    '
     
     '-----------------------------
     O_VAL_MINUTE_API = Now
@@ -291,11 +306,22 @@ Private Sub Form_Unload(Cancel As Integer)
     
     Form1.Mnu_API_UNLoad_Status.Caption = "The API Form Clipper Logger Sub Call UN-Loaded @ " + Format(Now, "DDD DD-MM-YYYY HH:MM:SS")
     
-    'Stop the clipboard viewer
-    ctlClipboard1.EndClipboardViewer
-    
-    'Call Form1.MNU_API_RESET_Click
+    ' ------------------------------------------------------
+    ' ---- IT'S CAUSE-ER A DELAY TO STOP THE CLIPBOARDVIEWER
+    ' ---- IT ALSO A DELAY WHEN UNLOAD FORM PROGMATICAL
+    ' ---- 2026 JULY
+    ' ------------------------------------------------------
+    ' Stop the clipboard viewer
+    If 1 = 2 Then
+        MsgBox "HERE ---- ctlClipboard1.EndClipboardViewer"
+        ctlClipboard1.EndClipboardViewer
+    ' -------------------------------------------------
+    End If
+    ' Call Form1.MNU_API_RESET_Click
     API_LOAD = False
+    
+    MsgBox "HERE ---- ctlClipboard1.EndClipboardViewer"
+        
 End Sub
 
 Public Sub Timer_Test_Logic_Timer()

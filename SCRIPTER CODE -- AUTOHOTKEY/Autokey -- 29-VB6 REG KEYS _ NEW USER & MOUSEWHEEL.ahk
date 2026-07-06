@@ -2,6 +2,7 @@
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29-VB6 REG KEYS _ NEW USER.ahk
 ;# __ 
 ;# __ Autokey -- 29-VB6 REG KEYS _ NEW USER.ahk
+;# __ AutoHotkey v1.1 -- Version 1.1.32.00
 ;# __ 
 ;# BY Matthew __ Matt.Lan@Btinternet.com __ 
 ;# __ 
