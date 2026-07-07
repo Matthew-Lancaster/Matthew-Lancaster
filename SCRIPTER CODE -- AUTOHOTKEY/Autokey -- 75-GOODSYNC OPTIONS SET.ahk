@@ -2169,7 +2169,7 @@ SET_ACTIVATION_BOX_GOODSYNC_TEXT_FILE:
 
 	FN_Array_1 := []
 	ArrayCount := 1
-	File_NAME := "C:\RF\7-ASUS-GL522VW\SAFE NOTE\Autokey -- 75-GOODSYNC OPTIONS SET_GOODSYNC KEY.txt"
+	File_NAME := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\SCRIPT 00_PASSWORD_NUMBER\Autokey -- 75-GOODSYNC OPTIONS SET_GOODSYNC KEY.txt"
 	IfNOTExist, %File_NAME%
 		RETURN 
 	
@@ -2199,7 +2199,7 @@ RETURN
 TIMER_SET_GOODSYNC_ACCOUNT_SET_UP_ACTIVATION_BOX:
 {
 
-	File_NAME := "C:\RF\7-ASUS-GL522VW\SAFE NOTE\Autokey -- 75-GOODSYNC OPTIONS SET_GOODSYNC KEY.txt"
+	File_NAME := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\SCRIPT 00_PASSWORD_NUMBER\Autokey -- 75-GOODSYNC OPTIONS SET_GOODSYNC KEY.txt"
 	IfExist, %File_NAME%
 	{
 		FileGetTime, OutputVar, %File_NAME%, M
@@ -2326,7 +2326,7 @@ RETURN
 TIMER_SET_ACTIVATION_BOX:
 {
 
-	File_NAME := "C:\RF\7-ASUS-GL522VW\SAFE NOTE\Autokey -- 75-GOODSYNC OPTIONS SET_GOODSYNC KEY.txt"
+	File_NAME := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\SCRIPT 00_PASSWORD_NUMBER\Autokey -- 75-GOODSYNC OPTIONS SET_GOODSYNC KEY.txt"
 	IfExist, %File_NAME%
 	{
 		FileGetTime, OutputVar, %File_NAME%, M
@@ -2933,7 +2933,7 @@ RETURN
 
 CHECK_GOODSYNC_NOT_RESPOND:
 
-	; IF !(A_ComputerName = "7-ASUS-GL522VW") 
+	; IF !(A_ComputerName = "4-ASUS-GL522VW") 
 		; RETURN
 		
 RETURN
@@ -3062,7 +3062,7 @@ MINIMIZE_AND_RUN_GOODSYNC_2GO:
 	SET_GO_1=0
 	IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
 		SET_GO_1=1
-	IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
+	IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
 		SET_GO_1=1
 		
 	IF SET_GO_1=0 
@@ -3213,6 +3213,9 @@ RETURN
 
 ;--------------------------------------------------------------------
 TIMER_SUB_GOODSYNC_SCRIPT_COMMAND_TO_STOP:
+RETURN
+; NOT RUN ANYMORE
+
 ;--------------------------------------------------------------------
 	; setTimer TIMER_SUB_GOODSYNC_SCRIPT_COMMAND_TO_STOP, OFF
 	dhw := A_DetectHiddenWindows
@@ -3239,7 +3242,7 @@ TIMER_SUB_GOODSYNC_SCRIPT_COMMAND_TO_STOP:
 	VAR_WORKER_MSGBOX_DELAY_COUNT_02=ahk_class #32770 ahk_exe WScript.exe
 
 	OutputVar=
-	IF (A_ComputerName="7-ASUS-GL522VW") 
+	IF (A_ComputerName="4-ASUS-GL522VW") 
 	{
 		IFWINEXIST %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
 		{
@@ -3269,7 +3272,7 @@ TIMER_SUB_GOODSYNC_SCRIPT_COMMAND_TO_STOP:
 	}
 		
 	OutputVar=
-	IF (A_ComputerName="7-ASUS-GL522VW") 
+	IF (A_ComputerName="4-ASUS-GL522VW") 
 		IFWINEXIST GoodSync ahk_class #32770
 		{
 			ControlGetText, OutputVar, Edit1, GoodSync ahk_class #32770

@@ -88,10 +88,10 @@ CALL ROUTINE_DELETE_WSCRIPT_FINDER_RUN
 
 ' C:\Users\MATT 04\AppData\Roaming\GoodSync\jobs-groups-options.tic
 
-FILEN_1="\\7-asus-gl522vw\7_ASUS_GL522VW_02_D_DRIVE\GOODSYNC__BACK\_gsdata_\_history_\Profile\jobs-groups-options-2020-0621-204440_2020-0627-194941.tic"
+FILEN_1="\\4-asus-gl522vw\4_ASUS_GL522VW_D_DRIVE\GOODSYNC__BACK\_gsdata_\_history_\Profile\jobs-groups-options-2020-0621-204440_2020-0627-194941.tic"
 
 
-FILEN_2="\\7-ASUS-GL522VW\7_ASUS_GL522VW_02_D_DRIVE\GoodSync\Profile\jobs-groups-options.tic-2020-0621-204440-COPY.TIC"
+FILEN_2="\\4-ASUS-GL522VW\4_ASUS_GL522VW_D_DRIVE\GoodSync\Profile\jobs-groups-options.tic-2020-0621-204440-COPY.TIC"
 
 
 FSO.COPYFILE FILEN_1, FILEN_2

@@ -107,11 +107,11 @@ CALL ROUTINE_DELETE_WSCRIPT_FINDER_RUN
 
 ' C:\Users\MATT 04\AppData\Roaming\GoodSync\jobs-groups-options.tic
 
-' FILEN_1="\\7-asus-gl522vw\7_ASUS_GL522VW_02_D_DRIVE\GOODSYNC__BACK\_gsdata_\_history_\Profile\jobs-groups-options-2020-0621-204440_2020-0627-194941.tic"
+' FILEN_1="\\4-asus-gl522vw\4_ASUS_GL522VW_D_DRIVE\GOODSYNC__BACK\_gsdata_\_history_\Profile\jobs-groups-options-2020-0621-204440_2020-0627-194941.tic"
 
 ' FILEN_1="\\4-ASUS-GL522VW\4_Asus_Gl522Vw_D_Drive\GoodSync\Profile\jobs-groups-options.tic"
 
-' FILEN_2="\\7-asus-gl522vw\7_ASUS_GL522VW_02_D_DRIVE\GOODSYNC__BACK\Profile\jobs-groups-options.tic--2020-0628-COPY.TIC"
+' FILEN_2="\\4-asus-gl522vw\4_ASUS_GL522VW_D_DRIVE\GOODSYNC__BACK\Profile\jobs-groups-options.tic--2020-0628-COPY.TIC"
 
 
 ' FSO.COPYFILE FILEN_1, FILEN_2
@@ -136,10 +136,10 @@ REDIM FILEN_BACKER(UBOUND(FILEN))
 
 
 
-FILEN(1)="\\7-ASUS-GL522VW\7_ASUS_GL522VW_02_D_DRIVE\GoodSync\Profile\jobs-groups-options.tic"
-FILEN(2)="\\7-asus-gl522vw\7_ASUS_GL522VW_02_D_DRIVE\GOODSYNC__BACK\_gsdata_\_history_\Profile\jobs-groups-options-2020-0621-204440_2020-0627-194941.tic"
-FILEN(3)="\\7-ASUS-GL522VW\7_ASUS_GL522VW_01_C_DRIVE\Users\MATT 04\AppData\Local\GoodSync\jobs-groups-options.tic"
-FILEN(4)="\\4-ASUS-GL522VW\4_Asus_Gl522Vw_D_Drive\GoodSync\Profile\jobs-groups-options.tic"
+FILEN(1)="\\4-ASUS-GL522VW\4_ASUS_GL522VW_C_DRIVE\GoodSync\Profile\jobs-groups-options.tic"
+FILEN(2)="\\4-asus-gl522vw\4_ASUS_GL522VW_D_DRIVE\GOODSYNC__BACK\_gsdata_\_history_\Profile\jobs-groups-options-2020-0621-204440_2020-0627-194941.tic"
+FILEN(3)="\\4-ASUS-GL522VW\4_ASUS_GL522VW_C_DRIVE\Users\MATT 04\AppData\Local\GoodSync\jobs-groups-options.tic"
+FILEN(4)="\\4-ASUS-GL522VW\4_Asus_Gl522Vw_C_Drive\GoodSync\Profile\jobs-groups-options.tic"
 
 ' -------------------------------------------------------------------
 ' HEAVY OF BACKER __ 

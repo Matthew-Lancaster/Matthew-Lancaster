@@ -2,11 +2,11 @@
 @ECHO ------------------------------------------------------
 @TITLE %~f0
 
-REM runas /user:"7-ASUS-GL522VW\MATT 02" "C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
-runas /user:"7-ASUS-GL522VW\MATT 02" "EXPLORER.EXE"
+REM runas /user:"4-ASUS-GL522VW\MATT 01" "C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
+runas /user:"4-ASUS-GL522VW\MATT 01" "EXPLORER.EXE"
 @ECHO OFF
 
-REM runas /user:*7-ASUS-GL522VW\*account "MATT 02" name explorer.exe
+REM runas /user:*4-ASUS-GL522VW\*account "MATT 01" name explorer.exe
 
 
 

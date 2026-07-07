@@ -1,5 +1,11 @@
 @CD\
 
+REM DON'T RUN
+REM 2026
+REM ---------
+PAUSE
+GOTO VERY_ENDE
+
 @REM  ---------------------------------------------------------------
 ver | find "10.0." > nul
 @IF %errorlevel% EQU 0 @SET WIN10__=YES

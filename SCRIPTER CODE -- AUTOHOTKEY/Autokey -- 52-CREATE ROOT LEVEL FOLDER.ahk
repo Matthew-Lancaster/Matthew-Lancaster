@@ -127,7 +127,10 @@ GO_FOLDER:
 	Loop % FILE_SCRIPT.MaxIndex()
 	{
 		VALUE:=FILE_SCRIPT[A_Index]
-		; FileCreateDir, \\7-asus-gl522vw\7_asus_gl522vw_10_1_samsung_4tb_c\%VALUE%
+		; ------------------------
+		; NOT PROPER  NETWORK PATH
+		; ------------------------
+		; FileCreateDir, \\4-asus-gl522vw\4_asus_gl522vw_10_1_samsung_4tb_c\%VALUE%
 		FileCreateDir, Q:\%VALUE%
 		SOUNDBEEP 2000,20
 		

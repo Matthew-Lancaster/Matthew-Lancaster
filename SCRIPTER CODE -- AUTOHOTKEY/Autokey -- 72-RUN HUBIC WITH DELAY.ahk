@@ -112,7 +112,7 @@ If ErrorLevel ; errorlevel will = 0 if process doesn't exist
 ; https://www.timecalculator.net/minutes-to-milliseconds
 ; ----
 	
-IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
+IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
 {
 	; SETTIMER, RUN_HUBIC, 3600000 ; 60 min = 3600000 ms
 	; SETTIMER, RUN_HUBIC, 2400000 ; 40 min = 2400000 ms
@@ -124,7 +124,7 @@ IF (A_ComputerName="5-ASUS-P2520LA" and A_UserName<>"MATT 01")
 	EXITAPP
 IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName<>"MATT 01")
 	EXITAPP
-IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName<>"MATT 04")
+IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName<>"MATT 01")
 	EXITAPP
 IF (A_ComputerName="8-MSI-GP62M-7RD" and A_UserName<>"MATT 01")
 	EXITAPP

@@ -231,10 +231,14 @@ TEST_FILE_IN_FOLDER:
 
 		SET_GO=TRUE
 		IF (A_ComputerName = "1-ASUS-X5DIJ") 
+		SET_GO=FALSE
 		IF (A_ComputerName = "2-ASUS-EEE") 
+		SET_GO=FALSE
 		IF (A_ComputerName = "3-LINDA-PC") 
+		SET_GO=FALSE
 		IF (A_ComputerName = "5-ASUS-P2520LA") 
-		IF (A_ComputerName = "7-ASUS-GL522VW") 
+		SET_GO=FALSE
+		IF (A_ComputerName = "4-ASUS-GL522VW") 
 		SET_GO=FALSE
 
 		

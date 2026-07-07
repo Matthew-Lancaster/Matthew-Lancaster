@@ -140,7 +140,7 @@ COMMAND_LINE:= % DllCall( "GetCommandLine", "str" )
 ; EXAMPLE #2 OF GIVEN COMMAND LINE
 ; -------------------------------------------------------------------
 ; "C:\Program Files\AutoHotkey\AutoHotkey.exe" "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 68-GOODSYNC REPORT ERROR OVERWRITE VB.ahk" JOBNAME "VB G7 VB-NT 1X _1_ QUICKER _NEW_GO GSD (1)" RESULT "Please click Analyze again because another job has Synced and it invalidated analysis results of this job.
-; State file: //7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VB6/VB-NT/00_Best_VB_01/Clipboard Logger/_gsdata_/_file_state_v4._gs
+; State file: //4-ASUS-GL522VW/4_Asus_Gl522Vw_D_Drive/VB6/VB-NT/00_Best_VB_01/Clipboard Logger/_gsdata_/_file_state_v4._gs
 ; New: [size=197,794 time=2019-03-04 05:55:35] != 
 ; Old: [size=197,794 time=2019-03-04 05:55:05]
 ; " ERRORS 0

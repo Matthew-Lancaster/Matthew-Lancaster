@@ -672,19 +672,19 @@ class MyObject
 ; -------------------------------------------------------------------
 
 ; 1 OF 5 EXAMPLE THIS WORKS
-IF A_ComputerName=7-ASUS-GL522VW
+IF A_ComputerName=4-ASUS-GL522VW
 	SET_EXIT=TRUE
 ; 2 OF 5 EXAMPLE THIS WORKS
-IF (A_ComputerName=7-ASUS-GL522VW)
+IF (A_ComputerName=4-ASUS-GL522VW)
 	SET_EXIT=TRUE
 ; 3 OF 5 EXAMPLE AND THIS WORKS
-IF (A_ComputerName="7-ASUS-GL522VW")
+IF (A_ComputerName="4-ASUS-GL522VW")
 	SET_EXIT=TRUE
 ; 4 OF 5 EXAMPLE AND THIS NOT WORK
-IF A_ComputerName="7-ASUS-GL522VW"
+IF A_ComputerName="4-ASUS-GL522VW"
 	SET_EXIT=TRUE
-; 5 OF 5 EXAMPLE SOMETIMES THIS NOT WORK AND INSTEAD (A_ComputerName="7-ASUS-GL522VW")
-IF A_ComputerName=7-ASUS-GL522VW
+; 5 OF 5 EXAMPLE SOMETIMES THIS NOT WORK AND INSTEAD (A_ComputerName="4-ASUS-GL522VW")
+IF A_ComputerName=4-ASUS-GL522VW
 	SET_EXIT=TRUE
 
 ; -------------------------------------------------------------------

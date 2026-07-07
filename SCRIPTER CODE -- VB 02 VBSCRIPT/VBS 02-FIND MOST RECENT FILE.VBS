@@ -4,7 +4,7 @@ Dim fso, file, recentDate, recentFile, objStartFolder, rootFolder, fol, fil
 Set fso = CreateObject("Scripting.FileSystemObject")
 Set recentFile = Nothing
 
-objStartFolder = "D:\0 00 Art Loggers\# APP AND SCREEN\7-ASUS-GL522VW\HOT_KEY_SCREEN_SHOT"
+objStartFolder = "D:\0 00 Art Loggers\# APP AND SCREEN\4-ASUS-GL522VW\HOT_KEY_SCREEN_SHOT"
 
 'Set fso = CreateObject("Scripting.FileSystemObject")
 'Set rootFolder = fso.GetFolder(objStartFolder)

@@ -196,7 +196,7 @@ SETTIMER MOUSE_CURSOR_SUB_02,1
 ; SET_GO=FALSE
 ; IF (A_ComputerName = "4-ASUS-GL522VW") 
 ; SET_GO=TRUE
-; IF (A_ComputerName = "7-ASUS-GL522VW") 
+; IF (A_ComputerName = "4-ASUS-GL522VW") 
 ; SET_GO=TRUE
 ; IF (A_ComputerName = "8-MSI-GP62M-7RD") 
 ; SET_GO=TRUE

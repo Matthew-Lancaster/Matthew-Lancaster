@@ -192,7 +192,7 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"           ; THESE ARE CASE WANTING END RESULT WILL BE AS HERE
 	SET_ARRAY_3[ArrayCount]:=
 	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="D:\VI_ DSC ME\"
+	SET_ARRAY_1[ArrayCount]:="U:\VI_ DSC ME\"
 	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 	SET_ARRAY_3[ArrayCount]:=
 	ArrayCount+=1
@@ -215,10 +215,10 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	SET_ARRAY_1[ArrayCount]:="D:\0 00 VIDEO CCSS\"
 	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 	SET_ARRAY_3[ArrayCount]:=
-	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="D:\0 00 VIDEO CCSS 02\"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
-	SET_ARRAY_3[ArrayCount]:=
+	; ArrayCount+=1
+	; SET_ARRAY_1[ArrayCount]:="D:\0 00 VIDEO CCSS 02\"
+	; SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
+	; SET_ARRAY_3[ArrayCount]:=
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="D:\0 00 VIDEO DOWNLOAD\"
 	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
@@ -231,38 +231,38 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	SET_ARRAY_1[ArrayCount]:="D:\0 00 MOBILE-2\"
 	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 	SET_ARRAY_3[ArrayCount]:=
-	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 03 V0 02 ROOT\"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
-	SET_ARRAY_3[ArrayCount]:=
+	; ArrayCount+=1
+	; SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 03 V0 02 ROOT\"
+	; SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
+	; SET_ARRAY_3[ArrayCount]:=
 	
-	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 01 V0 01 MM"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
-	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 02 V0 01 HC"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
-	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 03 V0 02 ROOT"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
-	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 03 V0 03 ROOT"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
-	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 03 V0 04 AUTO"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
-	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 03 V0 05 LITT"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
-	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 04 V0 01 HC"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
-	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="F:\DSC--SCREENCASTIFY__GD_CLOUD"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
-	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="F:\DSC--2018+CCSE_HIKVISION_SCREENCASTIFY"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
+	; ArrayCount+=1
+	; SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 01 V0 01 MM"
+	; SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
+	; ArrayCount+=1
+	; SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 02 V0 01 HC"
+	; SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
+	; ArrayCount+=1
+	; SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 03 V0 02 ROOT"
+	; SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
+	; ArrayCount+=1
+	; SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 03 V0 03 ROOT"
+	; SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
+	; ArrayCount+=1
+	; SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 03 V0 04 AUTO"
+	; SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
+	; ArrayCount+=1
+	; SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 03 V0 05 LITT"
+	; SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
+	; ArrayCount+=1
+	; SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 04 V0 01 HC"
+	; SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
+	; ArrayCount+=1
+	; SET_ARRAY_1[ArrayCount]:="F:\DSC--SCREENCASTIFY__GD_CLOUD"
+	; SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
+	; ArrayCount+=1
+	; SET_ARRAY_1[ArrayCount]:="F:\DSC--2018+CCSE_HIKVISION_SCREENCASTIFY"
+	; SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="C:\DD"
 	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
@@ -273,14 +273,14 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="D:\DD"
 	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
+	; ArrayCount+=1
+	; SET_ARRAY_1[ArrayCount]:="\\4-asus-gl522vw\4_Asus_Gl522Vw_U_Samsung_5TB\VI_ DSC ME"
+	; SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="\\7-asus-gl522vw\7_asus_gl522vw_80_3_samsung_4tb_d\VI_ DSC ME"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
-	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="\\7-asus-gl522vw\7_asus_gl522vw_80_3_samsung_4tb_d\DSC_4G_1TB\DSC--2018+CCSE_HIKVISION"
+	SET_ARRAY_1[ArrayCount]:="D:\DSC\2018+CCSE_HIKVISION"
 	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 
-	IF (A_ComputerName="8-MSI-GP62M-7RD")
+	IF (A_ComputerName="8-MSI-GP62M-7RD_DUMMY")
 	{
 		ArrayCount+=1
 		SET_ARRAY_1[ArrayCount]:="G:\VI_ DSC 01 V0 01 MM"
@@ -290,13 +290,13 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 		SET_ARRAY_2[ArrayCount]:="DB" ; Thumbs.db
 	}
 	
-	IF (A_ComputerName="7-ASUS-GL522VW")
+	IF (A_ComputerName="4-ASUS-GL522VW")
 	{
+		; ArrayCount+=1
+		; SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 01 V0 01 MM"
+		; SET_ARRAY_2[ArrayCount]:="DB" ; Thumbs.db
 		ArrayCount+=1
-		SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 01 V0 01 MM"
-		SET_ARRAY_2[ArrayCount]:="DB" ; Thumbs.db
-		ArrayCount+=1
-		SET_ARRAY_1[ArrayCount]:="D:\VI_ DSC ME"
+		SET_ARRAY_1[ArrayCount]:="U:\VI_ DSC ME"
 		SET_ARRAY_2[ArrayCount]:="DB" ; Thumbs.db
 		
 	}

@@ -11383,8 +11383,8 @@ Private Sub MNU_LOAD_ALL_SCRIPTOR_Click()
             End If
             On Error GoTo 0
             
-            Adate1 = F.datelastmodified
             If FSO.FileExists(A1$ + B1$) = True And SHORT_FILESPEC <> "ERROR" Then
+                Adate1 = F.datelastmodified
                 If Adate1 < Now - 40 Then
                     ScanPath.ListView1.ListItems.Remove (r)
                     FLAG_DONE = True

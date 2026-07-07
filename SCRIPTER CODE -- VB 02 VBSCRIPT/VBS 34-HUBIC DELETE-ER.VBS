@@ -190,7 +190,7 @@ COMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
 ' IF ComputerName<>"8-MSI-GP62M-7RD" THEN 
 	' Wscript.QUIT
 ' END IF 
-IF ComputerName<>"7-ASUS-GL522VW" THEN 
+IF ComputerName<>"4-ASUS-GL522VW" THEN 
 	Wscript.QUIT
 END IF 
 

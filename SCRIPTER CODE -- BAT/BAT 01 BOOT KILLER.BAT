@@ -807,7 +807,7 @@ schtasks /change /TN "\Nero TuneItUp PRO (Autopilot.exe)" /DISABLE
 @REM  Norton WSC Integration                   N/A                    Ready
 @REM  OneDrive Standalone Update Task v2       20/04/2017 00:00:00    Ready
 @REM  Open URL by RoboForm                     N/A                    Ready
-@REM  Process Explorer-7-ASUS-GL522VW-MATT 01  N/A                    Running
+@REM  Process Explorer-4-ASUS-GL522VW-MATT 01  N/A                    Running
 @REM  ROG Gaming Center                        N/A                    Running
 @REM  Run RoboForm TaskBar Icon                N/A                    Ready
 @REM  SYSTEM LOGON                             N/A                    Ready

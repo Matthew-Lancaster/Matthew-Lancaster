@@ -1,5 +1,13 @@
 @ECHO OFF
 
+PAUSE
+REM DON'T RUN
+REM 0226
+REM ---------
+GOTO ENDE
+
+
+
 @REM ----------------------------------------------------------------
 @REM __ MATTHEW LANCASTER 
 @REM __ MATT.LAN@BTINTERNET.COM
@@ -61,7 +69,7 @@ IF '%1%'=='/ADMIN' (
 
 
 
-REM NET USE \\7-ASUS-GL522VW " " /USER:"MATT 01"
+REM NET USE \\4-ASUS-GL522VW " " /USER:"MATT 01"
 
 REM SHUTDOWN -R -F -M 2-ASUS-EEE -T 1
 

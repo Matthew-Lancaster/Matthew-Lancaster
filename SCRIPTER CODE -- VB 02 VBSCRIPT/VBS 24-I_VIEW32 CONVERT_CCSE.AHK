@@ -33,10 +33,14 @@ if ScriptInstanceExist()
 	Exitapp
 }
 
-IF (A_ComputerName<>"7-ASUS-GL522VW")
+IF (A_ComputerName<>"4-ASUS-GL522VW")
 {
 	Exitapp
 }
+
+; DON'T RUN
+; ---------
+Exitapp
 	
 
 ;--------------------------------------------------------------------

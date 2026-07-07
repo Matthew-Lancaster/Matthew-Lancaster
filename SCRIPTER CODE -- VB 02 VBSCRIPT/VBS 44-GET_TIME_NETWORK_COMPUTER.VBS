@@ -49,10 +49,10 @@ GetTimeZoneOffset_2=GetTimeZoneOffset
 
 strComputer = "."
 strComputer = "7-ASUS-GL522VW"
-strComputer = "4-ASUS-GL522VW"
 strComputer = "8-MSI-GP62M-7RD"
 strComputer = "4-ASUS-GL522VW"
 strComputer = "1-ASUS-X5DIJ"
+strComputer = "4-ASUS-GL522VW"
 
 Set objWMIService = GetObject("winmgmts:\\" & strComputer & "\root\cimv2")
 

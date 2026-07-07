@@ -3340,7 +3340,7 @@ RETURN
 	; SET_GO_AR=
 	; IF A_ComputerName=4-ASUS-GL522VW
 		; SET_GO_AR=TRUE
-	; IF A_ComputerName=7-ASUS-GL522VW
+	; IF A_ComputerName=4-ASUS-GL522VW
 		; SET_GO_AR=TRUE
 	; IF A_ComputerName=8-MSI-GP62M-7RD
 		; SET_GO_AR=TRUE
