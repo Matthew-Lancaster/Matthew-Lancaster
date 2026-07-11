@@ -392,11 +392,6 @@ TIMER_SUB_GOODSYNC_CHANGE_NET_PATH_AS_SWEEPING_CHANGE_BASTARD:
 				TRUE_TO_GO=TRUE
 			IF INSTR(A_LoopField,"ATL:0000000140E657104")>0
 				TRUE_TO_GO=TRUE
-			; ---------------------------------------------
-			; ---- GOODSYNC FREQUENTLY UPDATE HERE
-			; ---- WITH EACH-AR UPDATE
-			; ---- USE AHK SPY TO GET DETAIL INFO
-			; ---------------------------------------------
 
 		}
 	}
@@ -3213,9 +3208,6 @@ RETURN
 
 ;--------------------------------------------------------------------
 TIMER_SUB_GOODSYNC_SCRIPT_COMMAND_TO_STOP:
-RETURN
-; NOT RUN ANYMORE
-
 ;--------------------------------------------------------------------
 	; setTimer TIMER_SUB_GOODSYNC_SCRIPT_COMMAND_TO_STOP, OFF
 	dhw := A_DetectHiddenWindows
