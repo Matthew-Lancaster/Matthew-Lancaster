@@ -520,9 +520,13 @@ FOR EACH objProcess IN colProcesses
 			' Wscript.Quit
 		END IF
 		
-		IF iMyPID<>PID_Script THEN 
+		IF iMyPID<>PID_Script AND PID_Script>0 AND iMyPID>0 THEN 
 			' MSGBOX iMyPID & VBCR & PID_Script
+			
+			ON ERROR RESUME NEXT ' ERROR HERE SOMETIMES -- PROCESS NOT FOUND WITH SELECTION
 			objProcess.Terminate() 
+			ON ERROR GOTO 0
+			
 			' WSHSHELL.Run "TASKKILL /F /IM """+CSTR(PID_Script)+"""", DONTShowWindow, WaitUntilFinished
 		END IF
     END IF

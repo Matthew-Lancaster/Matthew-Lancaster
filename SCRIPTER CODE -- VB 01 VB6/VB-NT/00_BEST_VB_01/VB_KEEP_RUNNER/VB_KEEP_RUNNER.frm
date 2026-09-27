@@ -8663,6 +8663,10 @@ End Sub
 
 Private Sub MNU_TASK_KILLER_CMD_Click()
     
+'    COMMAND_LINE_02 = "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER FORCE WAIT.BAT"
+'    Shell "CMD /C START """" /REALTIME /MAX """ + COMMAND_LINE_01 + """", vbNormalFocus
+    
+    
 PROCESS_TO_KILLER_TO_GO = "/F /IM CMD* /T"
 PROCESS_TO_KILLER = PROCESS_TO_KILLER_TO_GO
 
@@ -8672,7 +8676,26 @@ Beep
 If MNU_NOT_MINIMIZE_VALUE = False Then
     Me.WindowState = vbMinimized
 End If
-Shell "CMD /C START """" /REALTIME ""C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT_03_PROCESS_KILLER.BAT"" " + PROCESS_TO_KILLER, vbMaximizedFocus
+
+PROGRAM_PATH_BAT = App.Path + "\BAT_03_PROCESS_KILLER.BAT"
+If Dir(PROGRAM_PATH_BAT) = "" Then
+    MsgBox PROGRAM_PATH_BAT + vbCrLf + vbCrLf + "DON'T EXIST _ WILL CREATE"
+    Call CREATE_PROGRAM_PATH_BAT
+End If
+Shell "CMD /C START """" /REALTIME " + PROGRAM_PATH_BAT + " " + PROCESS_TO_KILLER, vbMaximizedFocus
+
+' -------------------------------
+' 2026 SEP
+' -------------------------------
+' HAD A PROBLEM
+' -------------------------------
+' CAN'T RUN HERE
+' WHEN PATH STRING INCLUDE SPACER
+' SO RUN FROM APP PATH
+' -------------------------------
+
+'Shell "CMD /C START """" /REALTIME ""C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT_03_PROCESS_KILLER.BAT"" " + PROCESS_TO_KILLER, vbMaximizedFocus
+
 Beep
     
 End Sub

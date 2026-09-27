@@ -681,7 +681,8 @@ SUB__GoodSync_Dialog_220373_TIMER:
 		{
 			WinGetPos, OutX, OutY, OutWidth, OutHeight, A
 			IF OutWidth=612
-			IF OutHeight=243
+			IF (OutHeight=243 or OutHeight=241)
+			
 				SET_GO_48=TRUE
 				; -----------------------------------------------------------------
 				; THIS IS THE SIZE OF MSGBOX FOR
@@ -1233,6 +1234,7 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 				IF Status=0 ; ---- UNCHECK
 				{
 					TOOLTIP RUN PARALLEL THREADS IN SYNC, THIS MANY -- CHECK,500,10
+					SETTIMER TOOLTIP_TO_CLEAR,OFF
 					SETTIMER TOOLTIP_TO_CLEAR,3000
 					CORRECT_VALUE_SET=FALSE
 				}
@@ -1264,13 +1266,13 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 		
 	; TOOLTIP % CORRECT_VALUE_SET
 		
-	IF O_HWND_2<>%HWND_2%
+	; IF O_HWND_2<>%HWND_2%
 	IF VALUE_CHANGE=TRUE
 	{
 		ControlGetText, tooltip2,,ahk_class tooltips_class32
 		IF tooltip2
 		{
-			COUNT_ENDER=1000
+			COUNT_ENDER=100
 			LOOP
 			{
 				ControlGetText, tooltip2,,ahk_class tooltips_class32
@@ -1295,19 +1297,20 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 		ControlGetText, tooltip2,,ahk_class tooltips_class32
 		IF tooltip2
 		{
-			COUNT_ENDER=1000
+			COUNT_ENDER=100
 			LOOP
 			{
 				ControlGetText, tooltip2,,ahk_class tooltips_class32
 				IF !tooltip2
 					BREAK
 				COUNT_ENDER-=1
+				
 				IF COUNT_ENDER<0 
 					BREAK
 				SLEEP 100
 			}
 			}
-		SLEEP 1000
+		SLEEP 100
 		TOOLTIP --------------------------------------------------------------------`nALL SETTER SET -- NOT A CHANGE`n--------------------------------------------------------------------,500,10
 		SETTIMER TOOLTIP_TO_CLEAR,OFF
 		SETTIMER TOOLTIP_TO_CLEAR,5000

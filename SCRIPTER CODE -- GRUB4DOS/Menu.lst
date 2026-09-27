@@ -528,7 +528,7 @@ initrd /HBCD/Boot/wmemtest.gz
 #-----------------------------------------------------------------------
 
 #-----------------------------------------------------------------------
-title MemTest86+ HBCD\n
+title MemTest86+ V4.20 HBCD\n
 find --set-root /HBCD/Boot/memtest.gz
 map --mem /HBCD/Boot/memtest.gz (fd0)
 map --hook
@@ -536,6 +536,30 @@ chainloader (fd0)+1
 rootnoverify (fd0)
 map --floppies=1
 #-----------------------------------------------------------------------
+
+#-----------------------------------------------------------------------
+title MemTest86+ V4.37\nTHIS ONE DON'T WORK
+find --set-root /ISO/MEMTEST_V4.37/memtest86-src.tar.gz
+map --mem /ISO/MEMTEST_V4.37/memtest86-src.tar.gz (fd0)
+map --hook
+chainloader (fd0)+1
+rootnoverify (fd0)
+map --floppies=1
+#-----------------------------------------------------------------------
+
+iftitle [if exist /ISO/MEMTEST_V7.20_PLUS/mt86plus64.img] Memtest86+ (x64) V7.20\nLATEST VERSION IS V11.7 2026 WITH UEFI THIS ONE IS LEGACY\nLATEST LEGACY VERSION IS V4.37 FOR THE WEB
+find --set-root --ignore-floppies /ISO/MEMTEST_V7.20_PLUS/mt86plus64.img
+map --mem /ISO/MEMTEST_V7.20_PLUS/mt86plus64.img (fd0)
+map --hook
+chainloader (fd0)+1
+rootnoverify (fd0)
+
+iftitle [if exist /ISO/MEMTEST_V7.20_PLUS/mt86plus32.img] Memtest86+ (x86) V7.20\nLATEST VERSION IS V11.7 2026 WITH UEFI THIS ONE IS LEGACY\nLATEST LEGACY VERSION IS V4.37 FOR THE WEB
+find --set-root --ignore-floppies /ISO/MEMTEST_V7.20_PLUS/mt86plus32.img
+map --mem /ISO/MEMTEST_V7.20_PLUS/mt86plus32.img (fd0)
+map --hook
+chainloader (fd0)+1
+rootnoverify (fd0)
 
 #-----------------------------------------------------------------------
 #title Offline NT/2000/XP/Vista/7 Password Changer\nWindows Password Reset 2011-05-11
