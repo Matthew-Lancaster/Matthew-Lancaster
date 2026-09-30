@@ -341,6 +341,20 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
 
 
+
+
+SET_GO_1=
+IF (A_ComputerName="4-ASUS-GL522VW") 
+	SET_GO_1=1
+
+IF SET_GO_1=1
+{
+	PAUSE
+}
+
+
+
+
 DEBBY_HALL_PAUSE=TRUE
 DEBBY_HALL_PAUSE=FALSE
 

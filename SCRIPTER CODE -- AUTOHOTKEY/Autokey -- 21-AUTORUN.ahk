@@ -1777,7 +1777,8 @@ If (OSVER_N_VAR>5
 	IF (A_ComputerName = "9-ASUS-G815LM") 
 		SET_GO_GOOGLEDRIVESYNC=
 	
-		
+
+	SET_GO_GOOGLEDRIVESYNC=
 	IF SET_GO_GOOGLEDRIVESYNC
 	{
 	Process, Exist, googledrivefs.exe
@@ -1788,8 +1789,22 @@ If (OSVER_N_VAR>5
 			FN_VAR:="C:\Program Files\Google\Drive File Stream\launch.bat"
 			if FileExist(FN_VAR)
 			{
-				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-				Run, "C:\Program Files\Google\Drive File Stream\launch.bat" , , MIN
+			
+			
+				; -------------------------------------------------------
+				; -------------------------------------------------------
+				; MAKE OUT OF PLAY -- FROM DATE WHENEVER GOOGLE ABANDONED
+				; NOT RUNNING FROM HERE ANYWAY -- YES IT ARE -- NOT NOW
+				; -------------------------------------------------------
+				; 28-SEP-2026 23:14:40 MON
+				; -------------------------------------------------------
+				; -------------------------------------------------------
+
+				; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+				; Run, "C:\Program Files\Google\Drive File Stream\launch.bat" , , MIN
+
+				; -------------------------------------------------------
+				; -------------------------------------------------------
 			}
 		}
 	}

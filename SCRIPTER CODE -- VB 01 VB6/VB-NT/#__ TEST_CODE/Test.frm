@@ -1,7 +1,7 @@
 VERSION 5.00
 Object = "{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}#1.1#0"; "ieframe.dll"
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
-Object = "{3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0"; "richtx32.Ocx"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
+Object = "{3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0"; "richtx32.ocx"
 Object = "{248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0"; "MSWINSCK.ocx"
 Begin VB.Form Form1 
    BackColor       =   &H00C0C0C0&
@@ -78,6 +78,7 @@ Begin VB.Form Form1
       _ExtentX        =   3069
       _ExtentY        =   1524
       _Version        =   393217
+      Enabled         =   -1  'True
       ScrollBars      =   1
       TextRTF         =   $"Test.frx":0000
    End
@@ -122,7 +123,7 @@ Begin VB.Form Form1
       NoFolders       =   0   'False
       Transparent     =   0   'False
       ViewID          =   "{0057D0E0-3573-11CF-AE69-08002B2E1262}"
-      Location        =   ""
+      Location        =   "http:///"
    End
    Begin VB.PictureBox Picture1 
       AutoRedraw      =   -1  'True
@@ -394,6 +395,42 @@ End
 
 
 End Sub
+
+
+Sub CONVERT_STRIP_TALKING_BOOK_AWAY_MUSIC_CLOBBER()
+
+
+
+
+
+'Open "D:\# MY DOCS\# 01 My Documents\New Text Document.txt" For Output As #1
+'Print #1, Clipboard.GetText;
+'Close #1
+
+
+
+Open "C:\SCRIPTER\NOTEPAD TALK\TEXT 2026-09-28 __ TALKLING BOOKS FOR GOODSYNC.TXT" For Input As #1
+Open "C:\SCRIPTER\NOTEPAD TALK\TEXT 2026-09-28 __ MUSIC FOR GOODSYNC.TXT" For Input As #2
+TB = Input(LOF(1), 1)
+LL = ""
+' MsgBox TB
+Do
+Line Input #2, MU
+If InStr(TB, MU) = 0 Then
+LL = LL + MU + vbCrLf
+End If
+Loop Until EOF(2)
+Close #1, #2
+
+
+Clipboard.Clear
+Clipboard.SetText LL
+
+End
+
+
+End Sub
+
 
 
 Sub StartIndentStartTXTFile()
@@ -767,6 +804,11 @@ End Sub
 
 
 Private Sub Form_Load()
+
+Call CONVERT_STRIP_TALKING_BOOK_AWAY_MUSIC_CLOBBER
+
+
+End
 
 
 ' --------------------------------------------------

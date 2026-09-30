@@ -1043,6 +1043,9 @@ Begin VB.Form Form1
       Begin VB.Menu MNU_REFORMAT_ADD_A_DASH 
          Caption         =   "ADD DOUBLE DASH BEFORE EVERY CR-LINEFEED - TEXTBOXES THE REMOVE CR-LINEFEED  PROBLEM"
       End
+      Begin VB.Menu MNU_ADD_DOUBLE_DASH_FOR_EVERY_DOUBLE_VBCRLF 
+         Caption         =   "ADD DOUBLE DASH FOR EVERY DOUBLE VBCRLF"
+      End
       Begin VB.Menu MNU_REFORMAT_REMOVE_THE_DASH 
          Caption         =   "REMOVE DOUBLE DASH BEFORE EVERY CR-LINEFEED"
       End
@@ -3379,6 +3382,7 @@ End Sub
 Private Sub Label5_Click()
 
 End Sub
+
 
 
 
@@ -7195,6 +7199,25 @@ Private Sub MNU_PROPER_CAPS_TOP_BAR_Click()
 Beep
 Call MNU_FORMAT_MINE_Click
 End Sub
+
+Private Sub MNU_ADD_DOUBLE_DASH_FOR_EVERY_DOUBLE_VBCRLF_Click()
+
+    Dim EE As String
+    
+    EE = AD$
+    
+    EE = Replace(EE, vbCrLf + vbCrLf, vbCrLf + "--" + vbCrLf)
+    
+    AD$ = EE
+    
+    EXECUTE_TIMER_ENABLED = False
+    Clipboard.Clear
+    Clipboard.SetText AD$
+    EXECUTE_TIMER_ENABLED = True
+    Beep
+
+End Sub
+
 
 Private Sub MNU_REFORMAT_ADD_A_DASH_Click()
 Beep

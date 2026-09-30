@@ -1307,7 +1307,18 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 			
 		DIM FileModDate_2
 		FileModDate_2=CDate(TT_DATE_POINTER)
-		NUMBER_OF_DAY_BACK=20
+		' -----------------------------------------
+		' -----------------------------------------
+		' -----------------------------------------
+		' -----------------------------------------
+		' NUMBER OF DAYS BACK -- NUMBER OF DAY BACK
+		' -----------------------------------------
+		' -----------------------------------------
+		' -----------------------------------------
+		' -----------------------------------------
+		NUMBER_OF_DAY_BACK=10
+		' -----------------------------------------
+		' -----------------------------------------
 		' 92 DAYS BACK ON 08-JUN-2026 OF 02-02-2026 SPOT ON WITH ALBUM
 		'
 		' 4 - DAYS -- IMPORTANT HERE BACK TRACK OVER BEHIND FEW DAYS BUT IF RENAME 
@@ -1322,7 +1333,7 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 		' OR REPORT DATE OUT OF RANGE
 		' -----------------------------------------------------------
 
-		IF FileModDate_3 < NOW - (NUMBER_OF_DAY_BACK+20)THEN 
+		IF FileModDate_3 < NOW - (NUMBER_OF_DAY_BACK+NUMBER_OF_DAY_BACK)THEN 
 			
 			IF FSO.FileExists(IMAGE_POINTER_NAME)=FALSE THEN 
 				SET WSHShell = CreateObject("WScript.Shell")
