@@ -1,5 +1,7 @@
 Attribute VB_Name = "A1_VarsMod"
 Option Explicit
+Public PASS_ME_THE_STRING_FOR_THE_CLIPBOARD
+
 Public AlwaysOnTop_MODE
 Public RESIZE_DONE_ONCE
 Public FORM_SET_WIDTH_ONE
@@ -102,13 +104,13 @@ Public Type JOYCAPS
 Public Declare Function joyGetDevCapsA Lib "Winmm.dll" (ByVal id As Long, lpCaps As JOYCAPS, ByVal uSize As Long) As Long
 Public Declare Function joyGetDevCapsW Lib "Winmm.dll" (ByVal id As Long, lpCaps As JOYCAPS, ByVal uSize As Long) As Long
 
-Private Declare Function GetVersionEx Lib "Kernel32" Alias "GetVersionExA" (lpVersionInformation As OSVERSIONINFO) As Long
+Private Declare Function GetVersionEx Lib "kernel32" Alias "GetVersionExA" (lpVersionInformation As OSVERSIONINFO) As Long
 Private Type OSVERSIONINFO
     dwOSVersionInfoSize As Long
     dwMajorVersion As Long
     dwMinorVersion As Long
     dwBuildNumber As Long
-    dwPlatformID As Long
+    dwPlatformId As Long
     szCSDVersion As String * 128
 End Type
 
@@ -117,16 +119,16 @@ B(10) As Boolean
 End Type
 
 Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
-Private Declare Function GetComputerNameA Lib "Kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
+Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
 
 
-Private Declare Sub ExitProcess Lib "Kernel32" (ByVal uExitCode As Long)
+Private Declare Sub ExitProcess Lib "kernel32" (ByVal uExitCode As Long)
 Private Declare Function TerminateProcess _
-        Lib "Kernel32" _
+        Lib "kernel32" _
         (ByVal hProcess As Long, _
         ByVal uExitCode As Long) As Long
 Private Declare Function GetCurrentProcess _
-        Lib "Kernel32" () As Long
+        Lib "kernel32" () As Long
 
 
 
@@ -267,7 +269,7 @@ Public Function IsWinNT() As Boolean
     
     OSVer.dwOSVersionInfoSize = Len(OSVer)
     GetVersionEx OSVer
-    IsWinNT = (OSVer.dwPlatformID = 2)
+    IsWinNT = (OSVer.dwPlatformId = 2)
     'WIN VER AS REPORT BY CMD SHELL
     'WinVer = (OSVer.dwMajorVersion) + "." + (OSVer.dwMinorVersion) + "." + (OSVer.dwBuildNumber)
     
@@ -286,7 +288,7 @@ Public Function GETWinNT_Ver() As String
     
     OSVer.dwOSVersionInfoSize = Len(OSVer)
     GetVersionEx OSVer
-    IsWinNT = (OSVer.dwPlatformID = 2)
+    IsWinNT = (OSVer.dwPlatformId = 2)
     
     GETWinNT_Ver = "WIN XP"
     
@@ -321,6 +323,13 @@ Public Function GETWinNT_Ver() As String
             GETWinNT_Ver = "WIN 10"
         End If
         End If
+        End If
+    End If
+    
+    If IsWinNT = True Then
+        If OSVer.dwMajorVersion > 6 Then
+            'If OSVer.dwMinorVersion > 2 Then
+            GETWinNT_Ver = "WIN 11"
         End If
     End If
     

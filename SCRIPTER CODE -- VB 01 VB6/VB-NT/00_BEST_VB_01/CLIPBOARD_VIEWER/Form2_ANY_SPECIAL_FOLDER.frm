@@ -83,15 +83,15 @@ Private Sub Form_Load()
 
 Label1.Left = 0
 Label1.Top = 0
-List1.Left = 0
-List1.Top = Label1.Top + Label1.Height
+LIST1.Left = 0
+LIST1.Top = Label1.Top + Label1.Height
 
 Call SETUP_DIMENSIONS_NORM
 
 'Me.Width = Screen.Width - 1100
 
 Label1.Width = Me.Width '- 400
-List1.Width = Me.Width - 200
+LIST1.Width = Me.Width - 200
 
 'List1.Height = (Screen.Height / Screen.TwipsPerPixelY) - 100
 'List1.Height = (Screen.Height) - 3000
@@ -101,8 +101,8 @@ List1.Width = Me.Width - 200
 'Me.Left = Screen.Width / 2 - Me.Width / 2
 Me.Refresh
 DoEvents
-List1.Height = Me.Height - 900
-List1.Refresh
+LIST1.Height = Me.Height - 900
+LIST1.Refresh
 DoEvents
 'Me.Height = (List1.Height + List1.Top) + 200
 
@@ -131,14 +131,14 @@ Function GetSpecialfolder_Script()
                 HEX_NUM = Hex(R2)
                 If Len(HEX_NUM) < 2 Then HEX_NUM = "0" + HEX_NUM
                 HEX_NUM = "&H_" + HEX_NUM
-                List1.AddItem Format(R2, "000") + " -- " + HEX_NUM + " -- " + SPECIAL_FOLDER_PATH
+                LIST1.AddItem Format(R2, "000") + " -- " + HEX_NUM + " -- " + SPECIAL_FOLDER_PATH
                 SP_FOLDER_COUNT = SP_FOLDER_COUNT + 1
                 
                 If InStr(SPECIAL_FOLDER_PATH, "\Startup") > 0 Then
                     MODIFY_VAR = Replace(SPECIAL_FOLDER_PATH, "\Startup", "\Startup-01-Delayed")
                     If FS.FolderExists(MODIFY_VAR) = True Then
                         TOTAL_FOUND = TOTAL_FOUND + 1
-                        List1.AddItem Format(R2, "000") + " -- " + HEX_NUM + " -- ----" + MODIFY_VAR
+                        LIST1.AddItem Format(R2, "000") + " -- " + HEX_NUM + " -- ----" + MODIFY_VAR
                     End If
                 End If
                 
@@ -214,7 +214,7 @@ End Sub
 
 Private Sub List1_DblClick()
     
-    PATH_NAME = List1.List(List1.ListIndex)
+    PATH_NAME = LIST1.List(LIST1.ListIndex)
     PATH_NAME = Mid(PATH_NAME, InStr(PATH_NAME, ":\") - 1)
     
     Shell "Explorer.exe /e," + PATH_NAME, vbNormalFocus

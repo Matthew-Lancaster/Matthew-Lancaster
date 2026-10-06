@@ -168,6 +168,7 @@ Begin VB.Form FRM_ClipTest
       _ExtentY        =   5779
       _Version        =   393217
       BorderStyle     =   0
+      Enabled         =   -1  'True
       ScrollBars      =   3
       Appearance      =   0
       TextRTF         =   $"frmClipTest.frx":1272
@@ -182,6 +183,7 @@ Begin VB.Form FRM_ClipTest
       _ExtentY        =   5779
       _Version        =   393217
       BorderStyle     =   0
+      Enabled         =   -1  'True
       ScrollBars      =   3
       Appearance      =   0
       TextRTF         =   $"frmClipTest.frx":12F4
@@ -196,6 +198,7 @@ Begin VB.Form FRM_ClipTest
       _ExtentX        =   2180
       _ExtentY        =   445
       _Version        =   393217
+      Enabled         =   -1  'True
       TextRTF         =   $"frmClipTest.frx":1376
    End
    Begin VB.Timer Timer_Test_Logic 
@@ -206,7 +209,7 @@ Begin VB.Form FRM_ClipTest
    Begin VB.CommandButton Command1 
       Caption         =   "Copy Text"
       Height          =   276
-      Left            =   13284
+      Left            =   13272
       TabIndex        =   2
       Top             =   8484
       Visible         =   0   'False
@@ -260,7 +263,7 @@ Begin VB.Form FRM_ClipTest
       Index           =   7
       Left            =   5472
       TabIndex        =   52
-      Top             =   4224
+      Top             =   4212
       Width           =   4440
    End
    Begin VB.Label LABEL_COMPARE_CASE_SENSITIVE 
@@ -945,7 +948,7 @@ Begin VB.Form FRM_ClipTest
       Index           =   1
       Left            =   936
       TabIndex        =   4
-      Top             =   4212
+      Top             =   4188
       Width           =   4452
    End
    Begin VB.Label Label1 
@@ -981,9 +984,14 @@ Begin VB.Form FRM_ClipTest
    End
    Begin VB.Menu MNU_FOLDER_DIGITAL_STILL_CAMERA 
       Caption         =   "FOLDER DIGITAL STILL CAMERA"
+      Visible         =   0   'False
    End
    Begin VB.Menu MNU_CAMERA_VIDEO_FOLDER_4G 
       Caption         =   "VIDEO FOLDER 4G"
+      Visible         =   0   'False
+   End
+   Begin VB.Menu MNU_WINDOWS_VERSION 
+      Caption         =   "WINDOWS VER = 0"
    End
    Begin VB.Menu MNU_VERSION 
       Caption         =   "VERSION"
@@ -1103,9 +1111,11 @@ Begin VB.Form FRM_ClipTest
    End
    Begin VB.Menu MNU_CALC_COOP_20 
       Caption         =   "CALC COOP £20"
+      Visible         =   0   'False
    End
    Begin VB.Menu MNU_CALC_COOP_40 
       Caption         =   "CALC COOP £40"
+      Visible         =   0   'False
    End
    Begin VB.Menu MNU_RS232_LOGGER_OPEN 
       Caption         =   "RS232 LOGGER OPEN"
@@ -1133,15 +1143,42 @@ Begin VB.Form FRM_ClipTest
    End
    Begin VB.Menu MNU_PROCESS_ADBLOCK_FILE 
       Caption         =   "PROCESS ADBLOCK FILE"
+      Visible         =   0   'False
    End
    Begin VB.Menu MNU_ADBLOCK_FOLDER 
       Caption         =   "ADBLOCK FOLDER"
+      Visible         =   0   'False
    End
    Begin VB.Menu MNU_CLIPBOARD_ADBLOCK 
       Caption         =   "CLIPBOARD ADBLOCK"
+      Visible         =   0   'False
    End
    Begin VB.Menu MNU_NOTEPAD_CLIPPPER 
       Caption         =   "NOTEPAD CLIPPER"
+   End
+   Begin VB.Menu MNU_Send_To_Multi_Menu_EXE 
+      Caption         =   "#0 Send To Multi Menu.exe"
+   End
+   Begin VB.Menu MNU_COPY_TEXT_LEFT 
+      Caption         =   "COPY TEXT LEFT"
+   End
+   Begin VB.Menu MNU_COPY_TEXT_RIGHT 
+      Caption         =   "COPY TEXT RIGHT"
+   End
+   Begin VB.Menu MNU_COPY_SELECTED_LEFT 
+      Caption         =   "COPY SELECTED LEFT"
+   End
+   Begin VB.Menu MNU_COPY_SELECTED_RIGHT 
+      Caption         =   "COPY SELECTED RIGHT"
+   End
+   Begin VB.Menu MNU_EXECUTE_SELECTION 
+      Caption         =   "EXECUTE SELECTION"
+   End
+   Begin VB.Menu MNU_LOAD_FOLDER_SELECTION 
+      Caption         =   "LOAD FOLDER SELECTION"
+   End
+   Begin VB.Menu MNU_PICKER_FOR_EXECUTABLE 
+      Caption         =   "PICKER FOR EXECUTABLE"
    End
 End
 Attribute VB_Name = "FRM_ClipTest"
@@ -1458,7 +1495,6 @@ Dim COMV1
 Dim FILENAME_1 As String
 Dim FILENAME_2 As String
 
-Public FSO
 
 Private Type RECT
    Left As Long
@@ -1896,7 +1932,7 @@ Sub GO_VIRTUAL_GIRL()
         .ColumnHeaders.Add , "PID", "PID", 700 - 50, lvwColumnLeft
         .ColumnHeaders.Add , "EXE", "EXE", 9000, lvwColumnLeft
         .View = lvwReport
-        .height = 7000
+        .Height = 7000
         .FullRowSelect = True
     End With
 
@@ -2345,6 +2381,8 @@ Private Sub Form_Load()
 
     Dim START_MINIMIZED
 
+    Call MNU_WINDOWS_VERSION_Click
+
     RUN_ONCE_01 = True
     
     ' ONLY RUN MINIMIAL BY A LAUNCHER NOT TASKBAR
@@ -2674,7 +2712,7 @@ Private Sub Form_Load()
     
     MOTION_VERSION = Format(ADATE1, "YYYY_MMM_DD_DDD__HH:MM:00")
     
-    MNU_VERSION.Caption = "Ver_2020_" + Trim(Str(App.Major)) + "." + Trim(Str(App.Minor)) + "." + Trim(Str(App.Revision)) + "  " + MOTION_VERSION ' + " _ Matt.Lan@btinternet.com"
+    MNU_VERSION.Caption = "Ver_2026_" + Trim(Str(App.Major)) + "." + Trim(Str(App.Minor)) + "." + Trim(Str(App.Revision)) + "  " + MOTION_VERSION ' + " _ Matt.Lan@btinternet.com"
     
     If FILENAME_1 = "" Then
         Label_SIZE_1.Caption = "SIZE =" + Str(Len(Text2.Text)) + " -- " + SAME_VALUE_TRUE_FALSE
@@ -2733,7 +2771,7 @@ Private Sub Form_Load()
     MMM_SHOW_THE_TIME_ARR(7).Caption = "COOP £20"
     
     LINE_PICKER_COMMON.LINE_PICKER_COMMON_FROM_START = True
-    Load LINE_PICKER_COMMON
+    ' Load LINE_PICKER_COMMON
     
     
 '    If IsIDE = False Then
@@ -3398,6 +3436,185 @@ Me.WindowState = vbMinimized
 
 End Sub
 
+Public Sub MNU_COPY_SELECTED_LEFT_Click()
+
+    If Text2.SelLength = 0 Then
+        Beep
+        Exit Sub
+    End If
+    
+    ' EXECUTE_TIMER_ENABLED = False
+
+    On Error Resume Next
+    Err.Clear
+    Clipboard.Clear
+    Err.Clear
+    ' SendMessage Text2.hWnd, WM_COPY, 0&, 0& ' COPY SELECT TEXT
+    TEMP_TXT = Mid(Text2.Text, Text2.SelStart + 1, Text2.SelLength)
+    Clipboard.SetText TEMP_TXT
+    If Err.Number > 0 Then
+        ' PUBLIC HERE -- NAME OF SUB WHOLE
+        VAR_TIMER_CLIPBOARD_TIMER_RETRY = "MNU_COPY_SELECTED_LEFT_Click"
+        TIMER_CLIPBOARD_TIMER_RETRY.Enabled = True
+        Exit Sub
+    End If
+    
+    ' EXECUTE_TIMER_ENABLED = True
+    
+    TEMP_TXT = ""
+    
+    If IsIDE = False Then Me.WindowState = vbMinimized
+    Beep
+
+End Sub
+
+Public Sub MNU_COPY_SELECTED_RIGHT_Click()
+
+    If Text3.SelLength = 0 Then
+        Beep
+        Exit Sub
+    End If
+    
+    ' EXECUTE_TIMER_ENABLED = False
+
+    On Error Resume Next
+    Err.Clear
+    Clipboard.Clear
+    Err.Clear
+    ' SendMessage Text3.hWnd, WM_COPY, 0&, 0& ' COPY SELECT TEXT
+    TEMP_TXT = Mid(Text3.Text, Text3.SelStart + 1, Text3.SelLength)
+    Clipboard.SetText TEMP_TXT
+    If Err.Number > 0 Then
+        ' PUBLIC HERE -- NAME OF SUB WHOLE
+        VAR_TIMER_CLIPBOARD_TIMER_RETRY = "MNU_COPY_SELECTED_RIGHT_Click"
+        TIMER_CLIPBOARD_TIMER_RETRY.Enabled = True
+        Exit Sub
+    End If
+    
+    ' EXECUTE_TIMER_ENABLED = True
+    
+    TEMP_TXT = ""
+    
+    If IsIDE = False Then Me.WindowState = vbMinimized
+    Beep
+
+End Sub
+
+Public Sub MNU_COPY_TEXT_LEFT_Click()
+    
+    On Error Resume Next
+    Err.Clear
+    Clipboard.Clear
+    Err.Clear
+    Clipboard.SetText Text2.Text
+    If Err.Number > 0 Then
+        VAR_TIMER_CLIPBOARD_TIMER_RETRY = "MNU_COPY_TEXT_LEFT_Click"
+        TIMER_CLIPBOARD_TIMER_RETRY.Enabled = True
+    End If
+
+    If IsIDE = False Then Me.WindowState = vbMinimized
+    Beep
+
+End Sub
+
+Public Sub MNU_COPY_TEXT_RIGHT_Click()
+
+    On Error Resume Next
+    Err.Clear
+    Clipboard.Clear
+    Err.Clear
+    Clipboard.SetText Text3.Text
+    If Err.Number > 0 Then
+        VAR_TIMER_CLIPBOARD_TIMER_RETRY = "MNU_COPY_TEXT_EIGHT_Click"
+        TIMER_CLIPBOARD_TIMER_RETRY.Enabled = True
+    End If
+
+    If IsIDE = False Then Me.WindowState = vbMinimized
+    Beep
+
+End Sub
+
+Private Sub MNU_EXECUTE_SELECTION_Click()
+
+' ---------------------------------------------------------------
+' ---------------------------------------------------------------
+' MAIN ----------------------------------------------------------
+' ---------------------------------------------------------------
+
+If Text2.SelLength > 0 Then
+    ITEMGET_1 = Trim(Mid(Text2.Text, Text2.SelStart + 1, Text2.SelLength))
+End If
+If Text2.SelLength = 0 Then
+    ITEMGET_1 = Trim(Text2.Text)
+End If
+
+'ITEMGET_1 = LISTVIEW1.ListItems(LISTVIEW1.SelectedItem.Index).SubItems(2)
+
+FILENAME_VAR = ITEMGET_1
+FOLDERNAME_1 = FILENAME_VAR
+If InStr(FILENAME_VAR, "\") > 0 Then
+    Do
+        FOLDERNAME_1 = Mid(FOLDERNAME_1, 1, InStrRev(FOLDERNAME_1, "\") - 1)
+    Loop Until InStr(FOLDERNAME_1, "\") = 0 Or FSO.FolderExists(FOLDERNAME_1) = True
+End If
+
+' -----------------------------------------
+'IT WILL ONLY EXECUTE EXE'S -- FOR NOW
+' -----------------------------------------
+If FSO.FileExists(FILENAME_VAR) = True Then
+    On Error Resume Next
+    Err.Clear
+    If UCase(Right(FILENAME_VAR, 4)) = ".EXE" Then
+        Shell FILENAME_VAR, vbNormalFocus
+        MsgBox "ERROR TRY TO EXECUTE FILE" + vbCrLf + vbCrLf + Err.Description + vbCrLf + vbCrLf + FILENAME_VAR, vbCritical + vbInformation + vbOKOnly
+    Else
+        Shell "Explorer.exe " + FILENAME_VAR, vbMaximizedFocus
+    End If
+    If FSO.FileExists(FILENAME_VAR) = True Then
+        Shell "Explorer.exe /SELECT," + FILENAME_VAR, vbMaximizedFocus
+        Beep
+        Me.WindowState = vbMinimized
+    End If
+    If Err.NUMEBR = 0 Then
+        Beep
+        Me.WindowState = vbMinimized
+    End If
+    On Error GoTo 0
+    Exit Sub
+End If
+
+
+If FSO.FolderExists(FILENAME_VAR) = True Then
+    Shell "Explorer.exe /e," + FILENAME_VAR, vbMaximizedFocus
+    Beep
+    Me.WindowState = vbMinimized
+    Exit Sub
+End If
+
+If FSO.FolderExists(FOLDERNAME_1) = True Then
+    Shell "Explorer.exe /e," + FOLDERNAME_1, vbMaximizedFocus
+    Beep
+    Me.WindowState = vbMinimized
+    Exit Sub
+End If
+
+
+If FSO.FileExists(FILENAME_VAR) = False And FSO.FolderExists(FILENAME_VAR) = False Then
+    ' FOLDERNAME_1 = Mid(FILENAME_VAR, 1, InStr(FILENAME_VAR, "\") - 1)
+    If FSO.FolderExists(FOLDERNAME_1) = True Then
+        Shell "Explorer.exe /e," + FOLDERNAME_1, vbMaximizedFocus
+        MsgBox "ITEM NOT EXIST" + vbCrLf + "LOAD NEAREST MODIFY FOLDER INSTEAD" + vbCrLf + vbCrLf + FILENAME_VAR + vbCrLf + vbCrLf + FOLDERNAME_1, vbCritical + vbMsgBoxSetForeground + vbOKOnly
+        Beep
+        Me.WindowState = vbMinimized
+        Exit Sub
+    End If
+End If
+
+Beep
+MsgBox "FILE OR FOLDER ITEM NOT EXIST" + vbCrLf + "NOTHING TO DO FROM SELECTION OR" + vbCrLf + "NOTHING TO DO COPY OF TEXTBOX" + vbCrLf + vbCrLf + FILENAME_VAR + vbCrLf + vbCrLf + FOLDERNAME_1, vbCritical + vbMsgBoxSetForeground + vbOKOnly
+
+End Sub
+
 Private Sub MNU_GIVE_TIME_GITHUB_Click()
 
 Dim XI
@@ -3449,6 +3666,84 @@ If IsIDE = False Then Me.WindowState = vbMinimized
 
 End Sub
 
+Private Sub MNU_LOAD_FOLDER_SELECTION_Click()
+' ---------------------------------------------------------------
+' ---------------------------------------------------------------
+' MAIN ----------------------------------------------------------
+' ---------------------------------------------------------------
+
+If Text2.SelLength > 0 Then
+    ITEMGET_1 = Trim(Mid(Text2.Text, Text2.SelStart + 1, Text2.SelLength))
+End If
+If Text2.SelLength = 0 Then
+    ITEMGET_1 = Trim(Text2.Text)
+End If
+
+'ITEMGET_1 = LISTVIEW1.ListItems(LISTVIEW1.SelectedItem.Index).SubItems(2)
+
+FILENAME_VAR = ITEMGET_1
+FOLDERNAME_1 = FILENAME_VAR
+FOLDERNAME_2 = FILENAME_VAR
+If InStr(FILENAME_VAR, "\") > 0 Then
+    Do
+        FOLDERNAME_2 = Mid(FOLDERNAME_2, 1, InStrRev(FOLDERNAME_2, "\") - 1)
+    Loop Until InStr(FOLDERNAME_2, "\") = 0 Or FSO.FolderExists(FOLDERNAME_2) = True
+End If
+
+If FSO.FileExists(FILENAME_VAR) = True Then
+    Shell "Explorer.exe /SELECT," + FILENAME_VAR, vbMaximizedFocus
+    PASS_ME_THE_STRING_FOR_THE_CLIPBOARD = FILENAME_VAR
+    LINE_PICKER_EXE_SCREEN.Label_CLIPBOARD_SELECTOR_2_Click
+    Beep
+    Me.WindowState = vbMinimized
+    Exit Sub
+End If
+
+If FSO.FolderExists(FOLDERNAME_1) = True Then
+    Shell "Explorer.exe /e," + FOLDERNAME_1, vbMaximizedFocus
+    PASS_ME_THE_STRING_FOR_THE_CLIPBOARD = FILENAME_VAR
+    LINE_PICKER_EXE_SCREEN.Label_CLIPBOARD_SELECTOR_2_Click
+    PASS_ME_THE_STRING_FOR_THE_CLIPBOARD = FOLDERNAME_1
+    LINE_PICKER_EXE_SCREEN.Label_CLIPBOARD_SELECTOR_2_Click
+    Beep
+    Me.WindowState = vbMinimized
+    Exit Sub
+End If
+
+If FSO.FileExists(FILENAME_VAR) = False And FSO.FolderExists(FILENAME_VAR) = False Then
+    ' FOLDERNAME_1 = Mid(FILENAME_VAR, 1, InStr(FILENAME_VAR, "\") - 1)
+    If FSO.FolderExists(FOLDERNAME_2) = True Then
+        Shell "Explorer.exe /e," + FOLDERNAME_2, vbMaximizedFocus
+        AA_STRING = ""
+        AA_STRING = AA_STRING + "ITEM NOT EXIST" + vbCrLf
+        AA_STRING = AA_STRING + "LOAD NEAREST MODIFY FOLDER INSTEAD" + vbCrLf + vbCrLf
+        AA_STRING = AA_STRING + FILENAME_VAR + vbCrLf + vbCrLf
+        AA_STRING = AA_STRING + FOLDERNAME_1 + vbCrLf + vbCrLf
+        AA_STRING = AA_STRING + FOLDERNAME_2
+        PASS_ME_THE_STRING_FOR_THE_CLIPBOARD = AA_STRING
+        LINE_PICKER_EXE_SCREEN.Label_CLIPBOARD_SELECTOR_2_Click
+        MsgBox AA_STRING, vbCritical + vbMsgBoxSetForeground + vbOKOnly
+        Beep
+        Me.WindowState = vbMinimized
+        Exit Sub
+    End If
+End If
+
+Beep
+AA_STRING = ""
+AA_STRING = AA_STRING + "FILE OR FOLDER ITEM NOT EXIST" + vbCrLf
+AA_STRING = AA_STRING + "NOTHING TO DO FROM SELECTION -- OR" + vbCrLf
+AA_STRING = AA_STRING + "NOTHING TO DO COPY OF TEXTBOX" + vbCrLf + vbCrLf
+AA_STRING = AA_STRING + FILENAME_VAR + vbCrLf + vbCrLf
+AA_STRING = AA_STRING + FOLDERNAME_1 + vbCrLf + vbCrLf
+AA_STRING = AA_STRING + FOLDERNAME_2
+PASS_ME_THE_STRING_FOR_THE_CLIPBOARD = AA_STRING
+LINE_PICKER_EXE_SCREEN.Label_CLIPBOARD_SELECTOR_2_Click
+MsgBox AA_STRING, vbCritical + vbMsgBoxSetForeground + vbOKOnly
+
+
+End Sub
+
 Private Sub MNU_NOTEPAD_CLIPPPER_Click()
 
     FILENAME_LOAD_01 = App.Path + "\" + "NOTPAD__CLIPPER_#NFS_EX.TXT"
@@ -3461,6 +3756,39 @@ Private Sub MNU_NOTEPAD_CLIPPPER_Click()
         Shell APP_NAME + " """ + FILENAME_LOAD_01 + """", vbMaximizedFocus
     End If
 
+End Sub
+
+Private Sub MNU_PICKER_FOR_EXECUTABLE_Click()
+
+    Load LINE_PICKER_EXE_SCREEN
+    RESIZE_DONE_ONCE = False
+    RESIZE_WINDOWSTATE_CHANGE_WORKAROUND = False
+    RESIZE_WINDOWSTATE_CHANGE = -200
+    FORM_SET_WIDTH_ONE = False
+    LINE_PICKER_EXE_SCREEN.Visible = True
+    ' LINE_PICKER_COMMON.WindowState = vbMaximized
+    LINE_PICKER_EXE_SCREEN.WindowState = Normal
+    FRM_ClipTest.WindowState = vbMinimized
+    
+    LINE_PICKER_EXE_SCREEN.SetFocus
+    
+    
+    
+    ' ----------------------------------------------
+    ' LINE_PICKER_COMMON_LIST_SET
+    ' ----------------------------------------------
+    
+    ' ----------------------------------------------
+    ' HERE REQUIRE SOMETIME CERTAIN STUFF
+    ' WHEN HERE IS AND THE WINDOW NOT DROP OF PICKER
+    ' Thu 24-Sep-2020 13:38:00
+    ' EVEN WHEN SET TO GO THAT
+    ' WHEN FORM LOST FOCUS ERROR WINDOW NOT THERE
+    ' USER CLOSE AND FINE QUICKER -- NOT UNLOAD
+    ' ----------------------------------------------
+    ' LINE_PICKER_EXE_SCREEN.MNU_ALWAYS_ON_TOP_Click
+    ' ----------------------------------------------
+    
 End Sub
 
 Private Sub MNU_PROCESS_ADBLOCK_FILE_Click()
@@ -3614,12 +3942,12 @@ STARTER_BLOCK = Trim(STARTER_BLOCK)
 ' LOAD ARRAY LIST BOX FOR SORT -- NOT THE REM LINE
 ' 01 OF 02 ---------------------------------------
 ' M_ARRAY() -- HAVE -- STRARRAY1()
-List1.Clear
+LIST1.Clear
 i = 0
 For R_COUNT = 0 To UBound(M_ARRAY)
     If Trim(M_ARRAY(R_COUNT)) <> "" Then
     If Mid(M_ARRAY(R_COUNT), 1, 1) <> "!" Then
-        List1.AddItem M_ARRAY(R_COUNT)
+        LIST1.AddItem M_ARRAY(R_COUNT)
         i = i + 1
     End If
     End If
@@ -3636,7 +3964,7 @@ For R_COUNT = 0 To UBound(STRARRAY2)
     GET_INFO = Trim(STRARRAY2(R_COUNT))
     If GET_INFO <> "" Then
     If Mid(GET_INFO, 1, 1) <> "!" Then
-        List1.AddItem GET_INFO
+        LIST1.AddItem GET_INFO
         i = i + 1
     End If
     End If
@@ -3646,17 +3974,17 @@ TOTAL_COUNT_LINE_MERGE_AD_BLOCKER = i
 ' ------------------------------------------------
 ' SORT DO AND REMOVE DUPLICATE
 ' ------------------------------------------------
-For r = List1.ListCount - 1 To 1 Step -1
-    If List1.List(r) = List1.List(r + 1) Then
-        List1.RemoveItem (r)
+For r = LIST1.ListCount - 1 To 1 Step -1
+    If LIST1.List(r) = LIST1.List(r + 1) Then
+        LIST1.RemoveItem (r)
     End If
 Next
-For r = List1.ListCount - 1 To 1 Step -1
-    If Trim(List1.List(r)) = "" Then
-        List1.RemoveItem (r)
+For r = LIST1.ListCount - 1 To 1 Step -1
+    If Trim(LIST1.List(r)) = "" Then
+        LIST1.RemoveItem (r)
     End If
 Next
-TOTAL_COUNT_LINE_AFTER_MERGE_IF_ANY_AD_BLOCKER = List1.ListCount - 1
+TOTAL_COUNT_LINE_AFTER_MERGE_IF_ANY_AD_BLOCKER = LIST1.ListCount - 1
 
 ' ------------------------------------------------
 ' DO SOME TALLY INFO
@@ -3703,8 +4031,8 @@ STRING_WRITE_FILE = STARTER_BLOCK
 ' MAIN DETAIL MIDDLE STRING -- ADBLOCK INO
 ' ------------------------------------------------
 ADBLOCK_INFO_MAIN_CHUNK = ""
-For r = 0 To List1.ListCount - 1
-    LIST_BOX_WITH_INFO = List1.List(r)
+For r = 0 To LIST1.ListCount - 1
+    LIST_BOX_WITH_INFO = LIST1.List(r)
     If LIST_BOX_WITH_INFO <> "" Then
         STRING_WRITE_FILE = STRING_WRITE_FILE + LIST_BOX_WITH_INFO + vbCrLf
         ADBLOCK_INFO_MAIN_CHUNK = ADBLOCK_INFO_MAIN_CHUNK + LIST_BOX_WITH_INFO + vbCrLf
@@ -3758,12 +4086,12 @@ Close #FR1
 ' AT LEAST 10 NOT MORE THAN 40 DAY
 ' GET THE DIR FILE INFO INTO A LISTBOX
 ' ------------------------------------
-List1.Clear
+LIST1.Clear
 ' T_FILE = Dir(FOLDER_NAME_____ + "\TEXT_ADBLOCK_TEXT__ARCHIVE__*.TXT")
 T_FILE = Dir(FOLDER_NAME_____ + "\TEXT_ADBLOCK_ARC*.TXT")
 Do
     If T_FILE = "" Then Exit Do
-    List1.AddItem FOLDER_NAME_____ + "\" + T_FILE
+    LIST1.AddItem FOLDER_NAME_____ + "\" + T_FILE
     T_FILE = Dir
 Loop Until T_FILE = ""
 
@@ -3773,18 +4101,18 @@ Loop Until T_FILE = ""
 ' AT LEAST 10 NOT MORE THAN 40 DAY
 OLD_LIST_COUNT = -2
 Do
-    LIST_COUNT = List1.ListCount
-    Debug.Print List1.List(1)
-    If List1.ListCount <= 10 Then Exit Do
+    LIST_COUNT = LIST1.ListCount
+    Debug.Print LIST1.List(1)
+    If LIST1.ListCount <= 10 Then Exit Do
     
-    Set F = FSO.GetFile(List1.List(1))
+    Set F = FSO.GetFile(LIST1.List(1))
     ADATE1 = F.DateLastModified
     
     TIME_SPAN = Now - 10                     ' 10 DAY
     ' TIME_SPAN = Now - TimeSerial(1, 0, 0)    ' A HOUR
     If ADATE1 < TIME_SPAN Then
-        Kill List1.List(1)
-        List1.RemoveItem (1)
+        Kill LIST1.List(1)
+        LIST1.RemoveItem (1)
     End If
     
     ' INSTRUCTION RETURN NONE DO AND THEN EXIT -- OLD_LIST_COUNT = LIST_COUNT
@@ -3881,6 +4209,26 @@ Public Sub CLIPBOARD_PROCESS_ADBLOCK_FILE()
 End Sub
 
 
+
+Private Sub MNU_Send_To_Multi_Menu_EXE_Click()
+
+
+If Dir("D:\VB6\VB-NT\00_SEND_TO\Send To Multi Menu\#0 Send To Multi Menu.exe") = "" Then
+        Beep
+        MsgBox "PROGRAM REQUESTER TO LOAD -- DON'T EXIST ANYMORE" + vbCrLf + vbCrLf + "D:\VB6\VB-NT\00_SEND_TO\Send To Multi Menu\#0 Send To Multi Menu.exe", vbCritical + vbInformation + vbMsgBoxSetForeground + vbOKOnly
+    Exit Sub
+End If
+
+Shell "D:\VB6\VB-NT\00_SEND_TO\Send To Multi Menu\#0 Send To Multi Menu.exe", vbNormalFocus
+
+End Sub
+
+Private Sub MNU_WINDOWS_VERSION_Click()
+
+VERSION_STRING = GETWinNT_Ver
+MNU_WINDOWS_VERSION.Caption = "WINDOWS VERSION = " + VERSION_STRING
+
+End Sub
 
 Private Sub Timer_SECOND_Timer()
 
@@ -6543,7 +6891,7 @@ Private Sub VB_RUN_NOT_WHEN_IDE_AND_THEN_SHOW()
 ' AUG 28 SUN
 ' -----------------------------------------------------------------
 
-If 1 = 1 And IsIDE = True Then
+If IsIDE = True Then
     MNU_VB.Enabled = False
     Beep
     MsgBox "NOT WHEN ISIDE = TRUE"
@@ -6644,6 +6992,8 @@ End Sub
 
 Private Sub Mnu_VB_ME_Click()
     Call VB_RUN_NOT_WHEN_IDE_AND_THEN_SHOW
+    
+    Exit Sub
     
     Dim CODER_VBP_FILE_NAME_2
     Dim VB_1, VB_2, VB_3
@@ -7601,8 +7951,8 @@ Sub SET_FORM_CENTER()
             XC = Control.Visible
             On Error GoTo 0
             If XC = True Or LET_TEXT_BOX_GO = True Then
-                If Control.width + Control.Left > WX Then WX = Control.width + Control.Left
-                If Control.height + Control.Top > HY Then HY = Control.height + Control.Top
+                If Control.Width + Control.Left > WX Then WX = Control.Width + Control.Left
+                If Control.Height + Control.Top > HY Then HY = Control.Height + Control.Top
             End If
         End If
     Next
@@ -7716,7 +8066,7 @@ Sub ME_TOP_LEFT_CENTER()
         End If
     Next
     
-    Text3.width = Text2.width
+    Text3.Width = Text2.Width
     
     X3 = 100
     X7 = 2000
@@ -7738,13 +8088,13 @@ Sub ME_TOP_LEFT_CENTER()
     ' SET WIDTH COLUMN 1
     ' -----------------------------------------------------------
     EXTRA_SIZE_ER_COLUMN1_2_AND_3 = 40
-    X3 = Label1(3).Left + Label1(3).width + EXTRA_SIZE_ER_COLUMN1_2_AND_3
+    X3 = Label1(3).Left + Label1(3).Width + EXTRA_SIZE_ER_COLUMN1_2_AND_3
     X8 = 1000 ' + OR -
-    X7 = Label1(3).Left + Label1(3).width
+    X7 = Label1(3).Left + Label1(3).Width
     
     For Each Control In Controls
         Err.Clear
-        X4 = Control.Left + Control.width
+        X4 = Control.Left + Control.Width
         If Err.Number = 0 Then
         LET_TEXT_BOX_GO = False
         If InStr(UCase(Control.Name), "TEXT") > 0 Then LET_TEXT_BOX_GO = True
@@ -7754,7 +8104,7 @@ Sub ME_TOP_LEFT_CENTER()
         ' Debug.Print Control.Name
         If X4 < X7 + X8 Then
             ' Debug.Print Control.Name
-            Control.width = X3
+            Control.Width = X3
         End If
         End If
         End If
@@ -7763,14 +8113,14 @@ Sub ME_TOP_LEFT_CENTER()
     
     ' SET WIDTH COLUMN 2 SAME AS COLUMN 1
     ' -----------------------------------------------------------
-    X3 = Label1(3).Left + Label1(3).width + EXTRA_SIZE_ER_COLUMN1_2_AND_3
+    X3 = Label1(3).Left + Label1(3).Width + EXTRA_SIZE_ER_COLUMN1_2_AND_3
     X8 = 1000 ' + OR -
-    X7 = Label1(6).Left + Label1(6).width
-    X9 = Label1(6).width
+    X7 = Label1(6).Left + Label1(6).Width
+    X9 = Label1(6).Width
     For Each Control In Controls
         Err.Clear
-        X4 = Control.Left + Control.width
-        X5 = Control.width
+        X4 = Control.Left + Control.Width
+        X5 = Control.Width
         If Err.Number = 0 Then
         LET_TEXT_BOX_GO = False
         If InStr(UCase(Control.Name), "TEXT") > 0 Then LET_TEXT_BOX_GO = True
@@ -7783,7 +8133,7 @@ Sub ME_TOP_LEFT_CENTER()
         ' Debug.Print Control.Name
         If X4 < X7 + X8 Then
             ' Debug.Print Control.Name
-            Control.width = X3
+            Control.Width = X3
         End If
         End If
         End If
@@ -7794,14 +8144,14 @@ Sub ME_TOP_LEFT_CENTER()
     
     ' SET WIDTH COLUMN 3 SAME AS COLUMN 1 AND COLUMN 2
     ' -----------------------------------------------------------
-    X3 = Label1(3).Left + Label1(3).width + EXTRA_SIZE_ER_COLUMN1_2_AND_3
+    X3 = Label1(3).Left + Label1(3).Width + EXTRA_SIZE_ER_COLUMN1_2_AND_3
     X8 = 200 ' + OR -
     X7 = LabelCRC3.Left
-    X9 = LabelCRC3.width
+    X9 = LabelCRC3.Width
     For Each Control In Controls
         Err.Clear
         X4 = Control.Left
-        X5 = Control.width
+        X5 = Control.Width
         If Err.Number = 0 Then
         LET_TEXT_BOX_GO = False
         If InStr(UCase(Control.Name), "TEXT") > 0 Then LET_TEXT_BOX_GO = True
@@ -7814,7 +8164,7 @@ Sub ME_TOP_LEFT_CENTER()
         ' Debug.Print Control.Name
         If X4 < X7 + X8 Then
             ' Debug.Print Control.Name
-            Control.width = X3
+            Control.Width = X3
             'Control.Width = X3 - 200
             'Control.Left = X4 + 200
         End If
@@ -7824,7 +8174,7 @@ Sub ME_TOP_LEFT_CENTER()
         End If
         End If
     Next
-    LabelCRC5.Left = LabelCRC3.Left + LabelCRC3.width + 40
+    LabelCRC5.Left = LabelCRC3.Left + LabelCRC3.Width + 40
     
     ' INSERT NEW COLUMN 3 IN FRONT
     ' CHANGE CURRENT 3 WIDTH - NEXT ROUTINE
@@ -7832,9 +8182,9 @@ Sub ME_TOP_LEFT_CENTER()
     
     ' SET LEFT COLUMN 2
     ' -----------------------------------------------------------
-    X3 = Label1(3).Left + Label1(3).width + 100
+    X3 = Label1(3).Left + Label1(3).Width + 100
     X8 = 500 ' + OR -
-    X7 = Label1(3).Left + Label1(3).width
+    X7 = Label1(3).Left + Label1(3).Width
     
     For Each Control In Controls
         Err.Clear
@@ -7859,13 +8209,13 @@ Sub ME_TOP_LEFT_CENTER()
     
     ' HERE SET THE GAP BETWEEN COLUMN ONE AND TWO HORIZONTAL
     ' - 30
-    X3 = Label1(3).Left + Label1(3).width - 30
+    X3 = Label1(3).Left + Label1(3).Width - 30
     X8 = 1000 ' + OR -
-    X7 = Label1(3).Left + Label1(3).width
+    X7 = Label1(3).Left + Label1(3).Width
     
     For Each Control In Controls
         Err.Clear
-        X4 = Control.Left + Control.width
+        X4 = Control.Left + Control.Width
         If Err.Number = 0 Then
         LET_TEXT_BOX_GO = False
         If InStr(UCase(Control.Name), "TEXT") > 0 Then LET_TEXT_BOX_GO = True
@@ -7877,14 +8227,14 @@ Sub ME_TOP_LEFT_CENTER()
         If X4 < X7 + X8 Then
             If X4 < X3 Then
                 Do
-                    Control.width = Control.width + 1
-                    X5 = Control.Left + Control.width
+                    Control.Width = Control.Width + 1
+                    X5 = Control.Left + Control.Width
                 Loop Until X5 = X3
             End If
             If X4 > X3 Then
                 Do
-                    Control.width = Control.width - 1
-                    X5 = Control.Left + Control.width
+                    Control.Width = Control.Width - 1
+                    X5 = Control.Left + Control.Width
                 Loop Until X5 = X3
             End If
         End If
@@ -7898,9 +8248,9 @@ Sub ME_TOP_LEFT_CENTER()
     ' -----------------------------------------------------------
     GAP_VALUE = 100 ' ---------------
     X8 = 1500 ' + OR -
-    X7 = Label1(6).Left + Label1(6).width
+    X7 = Label1(6).Left + Label1(6).Width
     LabelFILE2_TOP = LabelFILE2.Top ' DIFF WHEN AFTER HERE LOWER DOWN SCREEN NOT RTB OR TOP TEXT AH
-    X3 = Label1(6).Left + Label1(6).width + GAP_VALUE ' + 100
+    X3 = Label1(6).Left + Label1(6).Width + GAP_VALUE ' + 100
     For Each Control In Controls
         Err.Clear
         X4 = Control.Left
@@ -7928,13 +8278,13 @@ Sub ME_TOP_LEFT_CENTER()
     ' END OF COLUMN 2
     ' SET WITDH COLUMN 2
     ' -----------------------------------
-    X3 = Label1(6).Left + Label1(6).width
+    X3 = Label1(6).Left + Label1(6).Width
     X8 = 4500 ' + OR -
-    X7 = Label1(6).Left + Label1(6).width
+    X7 = Label1(6).Left + Label1(6).Width
     
     For Each Control In Controls
         Err.Clear
-        X4 = Control.Left + Control.width
+        X4 = Control.Left + Control.Width
         If Err.Number = 0 Then
         LET_TEXT_BOX_GO = False
         If InStr(UCase(Control.Name), "TEXT") > 0 Then LET_TEXT_BOX_GO = True
@@ -7946,14 +8296,14 @@ Sub ME_TOP_LEFT_CENTER()
         If X4 < X7 + X8 Then
             If X4 < X3 Then
                 Do
-                    Control.width = Control.width + 1
-                    X5 = Control.Left + Control.width
+                    Control.Width = Control.Width + 1
+                    X5 = Control.Left + Control.Width
                 Loop Until X5 = X3
             End If
             If X4 > X3 Then
                 Do
-                    Control.width = Control.width - 1
-                    X5 = Control.Left + Control.width
+                    Control.Width = Control.Width - 1
+                    X5 = Control.Left + Control.Width
                 Loop Until X5 = X3
             End If
         End If
@@ -7962,13 +8312,13 @@ Sub ME_TOP_LEFT_CENTER()
         End If
     Next
     
-    X3 = MNU_SHOW_THE_TIME_03(0).Left + MNU_SHOW_THE_TIME_03(0).width
+    X3 = MNU_SHOW_THE_TIME_03(0).Left + MNU_SHOW_THE_TIME_03(0).Width
     X8 = 100 ' + OR -
     X7 = LabelCRC5.Left + 100
     
     For Each Control In Controls
         Err.Clear
-        X4 = Control.Left + Control.width
+        X4 = Control.Left + Control.Width
         If Err.Number = 0 Then
         LET_TEXT_BOX_GO = False
         If InStr(UCase(Control.Name), "TEXT") > 0 Then LET_TEXT_BOX_GO = True
@@ -7978,16 +8328,16 @@ Sub ME_TOP_LEFT_CENTER()
         ' Debug.Print Control.Name
         ' If X4 < X7 + X8 Then
             ' Debug.Print Control.Name
-            If Control.Left + Control.width < X3 Then
+            If Control.Left + Control.Width < X3 Then
                 Do
-                    Control.width = Control.width + 1
-                    X5 = Control.Left + Control.width
+                    Control.Width = Control.Width + 1
+                    X5 = Control.Left + Control.Width
                 Loop Until X5 = X3 ' Or 1 = 1
             End If
-            If Control.Left + Control.width > X3 Then
+            If Control.Left + Control.Width > X3 Then
                 Do
-                    Control.width = Control.width - 1
-                    X5 = Control.Left + Control.width
+                    Control.Width = Control.Width - 1
+                    X5 = Control.Left + Control.Width
                 Loop Until X5 = X3 ' Or 1 = 1
             End If
         ' End If
@@ -7998,7 +8348,7 @@ Sub ME_TOP_LEFT_CENTER()
     
     ' END COLUMN 4
     ' ---------------------------------------------------------
-    X3 = MNU_SHOW_THE_TIME_03(0).Left + MNU_SHOW_THE_TIME_03(0).width
+    X3 = MNU_SHOW_THE_TIME_03(0).Left + MNU_SHOW_THE_TIME_03(0).Width
     X4 = MNU_SHOW_THE_TIME_03(0).FontSize
     X5 = MNU_SHOW_THE_TIME_03(0).Top
     
@@ -8006,15 +8356,15 @@ Sub ME_TOP_LEFT_CENTER()
         LET_TEXT_BOX_GO = False
         If InStr(UCase(MMM_SHOW_THE_TIME_ARR(R1).Name), "MMM_SHOW_THE_TIME_ARR") > 0 Then
             MMM_SHOW_THE_TIME_ARR(R1).Left = X3 + 80
-            MMM_SHOW_THE_TIME_ARR(R1).width = 780 + 400 ' WIDTH NOT MUCH OVER OR NEW CODE
+            MMM_SHOW_THE_TIME_ARR(R1).Width = 780 + 400 ' WIDTH NOT MUCH OVER OR NEW CODE
             HEIGHT_GAP = 28
             If MNU_SHOW_THE_TIME_03.UBound >= R1 Then
-                X7 = MNU_SHOW_THE_TIME_03(R1).height
-                MMM_SHOW_THE_TIME_ARR(R1).height = X7
+                X7 = MNU_SHOW_THE_TIME_03(R1).Height
+                MMM_SHOW_THE_TIME_ARR(R1).Height = X7
                 MMM_SHOW_THE_TIME_ARR(R1).Top = MNU_SHOW_THE_TIME_03(R1).Top
                 X5 = MNU_SHOW_THE_TIME_03(R1).Top + X7 + HEIGHT_GAP
             Else
-                MMM_SHOW_THE_TIME_ARR(R1).height = MMM_SHOW_THE_TIME_ARR(R1).height
+                MMM_SHOW_THE_TIME_ARR(R1).Height = MMM_SHOW_THE_TIME_ARR(R1).Height
                 MMM_SHOW_THE_TIME_ARR(R1).Top = X5
                 X5 = X5 + X7 + HEIGHT_GAP
             End If
@@ -8030,18 +8380,18 @@ Sub ME_TOP_LEFT_CENTER()
     
     ' ---------------------------------------
     
-    Text3.width = Text3.width + 1
-    LabelFILE1.width = LabelFILE1.width + 10
-    LabelFILE2.width = LabelFILE2.width + 10
-    Label3.width = Label3.width
-    Label5.width = Label5.width
-    Label2.width = Label2.width
-    LabelCRC5.width = LabelCRC5.width + 10
+    Text3.Width = Text3.Width + 1
+    LabelFILE1.Width = LabelFILE1.Width + 10
+    LabelFILE2.Width = LabelFILE2.Width + 10
+    Label3.Width = Label3.Width
+    Label5.Width = Label5.Width
+    Label2.Width = Label2.Width
+    LabelCRC5.Width = LabelCRC5.Width + 10
     
-    Label1(1).width = Text2.width / 2
-    Label1(2).width = Text3.width
-    Label1(7).width = Text2.width / 2 - 40
-    Label1(7).Left = Label1(1).width + Label1(1).Left + 40
+    Label1(1).Width = Text2.Width / 2
+    Label1(2).Width = Text3.Width
+    Label1(7).Width = Text2.Width / 2 - 40
+    Label1(7).Left = Label1(1).Width + Label1(1).Left + 40
     Label1(7).BackColor = RGB(255, 255, 255)
     Label1(7).Caption = "COMPARE VEIWER"
     ' ---------------------------------------
@@ -8053,9 +8403,9 @@ Sub ME_TOP_LEFT_CENTER()
             LET_TEXT_BOX_GO = False
             If InStr(UCase(Control.Name), "TEXT") > 0 Then LET_TEXT_BOX_GO = True
             If Control.Visible = True Then
-                If Control.width + Control.Left > WX Then WX = Control.width + Control.Left
-                If Control.height + Control.Top > HY Then
-                    HY = Control.height + Control.Top
+                If Control.Width + Control.Left > WX Then WX = Control.Width + Control.Left
+                If Control.Height + Control.Top > HY Then
+                    HY = Control.Height + Control.Top
                 End If
             End If
         End If
@@ -8110,9 +8460,9 @@ Sub ME_POSITION()
     On Error Resume Next
     ' WHEN CALL BY HALIFAX ROUTINE
     ' A FORM NOT POSITION MOVE WHEN MINIMIZE MAXIMIZE
-    Me.width = WX ' Text3.Left + Text3.Width + 200
+    Me.Width = WX ' Text3.Left + Text3.Width + 200
     On Error GoTo 0
-    WX = ((Screen.width) / 2 - ((Me.width / 2)))
+    WX = ((Screen.Width) / 2 - ((Me.Width / 2)))
     Me.Left = WX
     Me.Top = 200
     Me.Visible = True

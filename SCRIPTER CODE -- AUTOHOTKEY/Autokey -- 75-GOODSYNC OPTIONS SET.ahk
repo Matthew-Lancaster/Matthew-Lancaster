@@ -368,29 +368,61 @@ TIMER_SUB_GOODSYNC_CHANGE_NET_PATH_AS_SWEEPING_CHANGE_BASTARD:
 		if (isVisible) 
 		{
 			; visibleList .= A_LoopField "`n"
-			IF INSTR(A_LoopField,"ATL:0000000140E507004")>0
-				TRUE_TO_GO=TRUE
-			IF INSTR(A_LoopField,"ATL:0000000140E507003")>0 
-				TRUE_TO_GO=TRUE
-			; ---- HIGHLY CHANGE 
-			IF INSTR(A_LoopField,"ATL:0000000140E627104")>0 
-				TRUE_TO_GO=TRUE			
-			IF INSTR(A_LoopField,"ATL:0000000140E627103")>0 
-				TRUE_TO_GO=TRUE
+			; IF INSTR(A_LoopField,"ATL:0000000140E507004")>0
+				; TRUE_TO_GO=TRUE
+			; IF INSTR(A_LoopField,"ATL:0000000140E507003")>0 
+				; TRUE_TO_GO=TRUE
+			; ----------------------
+			; ---- HIGHLY CHANGEABLE
+			; ----------------------
+			; IF INSTR(A_LoopField,"ATL:0000000140E627104")>0 
+				; TRUE_TO_GO=TRUE			
+			; IF INSTR(A_LoopField,"ATL:0000000140E627103")>0 
+				; TRUE_TO_GO=TRUE
 				
-			IF INSTR(A_LoopField,"ATL:0000000140E507004")>0
-				BREAK
-			IF INSTR(A_LoopField,"ATL:0000000140E507003")>0 
-				BREAK
+			; IF INSTR(A_LoopField,"ATL:0000000140E507004")>0
+				; BREAK
+			; IF INSTR(A_LoopField,"ATL:0000000140E507003")>0 
+				; BREAK
 			
-			IF INSTR(A_LoopField,"ATL:0000000140E647103")>0
-				TRUE_TO_GO=TRUE
-			IF INSTR(A_LoopField,"ATL:0000000140E647104")>0
-				TRUE_TO_GO=TRUE
+			; IF INSTR(A_LoopField,"ATL:0000000140E647103")>0
+				; TRUE_TO_GO=TRUE
+			; IF INSTR(A_LoopField,"ATL:0000000140E647104")>0
+				; TRUE_TO_GO=TRUE
 				
-			IF INSTR(A_LoopField,"ATL:0000000140E657103")>0
+			; IF INSTR(A_LoopField,"ATL:0000000140E657103")>0
+				; TRUE_TO_GO=TRUE
+			; IF INSTR(A_LoopField,"ATL:0000000140E657104")>0
+				; TRUE_TO_GO=TRUE
+			; ----------------------------------------------------------------
+			; ALL ABOVE ARE OLD ONE
+			; THEY KEEP CHANGING THE CONTROL NAME WITH EACH UPDATE OF GOODSYNC
+			; ----------------------------------------------------------------
+			; KEEP USING WINDOW SPY FROM AUTOHOTKEY.COM
+			;-----------------------------------------------------------------
+			; USE FOLLOW MOUSE AND HOVER OVER THE WINDOW THAT IS 
+			; WHERE DIRECTORY TREE LEFT AND RIGHT PANE -- ARE
+			; ----------------------------------------------------------------
+			; IF INSTR(A_LoopField,"ATL:0000000140E7C7103")>0
+				; TRUE_TO_GO=TRUE
+			; IF INSTR(A_LoopField,"ATL:0000000140E7C7104")>0
+				; TRUE_TO_GO=TRUE
+			
+			; ----------------------------------------------------------------
+			; TRY THIS APPROACH SEE IF WORKER -- MORE UNIVERSAL -- NO MORE UPDATER
+			; ----------------------------------------------------------------
+			; MOVE IN THE RIGHT PANE AND CHECK THERE AND THEN LEFT 
+			; OR ONE WAY OTHER AROUND
+			; ----------------------------------------------------------------
+			; THANK YOU -- I LIKE IT BLOODY WELL WORKER
+			; 30-SEP-2026 19:14:44 WED
+			; ----------------------------------------------------------------
+			; TOOLTIP %A_LoopField%
+			IF INSTR(A_LoopField,"ATL:0000000140E")>0 
+			IF INSTR(A_LoopField,"7103")>0 
 				TRUE_TO_GO=TRUE
-			IF INSTR(A_LoopField,"ATL:0000000140E657104")>0
+			IF INSTR(A_LoopField,"ATL:0000000140E")>0
+			IF INSTR(A_LoopField,"7104")>0
 				TRUE_TO_GO=TRUE
 
 		}

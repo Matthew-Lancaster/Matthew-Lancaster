@@ -5,14 +5,20 @@ Begin VB.Form LINE_PICKER_COMMON
    Caption         =   "Form1"
    ClientHeight    =   5904
    ClientLeft      =   192
-   ClientTop       =   1740
+   ClientTop       =   540
    ClientWidth     =   13752
    Icon            =   "LINE_PICKER_COMMON.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   5904
    ScaleWidth      =   13752
-   StartUpPosition =   3  'Windows Default
    Visible         =   0   'False
+   WindowState     =   1  'Minimized
+   Begin VB.Timer Timer_RUN_ONCE_RESIZE 
+      Enabled         =   0   'False
+      Interval        =   100
+      Left            =   5088
+      Top             =   888
+   End
    Begin VB.ListBox LIST2 
       BeginProperty Font 
          Name            =   "MS Sans Serif"
@@ -163,7 +169,9 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 ' ----------------------------------
 Public FORM_UNLOAD_INITIATE
-Public NOT_RESIZE_ROUTINE
+Dim NOT_RESIZE_ROUTINE
+' PUBLIC RESIZE_DONE_ONCE
+Dim RESIZE_DONE_ONCE
 Public LINE_PICKER_COMMON_FROM_START
 
 Dim OLD_LIST1_WIDTH
@@ -180,7 +188,6 @@ Dim FILENAME_LOAD_02
 Dim MNU_DOUBLE_LINE_SELECTOR_ON_VAR
 Dim M()
 
-' PUBLIC RESIZE_DONE_ONCE
 
 Public EXIT_TRUE
 Dim RESULT_API
@@ -267,7 +274,7 @@ Sub GOT_FOCUS()
     Dim CONT As Control
     On Error Resume Next
     For Each CONT In Me.Controls
-        FONT_SIZE = 14
+        FONT_SIZE = 10
 '        Select Case UCase(Cont.Name)
 '            Case "MMM_SHOW_THE_TIME_ARR": FONT_SIZE = 9
 '        End Select
@@ -315,7 +322,7 @@ Sub Form_Load()
         MNU_ENDER.Visible = False
     End If
     
-    RESIZE_DONE_ONCE = False
+'    RESIZE_DONE_ONCE = False
     
     MNU_SORT_A = False
     
@@ -647,10 +654,10 @@ Sub Form_Load()
     LIST1.Clear
     AR = 0
     ' List1.Sorted = False
-    For R3 = 1 To UBound(M)
-        If M(R3) <> "" Then
+    For r3 = 1 To UBound(M)
+        If M(r3) <> "" Then
             AR = AR + 1
-            LIST1.AddItem Format(AR, "000") + " --  " + M(R3)
+            LIST1.AddItem Format(AR, "000") + " --  " + M(r3)
         End If
     Next
     
@@ -663,12 +670,12 @@ Sub Form_Load()
     ' LISTVIEW1.
     With LISTVIEW1
         .ColumnHeaders.Add , "ID", "ID", 800, lvwColumnLeft
-        .ColumnHeaders.Add , "ITEM", "ITEM", 18000, lvwColumnLeft
+        .ColumnHeaders.Add , "ITEM", "ITEM", 40000, lvwColumnLeft
         .View = lvwReport
-        .height = LIST1.height
+        .Height = LIST1.Height
         .Top = LIST1.Top
         .Left = LIST1.Left
-        .width = LIST1.width
+        .Width = LIST1.Width
 '        .Font.Bold = True
 '        .Font.Name = LIST1.FontNaizeme
 '        .Font.Size = LIST1.Fonts
@@ -679,12 +686,12 @@ Sub Form_Load()
     LISTVIEW1.ListItems.Clear
     LIST1.Visible = False
     
-    For R3 = 1 To UBound(M)
-        If M(R3) <> "" Then
+    For r3 = 1 To UBound(M)
+        If M(r3) <> "" Then
             AR = AR + 1
             With LISTVIEW1
                 Set LV1 = .ListItems.Add(, , Format(AR, "000"))
-                LV1.SubItems(1) = M(R3)
+                LV1.SubItems(1) = M(r3)
             End With
         End If
     Next
@@ -696,25 +703,34 @@ Sub Form_Load()
     End If
     
     AR = 0
-    For R3 = 1 To UBound(M)
-        If M(R3) <> "" Then
+    For r3 = 1 To UBound(M)
+        If M(r3) <> "" Then
             AR = AR + 1
-            LISTVIEW1.ListItems.Item(R3) = (Format(AR, "000"))
+            LISTVIEW1.ListItems.Item(r3) = (Format(AR, "000"))
         End If
     Next
-    
-    Call frmListMenu.SET_MENU_PADD_WORK
     
     
     FORM_LOAD_STATE = True
     
+    ' AlwaysOnTop_MODE = True
     If AlwaysOnTop_MODE = True Then
+'        MNU_ALWAYS_ON_TOP.Caption = "[__ ON TOP __]"
         MNU_ALWAYS_ON_TOP.Caption = "ALWAYS ON TOP __ CORRECT"
     Else
         MNU_ALWAYS_ON_TOP.Caption = "[__ ON TOP __]"
+ '       MNU_ALWAYS_ON_TOP.Caption = "ALWAYS ON TOP __ CORRECT"
     End If
-    
+    ' ------------------------------------------------
+    ' SET TO INVERSE WHAT WANT AS CLICK TURN IT AROUND
+    ' ------------------------------------------------
+    ' Call MNU_ALWAYS_ON_TOP_Click
+
     Call GOT_FOCUS
+    
+    FORM_LOAD_STATE = True
+    
+    Timer_RUN_ONCE_RESIZE.Enabled = True
     
 End Sub
 
@@ -730,13 +746,54 @@ MOUSE_DOWN = False
 MOUSE_UP = True
 End Sub
 
+Private Sub Timer_RUN_ONCE_RESIZE_Timer()
+
+' -------------------------------------------------
+' 03-OCT-2026 11:45:54 SAT
+' TO
+' 04-OCT-2026 06:30:00 SUN
+' NOW THE FORMS LOAD PROPER AND RESIZING
+' -------------------------------------------------
+
+Call frmListMenu.SET_MENU_PADD_WORK
+
+
+Me.Height = Screen.Height - 2000
+Me.Width = Screen.Width
+DoEvents
+Me.Top = (Screen.Height / 2 - Me.Height / 2) - 1000
+Me.Left = 0 'Screen.Width / 2 - Me.Width / 2 - 1000
+' -------------------------------
+' CALL UPON ONE RESIZE RUN ROUTINE
+' TO FINAL SET
+' -------------------------------
+
+RESIZE_DONE_ONCE = False
+NOT_RESIZE_ROUTINE = False
+
+
+'IF ME.WindowState
+'Call Form_Resize
+Timer_RUN_ONCE_RESIZE.Enabled = False
+RESIZE_DONE_ONCE = True
+NOT_RESIZE_ROUTINE = True
+
+End Sub
+
+
+
 Private Sub Form_Resize()
 
-If NOT_RESIZE_ROUTINE = True Then
-    NOT_RESIZE_ROUTINE = False
-    Exit Sub
-End If
+'If NOT_RESIZE_ROUTINE = True Then
+'    ' NOT_RESIZE_ROUTINE = False
+'    Exit Sub
+'End If
 
+If Me.Visible = False Then Exit Sub
+
+Me.WindowState = vbNormal
+Me.Visible = True
+' DoEvents
 'Private Declare Function GetAsyncKeyState Lib "user32" (ByVal vKey&) As Integer
 'I2 = 0: KASC = 0
 'WIN 10 IS GIVE -- GetAsyncKeyState(255) ALWAYS PRESSED
@@ -759,11 +816,17 @@ Else
     MOUSE_DOWN = False
 End If
 
-If Me.WindowState = vbNormal Or Me.WindowState = vbMaximized Then
-    VAR_WINSTATE_BEEN_HIGH = vbMaximized
-End If
-If Me.WindowState = vbMinimized And VAR_WINSTATE_BEEN_HIGH = vbMaximized Then
-    VAR_WINSTATE_BEEN_HIGH = "UNLOAD ME"
+'If Me.WindowState = vbNormal Or Me.WindowState = vbMaximized Then
+'    VAR_WINSTATE_BEEN_HIGH = Me.WindowState ' vbMaximized
+'End If
+If Me.WindowState = vbMinimized Then
+
+'    VAR_WINSTATE_BEEN_HIGH = "UNLOAD ME"
+    
+    ' IT UNLAOD ME AFTER A SELECTION -- UNLESS -- OPTION NOT MOVE
+    ' -----------------------------------------------------------
+    Unload Me
+    
     Exit Sub
 End If
 
@@ -778,7 +841,7 @@ End If
 If RESIZE_WINDOWSTATE_CHANGE = vbMinimized And (Me.WindowState = vbMaximized Or Me.WindowState = vbNormal) Then
     ' REQUIRE BETTER ABOUT ERROR TRAP 01 OF 02
     On Error Resume Next
-    LINE_PICKER_COMMON.SetFocus
+    LINE_PICKER_EXE_SCREEN.SetFocus
     Timer_SET_FOCUS.Enabled = True
     On Error GoTo 0
     DoEvents
@@ -796,47 +859,66 @@ End If
 If Me.WindowState = vbNormal Then
     RESIZE_WINDOWSTATE_CHANGE_WORKAROUND = True
     If TIMER_TO_RESIZE_VAR = False Then
-        Me.Top = FRM_ClipTest.Top + 200
-        Me.Left = FRM_ClipTest.Left + 200
+'        Me.Top = Screen.Height / 2 - Me.Height / 2
+'        Me.Left = Screen.Width / 2 - Me.Width / 2
         If FORM_SET_WIDTH_ONE = False Then
             FORM_SET_WIDTH_ONE = True
-            Me.width = FRM_ClipTest.width
-            ' SET HIEGHT ONCE ALSO
-            Me.height = FRM_ClipTest.height
+            'Me.Width = Screen.Width - 1000
+            'SET HIEGHT ONCE ALSO
+            'Me.Height = FRM_ClipTest.Height
         End If
 
     End If
     RESIZE_WINDOWSTATE_CHANGE_WORKAROUND = False
 End If
 
+If Me.WindowState = vbMaximized Then
+    RESIZE_WINDOWSTATE_CHANGE_WORKAROUND = True
+    If TIMER_TO_RESIZE_VAR = False Then
+'        Me.Top = FRM_ClipTest.Top + 200
+'        Me.Left = FRM_ClipTest.Left + 200
+        If FORM_SET_WIDTH_ONE = False Then
+            FORM_SET_WIDTH_ONE = True
+'            Me.Width = FRM_ClipTest.Width
+'            ' SET HIEGHT ONCE ALSO
+'            Me.Height = FRM_ClipTest.Height
+        End If
+
+    End If
+    RESIZE_WINDOWSTATE_CHANGE_WORKAROUND = False
+End If
+
+HEIGHT_ADJUST = 70
 WIDTH_ADJUST = 70 ' FOR WIN XP
 If GETWINNT_VER_VAR = "WIN XP" Then WIDTH_ADJUST = 70
 If GETWINNT_VER_VAR = "WIN 7" Then WIDTH_ADJUST = 170
-If GETWINNT_VER_VAR = "WIN 10" Then WIDTH_ADJUST = 250
+If GETWINNT_VER_VAR = "WIN 10" Then WIDTH_ADJUST = 200
+If GETWINNT_VER_VAR = "WIN 11" Then WIDTH_ADJUST = 200
 
-If GetComputerName = "1-ASUS-EEE" Then WIDTH_ADJUST = 70
-If GetComputerName = "1-ASUS-X5DIJ" Then WIDTH_ADJUST = 70
-If GetComputerName = "3-LINDA-PC" Then WIDTH_ADJUST = 170
-If GetComputerName = "4-ASUS-GW522VW" Then WIDTH_ADJUST = 250
-If GetComputerName = "5-ASUS-P2520LA" Then WIDTH_ADJUST = 220 '100
-
-HEIGHT_ADJUST = 70 ' FOR WIN XP
+'If GetComputerName = "1-ASUS-EEE" Then WIDTH_ADJUST = 70
+'If GetComputerName = "1-ASUS-X5DIJ" Then WIDTH_ADJUST = 70
+'If GetComputerName = "3-LINDA-PC" Then WIDTH_ADJUST = 170
+'If GetComputerName = "4-ASUS-GW522VW" Then WIDTH_ADJUST = 850
+'If GetComputerName = "5-ASUS-P2520LA" Then WIDTH_ADJUST = 220 '100
+'
+'HEIGHT_ADJUST = 70 ' FOR WIN XP
 If GETWINNT_VER_VAR = "WIN XP" Then HEIGHT_ADJUST = 70
 If GETWINNT_VER_VAR = "WIN 7" Then HEIGHT_ADJUST = 70
-If GETWINNT_VER_VAR = "WIN 10" Then HEIGHT_ADJUST = 200
-
-'Bigger adjust number smaller inner form
-If GetComputerName = "1-ASUS-EEE" Then HEIGHT_ADJUST = 70
-If GetComputerName = "1-ASUS-X5DIJ" Then HEIGHT_ADJUST = 70
-If GetComputerName = "3-LINDA-PC" Then HEIGHT_ADJUST = 70
-If GetComputerName = "4-ASUS-GW522VW" Then HEIGHT_ADJUST = 100
-If GetComputerName = "5-ASUS-P2520LA" Then HEIGHT_ADJUST = 0
-'HIGHER NUMBER SMALLER INNER BOX
+If GETWINNT_VER_VAR = "WIN 10" Then HEIGHT_ADJUST = 1800
+If GETWINNT_VER_VAR = "WIN 11" Then HEIGHT_ADJUST = 200
+'
+''Bigger adjust number smaller inner form
+'If GetComputerName = "1-ASUS-EEE" Then HEIGHT_ADJUST = 70
+'If GetComputerName = "1-ASUS-X5DIJ" Then HEIGHT_ADJUST = 70
+'If GetComputerName = "3-LINDA-PC" Then HEIGHT_ADJUST = 70
+'If GetComputerName = "4-ASUS-GW522VW" Then HEIGHT_ADJUST = 70
+'If GetComputerName = "5-ASUS-P2520LA" Then HEIGHT_ADJUST = 0
+''HIGHER NUMBER SMALLER INNER BOX
 
 If RESIZE_DONE_ONCE = False Then
     Label1.BackColor = RGB(255, 255, 255)
     Label1.Left = 20
-    Label1.height = 400
+    Label1.Height = 400
     Label1.Caption = "SPEED LINE PICKER -- CLIPBOARD"
 '    Label1.FontSize = 14
 '    Label1.FontBold = True
@@ -844,34 +926,63 @@ If RESIZE_DONE_ONCE = False Then
 End If
 
 If RESIZE_DONE_ONCE = False Then
-    Label1.width = Me.width - WIDTH_ADJUST + 20
-    LB1H = (Menu_Height * Screen.TwipsPerPixelY) - 500
+    ' Label1.Width = Me.Width - WIDTH_ADJUST + 20
+    Label1.AutoSize = True
+'    Label_EXE.AutoSize = True
+'    Label_FOLDER_SELECTOR.AutoSize = True
+'    Label_CLIPBOARD_SELECTOR_1.AutoSize = True
+    
+'    Label1.AutoSize = True
+'    Label_EXE.AutoSize = True
+'    Label_FOLDER_SELECTOR.AutoSize = True
+'    Label_CLIPBOARD_SELECTOR_1.AutoSize = True
+    DoEvents
+'    Label_EXE.Left = 10
+'    Label_FOLDER_SELECTOR.Left = Label_EXE.Left + Label_EXE.Width + 80
+'    Label_CLIPBOARD_SELECTOR_1.Left = Label_FOLDER_SELECTOR.Left + Label_FOLDER_SELECTOR.Width + 80
+'
+    'Label1.Width = 4000 ' Me.Width - WIDTH_ADJUST + 20
+    LB1H = (Menu_Height_EXE * Screen.TwipsPerPixelY) - 500
     If LB1H < 0 Then LB1H = 0
     Label1.Top = 20 ' LB1H
-    LIST1.Top = Label1.Top + Label1.height
-    LIST1.Left = 10
+'    Label_EXE.Top = Label1.Top + Label1.Height
+'    Label_FOLDER_SELECTOR.Top = Label_EXE.Top
+'    Label_CLIPBOARD_SELECTOR_1.Top = Label_EXE.Top
+    LISTVIEW1.Top = Label1.Top + Label1.Height
+    LISTVIEW1.Left = 10
+    LIST1.Visible = False
+    LIST2.Visible = False
+    
 End If
-' List1.Height = Me.Height - (Menu_Height * Screen.TwipsPerPixelY)
-LIST1.width = Me.width - WIDTH_ADJUST + 20
+
+'LIST1.Height = Me.Height - (Menu_Height_EXE * Screen.TwipsPerPixelY) - 600
+'LIST1.Width = Me.Width - 4000 'WIDTH_ADJUST - 2000
+'DoEvents
+
 ' Call HEIGHT_BAR_TOP_ROUTINE
 ' ---------------------------
 'MAKE FORM TALLER OR TEXT BOX
 'FORM IS PRIOITY OVER TEXT BOX
-XXDD = Me.height - (Menu_Height * Screen.TwipsPerPixelY) - (Label1.Top + Label1.height) - 500
+If Me.WindowState <> vbMaximized Then
+If Me.WindowState <> vbMinimized Then
+    XXDD = Me.Height - (Menu_Height_EXE * Screen.TwipsPerPixelY) - (Label1.Top + Label1.Height) - 0
+End If
 If XXDD - HEIGHT_ADJUST < 0 Then
     XXDD = 0 + HEIGHT_ADJUST + 100
 End If
-If OLD_LIST1_HEIGHT <> XXDD - HEIGHT_ADJUST Then
-    LIST1.height = XXDD - HEIGHT_ADJUST
-    LISTVIEW1.height = LIST1.height
-End If
-OLD_LIST1_HEIGHT = XXDD - HEIGHT_ADJUST
 
-If OLD_LIST1_WIDTH <> LIST1.width Then
-    LISTVIEW1.width = LIST1.width
+HEIGHT_ADJUST_22 = Me.Height - HEIGHT_ADJUST - Menu_Height
+If OLD_LIST1_HEIGHT <> HEIGHT_ADJUST_22 Then
+    LISTVIEW1.Height = HEIGHT_ADJUST_22
 End If
-OLD_LIST1_WIDTH = LIST1.width
+OLD_LIST1_HEIGHT = HEIGHT_ADJUST_22
 
+WIDTH_ADJUST_VAR = WIDTH_ADJUST
+If OLD_LIST1_WIDTH <> Me.Width - WIDTH_ADJUST_VAR Then
+    LISTVIEW1.Width = Me.Width - WIDTH_ADJUST_VAR
+End If
+OLD_LIST1_WIDTH = Me.Width - WIDTH_ADJUST_VAR
+End If
 
 
 'H1 = Me.Height - (List1.Top + 800 + 20)
@@ -884,27 +995,34 @@ OLD_LIST1_WIDTH = LIST1.width
 If RESIZE_DONE_ONCE = False Then
     If Me.WindowState = vbNormal Then
         RESIZE_WINDOWSTATE_CHANGE_WORKAROUND = True
-        Me.height = LIST1.height + LIST1.Top + 900
+        DoEvents
+        Me.Height = LISTVIEW1.Height + LISTVIEW1.Top - 200 ' THIS LINE TAKE PRIORTY THAN ABOVE LINE
         RESIZE_WINDOWSTATE_CHANGE_WORKAROUND = False
+    End If
+    If Me.WindowState = vbMaximized Then
+        ' RESIZE_WINDOWSTATE_CHANGE_WORKAROUND = True
+        ' Me.Height = List1.Height + List1.Top + 1200 ' THIS LINE TAKE PRIORTY THAN ABOVE LINE
+        ' RESIZE_WINDOWSTATE_CHANGE_WORKAROUND = False
     End If
 End If
 
 
 
-If RESIZE_DONE_ONCE = False Then
-    With LISTVIEW1
-        .height = LIST1.height
-        .Top = LIST1.Top
-        .Left = LIST1.Left
-        .width = LIST1.width
-    End With
-End If
+'If RESIZE_DONE_ONCE = False Then
+'    With LISTVIEW1
+'        .Height = LIST1.Height
+'        .Top = LIST1.Top
+'        .Left = LIST1.Left
+'        .Width = LIST1.Width
+'    End With
+'End If
 
 RESIZE_DONE_ONCE = True
 TIMER_TO_RESIZE_VAR = False
 
 
 End Sub
+
 
 
 Private Sub Form_Unload(Cancel As Integer)
@@ -1128,6 +1246,8 @@ If Err.Number = 0 Then
 End If
 
 Beep
+
+
 End Sub
 
 Private Sub ListView1_KeyDown(KeyCode As Integer, Shift As Integer)
@@ -1142,13 +1262,13 @@ Private Sub MNU_ADD_CLIPBOARD_Click()
     MX = Split(FRM_ClipTest.Text2.Text, vbLf)
     
     AR = LIST1.ListCount
-    For R3 = 0 To UBound(MX)
-        If MX(R3) <> "" Then
+    For r3 = 0 To UBound(MX)
+        If MX(r3) <> "" Then
             AR = AR + 1
-            LIST1.AddItem Format(AR, "000") + " --  " + MX(R3)
+            LIST1.AddItem Format(AR, "000") + " --  " + MX(r3)
             With LISTVIEW1
                 Set LV1 = .ListItems.Add(, , Format(AR, "000"))
-                LV1.SubItems(1) = MX(R3)
+                LV1.SubItems(1) = MX(r3)
             End With
         End If
     Next
@@ -1159,9 +1279,9 @@ Private Sub MNU_ADD_CLIPBOARD_Click()
         Open FILENAME_LOAD_01 For Append As #FR1
             Print #FR1, "---- CLIPBOARD INFO -- " + Format(Now, "YYYY MM DD  HH MM SS")
             Print #FR1, "-------------------------------------------"
-            For R3 = 0 To UBound(MX)
-                If MX(R3) <> "" Then
-                    Print #FR1, MX(R3)
+            For r3 = 0 To UBound(MX)
+                If MX(r3) <> "" Then
+                    Print #FR1, MX(r3)
                 End If
             Next
             Print #FR1, "-------------------------------------------"
@@ -1179,7 +1299,7 @@ Private Sub MNU_ADD_CLIPBOARD_Click()
 
 End Sub
 
-Public Sub MNU_ALWAYS_ON_TOP_Click()
+Private Sub MNU_ALWAYS_ON_TOP_Click()
     
     ' MENU FLIPPER
     If InStr(MNU_ALWAYS_ON_TOP.Caption, "ON TOP __ CORRECT") > 0 Then
@@ -1191,6 +1311,7 @@ Public Sub MNU_ALWAYS_ON_TOP_Click()
         AlwaysOnTop_MODE = True
         RESULT_API = AlwaysOnTop(Me.hWnd)
     End If
+    On Error Resume Next
     Me.SetFocus
 
 End Sub
@@ -1226,12 +1347,12 @@ Private Sub MNU_BUTTON_01_REMOVE_EMPTY_LINE_AND_REM_02_SORT_03_REMOVE_DUPER_Clic
     MX = Split(FRM_ClipTest.Text2.Text, vbLf)
     
     LIST2.Clear
-    For R3 = 0 To UBound(MX)
-        MX(R3) = Replace(MX(R3), vbCr, "")
-        MX(R3) = Replace(MX(R3), vbLf, "")
-        If Mid(Trim(MX(R3)), 1, 1) <> "!" Then
-        If Trim(MX(R3)) <> "" Then
-            LIST2.AddItem MX(R3)
+    For r3 = 0 To UBound(MX)
+        MX(r3) = Replace(MX(r3), vbCr, "")
+        MX(r3) = Replace(MX(r3), vbLf, "")
+        If Mid(Trim(MX(r3)), 1, 1) <> "!" Then
+        If Trim(MX(r3)) <> "" Then
+            LIST2.AddItem MX(r3)
         End If
         End If
     Next
@@ -1564,10 +1685,10 @@ Private Sub Timer_MONITOR_FORM_SIZE_WIDTH_HEIGHT_Timer()
     If MOUSE_DOWN = True Then Exit Sub
     
     If OLD_HEIGHT_WIDTH = 0 Then
-        OLD_HEIGHT_WIDTH = Me.height + Me.width
+        OLD_HEIGHT_WIDTH = Me.Height + Me.Width
     End If
-    If Me.height + Me.width <> OLD_HEIGHT_WIDTH Then
-        OLD_HEIGHT_WIDTH = Me.height + Me.width
+    If Me.Height + Me.Width <> OLD_HEIGHT_WIDTH Then
+        OLD_HEIGHT_WIDTH = Me.Height + Me.Width
         TIMER_TO_RESIZE.Enabled = False
         TIMER_TO_RESIZE.Interval = 100
         TIMER_TO_RESIZE.Enabled = True
@@ -1577,6 +1698,8 @@ Private Sub Timer_MONITOR_FORM_SIZE_WIDTH_HEIGHT_Timer()
     End If
 
 End Sub
+
+
 
 Public Sub Timer_SET_FOCUS_Timer()
 
@@ -1609,7 +1732,7 @@ Public Function NotAlwaysOnTop(ByVal hWnd As Long)
 '    If Me.WindowState <> vbMinimized Then
 '    End If
 '    If Me.WindowState = vbMinimized Then
-    If Me.height < 200 Then
+    If Me.Height < 200 Then
         Call ME_POSITION
     End If
     
@@ -1665,11 +1788,11 @@ Public Sub ME_POSITION()
     HY = HY + ((Menu_Height * Screen.TwipsPerPixelY) - Menu_Height) + OFFSET_HY
     WX = WX + (Screen.TwipsPerPixelX) + OFFSET_WX
 
-    If HY <> Me.height Then
-        Me.height = HY
+    If HY <> Me.Height Then
+        Me.Height = HY
     End If
-    Me.width = WX ' LISTVIEW1.Left + LISTVIEW1.Width + 200 ' WX (+) LISTVIEW1.Left + LISTVIEW1.Width + 200
-    WL = ((Screen.width) / 2 - ((Me.width / 2)))
+    Me.Width = WX ' LISTVIEW1.Left + LISTVIEW1.Width + 200 ' WX (+) LISTVIEW1.Left + LISTVIEW1.Width + 200
+    WL = ((Screen.Width) / 2 - ((Me.Width / 2)))
     Me.Left = WL
     Me.Top = 200
 
@@ -1685,10 +1808,10 @@ Public Sub ME_POSITION_HALIFAX()
     HY = ((Menu_Height * Screen.TwipsPerPixelY) - Menu_Height) + OFFSET_HY
 
     NOT_RESIZE_ROUTINE = True
-    Me.height = HY
+    Me.Height = HY
     
     NOT_RESIZE_ROUTINE = True
-    Me.width = 7000
+    Me.Width = 7000
     Me.Left = 15500
     Me.Top = 400
     Me.Visible = True

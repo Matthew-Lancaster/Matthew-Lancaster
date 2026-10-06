@@ -60,7 +60,7 @@ Private Sub Timer1_Timer()
     MSGBOX3 = Replace(MSGBOX3, " -- -- ", " -- ")
     MSGBOX3 = Replace(MSGBOX3, " --  -- ", " -- ")
     
-    List1.AddItem MSGBOX3
+    LIST1.AddItem MSGBOX3
     
     '---------------------------------------
     '** Show Error Script **
@@ -74,8 +74,8 @@ Private Sub Timer1_Timer()
     On Error Resume Next
     
     If KEYBOARD_OR_MOUSE_ACTIVE_3_MIN < Now Then
-        List1.ListIndex = List1.ListCount
-        List1.ListIndex = List1.ListCount - 1
+        LIST1.ListIndex = LIST1.ListCount
+        LIST1.ListIndex = LIST1.ListCount - 1
     End If
     
     'MSGBOX2 = Replace(MSGBOX2, vbCrLf, vbCrLf + "----" + vbCrLf)
@@ -106,8 +106,8 @@ End Sub
 
 Sub Form_Load()
 
-    List1.Height = Me.Height
-    List1.Width = Me.Width * 3
+    LIST1.Height = Me.Height
+    LIST1.Width = Me.Width * 3
 
 End Sub
 
@@ -119,7 +119,7 @@ Sub UPDATE_MNU_ERROR()
         ERROR_LOGG_UPDATE_TIME_2 = Trim(Str(DateDiff("S", ERROR_LOGG_UPDATE_TIME, Now))) + " Seconds Away"
     End If
     
-    Form1.Mnu_Show_Error_Script_Frm_Msgbox.Caption = "** Show Error Script *" + Str(FRM_MSGBOX.List1.ListCount) + " ITEM COUNT " + ERROR_LOGG_READ_STATUS + " " + ERROR_LOGG_UPDATE_TIME_2 + " **"
+    Form1.Mnu_Show_Error_Script_Frm_Msgbox.Caption = "** Show Error Script *" + Str(FRM_MSGBOX.LIST1.ListCount) + " ITEM COUNT " + ERROR_LOGG_READ_STATUS + " " + ERROR_LOGG_UPDATE_TIME_2 + " **"
 
 End Sub
 

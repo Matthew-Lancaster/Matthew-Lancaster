@@ -5610,7 +5610,7 @@ For r = 1 To ScanPath.ListView1.ListItems.Count
     C1$ = Mid$(B1$, 1, Len(B1$) - 4) + ".zip"
     If Dir$(A1$ + C1$) = "" Then
         'MsgBox A1$ + B1$
-        'Shell "C:\WINDOZE\system32\NOTEPAD.EXE """ + A1$ + B1$ + """", vbNormalFocus
+        'Shell "C:\WINDOWS\system32\NOTEPAD.EXE """ + A1$ + B1$ + """", vbNormalFocus
 '        vLaunch A1$ + B1$, vbNullString
     vFile = A1$ + B1$
     ShellExecute Me.hWnd, "open", vFile, vbNullString, vbNullString, conSwNormal
@@ -6457,7 +6457,7 @@ End Sub
 
 Private Sub MNU_NOTEPAD_Click()
 
-Shell "C:\WINDOZE\system32\NOTEPAD.EXE", vbNormalFocus
+Shell "C:\WINDOWS\system32\NOTEPAD.EXE", vbNormalFocus
 
 End
 End Sub
@@ -6828,13 +6828,13 @@ PATH_FILE_NAME2 = Replace(PATH_FILE_NAME1, "D:\VB6\", "D:\VB6-EXE'S\")
 If Dir(PATH_FILE_NAME2) = "" Then
     On Error Resume Next
         MkDir Mid(PATH_FILE_NAME2, 1, InStrRev(PATH_FILE_NAME2, "\"))
-        FS.CopyFile PATH_FILE_NAME1, PATH_FILE_NAME2
+        FS.copyFile PATH_FILE_NAME1, PATH_FILE_NAME2
     If Err.Number > 0 Then Exit Sub
 End If
 
 Set F = FS.GetFile(PATH_FILE_NAME2)
 
-VB_DATE = F.DateLastModified
+VB_DATE = F.datelastmodified
 
 '--------
 '01 OF 02

@@ -148,39 +148,41 @@ R_L = 0
 Do
     Line Input #FR_1, LINE_STINGER
     
-    R_L = R_L + 1
-    Filename_VAR(R_L) = "\\" + LINE_STINGER
-    
-    HERE_GO = False
-    If (Val(Mid(LINE_STINGER, 1, 1)) > 0 And Mid(LINE_STINGER, 2, 1) = "-") = True Then
-        HERE_GO = True
-    End If
-    
-    If HERE_GO = True Then
-        Path = "--DriveRemote"
-        Path = "--Drive"
-        With ScanPath.ListView1
-            Set LV = .ListItems.Add(, , Filename_VAR(R_L))
-            LV.SubItems(1) = Path
-        End With
-    ' ADD THE HTTPS:\\" TO "\BTHUB"
-    End If
-    
-    If HERE_GO = False And LINE_STINGER = "BTHUB" Then
-        Filename = "HTTPS:" + Filename_VAR(R_L) '+ "\BTHUB"
-        'Path = "--Drive"
-        With ScanPath.ListView1
-            Set LV = .ListItems.Add(, , Filename)
-            LV.SubItems(1) = Path
-        End With
-        HERE_GO = True
-    End If
-    If HERE_GO = False Then
-        'Path = "--Drive"
-        With ScanPath.ListView1
-            Set LV = .ListItems.Add(, , Filename_VAR(R_L))
-            LV.SubItems(1) = Path
-        End With
+    If Mid(LINE_STINGER, 1, 1) <> "#" And Trim(LINE_STINGER) <> "" Then
+        R_L = R_L + 1
+        Filename_VAR(R_L) = "\\" + LINE_STINGER
+        
+        HERE_GO = False
+        If (Val(Mid(LINE_STINGER, 1, 1)) > 0 And Mid(LINE_STINGER, 2, 1) = "-") = True Then
+            HERE_GO = True
+        End If
+        
+        If HERE_GO = True Then
+            Path = "--DriveRemote"
+            Path = "--Drive"
+            With ScanPath.ListView1
+                Set LV = .ListItems.Add(, , Filename_VAR(R_L))
+                LV.SubItems(1) = Path
+            End With
+        ' ADD THE HTTPS:\\" TO "\BTHUB"
+        End If
+        
+        If HERE_GO = False And LINE_STINGER = "BTHUB" Then
+            Filename = "HTTPS:" + Filename_VAR(R_L) '+ "\BTHUB"
+            'Path = "--Drive"
+            With ScanPath.ListView1
+                Set LV = .ListItems.Add(, , Filename)
+                LV.SubItems(1) = Path
+            End With
+            HERE_GO = True
+        End If
+        If HERE_GO = False Then
+            'Path = "--Drive"
+            With ScanPath.ListView1
+                Set LV = .ListItems.Add(, , Filename_VAR(R_L))
+                LV.SubItems(1) = Path
+            End With
+        End If
     End If
 
 Loop Until EOF(FR_1)

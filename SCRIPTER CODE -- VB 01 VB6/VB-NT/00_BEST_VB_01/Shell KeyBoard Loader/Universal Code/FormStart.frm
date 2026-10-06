@@ -1,12 +1,12 @@
 VERSION 5.00
 Begin VB.Form FormStart 
    Caption         =   "Form2"
-   ClientHeight    =   3195
+   ClientHeight    =   3192
    ClientLeft      =   60
-   ClientTop       =   345
+   ClientTop       =   348
    ClientWidth     =   4680
    LinkTopic       =   "Form2"
-   ScaleHeight     =   3195
+   ScaleHeight     =   3192
    ScaleWidth      =   4680
    StartUpPosition =   3  'Windows Default
 End
@@ -735,8 +735,8 @@ Open QQ$ For Output As #1
 Print #1, tt$;
 Close #1
 
-'Shell "C:\windoze\system32\notepad.exe D:\# MY DOCS\# 01 My Documents\CALLerid\2ABBREV.TXT"
-'Shell "C:\windoze\system32\notepad.exe " + QQ$, vbNormalFocus
+'Shell "C:\WINDOWS\system32\notepad.exe D:\# MY DOCS\# 01 My Documents\CALLerid\2ABBREV.TXT"
+'Shell "C:\WINDOWS\system32\notepad.exe " + QQ$, vbNormalFocus
 
 End Sub
 

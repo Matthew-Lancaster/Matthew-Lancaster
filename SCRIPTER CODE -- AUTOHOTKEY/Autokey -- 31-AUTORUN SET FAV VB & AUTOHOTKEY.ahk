@@ -513,7 +513,7 @@ IfExist, %FN_VAR%
 {
 	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	Run "%FN_VAR%"
-	WinWait, ahk_class Notepad++, 10
+	WinWait, ahk_class Notepad++, ,50
 	COUNTER_LOOP=0
 	LOOP
 	{
