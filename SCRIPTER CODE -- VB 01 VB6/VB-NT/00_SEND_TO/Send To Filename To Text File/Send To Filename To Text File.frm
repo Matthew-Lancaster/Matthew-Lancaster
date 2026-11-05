@@ -262,10 +262,6 @@ Private Function TestIDE(Test As Boolean) As Boolean
 End Function
 '***********************************************
 
-Private Sub Form_Load()
-
-End Sub
-
 Private Sub Timer_MAIN_Timer()
 'at$ = Command$
 
@@ -273,9 +269,14 @@ Private Sub Timer_MAIN_Timer()
 
 'at$ = """E:\04 Music ---\03 My Music Zen\01 Banging Tunes\2005\0001 - Dj Snort\Dj Snort-Tube Ride.mp3"""
 
+AT$ = "D:\VIDEO\NOT\X 00 NOT\03 VIDEO PIRATE\STRANGLEY LARGE GUY -- KING DONG\Strangley Large Guy.MPEG"
+
 GET_PATH_OR_FILE_PATH
 
 'CMD_LINE = Replace(Command$, """", "")
+
+PATH_FILE = "D:\VIDEO\NOT\X 00 NOT\03 VIDEO PIRATE\STRANGLEY LARGE GUY -- KING DONG\Strangley Large Guy.MPEG"
+
 
 CMD_LINE = PATH_FILE
 
@@ -296,7 +297,7 @@ End If
 Set m_fsoObject = New FileSystemObject
 
 If m_fsoObject.FileExists(CMD_LINE) = True Then
-    R$ = Left$(CMD_LINE, Len(CMD_LINE) - 4) + ".txt"
+    R$ = Mid(CMD_LINE, 1, InStrRev(CMD_LINE, ".") - 1) + ".txt"
     If Dir$(R$) <> "" Then
         MsgBox "File Already Exist" + vbCrLf + R$
     End If

@@ -2,7 +2,7 @@ Attribute VB_Name = "mdlFileSys"
 Option Explicit
 'Public FS
 
-Public FSO
+Dim FSO
 
 Public LAST_FILE_DATE_TIME As Date, LAST_FILE_DATE_PATH As String
 Public LAST_FILE_DATE_PATH_HOT_KEY_SCREENSHOT As String

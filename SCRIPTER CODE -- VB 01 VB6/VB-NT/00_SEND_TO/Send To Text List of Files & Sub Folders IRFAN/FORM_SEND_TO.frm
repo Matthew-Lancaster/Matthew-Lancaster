@@ -1426,7 +1426,7 @@ Call XSCRIPT_CHUNK_DATE_UPDATE_SHOW_REQUIRE
 
 
 '---------------------------------------------
-'SEAECH -- Control.FontSize
+'SEARCH -- Control.FontSize
 '---------------------------------------------
 For Each Control In Controls
     If UCase(Mid(Control.Name, 1, 5)) = "LABEL" Then
@@ -3348,7 +3348,10 @@ Private Sub Label12_Click()
     
 
     NOT_USE_XSCRIPT = True
-    'MNU_IRFAN_08_NOT_USE_XSCRIPT_MPC.Checked = False
+'    NOT_USE_XSCRIPT = False
+    
+'    MNU_IRFAN_08_NOT_USE_XSCRIPT_MPC.Checked = False
+    
     'If NOT_USE_XSCRIPT = False Then
     If MNU_IRFAN_08_NOT_USE_XSCRIPT_MPC.Checked = False Then
 
@@ -3413,42 +3416,37 @@ End If
 'Shell "C:\Program Files (x86)\K-Lite Codec Pack\MPC-HC64\mpc-hc64_nvo.exe" + " LOAD """ + RENAME_COPY_FILE + """", vbMaximizedFocus
 Beep
 Dim EXELOADER
-
-If EXELOADER = "" And Dir("C:\Program Files (x86)\K-Lite Codec Pack\MPC-HC64\mpc-hc64.exe") <> "" Then
-    EXELOADER = "C:\Program Files (x86)\K-Lite Codec Pack\MPC-HC64\mpc-hc64.exe"
-End If
-
 If EXELOADER = "" And Dir("C:\Program Files\MPC-HC\mpc-hc64.exe") <> "" Then
     EXELOADER = "C:\Program Files\MPC-HC\mpc-hc64.exe"
 End If
-
+If EXELOADER = "" And Dir("C:\Program Files\MPC-HC\mpc-hc.exe") <> "" Then
+    EXELOADER = "C:\Program Files\MPC-HC\mpc-hc.exe"
+End If
+If EXELOADER = "" And Dir("C:\Program Files (X86)\MPC-HC\mpc-hc.exe") <> "" Then
+    EXELOADER = "C:\Program Files (X86)\MPC-HC\mpc-hc.exe"
+End If
+If EXELOADER = "" And Dir("C:\Program Files (x86)\K-Lite Codec Pack\MPC-HC64\mpc-hc64.exe") <> "" Then
+    EXELOADER = "C:\Program Files (x86)\K-Lite Codec Pack\MPC-HC64\mpc-hc64.exe"
+End If
 If EXELOADER = "" And Dir("C:\Program Files (x86)\K-Lite Codec Pack\MPC-HC64\mpc-hc64_nvo.exe") <> "" Then
     EXELOADER = "C:\Program Files (x86)\K-Lite Codec Pack\MPC-HC64\mpc-hc64_nvo.exe"
 End If
-
 If EXELOADER = "" And Dir("C:\Program Files\K-Lite Codec Pack\MPC-HC64\mpc-hc64_nvo.exe") <> "" Then
     EXELOADER = "C:\Program Files\K-Lite Codec Pack\MPC-HC64\mpc-hc64_nvo.exe"
 End If
 
-If EXELOADER = "" And Dir("C:\Program Files\MPC-HC\mpc-hc64.exe") <> "" Then
-    EXELOADER = "C:\Program Files\MPC-HC\mpc-hc64.exe"
-End If
 
-If EXELOADER = "" And Dir("C:\Program Files\MPC-HC\mpc-hc.exe") <> "" Then
-    EXELOADER = "C:\Program Files\MPC-HC\mpc-hc.exe"
-End If
 
-If EXELOADER = "" And Dir("C:\Program Files (X86)\MPC-HC\mpc-hc.exe") <> "" Then
-    EXELOADER = "C:\Program Files (X86)\MPC-HC\mpc-hc.exe"
-End If
 
-If NOTEPADEXELOADER = "" And Dir("C:\Program Files\Notepad++\notepad++.exe") <> "" Then
-    NOTEPADEXELOADER = "C:\Program Files\Notepad++\notepad++.exe"
-End If
 
 If NOTEPADEXELOADER = "" And Dir("C:\Program Files (x86)\Notepad++\notepad++.exe") <> "" Then
     NOTEPADEXELOADER = "C:\Program Files (x86)\Notepad++\notepad++.exe"
 End If
+If NOTEPADEXELOADER = "" And Dir("C:\Program Files\Notepad++\notepad++.exe") <> "" Then
+    NOTEPADEXELOADER = "C:\Program Files\Notepad++\notepad++.exe"
+End If
+
+
 
 
 Beep
@@ -3662,6 +3660,12 @@ Sub MPC_MEDIA_PLAYER_SCAN()
     'SEARCH FIND THE EXTENSION SET USE FOR MEDIA PLAYER CLASSIC
     '----------------------------------------------------------
 
+
+
+    '----------------------------------------------------------
+    '----------------------------------------------------------
+    ' HERE IS THE LINE
+    '----------------------------------------------------------
     '----------------------------------------------------------
     i1 = "*.MPG|MP4|AVI|VOB|M4V|WMV|MKV|ASF|MOV|FLV|MPEG|IFO|ISO|QT|RM"
     '----------------------------------------------------------
@@ -3793,6 +3797,35 @@ Sub MPC_MEDIA_PLAYER_SCAN()
 
 '---------------------------------------------
 
+
+
+        ' -------------------------------
+        ' -------------------------------
+        ' WANT TO FILTER SOME FOR OUR MPC
+        ' -------------------------------
+        ' -------------------------------
+        For WE = ScanPath.ListView1.ListItems.Count To 0 Step -1
+        
+'            If InStr(ScanPath.ListView1.ListItems.Item(WE), "C:\DOWNLOADS\# 00 VIDEO") > 0 Then
+'                SORT_ON_DATE = True
+'            End If
+'            If InStr(ScanPath.ListView1.ListItems.Item(WE), "D:\VIDEO\NOT\X 00 NOT") > 0 Then
+'                SORT_ON_DATE = False
+'            End If
+        
+            B1 = ScanPath.ListView1.ListItems.Item(WE)
+            If InStr(B1, "\VIRTUAL FEMALE z 1") > 0 Then
+                ScanPath.ListView1.ListItems.Remove (WE)
+            End If
+        Next
+        
+        ScanPath.Refresh
+        DoEvents
+
+
+
+
+
 '        ListView1.Top = 1
 '        ListView1.Top = 1
         
@@ -3800,14 +3833,12 @@ Sub MPC_MEDIA_PLAYER_SCAN()
         
         For WE = 1 To ScanPath.ListView1.ListItems.Count
         
-'        If InStr(ScanPath.ListView1.ListItems.Item(WE), "C:\DOWNLOADS\# 00 VIDEO") > 0 Then
-'            SORT_ON_DATE = True
-'        End If
-'
-'        If InStr(ScanPath.ListView1.ListItems.Item(WE), "D:\VIDEO\NOT\X 00 NOT") > 0 Then
-'            SORT_ON_DATE = False
-'        End If
-        
+'            If InStr(ScanPath.ListView1.ListItems.Item(WE), "C:\DOWNLOADS\# 00 VIDEO") > 0 Then
+'                SORT_ON_DATE = True
+'            End If
+'            If InStr(ScanPath.ListView1.ListItems.Item(WE), "D:\VIDEO\NOT\X 00 NOT") > 0 Then
+'                SORT_ON_DATE = False
+'            End If
         
         'FIND HERE
 '        D:\VIDEO\NOT\X 00 NOT
@@ -4268,13 +4299,18 @@ Private Sub MNU_IRFAN_03_NOTEPAD_Click()
 'MNU_Irfan_03_NOTEPAD.Caption = "003 -- NOTEPAD C:\TEMP\IRFAN_SLIDESHOW.txt"
 'Shell "C:\Program Files\# NO INSTALL REQUIRED\Text View\TextView\Textview.exe """ + FILE13_SCRIPT_TEMP_FOLDER + """", vbNormalNoFocus
 
+'FILE_PATH = "C:\PROGRAM FILES (X86)\NOTEPAD++\NOTEPAD++.EXE"
+'If Dir(FILE_PATH) <> "" Then FILE_PATH2 = FILE_PATH
+'FILE_PATH = "C:\PROGRAM FILES\NOTEPAD++\NOTEPAD++.EXE"
+'If Dir(FILE_PATH) <> "" Then FILE_PATH2 = FILE_PATH
+If NOTEPADEXELOADER = "" And Dir("C:\Program Files (x86)\Notepad++\notepad++.exe") <> "" Then
+    NOTEPADEXELOADER = "C:\Program Files (x86)\Notepad++\notepad++.exe"
+End If
+If NOTEPADEXELOADER = "" And Dir("C:\Program Files\Notepad++\notepad++.exe") <> "" Then
+    NOTEPADEXELOADER = "C:\Program Files\Notepad++\notepad++.exe"
+End If
 
-FILE_PATH = "C:\PROGRAM FILES\NOTEPAD++\NOTEPAD++.EXE"
-If Dir(FILE_PATH) <> "" Then FILE_PATH2 = FILE_PATH
-FILE_PATH = "C:\PROGRAM FILES (X86)\NOTEPAD++\NOTEPAD++.EXE"
-If Dir(FILE_PATH) <> "" Then FILE_PATH2 = FILE_PATH
-
-Shell FILE_PATH2 + " " + FILE13_SCRIPT_TEMP_FOLDER, vbNormalNoFocus
+Shell NOTEPADEXELOADER + " " + FILE13_SCRIPT_TEMP_FOLDER, vbNormalNoFocus
 
 End Sub
 
@@ -4284,7 +4320,22 @@ If MNU_IRFAN_04.Checked = False Then MNU_IRFAN_04.Checked = True
 End Sub
 
 Private Sub MNU_IRFAN_05_Click()
-Shell "NOTEPAD """ + App.Path + "\IRFAN_SLIDESHOW_X_SCRIPT.TXT""", vbNormalFocus
+
+If NOTEPADEXELOADER = "" And Dir("C:\Program Files (x86)\Notepad++\notepad++.exe") <> "" Then
+    NOTEPADEXELOADER = "C:\Program Files (x86)\Notepad++\notepad++.exe"
+End If
+If NOTEPADEXELOADER = "" And Dir("C:\Program Files\Notepad++\notepad++.exe") <> "" Then
+    NOTEPADEXELOADER = "C:\Program Files\Notepad++\notepad++.exe"
+End If
+
+If NOTEPADEXELOADER = "" Then
+    MsgBox NOTEPADEXELOADER + vbCrLf + vbCrLf + "NOTEPAD++.EXE -- NOT FOUND", vbCritical + vbInformation + vbMsgBoxSetForeground
+    Exit Sub
+End If
+
+' Shell "C:\Program Files (x86)\Notepad++\notepad++.exe """ + App.Path + "\IRFAN_SLIDESHOW_X_SCRIPT.TXT""", vbNormalFocus
+
+Shell "C:\Program Files (x86)\Notepad++\notepad++.exe """ + "C:\TEMP\IRFAN_SLIDESHOW_X_SCRIPT.TXT""", vbNormalFocus
 
 
 End Sub
@@ -4973,7 +5024,21 @@ End Sub
 
 Sub FLAG_TO_DO_XSCRIPT_READ_02()
     
+    
     FILE19X_SCRIPT_DATE_MODIFIED = "C:\TEMP\IRFAN_SLIDESHOW_X_SCRIPT_DATE_MODIFIED.TXT"
+'    Set F = FS.GetFile(FILE19X_SCRIPT_DATE_MODIFIED)
+'    ADATE_1 = F.DateLastModified
+'
+'    FILE19X_SCRIPT_DATE_MODIFIED = "D:\VB6\VB-NT\00_SEND_TO\Send To Text List of Files & Sub Folders IRFAN\IRFAN_SLIDESHOW_X_SCRIPT.TXT"
+'    Set F = FS.GetFile(FILE19X_SCRIPT_DATE_MODIFIED)
+'    ADATE_2 = F.DateLastModified
+'    If ADATE_2 > ADATE_1 Then
+'        FILE19X_SCRIPT_DATE_MODIFIED = "D:\VB6\VB-NT\00_SEND_TO\Send To Text List of Files & Sub Folders IRFAN\IRFAN_SLIDESHOW_X_SCRIPT.TXT"
+'    End If
+'    If ADATE_1 > ADATE_2 Then
+'        FILE19X_SCRIPT_DATE_MODIFIED = "C:\TEMP\IRFAN_SLIDESHOW_X_SCRIPT_DATE_MODIFIED.TXT"
+'    End If
+    
     FLAG_TO_DO_XSCRIPT = True
 
     If Dir(FILE13_SCRIPT_TEMP_FOLDER) <> "" Then
@@ -4992,7 +5057,6 @@ Sub FLAG_TO_DO_XSCRIPT_READ_02()
             End If
         End If
     End If
-
 End Sub
 
 
@@ -5274,7 +5338,7 @@ Sub X_SCRIPT_CHUNK()
                     End If
                 End If
                 
-                If InStr(LL1, "### SET -- DONT INCLUDE IF THESE ARE ON THE SEND_TO COMMAND LINE") > 0 Or FLAG = "SET2" Then
+                If InStr(LL1, "### SET -- DON'T INCLUDE IF THESE ARE ON THE SEND_TO COMMAND LINE") > 0 Or FLAG = "SET2" Then
                     FLAG = "SET2"
                     If InStr(AT$, LL1) > 0 Then
                         HHC02 = HHC02 + 1
